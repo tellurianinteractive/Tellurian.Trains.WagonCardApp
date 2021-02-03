@@ -17,5 +17,14 @@
     <ProjectReference Include="..\Contract\App.Contract.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Content\Markdown\About.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\Markdown\Index.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>

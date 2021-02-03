@@ -1,0 +1,45 @@
+﻿.card {
+    border: 0.4cm solid red;
+    height: 10.3cm;
+    width: 14.2cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.heading {
+    width: 100%;
+    background-color: white;
+    line-height: 30pt;
+    font-size: 28pt;
+    font-weight: bold;
+    text-align: center;
+    height: 1.2cm;
+    border: 1px solid black;
+}
+
+.picture.front {
+    height: 5cm;
+    align-content: center;
+    width: 100%;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.functions {
+
+}
+.owner {
+    position: absolute;
+    padding: 2px;
+    top: 7.5cm;
+    left: 0cm;
+    height: 2cm;
+    width: 3.7cm;
+    font-size: 9pt;
+    font-weight: bolder;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+

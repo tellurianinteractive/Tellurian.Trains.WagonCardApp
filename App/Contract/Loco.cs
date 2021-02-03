@@ -8,5 +8,8 @@ namespace WagonCardApp.Contract
 {
     public record Loco
     {
+        public string OperantorSignature { get; init; } = string.Empty;
+        public string VehicleClass { get; init; } = string.Empty;
+        public string VehicleNumber { get; init; } = string.Empty;
     }
 }

@@ -1,0 +1,43 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+@if (Data is not null && Settings is not null)
+{
+    <div>
+        <div class="card">
+            <div class="heading">
+                @Heading
+            </div>
+            <div class="picture front">
+
+            </div>
+            <div class="owner">
+                @Owner<br/>
+                @Settings.OwnerName<br />
+                @Settings.EmailAddress<br />
+                @Settings.PhoneNumber
+            </div>
+        </div>
+        <div style="display: block; transform: rotate(180deg)" class="card">
+            <div class="heading">
+                @Heading
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Settings? Settings { get; set; }
+
+    private string Heading => Data is null ? "" : $"{Data.OperantorSignature} {Data.VehicleClass} {Data.VehicleNumber}";
+    private string Owner
+    {
+        get
+        {
+            var local = Localizer["Owner"].Value;
+            if (local.Equals("Owner")) return $"Owner:";
+            return $"{local}/owner:";
+        }
+    }
+}

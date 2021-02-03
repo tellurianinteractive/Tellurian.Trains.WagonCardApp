@@ -1,0 +1,28 @@
+﻿@page "/Loco"
+@inject IStringLocalizer<App> Localizer
+@inject ILocalStorageService LocalStorage
+
+
+<h3>@Localizer["CreateLocoCard"]</h3>
+<EditForm Model="@Data" OnValidSubmit="@OnValidSubmit">
+
+</EditForm>
+<LocoCard Data="@Data" Settings="@Settings"/>
+
+@code {
+    private Loco Data = new Loco();
+    private Settings Settings = new Settings();
+
+    protected async override Task OnInitializedAsync()
+    {
+        Settings = await LocalStorage.GetItemAsync<Settings>("Settings") ?? new Settings() { OwnerName = "Stefan Fjällemark", EmailAddress="stefan@fjallemark.se", PhoneNumber="+46704712241"};
+        Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperantorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
+    }
+
+    private void OnValidSubmit()
+    {
+
+    }
+
+
+}

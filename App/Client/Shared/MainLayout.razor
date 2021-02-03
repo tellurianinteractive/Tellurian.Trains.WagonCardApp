@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject IStringLocalizer<App> Localizer
 
 <div class="page">
     <div class="sidebar">
@@ -7,7 +8,7 @@
 
     <div class="main">
         <div class="top-row px-4">
-            <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+            <NavLink href="/About" class="ml-md-auto">@Localizer["About"]</NavLink>
         </div>
 
         <div class="content px-4">
