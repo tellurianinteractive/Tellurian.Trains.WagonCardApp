@@ -1,0 +1,22 @@
+﻿@inject IContentService ContentService
+@inject IStringLocalizer<App> Localizer
+
+@if (Content is null)
+{
+    @Localizer["Getting content. Please wait..."]
+}
+else
+{
+    @((MarkupString)Content.AsHtml)
+}
+@code {
+    [Parameter] public string? ContentName { get; set; }
+
+    TextContent? Content;
+
+    protected async override Task OnParametersSetAsync()
+    {
+        if (ContentName is null) Content = TextContent.Empty;
+        else Content = await ContentService.GetTextContent(ContentName);
+    }
+}
