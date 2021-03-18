@@ -1,0 +1,20 @@
+﻿@page "/PrintLoco"
+@layout PrintLayout
+@inject IStringLocalizer<App> Localizer
+@inject ILocalStorageService LocalStorage
+
+<div class="print">
+    <LocoCard Data="@Data" Settings="@Settings" />
+
+</div>
+
+@code {
+    private Loco Data = new Loco();
+    private Settings Settings = new Settings();
+
+    protected async override Task OnInitializedAsync()
+    {
+        Settings = await LocalStorage.GetItemAsync<Settings>("Settings") ?? new Settings() { OwnerName = "Stefan Fjällemark", EmailAddress = "stefan@fjallemark.se", PhoneNumber = "+46704712241" };
+        Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperatorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
+    }
+}

@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .card {
+            border: 0.4cm solid red;
+            height: 9.9cm;
+            width: 14.2cm;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .heading {
+            width: 100%;
+            background-color: white;
+            line-height: 30pt;
+            font-size: 28pt;
+            font-weight: bold;
+            text-align: center;
+            height: 1.2cm;
+            border-bottom: 1px solid black;
+        }
+
+        .picture.front {
+            height: 5cm;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+
+        .picture.back {
+            height: 4.9cm;
+            width: 8.4cm;
+            text-align: center;
+        }
+
+        .pocket {
+            margin: 0.0cm;
+            height: 9.85cm;
+            width: 6.0cm;
+            border-right: 1px solid black;
+            text-align: center;
+            line-height: 9.5cm;
+            color: gray;
+            font-weight: bolder;
+        }
+
+        .functions {
+        }
+
+        .label {
+            font-size: 8pt;
+            font-weight: normal;
+        }
+
+        .value {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+        .value-sm {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .property {
+            padding: 0px 5px 0px 5px;
+        }
+
+        .owner {
+            padding: 2px;
+            height: 2cm;
+            width: 3.7cm;
+            font-size: 9pt;
+            font-weight: bolder;
+        }
+        .function {
+            color: white;
+            background-color: black;
+            width: 20px;
+            font-weight: bolder;
+            font-size: 14pt;
+            line-height: 0.73cm;
+            padding:  1px 5px 3px 5px;
+        }
+        .function-text {
+            font-size: 12pt;
+            padding: 0px 5px 0px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="card">
+            <div style="display: flex; flex-direction: column; border: 1px solid black">
+                <div class="heading">
+                    DSB ME 1510
+                </div>
+                <div class="picture front">
+                    <img style="margin: 1px; max-width: 98%; max-height: 4.9cm" src="images/DSB MZ 1438.jpg" />
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div style="display: flex; flex-direction: column">
+                        <div style="height: 1.5cm; border-bottom: 1px solid black">
+                            <span class="label">Märkning</span>
+                        </div>
+                        <div class="owner">
+                            <span class="label">Ägare/owner:</span><br />
+                            Stefan Fjällemark<br />
+                            stefan@fjallemark.se<br />
+                            +46704712241
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; height: 3.6cm; border-left: 1px solid black">
+                        <div>
+                            <span class="function">F0</span><span class="function-text">ljus</span>
+                        </div>
+                        <div>
+                            <span class="function">F1</span><span class="function-text">toppljus</span>
+                        </div>
+                        <div>
+                            <span class="function">F2</span><span class="function-text">signal</span>
+                        </div>
+                        <div>
+                            <span class="function">F3</span><span class="function-text">rangering</span>
+                        </div>
+                        <div>
+                            <span class="function">F4</span><span class="function-text">utrull av</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; height: 3.6cm; border-left: 1px solid black">
+                        <div>
+                            <span class="function">F5</span><span class="function-text">motor</span>
+                        </div>
+                        <div>
+                            <span class="function">F6</span><span class="function-text">signal, kort</span>
+                        </div>
+                        <div>
+                            <span class="function">F7</span><span class="function-text">koppel</span>
+                        </div>
+                        <div>
+                            <span class="function">F8</span><span class="function-text"></span>
+                        </div>
+                        <div>
+                            <span class="function">F9</span><span class="function-text"></span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; height: 3.6cm; border-left: 1px solid black">
+                        <div>
+                            <span class="function">F10</span><span class="function-text"></span>
+                        </div>
+                        <div>
+                            <span class="function">F11</span><span class="function-text">ljus fast A</span>
+                        </div>
+                        <div>
+                            <span class="function">F12</span><span class="function-text">ljus fast B</span>
+                        </div>
+                        <div>
+                            <span class="function">F13</span><span class="function-text">dyn.broms</span>
+                        </div>
+                        <div>
+                            <span class="function">F14</span><span class="function-text"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="display: block; transform: rotate(180deg)" class="card">
+            <div style="display: flex;flex-direction: row;border: 1px solid black">
+
+                <div class="pocket">
+                    <div style="margin: 3px; border: 1px solid black">
+                        Omloppstidtabell
+
+                    </div>
+                </div>
+                <div style="width: 8.4cm">
+                    <div class="heading">
+                        DSB ME 1510
+                    </div>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">Epok</span><br />
+                            <span class="value">IV</span>
+                        </div>
+                        <div class="property">
+                            <span class="label">Trafikeringsperiod i detta utförande</span><br />
+                            <span class="value">1971-1989</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">Fordonstyp</span><br />
+                            <span class="value-sm">Dieselelektriskt lok</span>
+                        </div>
+                        <div class="property">
+                            <span class="label">Motoreffekt</span><br />
+                            <span class="value-sm">3300 hk</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">Tillverkare/år</span><br />
+                            <span class="value-sm">Henschel 1981</span>
+                        </div>
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">Max hastighet</span><br />
+                            <span class="value-sm">175 km/h</span>
+                        </div>
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">Vikt</span><br />
+                            <span class="value-sm">122 t</span>
+                        </div>
+                        <div class="property">
+                            <span class="label">Längd</span><br />
+                            <span class="value-sm">21.0 m</span>
+                        </div>
+                    </div>
+
+
+                    <div class="picture back">
+                        <img style="margin: 1px; max-width:98%; max-height: 4.8cm" src="images/DSB MZ 1438.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

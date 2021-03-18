@@ -19,7 +19,7 @@ namespace WagonCardApp.Client
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-            builder.Services.AddLocalization();
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddBlazoredLocalStorage(config =>
                 config.JsonSerializerOptions.WriteIndented = true);
 

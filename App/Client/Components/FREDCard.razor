@@ -1,0 +1,30 @@
+﻿@if (Data is null)
+{
+
+}
+else
+{
+<div style="display:block">
+    <div style="width:22mm;height:185mm;display:flex;flex-direction:column;text-align:center;border:1px solid gray">
+        <div style="height:15mm;border:1px">
+
+        </div>
+        <div style="display: block; transform: rotate(180deg); height:30mm;color:white;background-color:@Data.SecondColor; font-size:16pt; font-weight: bold">
+            @Data.OperatorSignature<br />
+            @Data.VehicleClass<br />
+            @Data.VehicleNumber
+        </div>
+        <div style="color:@Data.MainColor">
+            @foreach (var function in Data.Functions.Where(f => f.Key <= 8))
+            {
+                <div class="function-key">@function.Key</div>
+                <div class="function-text">@function.Text</div>
+            }
+        </div>
+    </div>
+</div>
+}
+
+@code {
+    [Parameter] public Loco? Data { get; set; }
+}
