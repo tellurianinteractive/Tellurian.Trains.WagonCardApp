@@ -9,7 +9,7 @@ else
         <div style="height:15mm;border:1px">
 
         </div>
-        <div style="display: block; transform: rotate(180deg); height:30mm;color:white;background-color:@Data.SecondColor; font-size:16pt; font-weight: bold">
+        <div style="display: block; transform: rotate(180deg); padding-top:6pt; height:30mm;color:white;background-color:@Data.SecondColor; font-size:16pt; font-weight: bold;line-height:20pt;">
             @Data.OperatorSignature<br />
             @Data.VehicleClass<br />
             @Data.VehicleNumber
@@ -17,8 +17,10 @@ else
         <div style="color:@Data.MainColor">
             @foreach (var function in Data.Functions.Where(f => f.Key <= 8))
             {
-                <div class="function-key">@function.Key</div>
+            <div style="border-bottom: 1px solid gray">
+                <div class="function-key">F @function.Key</div>
                 <div class="function-text">@function.Text</div>
+            </div>
             }
         </div>
     </div>

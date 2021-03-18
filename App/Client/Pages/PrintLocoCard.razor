@@ -3,18 +3,18 @@
 @inject IStringLocalizer<App> Localizer
 @inject ILocalStorageService LocalStorage
 
-<div class="print">
+<div style="display:flex;flex-direction:row" >
     <LocoCard Data="@Data" Settings="@Settings" />
-
+    <FREDCard Data="@Data" />
 </div>
 
 @code {
-    private Loco Data = new Loco();
+    private Loco Data = Loco.Example;
     private Settings Settings = new Settings();
 
     protected async override Task OnInitializedAsync()
     {
         Settings = await LocalStorage.GetItemAsync<Settings>("Settings") ?? new Settings() { OwnerName = "Stefan Fjällemark", EmailAddress = "stefan@fjallemark.se", PhoneNumber = "+46704712241" };
-        Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperatorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
+        //Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperatorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
     }
 }
