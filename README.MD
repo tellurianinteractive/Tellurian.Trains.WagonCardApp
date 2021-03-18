@@ -5,7 +5,9 @@ These cards will only contain essential details that are of common interest or a
 ## Loco Card
 The design and print of the loco-card now seems to work, see example below.
 I addition to the loco-card, you get a FRED-stcker and an inventory card. 
-The idea with an inventory card is that you remove it from the loco card pocket when you place the loco on a track
+* The FRED-sticker contains maximum F0-F8, and this is because many meetings use Digitrax central systems, 
+most of them not upgraded and therefore limited to max F8. Other central systems, like Z21, supports up to F12 on FREDs.
+* The idea with an inventory card is that you remove it from the loco card pocket when you place the loco on a track.
 Then you know that you should collect the loco before travelling home after the meeting
 
 ![Example of loco card with FRED-sticker](Loco-Card-with-FRED-sticker.png).
