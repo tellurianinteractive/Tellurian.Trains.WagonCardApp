@@ -11,7 +11,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        Owner = await LocalStorage.GetItemAsync<Owner>("Owner") ?? new Owner() { OwnerName = "Stefan Fjällemark", EmailAddress = "stefan@fjallemark.se", PhoneNumber = "+46704712241" };
-        Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperatorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
+        Owner = await LocalStorage.GetItemAsync<Owner>("Owner");
+        Data = await LocalStorage.GetItemAsync<Loco>("Loco");
     }
 }

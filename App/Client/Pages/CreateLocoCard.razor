@@ -142,7 +142,7 @@ else
     protected async override Task OnInitializedAsync()
     {
         //await LocalStorage.SetItemAsync("Loco", Loco.Example);
-        Owner = await LocalStorage.GetItemAsync<Owner>("Settings") ?? Owner.Default;
+        Owner = await LocalStorage.GetItemAsync<Owner>("Owner") ?? Owner.Default;
         Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? Loco.Default;
     }
 

@@ -37,7 +37,7 @@ namespace WagonCardApp.Contract
             Epoch = "IV",
             OperatingFromYear = 1971,
             OperatingUptoYear = 1989,
-            DrivelineType = "Dieseleketrisk",
+            DrivelineType = "Dieselelektrisk",
             EnginePower = 3300,
             EnginePowerUnit = EnginePowerUnit.Horsepowers,
             Manufacturer = "Henschel",
