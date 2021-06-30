@@ -27,7 +27,7 @@ namespace WagonCardApp.Contract
         public string? MainColor { get; set; } = "white";
         public string? SecondColor { get; set; } = "black";
 
-        public static Loco Default => new() { Functions = Enumerable.Range(0, 15).Select(i => new LocoFunction(1, string.Empty)).ToArray() };
+        public static Loco Default => new() { Functions = Enumerable.Range(0, 15).Select(i => new LocoFunction(i, string.Empty)).ToArray() };
 
         public static Loco Example => new()
         {

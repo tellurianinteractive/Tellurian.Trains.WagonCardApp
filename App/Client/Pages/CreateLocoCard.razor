@@ -127,6 +127,7 @@ else
                     <button type="submit">@Localizer["Save"]</button>
                     <button @onclick="Print">@Localizer["Print"]</button>
                     <button @onclick="Example">@Localizer["Example"]</button>
+                    <button @onclick="Clear">@Localizer["Clear"]</button>
 
                 </div>
             </EditForm>
@@ -141,8 +142,8 @@ else
     protected async override Task OnInitializedAsync()
     {
         //await LocalStorage.SetItemAsync("Loco", Loco.Example);
-        Owner = await LocalStorage.GetItemAsync<Owner>("Settings") ?? new Owner() { OwnerName = "Anders Andersen", EmailAddress = "anders@andersen.eu", PhoneNumber = "+4512345678" };
-        Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperatorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
+        Owner = await LocalStorage.GetItemAsync<Owner>("Settings") ?? Owner.Default;
+        Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? Loco.Default;
     }
 
     private async Task OnValidLocoSubmit()
@@ -164,6 +165,11 @@ else
     {
         await OnValidLocoSubmit();
         Data = Loco.Example;
+    }
+
+    void Clear()
+    {
+        Data = Loco.Default;
     }
 
     string KeyId(LocoFunction it) => $"F{it.Key}";
