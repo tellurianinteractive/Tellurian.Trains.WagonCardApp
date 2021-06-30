@@ -24,6 +24,7 @@ namespace WagonCardApp.Server
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddScoped<IContentService, ContentService>();
+            services.AddLocalization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +41,11 @@ namespace WagonCardApp.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseRequestLocalization(options =>
+            {
+                options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+                options.AddSupportedCultures("en", "de", "da", "sv"); 
+            });
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();

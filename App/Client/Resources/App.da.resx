@@ -216,4 +216,7 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Internationalt telefonnummer</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Om appen</value>
+  </data>
 </root>

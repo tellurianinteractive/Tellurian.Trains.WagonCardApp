@@ -225,4 +225,7 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Internationale Telefonnummer</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Über die App</value>
+  </data>
 </root>

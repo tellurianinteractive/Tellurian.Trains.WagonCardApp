@@ -1,4 +1,4 @@
-﻿# Über die Wagon Card App
+﻿# Über die Wagenkarte App
 Diese App ist für das Vergnügen der Modulbahner gedacht.
 Es ist kostenlos und [Open Source](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp).
 

@@ -1,4 +1,4 @@
-﻿# Om Wagon Card-appen
+﻿# Om Vagnkortsappen
 Den här appen är avsedd för modelljärnvägsspecialister som åker på modulträffar med trafikspel.
 Det är gratis och [öppen källkod](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp).
 

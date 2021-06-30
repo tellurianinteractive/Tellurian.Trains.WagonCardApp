@@ -225,4 +225,7 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>International phone number</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
 </root>
