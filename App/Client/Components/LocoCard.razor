@@ -1,144 +1,120 @@
 ﻿@inject IStringLocalizer<App> Localizer
 
-@if (Data is not null && Settings is not null)
+@if (Data is not null && Owner is not null)
 {
-<div style="display:flex;flex-direction:column">
-    <div class="card">
-        <div style="display: flex; flex-direction: column; border: 1px solid black">
-            <div class="heading">
-                @Data.OperatorSignature @Data.VehicleClass @Data.VehicleNumber
-            </div>
-            <div class="picture front">
-                <img class="locoimage" src="@Data.ModelImageUrl" />
-            </div>
-            <div style="display: flex; flex-direction: row">
-                <div style="display: flex; flex-direction: column">
-                    <div style="height: 1.5cm; border-bottom: 1px solid black">
-                        <span class="label">@Localizer.Label("Marking")</span>
-                    </div>
-                    <div class="owner">
-                        <span class="label">@Localizer.Label("Owner"):</span><br />
-                        @Settings.OwnerName<br />
-                        @Settings.EmailAddress<br />
-                        @Settings.PhoneNumber
-                    </div>
-                </div>
-                <div class="functions-column">
-                    @for (var f = 0; f <= 4; f++)
-                    {
-                        <div>
-                            <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                        </div>
-                    }
-                </div>
-                <div class="functions-column">
-                    @for (var f = 5; f <= 9; f++)
-                    {
-                        <div>
-                            <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                        </div>
-                    }
-                </div>
-                <div class="functions-column">
-                    @for (var f = 10; f <= 14; f++)
-                    {
-                        <div>
-                            <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="display: block; transform: rotate(180deg)" class="card">
-        <div style="display: flex; flex-direction: row; border: 1px solid black">
-
-            <div class="pocket">
-                @Localizer["Vehicle schedule"]
-            </div>
-            <div style="width: 8.4cm">
+    <div style="display:flex;flex-direction:column">
+        <div class="card">
+            <div style="display: flex; flex-direction: column; border: 1px solid black">
                 <div class="heading">
                     @Data.OperatorSignature @Data.VehicleClass @Data.VehicleNumber
                 </div>
-                <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                    <div style="border-right: 1px solid black" class="property">
-                        <span class="label">@Localizer["Epoch"]</span><br />
-                        <span class="value">@Data.Epoch</span>
+                <div class="picture front">
+                    <img class="picture front image" src="@Data.ModelImageUrl" />
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div style="display: flex; flex-direction: column">
+                        <div style="height: 1.5cm; border-bottom: 1px solid black">
+                            <span class="label">@Localizer.Label("Marking")</span>
+                        </div>
+                        <div class="owner">
+                            <span class="label">@Localizer.Label("Owner"):</span><br />
+                            @Owner.OwnerName<br />
+                            @Owner.EmailAddress<br />
+                            @Owner.PhoneNumber
+                        </div>
                     </div>
-                    <div class="property">
-                        <span class="label">@Localizer["Operating period in this design"]</span><br />
-                        <span class="value">@Data.OperationPeriod.From - @Data.OperationPeriod.To</span>
+                    <div class="functions-column">
+                        @for (var f = 0; f <= 4; f++)
+                        {
+                            <div>
+                                <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="functions-column">
+                        @for (var f = 5; f <= 9; f++)
+                        {
+                            <div>
+                                <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="functions-column">
+                        @for (var f = 10; f <= 14; f++)
+                        {
+                            <div>
+                                <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
+                            </div>
+                        }
                     </div>
                 </div>
-                <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                    <div style="border-right: 1px solid black" class="property">
-                        <span class="label">@Localizer["Driveline"]</span><br />
-                        <span class="value-sm">@Data.DrivelineType</span>
-                    </div>
-                    <div class="property">
-                        <span class="label">@Localizer["Engine power"]</span><br />
-                        <span class="value-sm">@Data.EnginePower hk</span>
-                    </div>
+            </div>
+        </div>
+
+        <div style="display: block; transform: rotate(180deg)" class="card">
+            <div style="display: flex; flex-direction: row; border: 1px solid black">
+
+                <div class="pocket">
+                    @Localizer["VehicleSchedule"]
                 </div>
-                <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                    <div style="border-right: 1px solid black" class="property">
-                        <span class="label">@Localizer["Manufacturer"]/@Localizer["Year"]</span><br />
-                        <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
+                <div style="width: 8.4cm">
+                    <div class="heading">
+                        @Data.OperatorSignature @Data.VehicleClass @Data.VehicleNumber
                     </div>
-                    <div style="border-right: 1px solid black" class="property">
-                        <span class="label">@Localizer["Max speed"]</span><br />
-                        <span class="value-sm">@Data.MaxSpeed km/h</span>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer["Epoch"]</span><br />
+                            <span class="value">@Data.Epoch</span>
+                        </div>
+                        <div class="property">
+                            <span class="label">@Localizer["OperatingPeriodInThisDesign"]</span><br />
+                            <span class="value">@Data.OperatingFromYear - @Data.OperatingUptoYear</span>
+                        </div>
                     </div>
-                    <div style="border-right: 1px solid black" class="property">
-                        <span class="label">@Localizer["Weight"]</span><br />
-                        <span class="value-sm">@Data.Weight t</span>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer["Driveline"]</span><br />
+                            <span class="value-sm">@Data.DrivelineType</span>
+                        </div>
+                        <div class="property">
+                            <span class="label">@Localizer["EnginePower"]</span><br />
+                            <span class="value-sm">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</span>
+                        </div>
                     </div>
-                    <div class="property">
-                        <span class="label">@Localizer["Length"]</span><br />
-                        <span class="value-sm">@Data.Length m</span>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer["Manufacturer"]/@Localizer["Year"]</span><br />
+                            <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
+                        </div>
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer["MaxSpeed"]</span><br />
+                            <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
+                        </div>
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer["Weight"]</span><br />
+                            <span class="value-sm">@Data.Weight t</span>
+                        </div>
+                        <div class="property">
+                            <span class="label">@Localizer["Length"]</span><br />
+                            <span class="value-sm">@Data.Length m</span>
+                        </div>
                     </div>
-                </div>
-                <div class="picture back">
-                    <img style="margin: 1px; max-width:98%; max-height: 4.8cm" src="@Data.OriginalImageUrl" />
+                    <div class="picture back">
+                        <img class="picture back image" src="@Data.OriginalImageUrl" />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div style="display:block; rotation-point:center;transform:rotate(90deg) translate(-22mm,-22mm); height:95mm;width:55mm;text-align:center;border: 1px solid gray;padding-top:10pt">
-        <div>
-            @Localizer["Inventory card"]
-        </div>
-        <div style="font-size:36pt;font-weight:bold;color:@Data.SecondColor">
-            @Data.OperatorSignature<br/>
-            @Data.VehicleClass<br />
-            @Data.VehicleNumber
-        </div>
-        <hr/>
-        <div >
-            <span class="label">@Localizer.Label("Owner"):</span><br />
-            @Settings.OwnerName<br />
-            @Settings.EmailAddress<br />
-            @Settings.PhoneNumber
-        </div>
-
-    </div>
-</div>
 }
 
 
 @code {
     [Parameter] public Loco? Data { get; set; }
-    [Parameter] public Settings? Settings { get; set; }
-
-    protected override Task OnParametersSetAsync()
-    {
-        Data = Loco.Example;
-        return Task.CompletedTask;
-    }
-
+    [Parameter] public Owner? Owner { get; set; }
+   
 
     string FunctionText(int function) => Data is null ? "" :
-        Data.Functions.SingleOrDefault(f => f.Key == function)?.Text.ToLowerInvariant() ?? "-";
+    Data.Functions.SingleOrDefault(f => f.Key == function)?.Text.ToLowerInvariant() ?? "-";
     string FunctionKey(int function) => $"F{function}";
 }

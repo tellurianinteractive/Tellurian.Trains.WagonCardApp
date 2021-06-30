@@ -117,19 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Vehicle schedule" xml:space="preserve">
+  <data name="VehicleSchedule" xml:space="preserve">
     <value>Omloppstidtabell</value>
   </data>
   <data name="Epoch" xml:space="preserve">
     <value>Epok</value>
   </data>
-  <data name="Operating period in this design" xml:space="preserve">
-    <value>Driftperiod i denna design</value>
+  <data name="OperatingPeriodInThisDesign" xml:space="preserve">
+    <value>Driftperiod i detta utförande</value>
   </data>
   <data name="Driveline" xml:space="preserve">
-    <value>Drivelina</value>
+    <value>Drivlina</value>
   </data>
-  <data name="Engine power" xml:space="preserve">
+  <data name="EnginePower" xml:space="preserve">
     <value>Motoreffekt</value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
@@ -138,8 +138,8 @@
   <data name="Year" xml:space="preserve">
     <value>År</value>
   </data>
-  <data name="Max speed" xml:space="preserve">
-    <value>Maxhastighet</value>
+  <data name="MaxSpeed" xml:space="preserve">
+    <value>Max hastighet</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Vikt</value>
@@ -152,5 +152,68 @@
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Ägare</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Vagnkortsappen</value>
+  </data>
+  <data name="CargoWagon" xml:space="preserve">
+    <value>Godsvagn</value>
+  </data>
+  <data name="CreateLocoCard" xml:space="preserve">
+    <value>Skapa lokkort</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Loco" xml:space="preserve">
+    <value>Lok</value>
+  </data>
+  <data name="PassengerWagon" xml:space="preserve">
+    <value>Personvagn</value>
+  </data>
+  <data name="Horsepowers" xml:space="preserve">
+    <value>hk</value>
+  </data>
+  <data name="InventoryCard" xml:space="preserve">
+    <value>Inventariekort</value>
+  </data>
+  <data name="OperatorSignature" xml:space="preserve">
+    <value>Operatörsignatur</value>
+  </data>
+  <data name="VehicleClass" xml:space="preserve">
+    <value>Littera</value>
+  </data>
+  <data name="VehicleNumber" xml:space="preserve">
+    <value>Fordonsnummer</value>
+  </data>
+  <data name="DrivelineType" xml:space="preserve">
+    <value>Typ av drivlina</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Funktioner</value>
+  </data>
+  <data name="MainColour" xml:space="preserve">
+    <value>Lokets primära färg</value>
+  </data>
+  <data name="ModelImageUrl" xml:space="preserve">
+    <value>Länk til bild av modellen</value>
+  </data>
+  <data name="OriginalImageUrl" xml:space="preserve">
+    <value>Länk till bild av förebilden</value>
+  </data>
+  <data name="SecondColour" xml:space="preserve">
+    <value>Lokets sekundära färg</value>
+  </data>
+  <data name="YearOfManufacturing" xml:space="preserve">
+    <value>Tillverkningsår</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-postadress</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>För- och efternamn</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Internationellt telefonnummer</value>
   </data>
 </root>

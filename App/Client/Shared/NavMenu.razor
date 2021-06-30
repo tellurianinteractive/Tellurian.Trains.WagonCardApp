@@ -1,7 +1,7 @@
 ﻿@inject IStringLocalizer<App> Localizer
 
-<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">@Localizer["AppName"]</a>
+<div class="top-row navbar navbar-dark" style="padding-left: 4px">
+    <a class="navbar-brand" href="">@Localizer["AppName"] @AppService.Version</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,31 +9,26 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
-        <li class="nav-item px-3">
+        <li class="nav-item">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> @Localizer["Home"]
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="printloco">
-                <span class="oi oi-signal" aria-hidden="true"></span> @Localizer["Loco"]
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        <li class="nav-item">
             <NavLink class="nav-link" href="loco">
-                <span class="oi oi-signal" aria-hidden="true"></span> @Localizer["Loco"]
+                <span class="oi oi-magnifying-glass" aria-hidden="true"></span> @Localizer["Loco"]
             </NavLink>
         </li>
-        <li class="nav-item px-3">
+        @*<li class="nav-item">
             <NavLink class="nav-link" href="passenger">
                 <span class="oi oi-people" aria-hidden="true"></span> @Localizer["PassengerWagon"]
             </NavLink>
         </li>
-        <li class="nav-item px-3">
+        <li class="nav-item">
             <NavLink class="nav-link" href="cargo">
                 <span class="oi oi-basket" aria-hidden="true"></span> @Localizer["CargoWagon"]
             </NavLink>
-        </li>
+        </li>*@
     </ul>
 </div>
 

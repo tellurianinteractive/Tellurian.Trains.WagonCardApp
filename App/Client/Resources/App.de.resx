@@ -118,58 +118,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="VehicleSchedule" xml:space="preserve">
-    <value>Vehicle schedule</value>
+    <value>Fahrzeugfahrplan</value>
   </data>
   <data name="Epoch" xml:space="preserve">
-    <value>Epoch</value>
+    <value>Epoche</value>
   </data>
   <data name="OperatingPeriodInThisDesign" xml:space="preserve">
-    <value>Operating period in this design</value>
+    <value>Betriebsdauer in dieser Ausführung</value>
   </data>
   <data name="Driveline" xml:space="preserve">
-    <value>Driveline</value>
+    <value>Antrieb</value>
   </data>
   <data name="EnginePower" xml:space="preserve">
-    <value>Engine power</value>
+    <value>Motorleistung</value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
-    <value>Manufacturer</value>
+    <value>Hersteller</value>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Year</value>
+    <value>Jahr</value>
   </data>
   <data name="MaxSpeed" xml:space="preserve">
-    <value>Max speed</value>
+    <value>Maks speed</value>
   </data>
   <data name="Weight" xml:space="preserve">
-    <value>Weight</value>
+    <value>Gewicht</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Length</value>
+    <value>Länge</value>
   </data>
   <data name="Marking" xml:space="preserve">
-    <value>Marking</value>
+    <value>Markierung</value>
   </data>
   <data name="Owner" xml:space="preserve">
-    <value>Owner</value>
+    <value>Inhaber</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Wagon Card App</value>
+    <value>Wagenkarten-App</value>
   </data>
   <data name="CargoWagon" xml:space="preserve">
-    <value>Cargo wagon</value>
+    <value>Güterwagen</value>
   </data>
   <data name="CreateLocoCard" xml:space="preserve">
-    <value>Create loco card</value>
+    <value>Lokkarte erstellen</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="Loco" xml:space="preserve">
-    <value>Loco</value>
+    <value>Lok</value>
   </data>
   <data name="PassengerWagon" xml:space="preserve">
-    <value>Passenger wagon</value>
+    <value>Personenwagen</value>
   </data>
   <data name="Horsepowers" xml:space="preserve">
     <value>hp</value>
@@ -184,45 +184,45 @@
     <value>mph</value>
   </data>
   <data name="InventoryCard" xml:space="preserve">
-    <value>Inventory card</value>
+    <value>Inventarkarte</value>
   </data>
   <data name="OperatorSignature" xml:space="preserve">
-    <value>Operator signature</value>
+    <value>Betreiberabkürzung</value>
   </data>
   <data name="VehicleClass" xml:space="preserve">
-    <value>Vehicle class</value>
+    <value>Klasse</value>
   </data>
   <data name="VehicleNumber" xml:space="preserve">
-    <value>Vehicle number</value>
+    <value>Fahrzeugnummer</value>
   </data>
   <data name="DrivelineType" xml:space="preserve">
-    <value>Type of driveline</value>
+    <value>Antriebsart</value>
   </data>
   <data name="Functions" xml:space="preserve">
-    <value>Functions</value>
+    <value>Funktionen</value>
   </data>
   <data name="MainColour" xml:space="preserve">
-    <value>Main loco colour</value>
+    <value>Hauptfarbe der Lok</value>
   </data>
   <data name="ModelImageUrl" xml:space="preserve">
-    <value>Link to model image</value>
+    <value>Link zum Modellbild</value>
   </data>
   <data name="OriginalImageUrl" xml:space="preserve">
-    <value>Link to original loco image</value>
+    <value>Link zum Originalbild der Lok</value>
   </data>
   <data name="SecondColour" xml:space="preserve">
-    <value>Secondary loco colour</value>
+    <value>Sekundärfarbe der Lok</value>
   </data>
   <data name="YearOfManufacturing" xml:space="preserve">
-    <value>Year of manufacture</value>
+    <value>Herstellungsjahr</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
-    <value>Email address</value>
+    <value>E-Mail-Addresse</value>
   </data>
   <data name="OwnerName" xml:space="preserve">
-    <value>Full name</value>
+    <value>Vollständiger Name</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>International phone number</value>
+    <value>Internationale Telefonnummer</value>
   </data>
 </root>

@@ -1,5 +1,5 @@
 ﻿# Welcome
-With this app you can create loco- and wagon cards to use at module meetings. 
+With this app you can create lococards to use at module meetings. 
 Just select the type of card you want to create. 
 The lastest card of each type you made is remembered by the app to the next time.
 

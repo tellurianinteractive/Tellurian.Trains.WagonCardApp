@@ -1,0 +1,11 @@
+﻿
+.function-key {
+    padding-top: 3px;
+    font-size: 16pt;
+    font-weight: bold;
+    line-height: 18pt;
+}
+.function-text {
+    font-size: 12pt;
+    padding:  2px 5px 2px 5px;
+}

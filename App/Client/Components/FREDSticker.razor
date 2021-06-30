@@ -15,7 +15,7 @@ else
             @Data.VehicleNumber
         </div>
         <div style="color:@Data.MainColor">
-            @foreach (var function in Data.Functions.Where(f => f.Key <= 8))
+            @foreach (var function in Data.Functions.Where(f => !string.IsNullOrWhiteSpace(f.Text)).Take(8))
             {
             <div style="border-bottom: 1px solid gray">
                 <div class="function-key">F @function.Key</div>

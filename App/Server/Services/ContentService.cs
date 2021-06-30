@@ -1,5 +1,5 @@
-﻿using WagonCardApp.Contract;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using WagonCardApp.Contract;
 using WagonCardApp.Server.Extensions;
 
 namespace WagonCardApp.Server.Services

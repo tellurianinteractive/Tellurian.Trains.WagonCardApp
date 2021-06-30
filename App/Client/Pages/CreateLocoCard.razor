@@ -1,28 +1,172 @@
 ﻿@page "/Loco"
 @inject IStringLocalizer<App> Localizer
 @inject ILocalStorageService LocalStorage
+@inject NavigationManager Navigator
 
 
 <h3>@Localizer["CreateLocoCard"]</h3>
-<EditForm Model="@Data" OnValidSubmit="@OnValidSubmit">
+@if (!HasData)
+{
 
-</EditForm>
-<LocoCard Data="@Data" Settings="@Settings"/>
+}
+else
+{
+
+    <div style="display:flex;flex-direction:row">
+        <div>
+            <LocoPreview Data="@Data" Owner="@Owner" />
+        </div>
+        <div>
+            <EditForm Model="@Data" OnValidSubmit="OnValidLocoSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <h4 style="padding-left: 15em">@Localizer["Data"]</h4>
+
+                <div>
+                    <label class="inputlabel" for="operator">@Localizer["OperatorSignature"]</label>
+                    <InputText class="inputshort" id="operator" @bind-Value="@Data.OperatorSignature"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="class">@Localizer["VehicleClass"]</label>
+                    <InputText class="inputshort" id="class" @bind-Value="@Data.VehicleClass"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="class">@Localizer["VehicleNumber"]</label>
+                    <InputText class="inputshort" id="class" @bind-Value="@Data.VehicleNumber"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="epoch">@Localizer["Epoch"]</label>
+                    <InputText class="inputshort" id="epoch" @bind-Value="@Data.Epoch"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="epoch">@Localizer["Manufacturer"]</label>
+                    <InputText class="inputlong" id="epoch" @bind-Value="@Data.Manufacturer"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="year">@Localizer["YearOfManufacturing"]</label>
+                    <InputNumber class="inputshort" id="year" @bind-Value="@Data.YearOfManufacturing"></InputNumber>
+                </div>
+                <div>
+                    <label class="inputlabel" for="from">@Localizer["OperatingPeriodInThisDesign"]</label>
+                    <InputNumber class="inputshort" id="fromYear" @bind-Value="@Data.OperatingFromYear"></InputNumber>
+                    -
+                    <InputNumber class="inputshort" id="uptoYear" @bind-Value="@Data.OperatingUptoYear"></InputNumber>
+                </div>
+                <div>
+                    <label class="inputlabel" for="driveline">@Localizer["DrivelineType"]</label>
+                    <InputText class="inputlong" id="driveline" @bind-Value="@Data.DrivelineType"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="power">@Localizer["EnginePower"]</label>
+                    <InputNumber class="inputshort" id="power" @bind-Value="@Data.EnginePower"></InputNumber>
+                    <InputRadioGroup Name="PowerUnit" DisplayName="@Localizer["PowerUnit"]" @bind-Value="@Data.EnginePowerUnit">
+                        <InputRadio Value="EnginePowerUnit.Kilowatts" Name="PowerUnit" />@Localizer[EnginePowerUnit.Kilowatts.ToString()]
+                        <InputRadio Value="EnginePowerUnit.Horsepowers" Name="PowerUnit" />@Localizer[EnginePowerUnit.Horsepowers.ToString()]
+                    </InputRadioGroup>
+                </div>
+                <div>
+                    <label class="inputlabel" for="speed">@Localizer["MaxSpeed"]</label>
+                    <InputNumber class="inputshort" id="speed" @bind-Value="@Data.MaxSpeed"></InputNumber>
+                    <InputRadioGroup Name="SpeedUnit" DisplayName="@Localizer["SpeedUnit"]" @bind-Value="@Data.SpeedUnit">
+                        <InputRadio Value="SpeedUnit.KmPerHour" Name="SpeedUnit" />@Localizer[SpeedUnit.KmPerHour.ToString()]
+                        <InputRadio Value="SpeedUnit.MilesPerHour" Name="SpeedUnit" />@Localizer[SpeedUnit.MilesPerHour.ToString()]
+                    </InputRadioGroup>
+                </div>
+                <div>
+                    <label class="inputlabel" for="length">@Localizer["Length"]</label>
+                    <InputNumber class="inputshort" id="length" @bind-Value="@Data.Length"></InputNumber>
+                </div>                <div>
+                    <label class="inputlabel" for="weight">@Localizer["Weight"]</label>
+                    <InputNumber class="inputshort" id="weight" @bind-Value="@Data.Weight"></InputNumber>
+                </div>
+                <div>
+                    <label class="inputlabel" for="original">@Localizer["OriginalImageUrl"]</label>
+                    <InputText class="inputurl" id="original" @bind-Value="@Data.OriginalImageUrl"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="model">@Localizer["ModelImageUrl"]</label>
+                    <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="maincolour">@Localizer["MainColour"]</label>
+                    <input id="maincolour" type="color" @bind="@Data.MainColor" />
+                </div>
+                <div>
+                    <label class="inputlabel" for="secondcolour">@Localizer["SecondColour"]</label>
+                    <input id="secondcolour" type="color" @bind="@Data.SecondColor" />
+                </div>
+                <div>
+                    <h4 style="padding-left: 15em">@Localizer["Functions"]</h4>
+                    <div style="display:flex;flex-direction:column; flex-grow: 4">
+
+                        @foreach (var locoFunction in Data.Functions)
+                        {
+                            <div>
+                                <label style="font-weight: bold" class="inputlabel" for="@KeyId(locoFunction)">F @locoFunction.Key</label>
+                                <input class="inputwide" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Text" />
+                            </div>
+                        }
+                    </div>
+                </div>
+                <h4 style="padding-left: 15em">@Localizer["Owner"]</h4>
+                <div>
+                    <label class="inputlabel" for="owner">@Localizer["OwnerName"]</label>
+                    <InputText class="inputwide" id="owner" @bind-Value="@Owner.OwnerName"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="email">@Localizer["EmailAddress"]</label>
+                    <input type="email" class="inputwide" id="email" @bind="@Owner.EmailAddress" />
+                </div>
+                <div>
+                    <label class="inputlabel" for="phone">@Localizer["PhoneNumber"]</label>
+                    <input type="tel" class="inputwide" id="phone" @bind="@Owner.PhoneNumber" />
+                </div>
+
+                <div style="padding-left: 15em">
+                    <h4>@Localizer["Actions"]</h4>
+                    <button type="submit">@Localizer["Save"]</button>
+                    <button @onclick="Print">@Localizer["Print"]</button>
+                    <button @onclick="Example">@Localizer["Example"]</button>
+
+                </div>
+            </EditForm>
+        </div>
+    </div>
+}
 
 @code {
-    private Loco Data = new Loco();
-    private Settings Settings = new Settings();
+    Loco Data = new Loco();
+    Owner Owner = new Owner();
 
     protected async override Task OnInitializedAsync()
     {
-        Settings = await LocalStorage.GetItemAsync<Settings>("Settings") ?? new Settings() { OwnerName = "Stefan Fjällemark", EmailAddress="stefan@fjallemark.se", PhoneNumber="+46704712241"};
+        //await LocalStorage.SetItemAsync("Loco", Loco.Example);
+        Owner = await LocalStorage.GetItemAsync<Owner>("Settings") ?? new Owner() { OwnerName = "Anders Andersen", EmailAddress = "anders@andersen.eu", PhoneNumber = "+4512345678" };
         Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? new Loco() { OperatorSignature = "DSB", VehicleClass = "ME", VehicleNumber = "1510" };
     }
 
-    private void OnValidSubmit()
+    private async Task OnValidLocoSubmit()
     {
-
+        if (HasData)
+        {
+            await LocalStorage.SetItemAsync("Loco", Data);
+            await LocalStorage.SetItemAsync("Owner", Owner);
+        }
     }
 
+    async Task Print()
+    {
+        await OnValidLocoSubmit();
+        Navigator.NavigateTo("printloco");
+    }
 
+    async Task Example()
+    {
+        await OnValidLocoSubmit();
+        Data = Loco.Example;
+    }
+
+    string KeyId(LocoFunction it) => $"F{it.Key}";
+
+    bool HasData => Data is not null && Owner is not null;
 }

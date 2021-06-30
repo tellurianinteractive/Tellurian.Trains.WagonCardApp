@@ -2,10 +2,12 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0pt;
 }
 
 a, .btn-link {
     color: #0366d6;
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -48,3 +50,23 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+    .inputlabel {
+        display: inline-block;
+        width: 20em;
+        text-align: right;
+        font-size: 9pt;
+    }
+
+.inputshort {
+    width: 5em;
+    font-weight: bolder;
+}
+.inputwide {
+    width: 15em;
+    font-weight: bolder;
+}
+.inputurl {
+    width: 40em;
+    font-weight: bolder;
+}

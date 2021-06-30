@@ -118,111 +118,102 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="VehicleSchedule" xml:space="preserve">
-    <value>Vehicle schedule</value>
+    <value>Omløbplan</value>
   </data>
   <data name="Epoch" xml:space="preserve">
-    <value>Epoch</value>
+    <value>Epoke</value>
   </data>
   <data name="OperatingPeriodInThisDesign" xml:space="preserve">
-    <value>Operating period in this design</value>
+    <value>Driftsperiode i denne udførelsesform</value>
   </data>
   <data name="Driveline" xml:space="preserve">
-    <value>Driveline</value>
+    <value>Drivline</value>
   </data>
   <data name="EnginePower" xml:space="preserve">
-    <value>Engine power</value>
+    <value>Motoreffekt</value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
-    <value>Manufacturer</value>
+    <value>Fabrikant</value>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Year</value>
+    <value>År</value>
   </data>
   <data name="MaxSpeed" xml:space="preserve">
-    <value>Max speed</value>
+    <value>Maks hastighed</value>
   </data>
   <data name="Weight" xml:space="preserve">
-    <value>Weight</value>
+    <value>Vægt</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Length</value>
+    <value>Længde</value>
   </data>
   <data name="Marking" xml:space="preserve">
-    <value>Marking</value>
+    <value>Mærkning</value>
   </data>
   <data name="Owner" xml:space="preserve">
-    <value>Owner</value>
+    <value>Ejer</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Wagon Card App</value>
+    <value>Vagnkortsappen</value>
   </data>
   <data name="CargoWagon" xml:space="preserve">
-    <value>Cargo wagon</value>
+    <value>Vognkortappen</value>
   </data>
   <data name="CreateLocoCard" xml:space="preserve">
-    <value>Create loco card</value>
+    <value>Opret lokomotiv kort</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="Loco" xml:space="preserve">
-    <value>Loco</value>
+    <value>Lokomotiv</value>
   </data>
   <data name="PassengerWagon" xml:space="preserve">
-    <value>Passenger wagon</value>
+    <value>Personvogn</value>
   </data>
   <data name="Horsepowers" xml:space="preserve">
-    <value>hp</value>
-  </data>
-  <data name="Kilowatts" xml:space="preserve">
-    <value>kW</value>
-  </data>
-  <data name="KmPerHour" xml:space="preserve">
-    <value>km/h</value>
-  </data>
-  <data name="MilesPerHour" xml:space="preserve">
-    <value>mph</value>
+    <value>hk</value>
   </data>
   <data name="InventoryCard" xml:space="preserve">
-    <value>Inventory card</value>
+    <value>Inventarkort</value>
   </data>
   <data name="OperatorSignature" xml:space="preserve">
-    <value>Operator signature</value>
+    <value>Operatør signatur</value>
   </data>
   <data name="VehicleClass" xml:space="preserve">
-    <value>Vehicle class</value>
+    <value>Klasse</value>
   </data>
   <data name="VehicleNumber" xml:space="preserve">
-    <value>Vehicle number</value>
+    <value>Nummer</value>
   </data>
   <data name="DrivelineType" xml:space="preserve">
-    <value>Type of driveline</value>
+    <value>Type af drivlina</value>
   </data>
   <data name="Functions" xml:space="preserve">
-    <value>Functions</value>
+    <value>Funktioner</value>
   </data>
   <data name="MainColour" xml:space="preserve">
-    <value>Main loco colour</value>
+    <value>Lokomotivets primære farve</value>
   </data>
   <data name="ModelImageUrl" xml:space="preserve">
-    <value>Link to model image</value>
+    <value>Link til billede af modellen</value>
   </data>
   <data name="OriginalImageUrl" xml:space="preserve">
-    <value>Link to original loco image</value>
+    <value>Link til billede af forebilledet</value>
   </data>
   <data name="SecondColour" xml:space="preserve">
-    <value>Secondary loco colour</value>
+    <value>Lokomotivets sekundære farve</value>
   </data>
   <data name="YearOfManufacturing" xml:space="preserve">
-    <value>Year of manufacture</value>
+    <value>Produktionsår</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
-    <value>Email address</value>
+    <value>E-postadresse</value>
   </data>
   <data name="OwnerName" xml:space="preserve">
-    <value>Full name</value>
+    <value>For- og efternavn</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>International phone number</value>
+    <value>Internationalt telefonnummer</value>
   </data>
 </root>

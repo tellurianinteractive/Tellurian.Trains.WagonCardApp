@@ -1,27 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WagonCardApp.Contract
 {
-    public record Loco
+    public class Loco
     {
-        public string OperatorSignature { get; init; } = string.Empty;
-        public string VehicleClass { get; init; } = string.Empty;
-        public string VehicleNumber { get; init; } = string.Empty;
-        public string Epoch { get; init; } = string.Empty;
-        public IEnumerable<LocoFunction> Functions { get; init; } = Array.Empty<LocoFunction>();
-        public (int? From, int? To) OperationPeriod { get; init; }
-        public string DrivelineType { get; init; } = string.Empty;
-        public string EnginePower { get; init; } = string.Empty;
-        public int? YearOfManufacturing { get; init; }
-        public string Manufacturer { get; init; } = string.Empty;
-        public int? MaxSpeed { get; init; }
-        public int? Weight { get; init; }
-        public float? Length { get; init; }
-        public string? OriginalImageUrl { get; init; }
+        public string OperatorSignature { get; set; } = string.Empty;
+        public string VehicleClass { get; set; } = string.Empty;
+        public string VehicleNumber { get; set; } = string.Empty;
+        public string Epoch { get; set; } = string.Empty;
+        public IEnumerable<LocoFunction> Functions { get; set; } = Array.Empty<LocoFunction>();
+        public int? OperatingFromYear { get; set; }
+        public int? OperatingUptoYear { get; set; }
+        public string DrivelineType { get; set; } = string.Empty;
+        public int? EnginePower { get; set; }
+        public EnginePowerUnit EnginePowerUnit { get; set; }
+        public int? YearOfManufacturing { get; set; }
+        public string Manufacturer { get; set; } = string.Empty;
+        public int? MaxSpeed { get; set; }
+        public SpeedUnit SpeedUnit { get; set; }
+        public int? Weight { get; set; }
+        public float? Length { get; set; }
+        public string? OriginalImageUrl { get; set; }
         public string? ModelImageUrl { get; set; }
-        public string? MainColor { get; init; }
-        public string? SecondColor { get; init; }
+        public string? MainColor { get; set; } = "white";
+        public string? SecondColor { get; set; } = "black";
+
+        public static Loco Default => new() { Functions = Enumerable.Range(0, 15).Select(i => new LocoFunction(1, string.Empty)).ToArray() };
 
         public static Loco Example => new()
         {
@@ -29,12 +35,15 @@ namespace WagonCardApp.Contract
             VehicleClass = "ME",
             VehicleNumber = "1508",
             Epoch = "IV",
-            OperationPeriod = (1971, 1989),
-            DrivelineType ="Dieseleketrisk",
-            EnginePower = "3300 hk",
+            OperatingFromYear = 1971,
+            OperatingUptoYear = 1989,
+            DrivelineType = "Dieseleketrisk",
+            EnginePower = 3300,
+            EnginePowerUnit = EnginePowerUnit.Horsepowers,
             Manufacturer = "Henschel",
             YearOfManufacturing = 1981,
             MaxSpeed = 175,
+            SpeedUnit = SpeedUnit.KmPerHour,
             Weight = 122,
             Length = 21.0f,
             Functions = new[]
@@ -47,19 +56,38 @@ namespace WagonCardApp.Contract
                 new LocoFunction(5, "Motor"),
                 new LocoFunction(6, "Horn, kort"),
                 new LocoFunction(7, "Kobling"),
+                new LocoFunction(8, ""),
+                new LocoFunction(9, ""),
+                new LocoFunction(10, ""),
                 new LocoFunction(11, "Lys, fast A"),
-                new LocoFunction(12, "Lys, fast B")
+                new LocoFunction(12, "Lys, fast B"),
+                new LocoFunction(13, ""),
+                new LocoFunction(14, ""),
+                new LocoFunction(15, ""),
             },
             OriginalImageUrl = "https://www.jernbanen.dk/Fotos/Motor/DSB_ME1508_1982.jpg",
-            ModelImageUrl = "images/DSB_ME_1510.jpg",
-            MainColor = "black",
-            SecondColor = "red"
+            ModelImageUrl = "http://mck-h0.dk/wp-content/uploads/2016/08/005_125.jpg",
+            MainColor = "#000000",
+            SecondColor = "#993333"
         };
     }
 
-    public record LocoFunction(int Key, string Text);
-    public record Owner(string Name, string Email, string Phone)
+    public class LocoFunction
     {
-        public static Owner Example => new("Stefan Fjällemark", "stefan@fjallemark.se", "+46704712241");
+        public LocoFunction(int key, string text) { Key = key; Text = text; }
+        public int Key { get; set; }
+        public string Text { get; set; }
+    }
+
+
+    public enum EnginePowerUnit
+    {
+        Kilowatts,
+        Horsepowers
+    }
+    public enum SpeedUnit
+    {
+        KmPerHour,
+        MilesPerHour
     }
 }

@@ -1,3 +1,4 @@
+
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -6,9 +7,22 @@
     height: 3.5rem;
     background-color: rgba(0,0,0,0.4);
 }
+.nav {
+    list-style-type: none;
+}
+.navbar {
+    text-align: center;
+}
 
 .navbar-brand {
+    display: inline-block;
+    padding-top: 20px;
     font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+.nav-link {
+    color: white;
 }
 
 .oi {
@@ -21,6 +35,7 @@
 .nav-item {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    text-decoration: none;
 }
 
     .nav-item:first-of-type {

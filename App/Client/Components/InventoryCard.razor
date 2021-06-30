@@ -1,0 +1,28 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+<div style="display:block; rotation-point:center;transform:rotate(90deg) translate(-22mm,-22mm); height:95mm;width:55mm;text-align:center;border: 1px solid gray;padding-top:10pt">
+    <div>
+        @Localizer["InventoryCard"]
+    </div>
+    <div style="font-size:36pt;font-weight:bold;color:@Data.SecondColor">
+        @Data.OperatorSignature<br />
+        @Data.VehicleClass<br />
+        @Data.VehicleNumber
+    </div>
+    <hr />
+    <div>
+        <div class="label">@Localizer.Label("Owner"):</div>
+        <div class="label">
+            @Owner?.OwnerName<br />
+            @Owner?.EmailAddress<br />
+            @Owner?.PhoneNumber
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Owner? Owner { get; set; }
+
+}
