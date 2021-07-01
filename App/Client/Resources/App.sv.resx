@@ -219,4 +219,22 @@
   <data name="About" xml:space="preserve">
     <value>Om appen</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Åtgärder</value>
+  </data>
+  <data name="Example" xml:space="preserve">
+    <value>Exempel</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Skriv ut</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Rensa</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="PrintPreview" xml:space="preserve">
+    <value>Visa utskrift</value>
+  </data>
 </root>

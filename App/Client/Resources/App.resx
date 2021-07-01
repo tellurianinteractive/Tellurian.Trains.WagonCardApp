@@ -228,4 +228,22 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Example" xml:space="preserve">
+    <value>Example</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="PrintPreview" xml:space="preserve">
+    <value>Print preview</value>
+  </data>
 </root>
