@@ -17,4 +17,4 @@ most of them not upgraded and therefore limited to max F8. Other central systems
 Then you know that you should collect the loco before travelling home after the meeting.
 
 
-![Example of loco card with FRED-sticker](Loco-Card-with-FRED-sticker.png).
+![Example of loco card with FRED-sticker](Loco-Card-with-FRED-sticker.png)
