@@ -138,14 +138,14 @@
   <data name="Year" xml:space="preserve">
     <value>År</value>
   </data>
-  <data name="MaxSpeed" xml:space="preserve">
+  <data name="TopSpeed" xml:space="preserve">
     <value>Maks hastighed</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Vægt</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Længde</value>
+    <value>Længde over puffer</value>
   </data>
   <data name="Marking" xml:space="preserve">
     <value>Mærkning</value>
@@ -236,5 +236,20 @@
   </data>
   <data name="PrintPreview" xml:space="preserve">
     <value>Vis udskrift</value>
+  </data>
+  <data name="DataModel" xml:space="preserve">
+    <value>Data model</value>
+  </data>
+  <data name="DataOriginal" xml:space="preserve">
+    <value>Data forebillede</value>
+  </data>
+  <data name="LengthShort" xml:space="preserve">
+    <value>Længde</value>
+  </data>
+  <data name="TopSpeedShort" xml:space="preserve">
+    <value>Maks hast.</value>
+  </data>
+  <data name="WeightShort" xml:space="preserve">
+    <value>Vægt</value>
   </data>
 </root>

@@ -139,13 +139,13 @@
     <value>År</value>
   </data>
   <data name="MaxSpeed" xml:space="preserve">
-    <value>Max hastighet</value>
+    <value>Topphastighet</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Vikt</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Längd</value>
+    <value>Längd över buffertar</value>
   </data>
   <data name="Marking" xml:space="preserve">
     <value>Märkning</value>
@@ -236,5 +236,20 @@
   </data>
   <data name="PrintPreview" xml:space="preserve">
     <value>Visa utskrift</value>
+  </data>
+  <data name="DataModel" xml:space="preserve">
+    <value>Data modell</value>
+  </data>
+  <data name="DataOriginal" xml:space="preserve">
+    <value>Data förebild</value>
+  </data>
+  <data name="LengthShort" xml:space="preserve">
+    <value>Längd</value>
+  </data>
+  <data name="TopSpeedShort" xml:space="preserve">
+    <value>Toppfart</value>
+  </data>
+  <data name="WeightShort" xml:space="preserve">
+    <value>Vikt</value>
   </data>
 </root>

@@ -20,7 +20,7 @@ else
             <EditForm Model="@Data" OnValidSubmit="OnValidLocoSubmit">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
-                <h4 style="padding-left: 15em">@Localizer["Data"]</h4>
+                <h4 style="padding-left: 15em">@Localizer["DataOriginal"]</h4>
 
                 <div>
                     <label class="inputlabel" for="operator">@Localizer["OperatorSignature"]</label>
@@ -74,15 +74,18 @@ else
                 </div>
                 <div>
                     <label class="inputlabel" for="length">@Localizer["Length"]</label>
-                    <InputNumber class="inputshort" id="length" @bind-Value="@Data.Length"></InputNumber>
+                    <InputNumber class="inputshort" id="length" @bind-Value="@Data.Length"></InputNumber> @Localizer["Meters"]
                 </div>                <div>
                     <label class="inputlabel" for="weight">@Localizer["Weight"]</label>
-                    <InputNumber class="inputshort" id="weight" @bind-Value="@Data.Weight"></InputNumber>
+                    <InputNumber class="inputshort" id="weight" @bind-Value="@Data.Weight"></InputNumber> @Localizer["Tonnes"]
                 </div>
                 <div>
                     <label class="inputlabel" for="original">@Localizer["OriginalImageUrl"]</label>
                     <InputText class="inputurl" id="original" @bind-Value="@Data.OriginalImageUrl"></InputText>
                 </div>
+
+                <h4 style="padding-left: 15em">@Localizer["DataModel"]</h4>
+
                 <div>
                     <label class="inputlabel" for="model">@Localizer["ModelImageUrl"]</label>
                     <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl"></InputText>

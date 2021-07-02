@@ -124,7 +124,7 @@
     <value>Epoche</value>
   </data>
   <data name="OperatingPeriodInThisDesign" xml:space="preserve">
-    <value>Betriebsdauer in dieser Ausführung</value>
+    <value>Einsatzdauer in dieser Ausführung</value>
   </data>
   <data name="Driveline" xml:space="preserve">
     <value>Antrieb</value>
@@ -138,20 +138,20 @@
   <data name="Year" xml:space="preserve">
     <value>Jahr</value>
   </data>
-  <data name="MaxSpeed" xml:space="preserve">
-    <value>Maks speed</value>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>Höchstgeschwindigkeit</value>
   </data>
   <data name="Weight" xml:space="preserve">
-    <value>Masse</value>
+    <value>Gewicht</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Länge</value>
+    <value>Länge über Puffer</value>
   </data>
   <data name="Marking" xml:space="preserve">
-    <value>Markierung</value>
+    <value>Eigentümerkennzeichnung</value>
   </data>
   <data name="Owner" xml:space="preserve">
-    <value>Inhaber</value>
+    <value>Eigentümer</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Wagenkarten-App</value>
@@ -172,7 +172,7 @@
     <value>Personenwagen</value>
   </data>
   <data name="Horsepowers" xml:space="preserve">
-    <value>hp</value>
+    <value>PS</value>
   </data>
   <data name="Kilowatts" xml:space="preserve">
     <value>kW</value>
@@ -187,10 +187,10 @@
     <value>Inventarkarte</value>
   </data>
   <data name="OperatorSignature" xml:space="preserve">
-    <value>Betreiberabkürzung</value>
+    <value>Abkürzung der Bahngesellschaft</value>
   </data>
   <data name="VehicleClass" xml:space="preserve">
-    <value>Klasse</value>
+    <value>Baureihe</value>
   </data>
   <data name="VehicleNumber" xml:space="preserve">
     <value>Fahrzeugnummer</value>
@@ -214,7 +214,7 @@
     <value>Sekundärfarbe der Lok</value>
   </data>
   <data name="YearOfManufacturing" xml:space="preserve">
-    <value>Herstellungsjahr</value>
+    <value>Baujahr</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
     <value>E-Mail-Addresse</value>
@@ -232,7 +232,7 @@
     <value>Aktionen</value>
   </data>
   <data name="Example" xml:space="preserve">
-    <value>Exempel</value>
+    <value>Beispiel</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Drucken</value>
@@ -245,5 +245,20 @@
   </data>
   <data name="PrintPreview" xml:space="preserve">
     <value>Druckvorschau</value>
+  </data>
+  <data name="DataModel" xml:space="preserve">
+    <value>Daten Model</value>
+  </data>
+  <data name="DataOriginal" xml:space="preserve">
+    <value>Daten Vorbild</value>
+  </data>
+  <data name="LengthShort" xml:space="preserve">
+    <value>LüP</value>
+  </data>
+  <data name="TopSpeedShort" xml:space="preserve">
+    <value>Vmax</value>
+  </data>
+  <data name="WeightShort" xml:space="preserve">
+    <value>Gewicht</value>
   </data>
 </root>

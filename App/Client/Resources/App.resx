@@ -138,14 +138,14 @@
   <data name="Year" xml:space="preserve">
     <value>Year</value>
   </data>
-  <data name="MaxSpeed" xml:space="preserve">
-    <value>Max speed</value>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>Top speed</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Length</value>
+    <value>Length over bufferts</value>
   </data>
   <data name="Marking" xml:space="preserve">
     <value>Marking</value>
@@ -245,5 +245,20 @@
   </data>
   <data name="PrintPreview" xml:space="preserve">
     <value>Print preview</value>
+  </data>
+  <data name="DataModel" xml:space="preserve">
+    <value>Data model</value>
+  </data>
+  <data name="DataOriginal" xml:space="preserve">
+    <value>Data original</value>
+  </data>
+  <data name="LengthShort" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="TopSpeedShort" xml:space="preserve">
+    <value>Top speed</value>
+  </data>
+  <data name="WeightShort" xml:space="preserve">
+    <value>Weight</value>
   </data>
 </root>
