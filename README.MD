@@ -1,6 +1,6 @@
 # Wagon Card App
 This app helps the *module model railwayer* to 
-create loco cards and print them. Maybe printing of wagon cards will mbe added later. 
+create loco cards and print them. Maybe printing of wagon cards will be added later. 
 
 I wanted to create a loco- and wagon-card app that is easy to read and with high grapical standard.
 These cards will only contain essential details that are of common interest or are necessary for operation at an average meeting.
