@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="VehicleSchedule" xml:space="preserve">
-    <value>Fahrzeugfahrplan</value>
+    <value>Umlauf</value>
   </data>
   <data name="Epoch" xml:space="preserve">
     <value>Epoche</value>
@@ -142,7 +142,7 @@
     <value>Maks speed</value>
   </data>
   <data name="Weight" xml:space="preserve">
-    <value>Gewicht</value>
+    <value>Masse</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Länge</value>

@@ -54,9 +54,6 @@
         <div style="display: block; transform: rotate(180deg)" class="card">
             <div style="display: flex; flex-direction: row; border: 1px solid black">
 
-                <div class="pocket">
-                    @Localizer["VehicleSchedule"]
-                </div>
                 <div style="width: 8.4cm">
                     <div class="heading">
                         @Data.OperatorSignature @Data.VehicleClass @Data.VehicleNumber
@@ -102,6 +99,9 @@
                     <div class="picture back">
                         <img class="picture back image" src="@Data.OriginalImageUrl" />
                     </div>
+                </div>
+                <div class="pocket">
+                    @Localizer["VehicleSchedule"]
                 </div>
             </div>
         </div>
