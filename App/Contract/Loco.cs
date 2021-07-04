@@ -10,7 +10,6 @@ namespace WagonCardApp.Contract
         public string VehicleClass { get; set; } = string.Empty;
         public string VehicleNumber { get; set; } = string.Empty;
         public string Epoch { get; set; } = string.Empty;
-        public IEnumerable<LocoFunction> Functions { get; set; } = Array.Empty<LocoFunction>();
         public int? OperatingFromYear { get; set; }
         public int? OperatingUptoYear { get; set; }
         public string DrivelineType { get; set; } = string.Empty;
@@ -26,6 +25,7 @@ namespace WagonCardApp.Contract
         public string? ModelImageUrl { get; set; }
         public string? MainColor { get; set; } = "white";
         public string? SecondColor { get; set; } = "black";
+        public IEnumerable<LocoFunction> Functions { get; set; } = Array.Empty<LocoFunction>();
 
         public static Loco Default => new() { Functions = Enumerable.Range(0, 15).Select(i => new LocoFunction(i, string.Empty)).ToArray() };
 

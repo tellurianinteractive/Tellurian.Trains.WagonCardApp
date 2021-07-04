@@ -70,3 +70,15 @@ a, .btn-link {
     width: 40em;
     font-weight: bolder;
 }
+.button {
+    display: inline-block;
+    background-color: darkblue;
+    border-radius: 5px;
+    border: 2px solid #cccccc;
+    color: white;
+    text-align: center;
+    font-size: 10pt;
+    padding: 4pt;
+    cursor: pointer;
+    margin: 3px;
+}

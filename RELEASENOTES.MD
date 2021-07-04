@@ -1,4 +1,7 @@
 # Release Notes
+### Release 1.0.4
+Release date 2021-07-04
+- **Up- and download of loco data** in JSON to/from your local computer. 
 
 ### Release 1.0.3
 Release date 2021-07-02

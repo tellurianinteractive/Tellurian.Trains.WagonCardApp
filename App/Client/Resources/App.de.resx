@@ -261,4 +261,13 @@
   <data name="WeightShort" xml:space="preserve">
     <value>Gewicht</value>
   </data>
+  <data name="DownloadAsJson" xml:space="preserve">
+    <value>Als JSON herunterladen</value>
+  </data>
+  <data name="ErrorInUploadedJsonFile" xml:space="preserve">
+    <value>Fehler in hochgeladener JSON-Datei</value>
+  </data>
+  <data name="UploadJosonFile" xml:space="preserve">
+    <value>JSON-Datei hochladen</value>
+  </data>
 </root>

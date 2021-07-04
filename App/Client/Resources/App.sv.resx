@@ -252,4 +252,13 @@
   <data name="WeightShort" xml:space="preserve">
     <value>Vikt</value>
   </data>
+  <data name="DownloadAsJson" xml:space="preserve">
+    <value>Ladda ner som JSON</value>
+  </data>
+  <data name="ErrorInUploadedJsonFile" xml:space="preserve">
+    <value>Fel i uppladdad JSON-fil</value>
+  </data>
+  <data name="UploadJsonFile" xml:space="preserve">
+    <value>Ladda upp JSON-fil</value>
+  </data>
 </root>

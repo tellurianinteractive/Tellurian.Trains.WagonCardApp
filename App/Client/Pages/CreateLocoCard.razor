@@ -2,7 +2,7 @@
 @inject IStringLocalizer<App> Localizer
 @inject ILocalStorageService LocalStorage
 @inject NavigationManager Navigator
-
+@inject IBlazorDownloadFileService BlazorDownloadFileService
 
 <h3>@Localizer["CreateLocoCard"]</h3>
 @if (!HasData)
@@ -11,6 +11,14 @@
 }
 else
 {
+    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+    {
+        <div style="color:red; background-color: yellow; padding: 5pt">
+            <h4>@Localizer["ErrorInUploadedJsonFile"]</h4>
+            <p>@ErrorMessage  <button @onclick="@Clear">@Localizer["Clear"]</button></p>
+
+        </div>
+    }
 
     <div style="display:flex;flex-direction:row">
         <div>
@@ -127,11 +135,15 @@ else
 
                 <div style="padding-left: 15em">
                     <h4>@Localizer["Actions"]</h4>
-                    <button type="submit">@Localizer["Save"]</button>
-                    <button @onclick="Print">@Localizer["PrintPreview"]</button>
-                    <button @onclick="Example">@Localizer["Example"]</button>
-                    <button @onclick="Clear">@Localizer["Reset"]</button>
-
+                    <button class="button" type="submit">@Localizer["Save"]</button>
+                    <button class="button" @onclick="Print">@Localizer["PrintPreview"]</button>
+                    <button class="button" @onclick="Example">@Localizer["Example"]</button>
+                    <button class="button" @onclick="Reset">@Localizer["Reset"]</button>
+                    <div style="padding-top: 4pt">
+                        <button class="button" @onclick=SaveAsFile>@Localizer["DownloadAsJson"]</button>
+                        <button class="button" onclick="document.getElementById('uploadJson').click()">@Localizer["UploadJsonFile"]</button>
+                        <InputFile Id="uploadJson" OnChange="@UploadFile" accept=".json" hidden />
+                    </div>
                 </div>
             </EditForm>
         </div>
@@ -141,6 +153,7 @@ else
 @code {
     Loco Data = new Loco();
     Owner Owner = new Owner();
+    string? ErrorMessage;
 
     protected async override Task OnInitializedAsync()
     {
@@ -158,6 +171,31 @@ else
         }
     }
 
+    private async Task UploadFile(InputFileChangeEventArgs e)
+    {
+        await using var stream = new MemoryStream();
+        try
+        {
+            await e.File.OpenReadStream().CopyToAsync(stream);
+            stream.Position = 0;
+            Data = await JsonSerializer.DeserializeAsync<Loco>(stream) ?? Loco.Default;
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = ex.Message;
+        }
+
+    }
+
+    private async Task SaveAsFile()
+    {
+        if (HasData)
+        {
+            var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(Loco), new JsonSerializerOptions() { WriteIndented = true });
+            await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, "application/json");
+        }
+    }
+
     async Task Print()
     {
         await OnValidLocoSubmit();
@@ -170,10 +208,16 @@ else
         Data = Loco.Example;
     }
 
-    void Clear()
+    void Reset()
     {
         Data = Loco.Default;
     }
+
+    void Clear()
+    {
+        ErrorMessage = null;
+    }
+
 
     string KeyId(LocoFunction it) => $"F{it.Key}";
 
