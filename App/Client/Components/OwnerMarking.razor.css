@@ -1,0 +1,23 @@
+﻿.owner-marking {
+    display: flex;
+    justify-content: center;
+    /*    height: 0.5cm;
+*/
+}
+
+.inventory-number {
+    margin-top: 0cm;
+    width: 1.2cm;
+    height: 1.2cm;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: text-bottom;
+    font-weight: bold;
+}
+
+.inventory-color {
+    margin-top: 0.3cm;
+    padding: 0.1cm;
+    width: 0.3cm;
+    height: 0.4cm;
+}

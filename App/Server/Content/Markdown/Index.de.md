@@ -1,5 +1,5 @@
 ﻿# Herzlich willkommen
-Mit dieser App können Sie Lokkarten für den Betrieb auf Modultreffen erstellen. 
+Mit dieser App können Sie Lokkarten und Wagenkarten für den Betrieb auf Modultreffen erstellen. 
 Wählen Sie einfach den Kartentyp aus, den Sie erstellen möchten. 
 Die zuletzt erstellte Karte jedes Typs wird von der App für das nächste Mal gespeichert.
 

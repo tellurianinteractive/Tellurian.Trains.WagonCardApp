@@ -1,0 +1,27 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+<h4 style="padding-left: 15em">@Localizer["Marking"]</h4>
+    @if (Marking is not null)
+    {
+        <div>
+            <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
+            <input id="InventoryNumber" @bind="@Marking.InventoryNumber" />
+        </div>
+
+        <div>
+            <label class="inputlabel" for="Colour1">@Localizer["Colour1"]</label>
+            <input id="Colour1" type="color" @bind="@Marking.Color1" />
+        </div>
+        <div>
+            <label class="inputlabel" for="Colour2">@Localizer["Colour2"]</label>
+            <input id="Colour2" type="color" @bind="@Marking.Color2" />
+        </div>
+        <div>
+            <label class="inputlabel" for="Colour3">@Localizer["Colour3"]</label>
+            <input id="Colour3" type="color" @bind="@Marking.Color3" />
+        </div>
+    }
+
+@code {
+    [Parameter] public Marking? Marking { get; set; }
+}

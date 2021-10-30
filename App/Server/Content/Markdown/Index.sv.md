@@ -1,5 +1,5 @@
 ﻿# Välkommen
-Med den här appen kan du skapa lokkort som du kan använda på modulträffar.
+Med den här appen kan du skapa lok- och vagnkort som du kan använda på modulträffar.
 Välj bara vilken typ av kort du vill skapa.
 Det senaste kortet av varje typ du skapade kommer ihåg av appen till nästa gång.
 

@@ -4,28 +4,20 @@ using System.Linq;
 
 namespace WagonCardApp.Contract
 {
-    public class Loco
+    public class Loco : Vehicle
     {
-        public string OperatorSignature { get; set; } = string.Empty;
-        public string VehicleClass { get; set; } = string.Empty;
-        public string VehicleNumber { get; set; } = string.Empty;
-        public string Epoch { get; set; } = string.Empty;
-        public int? OperatingFromYear { get; set; }
-        public int? OperatingUptoYear { get; set; }
         public string DrivelineType { get; set; } = string.Empty;
         public int? EnginePower { get; set; }
         public EnginePowerUnit EnginePowerUnit { get; set; }
         public int? YearOfManufacturing { get; set; }
         public string Manufacturer { get; set; } = string.Empty;
-        public int? MaxSpeed { get; set; }
-        public SpeedUnit SpeedUnit { get; set; }
         public int? Weight { get; set; }
-        public float? Length { get; set; }
-        public string? OriginalImageUrl { get; set; }
-        public string? ModelImageUrl { get; set; }
-        public string? MainColor { get; set; } = "white";
-        public string? SecondColor { get; set; } = "black";
+        public string MainColor { get; set; } = "white";
+        public string SecondColor { get; set; } = "black";
         public IEnumerable<LocoFunction> Functions { get; set; } = Array.Empty<LocoFunction>();
+
+        public override string ForeColor => MainColor;
+        public override string BackColor => SecondColor;
 
         public static Loco Default => new() { Functions = Enumerable.Range(0, 15).Select(i => new LocoFunction(i, string.Empty)).ToArray() };
 
@@ -67,8 +59,18 @@ namespace WagonCardApp.Contract
             },
             OriginalImageUrl = "https://www.jernbanen.dk/Fotos/Motor/DSB_ME1508_1982.jpg",
             ModelImageUrl = "http://mck-h0.dk/wp-content/uploads/2016/08/005_125.jpg",
+            ModelManufacturer = "Hobbytrade",
+            ModelNumber = "123-456",
             MainColor = "#000000",
-            SecondColor = "#993333"
+            SecondColor = "#993333",
+            Marking = new()
+            {
+                InventoryNumber = "",
+                Color1 = "#FF0000",
+                Color2 = "#00FF00",
+                Color3 = "#0000FF"
+
+            }
         };
     }
 
@@ -84,10 +86,5 @@ namespace WagonCardApp.Contract
     {
         Kilowatts,
         Horsepowers
-    }
-    public enum SpeedUnit
-    {
-        KmPerHour,
-        MilesPerHour
     }
 }

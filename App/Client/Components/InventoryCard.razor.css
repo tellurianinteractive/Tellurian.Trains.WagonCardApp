@@ -1,0 +1,24 @@
+﻿.item-text {
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.model-make {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.owner-text {
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+.owner-email {
+    font-size: 10pt;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 14pt;
+    font-weight: bold;
+}

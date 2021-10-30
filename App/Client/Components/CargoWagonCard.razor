@@ -3,7 +3,7 @@
 @if (Data is not null && Owner is not null)
 {
     <div style="display:flex;flex-direction:column">
-        <div class="card">
+        <div class="card" style="border-color: @Data.FrameColor;">
             <div class="card-info" style="flex-direction: column;">
                 <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
                     @Data.Identification()
@@ -24,38 +24,21 @@
                             @Owner.PhoneNumber
                         </div>
                     </div>
-                    <div class="functions">
-                        <div class="functions-column">
-                            @for (var f = 0; f <= 4; f++)
-                            {
-                                <div class="function-key">
-                                    <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                                </div>
-                            }
-                        </div>
-                        <div class="functions-column">
-                            @for (var f = 5; f <= 9; f++)
-                            {
-                                <div class="function-key">
-                                    <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                                </div>
-                            }
-                        </div>
-                        <div class="functions-column">
-                            @for (var f = 10; f <= 14; f++)
-                            {
-                                <div class="function-key">
-                                    <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                                </div>
-                            }
-                        </div>
+                    <div class="model-make">
+                        <div class="label">@Localizer.Label("Manufacturer")</div>
+                        <div>@Data.ModelManufacturer</div>
+                    </div>
+                    <div class="model-number">
+                        <div class="label">@Localizer.Label("Catalog number")</div>
+                        <div>@Data.ModelNumber</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="display: block; transform: rotate(180deg)">
+        <div style="display: block; transform: rotate(180deg); border-color: @Data.FrameColor;" class="card">
             <div class="card-info" style="flex-direction: row;">
+
                 <div style="width: 8.4cm">
                     <div class="heading" style="font-size: @Data.Identification().ShortHeadingFontSize() ">
                         @Data.Identification()
@@ -71,27 +54,19 @@
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["Driveline"]</span><br />
-                            <span class="value-sm">@Data.DrivelineType</span>
+                        -moz-text-size-adjust                   <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer["LoadLimit"]</span><br />
+                            <span class="value-sm">@Data.LoadLimit t</span>
                         </div>
                         <div class="property">
-                            <span class="label">@Localizer["EnginePower"]</span><br />
-                            <span class="value-sm">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</span>
+                            <span class="label">@Localizer["LoadVolume"]</span><br />
+                            <span class="value-sm">@Data.LoadVolume m³</span>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["Manufacturer"]/@Localizer["Year"]</span><br />
-                            <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
-                        </div>
-                        <div style="border-right: 1px solid black" class="property">
                             <span class="label">@Localizer["TopSpeedShort"]</span><br />
                             <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
-                        </div>
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["WeightShort"]</span><br />
-                            <span class="value-sm">@Data.Weight t</span>
                         </div>
                         <div class="property">
                             <span class="label">@Localizer["LengthShort"]</span><br />
@@ -103,20 +78,35 @@
                     </div>
                 </div>
                 <div class="pocket">
-                    <div style="padding-top: 4cm">@Localizer["VehicleSchedule"]</div>
+                    @if (@Data.HasHomeStation)
+                    {
+                        <div class="homestation" style="color: @Data.HomeStation.Region.Color().TextColor(); background-color: @Data.HomeStation.Region.Color();">
+                            <div class="pocket-text">@Localizer["WaybillOrVehicleSchedule"]</div>
+                            <div style="padding-top: 0.5cm; font-size: 60%">@Localizer.Label("Home station")</div>
+                            <div>@Data.HomeStation.Name</div>
+                            @if (!string.IsNullOrWhiteSpace(Data.HomeStation.CountryCode))
+                            {
+                                <div>[@Data.HomeStation.CountryCode]</div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <div class="pocket-text" style="padding-top: 3cm">
+                                @Localizer["WaybillOrVehicleSchedule"]
+                            </div>
+                        </div>
+
+                    }
                 </div>
             </div>
         </div>
     </div>
 }
 
-
 @code {
-    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public CargoWagon? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
 
-
-    string FunctionText(int function) => Data is null ? "" :
-    Data.Functions.SingleOrDefault(f => f.Key == function)?.Text.ToLowerInvariant() ?? "-";
-    string FunctionKey(int function) => $"F{function}";
 }

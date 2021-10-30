@@ -261,4 +261,70 @@
   <data name="UploadJsonFile" xml:space="preserve">
     <value>Upload JSON-fil</value>
   </data>
+  <data name="Kilowatts" xml:space="preserve">
+    <value>kW</value>
+  </data>
+  <data name="KmPerHour" xml:space="preserve">
+    <value>km/h</value>
+  </data>
+  <data name="MilesPerHour" xml:space="preserve">
+    <value>mph</value>
+  </data>
+  <data name="WaybillOrVehicleSchedule" xml:space="preserve">
+    <value>Fragtbrev eller omløbplan</value>
+  </data>
+  <data name="ModelManufacturer" xml:space="preserve">
+    <value>Modelproducent</value>
+  </data>
+  <data name="ModelNumber" xml:space="preserve">
+    <value>Katalog nummer</value>
+  </data>
+  <data name="InventoryNumber" xml:space="preserve">
+    <value>Inventar nummer</value>
+  </data>
+  <data name="OwnersMarking" xml:space="preserve">
+    <value>Ejerens mærkning</value>
+  </data>
+  <data name="CreateFreightWagonCard" xml:space="preserve">
+    <value>Opret godsvogn kort</value>
+  </data>
+  <data name="Home station" xml:space="preserve">
+    <value>Hjemstation</value>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>Syd</value>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>Øst</value>
+  </data>
+  <data name="West" xml:space="preserve">
+    <value>Vester</value>
+  </data>
+  <data name="North" xml:space="preserve">
+    <value>Nord</value>
+  </data>
+  <data name="NorthWest" xml:space="preserve">
+    <value>Fyn</value>
+  </data>
+  <data name="NorthEast" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="Middle" xml:space="preserve">
+    <value>Gods hub</value>
+  </data>
+  <data name="StationName" xml:space="preserve">
+    <value>Stationsnavn</value>
+  </data>
+  <data name="CountryCode" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="NotSpecified" xml:space="preserve">
+    <value>Ikke specificeret</value>
+  </data>
+  <data name="Catalog number" xml:space="preserve">
+    <value>Katalog nummer</value>
+  </data>
 </root>

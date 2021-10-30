@@ -138,9 +138,6 @@
   <data name="Year" xml:space="preserve">
     <value>År</value>
   </data>
-  <data name="MaxSpeed" xml:space="preserve">
-    <value>Topphastighet</value>
-  </data>
   <data name="Weight" xml:space="preserve">
     <value>Vikt</value>
   </data>
@@ -260,5 +257,74 @@
   </data>
   <data name="UploadJsonFile" xml:space="preserve">
     <value>Ladda upp JSON-fil</value>
+  </data>
+  <data name="Kilowatts" xml:space="preserve">
+    <value>kW</value>
+  </data>
+  <data name="KmPerHour" xml:space="preserve">
+    <value>km/h</value>
+  </data>
+  <data name="MilesPerHour" xml:space="preserve">
+    <value>mph</value>
+  </data>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>Toppfart</value>
+  </data>
+  <data name="WaybillOrVehicleSchedule" xml:space="preserve">
+    <value>Fraktsedel eller omloppstidtabell</value>
+  </data>
+  <data name="ModelManufacturer" xml:space="preserve">
+    <value>Modellproducent</value>
+  </data>
+  <data name="ModelNumber" xml:space="preserve">
+    <value>Katalognummer</value>
+  </data>
+  <data name="InventoryNumber" xml:space="preserve">
+    <value>Inventarienummer</value>
+  </data>
+  <data name="OwnersMarking" xml:space="preserve">
+    <value>Ägarmärkning</value>
+  </data>
+  <data name="CreateFreightWagonCard" xml:space="preserve">
+    <value>Skapa godsvagnskort</value>
+  </data>
+  <data name="Home station" xml:space="preserve">
+    <value>Hemstation</value>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>Söder</value>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>Öster</value>
+  </data>
+  <data name="West" xml:space="preserve">
+    <value>Väster</value>
+  </data>
+  <data name="North" xml:space="preserve">
+    <value>Norr</value>
+  </data>
+  <data name="NorthWest" xml:space="preserve">
+    <value>Nordväst</value>
+  </data>
+  <data name="NorthEast" xml:space="preserve">
+    <value>Nordost</value>
+  </data>
+  <data name="Middle" xml:space="preserve">
+    <value>Godsterminal</value>
+  </data>
+  <data name="StationName" xml:space="preserve">
+    <value>Stationsnamn</value>
+  </data>
+  <data name="CountryCode" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="NotSpecified" xml:space="preserve">
+    <value>Ej angivet</value>
+  </data>
+  <data name="Catalog number" xml:space="preserve">
+    <value>Katalognummer</value>
   </data>
 </root>

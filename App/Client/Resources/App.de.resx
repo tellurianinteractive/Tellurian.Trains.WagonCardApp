@@ -148,7 +148,7 @@
     <value>Länge über Puffer</value>
   </data>
   <data name="Marking" xml:space="preserve">
-    <value>Eigentümerkennzeichnung</value>
+    <value>Erkennzeichnung</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Eigentümer</value>
@@ -267,7 +267,64 @@
   <data name="ErrorInUploadedJsonFile" xml:space="preserve">
     <value>Fehler in hochgeladener JSON-Datei</value>
   </data>
-  <data name="UploadJosonFile" xml:space="preserve">
+  <data name="UploadJsonFile" xml:space="preserve">
     <value>JSON-Datei hochladen</value>
+  </data>
+  <data name="WaybillOrVehicleSchedule" xml:space="preserve">
+    <value>Frachtbrief oder Umlauf</value>
+  </data>
+  <data name="ModelManufacturer" xml:space="preserve">
+    <value>Modellhersteller</value>
+  </data>
+  <data name="ModelNumber" xml:space="preserve">
+    <value>Katalognummer</value>
+  </data>
+  <data name="InventoryNumber" xml:space="preserve">
+    <value>Inventarnummer</value>
+  </data>
+  <data name="OwnersMarking" xml:space="preserve">
+    <value>Eigentümermarkierung</value>
+  </data>
+  <data name="CreateFreightWagonCard" xml:space="preserve">
+    <value>Güterwagenkarte erstellen</value>
+  </data>
+  <data name="Home station" xml:space="preserve">
+    <value>Heimatbahnhof</value>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>Süden</value>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>Osten</value>
+  </data>
+  <data name="West" xml:space="preserve">
+    <value>Westen</value>
+  </data>
+  <data name="North" xml:space="preserve">
+    <value>Norden</value>
+  </data>
+  <data name="NorthWest" xml:space="preserve">
+    <value>Rhein-Main</value>
+  </data>
+  <data name="NorthEast" xml:space="preserve">
+    <value>Rührgebeit</value>
+  </data>
+  <data name="Middle" xml:space="preserve">
+    <value>Frachtzentrale</value>
+  </data>
+  <data name="StationName" xml:space="preserve">
+    <value>Bahnhof </value>
+  </data>
+  <data name="CountryCode" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="NotSpecified" xml:space="preserve">
+    <value>Keine Angabe</value>
+  </data>
+  <data name="Catalog number" xml:space="preserve">
+    <value>Katalognummer</value>
   </data>
 </root>

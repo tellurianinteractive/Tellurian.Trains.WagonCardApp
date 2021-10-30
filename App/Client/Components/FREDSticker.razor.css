@@ -1,11 +1,54 @@
-﻿
+﻿.fred-sticker {
+    width: 21mm;
+    height: 185mm;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid gray
+}
+
+.loco-label {
+    display: block;
+    transform: rotate(180deg);
+    padding-top: 6pt;
+    height: 30mm;
+    color: white;
+    font-size: 16pt;
+    font-weight: bold;
+    line-height: 20pt;
+}
+
+.label-lg {
+    margin: 0px;
+    padding: 2px 0px 0px 0px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.label-sm {
+    margin: 0px;
+    padding: 2px 0px 0px 0px;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.function {
+    border-bottom: 1px solid gray
+}
+
 .function-key {
     padding-top: 3px;
     font-size: 16pt;
     font-weight: bold;
     line-height: 18pt;
 }
+
 .function-text {
     font-size: 12pt;
-    padding:  2px 5px 2px 5px;
+    padding: 2px 5px 2px 5px;
+}
+
+.owner-name {
+    font-size: 7pt;
+    font-weight: bold;
 }

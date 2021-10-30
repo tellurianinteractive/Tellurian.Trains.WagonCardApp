@@ -1,27 +1,34 @@
-﻿@if (Data is null)
+﻿@inject IStringLocalizer<App> Localizer
+
+@if (Data is null)
 {
 
 }
 else
 {
 <div style="display:block">
-    <div style="width:22mm;height:185mm;display:flex;flex-direction:column;text-align:center;border:1px solid gray">
+    <div class="fred-sticker" >
         <div style="height:15mm;border:1px">
 
         </div>
-        <div style="display: block; transform: rotate(180deg); padding-top:6pt; height:30mm;color:white;background-color:@Data.SecondColor; font-size:16pt; font-weight: bold;line-height:20pt;">
-            @Data.OperatorSignature<br />
-            @Data.VehicleClass<br />
-            @Data.VehicleNumber
+        <div class="loco-label" style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor();">
+            <div class="label-lg"> @Data.OperatorSignature</div>
+            <div class="label-lg">@Data.VehicleClass</div>
+            <div class="label-lg">@Data.VehicleNumber</div>
+            <div class="label-sm">@Data.ModelManufacturer</div>
         </div>
-        <div style="color:@Data.MainColor">
+        <div style="color:@Data.ForeColor">
             @foreach (var function in Data.Functions.Take(9).Where(f => !string.IsNullOrWhiteSpace(f.Text)))
             {
-            <div style="border-bottom: 1px solid gray">
+            <div class="function">
                 <div class="function-key">F @function.Key</div>
                 <div class="function-text">@function.Text</div>
             </div>
             }
+        </div>
+        <div class="owner-name">
+            @Localizer["Owner"]<br/>
+            @Owner?.OwnerName
         </div>
     </div>
 </div>
@@ -29,4 +36,5 @@ else
 
 @code {
     [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Owner? Owner { get; set; }
 }

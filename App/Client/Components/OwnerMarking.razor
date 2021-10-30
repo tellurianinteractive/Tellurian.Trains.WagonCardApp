@@ -1,0 +1,28 @@
+﻿@if (Marking is not null)
+{
+    <div class="owner-marking">
+        @if (HasInventoryNumber)
+        {
+            <div class="inventory-number" style="background-color: @Marking.Color1; color: @Marking.Color1.TextColor()">
+                <div style="padding-top: 0.3cm">
+                    @Marking.InventoryNumber
+                </div>
+            </div>
+        }
+        else
+        {
+            <div style="padding-top: 0.3cm">
+                <span class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</span>
+                <span class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</span>
+                <span class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</span>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public Marking? Marking { get; set; }
+
+    bool HasInventoryNumber => Marking is not null && !string.IsNullOrWhiteSpace(Marking.InventoryNumber);
+    bool HasColor(string? color) => !string.IsNullOrWhiteSpace(color) && !color.Equals("#ffffff", StringComparison.OrdinalIgnoreCase);
+}

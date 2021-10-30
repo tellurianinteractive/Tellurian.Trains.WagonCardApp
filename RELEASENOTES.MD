@@ -1,4 +1,11 @@
 # Release Notes
+### Release 2.0.0
+Release date: 2021-10-30
+- **Freigh wagon card** can now be created and printed.
+- **Refined card layout** to make loco and wagon card as similar as possible.
+- **Norwegian** also supported besides English, German, Danish and Swedish.
+- **Update to .NET 6.0** 
+
 ### Release 1.0.4
 Release date 2021-07-04
 - **Up- and download of loco data** in JSON to/from your local computer. 

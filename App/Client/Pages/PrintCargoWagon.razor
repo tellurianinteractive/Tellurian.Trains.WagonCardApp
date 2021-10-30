@@ -1,0 +1,17 @@
+﻿@page "/PrintCargoWagon"
+@layout PrintLayout
+@inject IStringLocalizer<App> Localizer
+@inject ILocalStorageService LocalStorage
+
+<CargoWagonPreview Data="@Data" Owner="@Owner"/>
+
+@code {
+    CargoWagon? Data { get; set; }
+    Owner? Owner { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        Owner = await LocalStorage.GetItemAsync<Owner>("Owner");
+        Data = await LocalStorage.GetItemAsync<CargoWagon>("CargoWagon");
+    }
+}

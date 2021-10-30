@@ -1,28 +1,36 @@
 ﻿@inject IStringLocalizer<App> Localizer
 
-<div style="display:block; rotation-point:center;transform:rotate(90deg) translate(-22mm,-22mm); height:95mm;width:55mm;text-align:center;border: 1px solid gray;padding-top:10pt">
-    <div>
+<div style="display:block; transform:rotate(90deg) translate(-22mm,-22mm); height:95mm;width:55mm;text-align:center;border: 1px solid gray;padding-top:10pt">
+    <h1>
         @Localizer["InventoryCard"]
-    </div>
-    <div style="font-size:36pt;font-weight:bold;color:@Data.SecondColor">
-        @Data.OperatorSignature<br />
-        @Data.VehicleClass<br />
-        @Data.VehicleNumber
-    </div>
-    <hr />
-    <div>
-        <div class="label">@Localizer.Label("Owner"):</div>
-        <div class="label">
-            @Owner?.OwnerName<br />
-            @Owner?.EmailAddress<br />
-            @Owner?.PhoneNumber
+    </h1>
+    @if (Data is not null)
+    {
+        <div class="item-text" style="color:@Data.BackColor">
+            <span>@Data.OperatorSignature</span>
+            <span>@Data.VehicleClass</span>
+            <div style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">@Data.VehicleNumber</div>
         </div>
+        <hr />
+        <div class="model-make">
+            <span>@Data.ModelManufacturer</span>
+            <span>@Data.ModelNumber</span>
+        </div>
+        <hr />
+        <OwnerMarking Marking="Data.Marking" />
+        <hr />
+    }
+    <div>
+        <h1>@Localizer.Label("Owner"):</h1>
+        <div class="owner-text">@Owner?.OwnerName</div>
+        <div class="owner-text">@Owner?.PhoneNumber</div>
+        <div class="owner-email">@Owner?.EmailAddress</div>
     </div>
 
 </div>
 
 @code {
-    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Vehicle? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
 
 }

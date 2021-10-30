@@ -1,5 +1,5 @@
 ﻿# Velkommen
-Med denne app kan du oprette lokomotivkort til brug på modultæf.
+Med denne app kan du oprette lokomotivkort og vognkort til brug på modultæf.
 Vælg bare den type kort, du vil oprette.
 Det sidste kort af hver type, du lavede, huskes af appen til næste gang.
 

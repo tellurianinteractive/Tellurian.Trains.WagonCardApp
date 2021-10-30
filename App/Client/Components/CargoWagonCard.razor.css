@@ -1,0 +1,33 @@
+﻿.homestation {
+    margin: 4px;
+    border: 1px solid gray;
+    display: block;
+    height: 7.8cm;
+    padding-top: 2cm;
+    justify-content: center;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.model-make {
+    padding: 2px;
+    height: 1.5cm;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    width: 5.8cm;
+    font-size: 16pt;
+    font-weight: bold;
+    line-height: 24pt;
+}
+
+.model-number {
+    padding: 2px;
+    height: 1.5cm;
+    border-bottom: 1px solid black;
+    width: 4.5cm;
+    font-size: 16pt;
+    font-weight: bold;
+    line-height: 24pt;
+}
+
+
