@@ -16,5 +16,4 @@ most of them not upgraded and therefore limited to max F8. Other central systems
 * The idea with an inventory card is that you remove it from the loco card pocket when you place the loco on a track.
 Then you know that you should collect the loco before travelling home after the meeting.
 
-
-![Example of loco card with FRED-sticker](Loco-Card-with-FRED-sticker.png)
+![Example-freight wagon](https://user-images.githubusercontent.com/3410208/139554977-e787585b-3472-4788-9cc2-5322dcb0da4a.PNG)
