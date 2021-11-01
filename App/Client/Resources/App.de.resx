@@ -124,7 +124,7 @@
     <value>Epoche</value>
   </data>
   <data name="OperatingPeriodInThisDesign" xml:space="preserve">
-    <value>Einsatzdauer in dieser Ausführung</value>
+    <value>Einsatzjahre in dieser Ausführung</value>
   </data>
   <data name="Driveline" xml:space="preserve">
     <value>Antrieb</value>
@@ -147,8 +147,14 @@
   <data name="Length" xml:space="preserve">
     <value>Länge über Puffer</value>
   </data>
+  <data name="LoadLimit" xml:space="preserve">
+    <value>Ladegewicht</value>
+  </data>
+  <data name="LoadVolume" xml:space="preserve">
+    <value>Laderaum</value>
+  </data>
   <data name="Marking" xml:space="preserve">
-    <value>Erkennzeichnung</value>
+    <value>Markierung</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Eigentümer</value>
@@ -176,6 +182,12 @@
   </data>
   <data name="Kilowatts" xml:space="preserve">
     <value>kW</value>
+  </data>
+  <data name="Tonnes" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="Meters" xml:space="preserve">
+    <value>m</value>
   </data>
   <data name="KmPerHour" xml:space="preserve">
     <value>km/h</value>
@@ -208,7 +220,7 @@
     <value>Link zum Modellbild</value>
   </data>
   <data name="OriginalImageUrl" xml:space="preserve">
-    <value>Link zum Originalbild der Lok</value>
+    <value>Link zum Originalbild</value>
   </data>
   <data name="SecondColour" xml:space="preserve">
     <value>Sekundärfarbe der Lok</value>
@@ -307,7 +319,7 @@
     <value>Rhein-Main</value>
   </data>
   <data name="NorthEast" xml:space="preserve">
-    <value>Rührgebeit</value>
+    <value>Ruhrgebiet</value>
   </data>
   <data name="Middle" xml:space="preserve">
     <value>Frachtzentrale</value>
