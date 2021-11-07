@@ -327,4 +327,7 @@
   <data name="About" xml:space="preserve">
     <value>Om appen</value>
   </data>
+  <data name="UseMarking" xml:space="preserve">
+    <value>Bruk merking</value>
+  </data>
 </root>

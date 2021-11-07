@@ -72,13 +72,14 @@ a, .btn-link {
 }
 
 .heading {
+    display: table-cell;
     padding: 0px;
     margin: 0px;
-    width: 100%;
     font-size: 24pt;
     font-weight: bold;
     text-align: center;
     height: 1.2cm;
+    vertical-align: middle;
     border-bottom: 1px solid black;
 }
 

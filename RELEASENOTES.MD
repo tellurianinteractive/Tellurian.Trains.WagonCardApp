@@ -1,4 +1,14 @@
 # Release Notes
+
+### Release 2.0.2
+Release date 2021-11-07
+- **Resizing** of wagon heading improved to fit text better.
+- **Home station** label now also displays label in language of home country for DE, DK, NO and SE.
+
+### Release 2.0.1
+Release date: 2021-11-03
+- **Owner marking** is optional.
+
 ### Release 2.0.0
 Release date: 2021-10-30
 - **Freigh wagon card** can now be created and printed.

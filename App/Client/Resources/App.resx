@@ -328,4 +328,7 @@
   <data name="Catalog number" xml:space="preserve">
     <value>Catalog number</value>
   </data>
+  <data name="UseMarking" xml:space="preserve">
+    <value>Use marking</value>
+  </data>
 </root>
