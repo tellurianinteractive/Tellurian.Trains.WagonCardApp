@@ -9,7 +9,7 @@ The app supports English, German, Danish and Swedish.
 
 ## Freight Wagon Card
 I addition to the loco-card itself, you get an inventory card. 
-- The coloured frame adapts according the FREMO standard based on the vehicle class.
+The coloured frame adapts according the FREMO standard based on the vehicle class.
 
 ## Loco Card
 I addition to the loco-card itself, you get a FRED-stcker and an inventory card. 
@@ -20,8 +20,10 @@ The FRED sticker contains maximum 8 functions, and this is because many FRED's a
 and of limitated space. 
 
 ## Invenyory Cards
-The idea with an inventory card is that you remove it from the loco card pocket when you place the loco on a track.
-Then you know that you should collect the loco before travelling home after the meeting.
+The idea with an inventory card is that you remove it from the loco/wagon-card pocket 
+when you place the loco/wagon on a track.
+You put the inventory card on the loco/wagon box.
+Then you know that you should collect before travelling home after the meeting.
 
 ## Example of Freight Wagon Card
 ![Example-freight wagon](https://user-images.githubusercontent.com/3410208/139554977-e787585b-3472-4788-9cc2-5322dcb0da4a.PNG)
