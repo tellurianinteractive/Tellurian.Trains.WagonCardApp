@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IContentService, ContentService>();
-builder.Services.AddLocalization();
 
 var app = builder.Build();
 
@@ -22,7 +21,11 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseRequestLocalization(options =>
+{
+    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+    options.AddSupportedCultures("en", "de", "da", "sv");
+});
 app.UseHttpsRedirection();
 
 app.UseBlazorFrameworkFiles();
