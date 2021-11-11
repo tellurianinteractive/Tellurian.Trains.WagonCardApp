@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31423.177
+VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Server", "App\Server\App.Server.csproj", "{535D77E5-A7FC-42DD-BCEC-776040A0E2A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WagonCardApp.Server", "src\Server\WagonCardApp.Server.csproj", "{2A32455B-436B-4091-842A-42A8695A0DFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Client", "App\Client\App.Client.csproj", "{003E8C99-1E0D-4ABA-A87F-EFA2F8831732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WagonCardApp.Client", "src\Client\WagonCardApp.Client.csproj", "{4A9739F4-5C92-4775-BD9C-F8081297911A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Contract", "App\Contract\App.Contract.csproj", "{EAC20636-012C-4CBE-B7CA-E719F4A0621F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WagonCardApp.Shared", "src\Shared\WagonCardApp.Shared.csproj", "{C070B9B2-8BE4-47F3-9156-E2FCFF3004FA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F6A9134-5CF2-4211-8495-C4E06A8B1173}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71D40DF8-125D-4EB4-A8AA-DB572B3B3637}"
 	ProjectSection(SolutionItems) = preProject
 		README.MD = README.MD
 		RELEASENOTES.MD = RELEASENOTES.MD
@@ -21,23 +21,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{535D77E5-A7FC-42DD-BCEC-776040A0E2A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{535D77E5-A7FC-42DD-BCEC-776040A0E2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{535D77E5-A7FC-42DD-BCEC-776040A0E2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{535D77E5-A7FC-42DD-BCEC-776040A0E2A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{003E8C99-1E0D-4ABA-A87F-EFA2F8831732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{003E8C99-1E0D-4ABA-A87F-EFA2F8831732}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{003E8C99-1E0D-4ABA-A87F-EFA2F8831732}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{003E8C99-1E0D-4ABA-A87F-EFA2F8831732}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAC20636-012C-4CBE-B7CA-E719F4A0621F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAC20636-012C-4CBE-B7CA-E719F4A0621F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAC20636-012C-4CBE-B7CA-E719F4A0621F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAC20636-012C-4CBE-B7CA-E719F4A0621F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A32455B-436B-4091-842A-42A8695A0DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A32455B-436B-4091-842A-42A8695A0DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A32455B-436B-4091-842A-42A8695A0DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A32455B-436B-4091-842A-42A8695A0DFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A9739F4-5C92-4775-BD9C-F8081297911A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9739F4-5C92-4775-BD9C-F8081297911A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9739F4-5C92-4775-BD9C-F8081297911A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9739F4-5C92-4775-BD9C-F8081297911A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C070B9B2-8BE4-47F3-9156-E2FCFF3004FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C070B9B2-8BE4-47F3-9156-E2FCFF3004FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C070B9B2-8BE4-47F3-9156-E2FCFF3004FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C070B9B2-8BE4-47F3-9156-E2FCFF3004FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F823591D-0F55-44B6-B52F-8B80EFB7A410}
+		SolutionGuid = {F00F59CE-A527-41BB-B216-38B6018EFEB1}
 	EndGlobalSection
 EndGlobal

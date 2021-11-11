@@ -1,5 +1,10 @@
 # Release Notes
 
+### Release 2.0.3
+Release date 2021-11-11
+- **German** translation improved by Frank Hennies.
+- **Units** for length, load weight and volume now are fixed to *m*, *t* and *m³* respectively.
+
 ### Release 2.0.2
 Release date 2021-11-07
 - **Resizing** of wagon heading improved to fit text better.
