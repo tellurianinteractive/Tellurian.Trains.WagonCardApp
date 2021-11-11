@@ -7,7 +7,7 @@
 		<RootNamespace>WagonCardApp.Client</RootNamespace>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
-		<Version>2.0.0</Version>
+		<Version>2.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

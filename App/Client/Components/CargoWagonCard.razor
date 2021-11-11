@@ -40,7 +40,7 @@
             <div class="card-info" style="flex-direction: row;">
 
                 <div style="width: 8.4cm">
-                    <div class="heading" style="font-size: @Data.Identification().ShortHeadingFontSize() ">
+                    <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
                         @Data.Identification()
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
@@ -82,7 +82,7 @@
                     {
                         <div class="homestation" style="color: @Data.HomeStation.Region.Color().TextColor(); background-color: @Data.HomeStation.Region.Color();">
                             <div class="pocket-text">@Localizer["WaybillOrVehicleSchedule"]</div>
-                            <div style="padding-top: 0.5cm; font-size: 60%">@Localizer.Label("Home station")</div>
+                            <div style="padding-top: 0.5cm; font-size: 60%">@Data.HomeStation.CountryCode.HomeStationLabel()</div>
                             <div>@Data.HomeStation.Name</div>
                             @if (!string.IsNullOrWhiteSpace(Data.HomeStation.CountryCode))
                             {

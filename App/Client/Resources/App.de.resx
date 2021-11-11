@@ -339,4 +339,7 @@
   <data name="Catalog number" xml:space="preserve">
     <value>Katalognummer</value>
   </data>
+  <data name="UseMarking" xml:space="preserve">
+    <value>Erkennzeichnung verwenden</value>
+  </data>
 </root>

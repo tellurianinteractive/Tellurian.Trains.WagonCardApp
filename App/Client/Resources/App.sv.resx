@@ -327,4 +327,7 @@
   <data name="Catalog number" xml:space="preserve">
     <value>Katalognummer</value>
   </data>
+  <data name="UseMarking" xml:space="preserve">
+    <value>Använd märkning</value>
+  </data>
 </root>

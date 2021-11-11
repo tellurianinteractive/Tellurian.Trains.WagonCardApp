@@ -1,23 +1,26 @@
 ﻿@if (Marking is not null)
 {
-    <div class="owner-marking">
-        @if (HasInventoryNumber)
-        {
-            <div class="inventory-number" style="background-color: @Marking.Color1; color: @Marking.Color1.TextColor()">
-                <div style="padding-top: 0.3cm">
-                    @Marking.InventoryNumber
+    @if (Marking.UseMarking)
+    {
+        <div class="owner-marking">
+            @if (HasInventoryNumber)
+            {
+                <div class="inventory-number" style="background-color: @Marking.Color1; color: @Marking.Color1.TextColor()">
+                    <div style="padding-top: 0.3cm">
+                        @Marking.InventoryNumber
+                    </div>
                 </div>
-            </div>
-        }
-        else
-        {
-            <div style="padding-top: 0.3cm">
-                <span class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</span>
-                <span class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</span>
-                <span class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</span>
-            </div>
-        }
-    </div>
+            }
+            else
+            {
+                <div style="padding-top: 0.3cm">
+                    <span class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</span>
+                    <span class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</span>
+                    <span class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</span>
+                </div>
+            }
+        </div>
+    }
 }
 
 @code {
