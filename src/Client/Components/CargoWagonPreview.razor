@@ -4,9 +4,17 @@
 }
 else
 {
-    <div style="display:flex;flex-direction:row">
+    <div style="display:flex;flex-direction:column">
         <div>
             <CargoWagonCard Data="@Data" Owner="@Owner" />
+        </div>
+        <div style="display:flex;flex-direction:row">
+            <div>
+                <UicLabel Data=@Data />
+                <UicLabel Data=@Data />
+                <UicLabel Data=@Data />
+                <UicLabel Data=@Data />
+            </div>
             <InventoryCard Data="@Data" Owner="@Owner" />
         </div>
     </div>

@@ -6,6 +6,49 @@ public class CargoWagon : Vehicle
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
 
+    public int InteroperatbilityNumber { get; set; }
+    public bool IsRivConformant { get; set; }
+    public bool IsTenConformant { get; set; }
+    public int CountryRegistrationNumber { get; set; }
+    public bool IsFlatWagon { get; set; }
+    public string? WagonColor { get; set; }
+
+    public override string UicCheckDigit => GetUicChecksum();
+
+    public string FullVehicleNumber => $"{VehicleNumber}{UicCheckDigit}";
+
+    static readonly int[] multipliers = { 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+
+    private string GetUicChecksum()
+    {
+        if (UseUicNumber && ! HasChecksum)
+        {
+            var checksum = CalculateUicCheckSum();
+            if (checksum is null) return string.Empty;
+            return $"-{checksum}";
+        }
+        else return string.Empty;
+
+    }
+    private int? CalculateUicCheckSum()
+    {
+        var digits = $"{InteroperatbilityNumber}{CountryRegistrationNumber}{VehicleNumber}".Where(c => char.IsDigit(c)).Select(c => c - '0').ToArray();
+        if (digits.Length != multipliers.Length) return null;
+        var sums = new int[11];
+        for (int i = 0; i < digits.Length; i++)
+        {
+            sums[i] += digits[i] * multipliers[i];
+            if (sums[i] > 9) sums[i] -= 9;
+        }
+        //var checkdigits = string.Join("", sums.ToString());
+        var checksum = sums.Sum();
+        return 10 - checksum % 10;
+    }
+
+    public bool UseUicNumber => InteroperatbilityNumber > 0 && CountryRegistrationNumber > 0 && VehicleNumber.Count(c => char.IsDigit(c)) >= 7;
+    private bool HasChecksum => VehicleNumber.Length > 0 && VehicleNumber.Contains('-');
+
+
     public HomeStation HomeStation { get; set; } = new();
 
     public bool HasHomeStation => !string.IsNullOrWhiteSpace(HomeStation?.Name);
@@ -13,7 +56,40 @@ public class CargoWagon : Vehicle
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
 
+    public string Interoperability => $"{InteroperatbilityNumber} {RivAndOrTen}";
+    public string Country => $"{CountryRegistrationNumber}";
+
+    private string RivAndOrTen =>
+        IsRivConformant && IsTenConformant ? "RIV - TEN" :
+        IsRivConformant ? "RIV" :
+        IsTenConformant ? "TEN" :
+        string.Empty;
+
     private char MainClass => VehicleClass.Length > 0 ? VehicleClass.ToUpperInvariant()[0] : ' ';
+
+    public string CountryCodeOfRegistration => CountryRegistrationNumber switch
+    {
+        70 => "UK",
+        71 => "E",
+        72 => "SRB",
+        73 => "GR",
+        74 => "S",
+        75 => "TR",
+        76 => "N",
+        78 => "HR",
+        79 => "SLO",
+        80 => "D",
+        81 => "A",
+        82 => "L",
+        83 => "I",
+        84 => "NL",
+        85 => "CH",
+        86 => "DK",
+        87 => "F",
+        88 => "B",
+        _ => string.Empty
+    };
+
     public string FrameColor => MainClass switch
     {
         'D' => D,
@@ -61,14 +137,18 @@ public class CargoWagon : Vehicle
             Epoch = "V-VI",
             Length = 20.7f,
             LoadLimit = 23.5,
-            LoadVolume = 0,
+            LoadVolume = 50.0,
             MaxSpeed = 100,
             SpeedUnit = SpeedUnit.KmPerHour,
             OperatingFromYear = 1988,
             OperatingUptoYear = 2010,
+            CountryRegistrationNumber = 76,
+            InteroperatbilityNumber = 31,
+            IsRivConformant = true,
             OperatorSignature = "NSB",
             VehicleClass = "Rps",
-            VehicleNumber = "31 76 393 3 013-1",
+            VehicleNumber = "393 3 013",
+            WagonColor = "#570000",
             ModelImageUrl = "https://www.modellbahnshop-lippe.com/article_data/images/73/211190_e.jpg",
             OriginalImageUrl = "https://www.modellbahnshop-lippe.com/article_data/images/73/211190_e.jpg",
             ModelManufacturer = "NMJ",

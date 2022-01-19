@@ -19,6 +19,7 @@ public abstract class Vehicle
 
     public virtual string ForeColor => "#000000";
     public virtual string BackColor => "#FFFFFF";
+    public virtual string UicCheckDigit => string.Empty;
 
     public Marking Marking { get; set; } = new();
 }
@@ -31,6 +32,6 @@ public enum SpeedUnit
 
 public static class VehicleExtensions
 {
-    public static string Identification(this Vehicle? me) => me is null ? string.Empty : $"{me.OperatorSignature} {me.VehicleClass} {me.VehicleNumber}".Trim();
+    public static string Identification(this Vehicle? me) => me is null ? string.Empty : $"{me.OperatorSignature} {me.VehicleClass} {me.VehicleNumber}{me.UicCheckDigit}".Trim();
 
 }

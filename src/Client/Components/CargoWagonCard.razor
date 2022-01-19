@@ -24,16 +24,22 @@
                             @Owner.PhoneNumber
                         </div>
                     </div>
-                    <div class="model-make">
-                        <div class="label">@Localizer.Label("Manufacturer")</div>
-                        <div>@Data.ModelManufacturer</div>
-                    </div>
+                    <div style="display: flex; flex-direction: column">
+
+                        <div class="model-make">
+                            <div class="label">@Localizer.Label("Manufacturer")</div>
+                            <div>@Data.ModelManufacturer</div>
+                        </div>
+                <div>
+                    <UicLabel Data="@Data" FontSize="10" />
+                </div>
+                     </div>
                     <div class="model-number">
                         <div class="label">@Localizer.Label("Catalog number")</div>
                         <div>@Data.ModelNumber</div>
                     </div>
                 </div>
-            </div>
+           </div>
         </div>
 
         <div style="display: block; transform: rotate(180deg); border-color: @Data.FrameColor;" class="card">
@@ -58,12 +64,10 @@
                             <span class="label">@Localizer["LoadLimit"]</span><br />
                             <span class="value-sm">@Data.LoadLimit t</span>
                         </div>
-                        <div class="property">
+                        <div style="border-right: 1px solid black" class="property">
                             <span class="label">@Localizer["LoadVolume"]</span><br />
                             <span class="value-sm">@Data.LoadVolume m³</span>
                         </div>
-                    </div>
-                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         <div style="border-right: 1px solid black" class="property">
                             <span class="label">@Localizer["TopSpeedShort"]</span><br />
                             <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
@@ -71,6 +75,12 @@
                         <div class="property">
                             <span class="label">@Localizer["LengthShort"]</span><br />
                             <span class="value-sm">@Data.Length m</span>
+                        </div>
+                     </div>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div class="property">
+                            <span class="label">@Localizer["Interoperability"]</span><br />
+                            <span class="value-sm">@Data.Interoperability</span>
                         </div>
                     </div>
                     <div class="picture back">

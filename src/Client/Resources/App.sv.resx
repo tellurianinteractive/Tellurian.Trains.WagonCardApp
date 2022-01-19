@@ -342,4 +342,19 @@
   <data name="Tonnes" xml:space="preserve">
     <value>Ton</value>
   </data>
+  <data name="CountryRegistrationNumber" xml:space="preserve">
+    <value>Landnummer (UIC)</value>
+  </data>
+  <data name="InteroperabilityCode" xml:space="preserve">
+    <value>Interoperabilitetskod (UIC)</value>
+  </data>
+  <data name="IsRivConformant" xml:space="preserve">
+    <value>Uppfyller RIV-kraven?</value>
+  </data>
+  <data name="IsTenConformant" xml:space="preserve">
+    <value>Uppfyller TEN-kraven?</value>
+  </data>
+  <data name="WagonColour" xml:space="preserve">
+    <value>Vagnfärg</value>
+  </data>
 </root>

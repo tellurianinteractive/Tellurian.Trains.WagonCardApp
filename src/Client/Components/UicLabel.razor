@@ -1,0 +1,31 @@
+﻿@inject IStringLocalizer<App> Localizer
+@if (Data is null)
+{
+
+}
+else
+{
+    <div class="@CssClass" style="font-size: @ActualFontSize ; color: @ActualBackColor.TextColor() ; background-color: @ActualBackColor">
+        @if (Data.UseUicNumber) {
+            @Data.Interoperability <br />
+            @Data.Country <span><u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature<br /></span> 
+            @Data.FullVehicleNumber <br />
+            @Data.VehicleClass
+        }
+        else {
+            @Data.OperatorSignature @Data.VehicleNumber <br />
+            @Data.VehicleClass
+        }
+    </div>
+}
+
+@code {
+
+    [Parameter] public CargoWagon? Data { get; set; }
+    [Parameter] public int? FontSize { get; set; }
+
+    string ActualFontSize => $"{(FontSize.HasValue ? FontSize.Value : 7)}pt";
+    string ActualBackColor => string.IsNullOrWhiteSpace(Data?.WagonColor) ? "#000000" : Data.WagonColor;
+    string CssClass => FontSize.HasValue ? "card-frame" : "wagon-label";
+
+}

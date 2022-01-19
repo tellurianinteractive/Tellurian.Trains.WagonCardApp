@@ -342,4 +342,19 @@
   <data name="UseMarking" xml:space="preserve">
     <value>Erkennzeichnung verwenden</value>
   </data>
+  <data name="CountryRegistrationNumber" xml:space="preserve">
+    <value>Land Nummer (UIC)</value>
+  </data>
+  <data name="InteroperabilityCode" xml:space="preserve">
+    <value>Interoperabilitätscode (UIC)</value>
+  </data>
+  <data name="IsRivConformant" xml:space="preserve">
+    <value>Ist RIV-konform?</value>
+  </data>
+  <data name="IsTenConformant" xml:space="preserve">
+    <value>Ist TEN-konform?</value>
+  </data>
+  <data name="WagonColour" xml:space="preserve">
+    <value>Wagenfarbe</value>
+  </data>
 </root>

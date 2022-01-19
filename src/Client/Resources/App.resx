@@ -344,4 +344,19 @@
   <data name="Tonnes" xml:space="preserve">
     <value>Tonnes</value>
   </data>
+  <data name="CountryRegistrationNumber" xml:space="preserve">
+    <value>Country registration number (UIC)</value>
+  </data>
+  <data name="InteroperabilityCode" xml:space="preserve">
+    <value>Interoperability code (UIC)</value>
+  </data>
+  <data name="IsRivConformant" xml:space="preserve">
+    <value>Is RIV-conformant?</value>
+  </data>
+  <data name="IsTenConformant" xml:space="preserve">
+    <value>Is TEN-conformant?</value>
+  </data>
+  <data name="WagonColour" xml:space="preserve">
+    <value>Wagon colour</value>
+  </data>
 </root>

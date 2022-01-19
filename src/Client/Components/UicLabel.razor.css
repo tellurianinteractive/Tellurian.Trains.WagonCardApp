@@ -1,0 +1,21 @@
+﻿.uic-frame{
+    margin: 1px;
+    padding: 2px;
+    font-weight: bold;
+}
+.card-frame {
+    margin: 1px;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    height: 1.95cm;
+    width: 2.2cm;
+}
+.wagon-label {
+    margin: 1px;
+    padding: 2px;
+    font-size: 7pt;
+    font-weight: bold;
+    height: 1.1cm;
+    width: 1.5cm;
+}

@@ -1,4 +1,11 @@
 # Release Notes
+### Release 2.0.4
+Release date 2022-01-19
+This release adds wagon number labels that can be put on wagons as an easy way to have unique wagon numbers.
+- **UIC checkdigit** is now calculated if *interoperability code*, *country number of wagon registration* and a *7-digit wagon number* is entered. 
+You can still override this by entering wagon number including the control digit.
+- **UIC wagon labels** are now included for cargo wagons. If your entered data does not comform to UIC-numbering, a simpler label is used.
+- **Colour of wagon** controls background colour of the wagon labels.
 
 ### Release 2.0.3
 Release date 2021-11-11
