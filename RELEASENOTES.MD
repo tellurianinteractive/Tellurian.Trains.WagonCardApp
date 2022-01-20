@@ -1,4 +1,14 @@
 # Release Notes
+
+### Release 2.0.5
+Release date 2022-01-20
+- **Owner data** space extended to display longer email addresses. Thanks to Dag-Cato Skårvik for reporting this.
+- **Owner icon** added as yet another way to specify owner identification on wagons. Thanks to Michael Bunka for the idea.
+- **Model make and number** removed from wagon card, but still on inventory card. Thanks to Michael Bunka for the idea.
+- **Region colours** instead of region names. Thanks to Michael Bunka for reporting names as problematic.
+- **Epoch** will only be displayed on the card if you provide a value. Thanks to Michael Bunka for the idea.
+- **UIC Control digit** now also appear on the inventory card. Thanks to Michael Bunka for the idea.
+
 ### Release 2.0.4
 Release date 2022-01-19
 This release adds wagon number labels that can be put on wagons as an easy way to have unique wagon numbers.

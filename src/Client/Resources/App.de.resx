@@ -123,7 +123,7 @@
   <data name="Epoch" xml:space="preserve">
     <value>Epoche</value>
   </data>
-  <data name="OperatingPeriodInThisDesign" xml:space="preserve">
+  <data name="Operating period in this design" xml:space="preserve">
     <value>Einsatzjahre in dieser Ausführung</value>
   </data>
   <data name="Driveline" xml:space="preserve">
@@ -138,20 +138,20 @@
   <data name="Year" xml:space="preserve">
     <value>Jahr</value>
   </data>
-  <data name="TopSpeed" xml:space="preserve">
-    <value>Höchstgeschwindigkeit</value>
+  <data name="Top speed" xml:space="preserve">
+    <value>Vmax</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Gewicht</value>
   </data>
-  <data name="Length" xml:space="preserve">
+  <data name="LengthOverBuffers" xml:space="preserve">
     <value>Länge über Puffer</value>
   </data>
-  <data name="LoadLimit" xml:space="preserve">
-    <value>Ladegewicht</value>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
   </data>
-  <data name="LoadVolume" xml:space="preserve">
-    <value>Laderaum</value>
+  <data name="Volume" xml:space="preserve">
+    <value>Volumen</value>
   </data>
   <data name="Marking" xml:space="preserve">
     <value>Markierung</value>
@@ -264,11 +264,8 @@
   <data name="DataOriginal" xml:space="preserve">
     <value>Daten Vorbild</value>
   </data>
-  <data name="LengthShort" xml:space="preserve">
+  <data name="Length" xml:space="preserve">
     <value>LüP</value>
-  </data>
-  <data name="TopSpeedShort" xml:space="preserve">
-    <value>Vmax</value>
   </data>
   <data name="WeightShort" xml:space="preserve">
     <value>Gewicht</value>
@@ -282,7 +279,7 @@
   <data name="UploadJsonFile" xml:space="preserve">
     <value>JSON-Datei hochladen</value>
   </data>
-  <data name="WaybillOrVehicleSchedule" xml:space="preserve">
+  <data name="Waybill or vehicle schedule" xml:space="preserve">
     <value>Frachtbrief oder Umlauf</value>
   </data>
   <data name="ModelManufacturer" xml:space="preserve">
@@ -303,26 +300,26 @@
   <data name="Home station" xml:space="preserve">
     <value>Heimatbahnhof</value>
   </data>
-  <data name="South" xml:space="preserve">
-    <value>Süden</value>
+  <data name="Yellow" xml:space="preserve">
+    <value>Gelb</value>
   </data>
-  <data name="East" xml:space="preserve">
-    <value>Osten</value>
+  <data name="Red" xml:space="preserve">
+    <value>Rot</value>
   </data>
-  <data name="West" xml:space="preserve">
-    <value>Westen</value>
+  <data name="Green" xml:space="preserve">
+    <value>Grün</value>
   </data>
-  <data name="North" xml:space="preserve">
-    <value>Norden</value>
+  <data name="Blue" xml:space="preserve">
+    <value>Blau</value>
   </data>
-  <data name="NorthWest" xml:space="preserve">
-    <value>Rhein-Main</value>
+  <data name="Brown" xml:space="preserve">
+    <value>Braun</value>
   </data>
-  <data name="NorthEast" xml:space="preserve">
-    <value>Ruhrgebiet</value>
+  <data name="Black" xml:space="preserve">
+    <value>Schwarz</value>
   </data>
-  <data name="Middle" xml:space="preserve">
-    <value>Frachtzentrale</value>
+  <data name="Orange" xml:space="preserve">
+    <value>Orange</value>
   </data>
   <data name="StationName" xml:space="preserve">
     <value>Bahnhof </value>
@@ -356,5 +353,20 @@
   </data>
   <data name="WagonColour" xml:space="preserve">
     <value>Wagenfarbe</value>
+  </data>
+  <data name="OwnerImageUrl" xml:space="preserve">
+    <value>Symbolbild-URL des Eigentümers</value>
+  </data>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>Höchstgeschwindigkeit</value>
+  </data>
+  <data name="LoadVolume" xml:space="preserve">
+    <value>Laderaum (tonnen)</value>
+  </data>
+  <data name="LoadLimit" xml:space="preserve">
+    <value>Ladegewicht</value>
+  </data>
+  <data name="Operating period" xml:space="preserve">
+    <value>Einsatzjahre</value>
   </data>
 </root>

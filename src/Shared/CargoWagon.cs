@@ -56,11 +56,11 @@ public class CargoWagon : Vehicle
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
 
-    public string Interoperability => $"{InteroperatbilityNumber} {RivAndOrTen}";
+    public string Interoperability => $"{InteroperatbilityNumber} {RivAndOrTen} ";
     public string Country => $"{CountryRegistrationNumber}";
 
     private string RivAndOrTen =>
-        IsRivConformant && IsTenConformant ? "RIV - TEN" :
+        IsRivConformant && IsTenConformant ? "TEN-RIV" :
         IsRivConformant ? "RIV" :
         IsTenConformant ? "TEN" :
         string.Empty;
@@ -158,12 +158,13 @@ public class CargoWagon : Vehicle
                 Color1 = "#FF7700",
                 Color2 = "#00FF77",
                 Color3 = "#7700FF",
-                InventoryNumber = ""
+                InventoryNumber = "",
+                IconHref = "http://cdn.onlinewebfonts.com/svg/img_2382.png"
             },
             HomeStation = new()
             {
                 Name = "Kongsvinger",
-                Region = (int)Region.East,
+                Region = (int)Region.Red,
                 CountryCode = "NO"
             }
         };
@@ -179,13 +180,13 @@ public class HomeStation
 public enum Region
 {
     NotSpecified = 0,
-    South = 1,
-    East = 2,
-    West = 3,
-    North = 4,
-    NorthWest = 5,
-    NorthEast = 6,
-    Middle = 7
+    Yellow = 1,
+    Red = 2,
+    Green = 3,
+    Blue = 4,
+    Brown = 5,
+    Black = 6,
+    Orange = 7
 }
 
 public static class RegionExtensions
@@ -193,13 +194,13 @@ public static class RegionExtensions
     public static string Color(this int it) => ((Region)it).Color();
     public static string Color(this Region me) => me switch
     {
-        Region.South => "#ffff00",
-        Region.East => "#ff0000",
-        Region.West => "#009933",
-        Region.NorthEast => "#000000",
-        Region.North => "#0000ff",
-        Region.NorthWest => "#993300",
-        Region.Middle => "#ff9933",
+        Region.Yellow => "#ffff00",
+        Region.Red => "#ff0000",
+        Region.Green => "#009933",
+        Region.Black => "#000000",
+        Region.Blue => "#0000ff",
+        Region.Brown => "#993300",
+        Region.Orange => "#ff9933",
         _ => "#ffffff"
     };
 

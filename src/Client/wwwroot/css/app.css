@@ -146,7 +146,7 @@ a, .btn-link {
 .owner {
     padding: 2px;
     height: 2cm;
-    width: 3.7cm;
+    width: 5.0cm;
     font-size: 9pt;
     font-weight: bolder;
     border-right: 1px solid black;
@@ -155,7 +155,7 @@ a, .btn-link {
 .marking {
     padding: 2px;
     height: 1.5cm;
-    width: 3.7cm;
+    width: 5.0cm;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
 }
@@ -172,7 +172,6 @@ a, .btn-link {
 }
 
 .pocket-text {
-    color: gray;
     font-size: 12pt;
     font-weight: bold;
 }

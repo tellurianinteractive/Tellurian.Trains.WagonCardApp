@@ -228,7 +228,7 @@ else
         if (HasData)
         {
             var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(Loco), new JsonSerializerOptions() { WriteIndented = true });
-            await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, "application/json");
+            await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json,System.Text.Encoding.UTF8,  "application/json");
         }
     }
 

@@ -123,7 +123,7 @@
   <data name="Epoch" xml:space="preserve">
     <value>Epoch</value>
   </data>
-  <data name="OperatingPeriodInThisDesign" xml:space="preserve">
+  <data name="Operating period in this design" xml:space="preserve">
     <value>Operating period in this design</value>
   </data>
   <data name="Driveline" xml:space="preserve">
@@ -138,13 +138,13 @@
   <data name="Year" xml:space="preserve">
     <value>Year</value>
   </data>
-  <data name="TopSpeed" xml:space="preserve">
+  <data name="Top speed" xml:space="preserve">
     <value>Top speed</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
   </data>
-  <data name="Length" xml:space="preserve">
+  <data name="LengthOverBuffers" xml:space="preserve">
     <value>Length over buffers</value>
   </data>
   <data name="Marking" xml:space="preserve">
@@ -252,12 +252,8 @@
   <data name="DataOriginal" xml:space="preserve">
     <value>Data original</value>
   </data>
-  <data name="LengthShort" xml:space="preserve">
+  <data name="Length" xml:space="preserve">
     <value>Length</value>
-  </data>
-  <data name="TopSpeedShort" xml:space="preserve">
-    <value>Top speed</value>
-    <comment>@MutedRule(PunctuationTail)@Invariant</comment>
   </data>
   <data name="WeightShort" xml:space="preserve">
     <value>Weight</value>
@@ -271,7 +267,7 @@
   <data name="UploadJsonFile" xml:space="preserve">
     <value>Upload JSON file</value>
   </data>
-  <data name="WaybillOrVehicleSchedule" xml:space="preserve">
+  <data name="Waybill or vehicle schedule" xml:space="preserve">
     <value>Waybill or vehicle schedule</value>
   </data>
   <data name="ModelManufacturer" xml:space="preserve">
@@ -292,26 +288,26 @@
   <data name="Home station" xml:space="preserve">
     <value>Home station</value>
   </data>
-  <data name="South" xml:space="preserve">
-    <value>South</value>
+  <data name="Yellow" xml:space="preserve">
+    <value>Yellow</value>
   </data>
-  <data name="East" xml:space="preserve">
-    <value>East</value>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
   </data>
-  <data name="West" xml:space="preserve">
-    <value>West</value>
+  <data name="Green" xml:space="preserve">
+    <value>Green</value>
   </data>
-  <data name="North" xml:space="preserve">
-    <value>North</value>
+  <data name="Blue" xml:space="preserve">
+    <value>Blue</value>
   </data>
-  <data name="NorthWest" xml:space="preserve">
-    <value>Northwest</value>
+  <data name="Brown" xml:space="preserve">
+    <value>Brown</value>
   </data>
-  <data name="NorthEast" xml:space="preserve">
-    <value>Northeast</value>
+  <data name="Black" xml:space="preserve">
+    <value>Black</value>
   </data>
-  <data name="Middle" xml:space="preserve">
-    <value>Cargo hub</value>
+  <data name="Orange" xml:space="preserve">
+    <value>Orange</value>
   </data>
   <data name="StationName" xml:space="preserve">
     <value>Station name</value>
@@ -332,11 +328,11 @@
   <data name="UseMarking" xml:space="preserve">
     <value>Use marking</value>
   </data>
-  <data name="LoadLimit" xml:space="preserve">
-    <value>Load limit</value>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
   </data>
-  <data name="LoadVolume" xml:space="preserve">
-    <value>Load volume</value>
+  <data name="Volume" xml:space="preserve">
+    <value>Volume</value>
   </data>
   <data name="Meters" xml:space="preserve">
     <value>Meters</value>
@@ -358,5 +354,20 @@
   </data>
   <data name="WagonColour" xml:space="preserve">
     <value>Wagon colour</value>
+  </data>
+  <data name="OwnerImageUrl" xml:space="preserve">
+    <value>Owner's symbol image URL</value>
+  </data>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>Top speed</value>
+  </data>
+  <data name="LoadVolume" xml:space="preserve">
+    <value>Load volume (tonnes)</value>
+  </data>
+  <data name="LoadLimit" xml:space="preserve">
+    <value>Max load</value>
+  </data>
+  <data name="Operating period" xml:space="preserve">
+    <value>Operating period</value>
   </data>
 </root>

@@ -150,8 +150,8 @@
   <data name="DrivelineType" xml:space="preserve">
     <value>Type av drivlinje</value>
   </data>
-  <data name="East" xml:space="preserve">
-    <value>Øst</value>
+  <data name="Red" xml:space="preserve">
+    <value>Rød</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
     <value>E-postadresse</value>
@@ -192,10 +192,10 @@
   <data name="KmPerHour" xml:space="preserve">
     <value>km/h</value>
   </data>
-  <data name="Length" xml:space="preserve">
+  <data name="LengthOverBuffers" xml:space="preserve">
     <value>Lengde over buffere</value>
   </data>
-  <data name="LengthShort" xml:space="preserve">
+  <data name="Length" xml:space="preserve">
     <value>Lengde</value>
   </data>
   <data name="Loco" xml:space="preserve">
@@ -210,8 +210,8 @@
   <data name="Marking" xml:space="preserve">
     <value>Merking</value>
   </data>
-  <data name="Middle" xml:space="preserve">
-    <value>Godsterminal</value>
+  <data name="Orange" xml:space="preserve">
+    <value>Orange</value>
   </data>
   <data name="MilesPerHour" xml:space="preserve">
     <value>mph</value>
@@ -225,19 +225,19 @@
   <data name="ModelNumber" xml:space="preserve">
     <value>Katalognummer</value>
   </data>
-  <data name="North" xml:space="preserve">
-    <value>Nord</value>
+  <data name="Blue" xml:space="preserve">
+    <value>Blå</value>
   </data>
-  <data name="NorthEast" xml:space="preserve">
-    <value>Nordøst</value>
+  <data name="Black" xml:space="preserve">
+    <value>Sort</value>
   </data>
-  <data name="NorthWest" xml:space="preserve">
-    <value>Nordvest</value>
+  <data name="Brown" xml:space="preserve">
+    <value>Brun</value>
   </data>
   <data name="NotSpecified" xml:space="preserve">
     <value>Ikke spesifisert</value>
   </data>
-  <data name="OperatingPeriodInThisDesign" xml:space="preserve">
+  <data name="Operating period in this design" xml:space="preserve">
     <value>Driftsperiode i dette designet</value>
   </data>
   <data name="OperatorSignature" xml:space="preserve">
@@ -279,16 +279,13 @@
   <data name="SecondColour" xml:space="preserve">
     <value>Sekundær lokofarge</value>
   </data>
-  <data name="South" xml:space="preserve">
-    <value>Sør</value>
+  <data name="Yellow" xml:space="preserve">
+    <value>Gul</value>
   </data>
   <data name="StationName" xml:space="preserve">
     <value>Stasjonsnavn</value>
   </data>
-  <data name="TopSpeed" xml:space="preserve">
-    <value>Toppfart</value>
-  </data>
-  <data name="TopSpeedShort" xml:space="preserve">
+  <data name="Top speed" xml:space="preserve">
     <value>Toppfart</value>
   </data>
   <data name="UploadJsonFile" xml:space="preserve">
@@ -303,7 +300,7 @@
   <data name="VehicleSchedule" xml:space="preserve">
     <value>Omløp</value>
   </data>
-  <data name="WaybillOrVehicleSchedule" xml:space="preserve">
+  <data name="Waybill or vehicle schedule" xml:space="preserve">
     <value>Fraktbrev eller omløp</value>
   </data>
   <data name="Weight" xml:space="preserve">
@@ -312,8 +309,8 @@
   <data name="WeightShort" xml:space="preserve">
     <value>Vekt</value>
   </data>
-  <data name="West" xml:space="preserve">
-    <value>Vest</value>
+  <data name="Green" xml:space="preserve">
+    <value>Grøn</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>År</value>
@@ -333,11 +330,11 @@
   <data name="Meters" xml:space="preserve">
     <value>Meter</value>
   </data>
-  <data name="LoadLimit" xml:space="preserve">
-    <value>Maks last</value>
+  <data name="Max" xml:space="preserve">
+    <value>Maks</value>
   </data>
-  <data name="LoadVolume" xml:space="preserve">
-    <value>Lastevolum</value>
+  <data name="Volume" xml:space="preserve">
+    <value>Volum</value>
   </data>
   <data name="Tonnes" xml:space="preserve">
     <value>Ton</value>
@@ -356,5 +353,20 @@
   </data>
   <data name="WagonColour" xml:space="preserve">
     <value>Vognfarge</value>
+  </data>
+  <data name="OwnerImageUrl" xml:space="preserve">
+    <value>URL for eierens symbolbilde</value>
+  </data>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>Max hastighet</value>
+  </data>
+  <data name="LoadVolume" xml:space="preserve">
+    <value>Lastevolum (ton)</value>
+  </data>
+  <data name="LoadLimit" xml:space="preserve">
+    <value>Maks last</value>
+  </data>
+  <data name="Operating period" xml:space="preserve">
+    <value>Driftsperiode</value>
   </data>
 </root>

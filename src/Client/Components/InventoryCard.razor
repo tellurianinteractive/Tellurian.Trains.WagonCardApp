@@ -9,15 +9,20 @@
         <div class="item-text" style="color:@Data.BackColor">
             <span>@Data.OperatorSignature</span>
             <span>@Data.VehicleClass</span>
-            <div style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">@Data.VehicleNumber</div>
+            <div style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">@Data.VehicleNumber@Data.UicCheckDigit</div>
         </div>
         <hr />
         <div class="model-make">
             <span>@Data.ModelManufacturer</span>
             <span>@Data.ModelNumber</span>
         </div>
-        <hr />
-        <OwnerMarking Marking="Data.Marking" />
+        @if (!string.IsNullOrWhiteSpace(Data.Marking.InventoryNumber))
+        {
+            <hr />
+            <div>
+                <OwnerMarking Marking="@Data.Marking" />
+            </div>
+        }
         <hr />
     }
     <div>

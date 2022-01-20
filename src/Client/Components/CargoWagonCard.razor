@@ -25,21 +25,20 @@
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: column">
-
                         <div class="model-make">
-                            <div class="label">@Localizer.Label("Manufacturer")</div>
-                            <div>@Data.ModelManufacturer</div>
+                            @*<div class="label">@Localizer.Label("Manufacturer")</div>
+                            <div>@Data.ModelManufacturer</div>*@
                         </div>
-                <div>
-                    <UicLabel Data="@Data" FontSize="10" />
-                </div>
-                     </div>
+                        <div>
+                            <UicLabel Data="@Data" FontSize="10" />
+                        </div>
+                    </div>
                     <div class="model-number">
-                        <div class="label">@Localizer.Label("Catalog number")</div>
-                        <div>@Data.ModelNumber</div>
+                        @*<div class="label">@Localizer.Label("Catalog number")</div>
+                        <div>@Data.ModelNumber</div>*@
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
 
         <div style="display: block; transform: rotate(180deg); border-color: @Data.FrameColor;" class="card">
@@ -50,37 +49,41 @@
                         @Data.Identification()
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["Epoch"]</span><br />
-                            <span class="value">@Data.Epoch</span>
-                        </div>
+                        @if (!string.IsNullOrWhiteSpace(Data.Epoch))
+                        {
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer.Label("Epoch")</span><br />
+                                <span class="value">@Data.Epoch</span>
+                            </div>
+                        }
                         <div class="property">
-                            <span class="label">@Localizer["OperatingPeriodInThisDesign"]</span><br />
+                            <span class="label">@Localizer.Label("Operating period")</span><br />
                             <span class="value">@Data.OperatingFromYear - @Data.OperatingUptoYear</span>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["LoadLimit"]</span><br />
+                            <span class="label">@Localizer.Label("Max")</span><br />
                             <span class="value-sm">@Data.LoadLimit t</span>
                         </div>
                         <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["LoadVolume"]</span><br />
+                            <span class="label">@Localizer.Label("Volume")</span><br />
                             <span class="value-sm">@Data.LoadVolume m³</span>
                         </div>
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["TopSpeedShort"]</span><br />
-                            <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
-                        </div>
+
                         <div class="property">
-                            <span class="label">@Localizer["LengthShort"]</span><br />
+                            <span class="label">@Localizer.Label("Length")</span><br />
                             <span class="value-sm">@Data.Length m</span>
                         </div>
-                     </div>
+                    </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div class="property">
-                            <span class="label">@Localizer["Interoperability"]</span><br />
+                        <div style="border-right: 1px solid black" class="property">
+                            <span class="label">@Localizer.Label("Top speed")</span><br />
+                            <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
+                        </div>                        <div class="property">
+                            <span class="label">@Localizer.Label("Interoperability")</span><br />
                             <span class="value-sm">@Data.Interoperability</span>
+                            <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u> @Data.OperatorSignature</span>
                         </div>
                     </div>
                     <div class="picture back">
@@ -91,7 +94,6 @@
                     @if (@Data.HasHomeStation)
                     {
                         <div class="homestation" style="color: @Data.HomeStation.Region.Color().TextColor(); background-color: @Data.HomeStation.Region.Color();">
-                            <div class="pocket-text">@Localizer["WaybillOrVehicleSchedule"]</div>
                             <div style="padding-top: 0.5cm; font-size: 60%">@Data.HomeStation.CountryCode.HomeStationLabel()</div>
                             <div>@Data.HomeStation.Name</div>
                             @if (!string.IsNullOrWhiteSpace(Data.HomeStation.CountryCode))
@@ -104,7 +106,7 @@
                     {
                         <div>
                             <div class="pocket-text" style="padding-top: 3cm">
-                                @Localizer["WaybillOrVehicleSchedule"]
+                                @Localizer.Label("Waybill or vehicle schedule")
                             </div>
                         </div>
 
