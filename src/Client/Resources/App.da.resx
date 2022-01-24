@@ -369,4 +369,7 @@
   <data name="Operating period" xml:space="preserve">
     <value>Driftsperiode</value>
   </data>
+  <data name="Interoperability" xml:space="preserve">
+    <value>Interoperabilitet</value>
+  </data>
 </root>

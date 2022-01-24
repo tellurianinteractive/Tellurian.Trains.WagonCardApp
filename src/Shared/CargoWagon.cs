@@ -159,7 +159,7 @@ public class CargoWagon : Vehicle
                 Color2 = "#00FF77",
                 Color3 = "#7700FF",
                 InventoryNumber = "",
-                IconHref = "http://cdn.onlinewebfonts.com/svg/img_2382.png"
+                IconHref = "https://www.pngitem.com/pimgs/m/252-2524621_rail-transport-train-station-maglev-computer-icons-railway.png"
             },
             HomeStation = new()
             {

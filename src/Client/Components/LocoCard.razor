@@ -57,9 +57,9 @@
         <div class="card" style="display: block; transform: rotate(180deg)">
             <div class="card-info" style="flex-direction: row;">
                 <div style="width: 8.4cm">
-                    <div class="heading" style="font-size: @Data.Identification().ShortHeadingFontSize() ">
+                    <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
                         @Data.Identification()
-                    </div>
+                    </div>                    
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         <div style="border-right: 1px solid black" class="property">
                             <span class="label">@Localizer["Epoch"]</span><br />
@@ -86,7 +86,7 @@
                             <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
                         </div>
                         <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["TopSpeedShort"]</span><br />
+                            <span class="label">@Localizer["TopSpeed"]</span><br />
                             <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
                         </div>
                         <div style="border-right: 1px solid black" class="property">
@@ -94,7 +94,7 @@
                             <span class="value-sm">@Data.Weight t</span>
                         </div>
                         <div class="property">
-                            <span class="label">@Localizer["LengthShort"]</span><br />
+                            <span class="label">@Localizer["Length"]</span><br />
                             <span class="value-sm">@Data.Length m</span>
                         </div>
                     </div>

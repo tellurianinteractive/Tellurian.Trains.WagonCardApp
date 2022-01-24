@@ -370,4 +370,7 @@
   <data name="Operating period" xml:space="preserve">
     <value>Operating period</value>
   </data>
+  <data name="Interoperability" xml:space="preserve">
+    <value>Interoperability</value>
+  </data>
 </root>

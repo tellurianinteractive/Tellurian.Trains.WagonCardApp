@@ -1,5 +1,12 @@
 # Release Notes
 
+### Release 2.0.6
+Release date 2022-01-24
+- **Owner marking** improved. Larger icon size and only relevant fields to enter are displayed.
+- **Loco card** graphical errors corrected, and same *owner markings* as for cargo wagon.
+- **Missing Translations** added.
+- **Release notes** now have a link on the start page.
+
 ### Release 2.0.5
 Release date 2022-01-20
 - **Owner data** space extended to display longer email addresses. Thanks to Dag-Cato Skårvik for reporting this.

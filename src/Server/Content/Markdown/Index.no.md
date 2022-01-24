@@ -9,3 +9,6 @@ Innstillingene dine og innholdet på de siste kortene du oppretter av hver type
 er lagret i nettleserens lokale lagring.
 Du kan slette dette ved å slette alle applikasjonsdata for denne appen.
 Dette gjør du i dine egne nettleserinnstillinger.
+
+## Versjonsnotater
+Les hva som ble [endret i hver utgivelse](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp/blob/master/RELEASENOTES.MD).

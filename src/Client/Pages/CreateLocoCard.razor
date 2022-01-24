@@ -127,30 +127,46 @@ else
                         }
                     </div>
                 </div>
+
                 <h4 style="padding-left: 15em">@Localizer["OwnersMarking"]</h4>
+
                 <div>
                     <label class="inputlabel" for="UseMarking">@Localizer["UseMarking"]</label>
-                    <input type="checkbox" id="UseMarking" @bind="@Data.Marking.UseMarking" />
+                    <input type="checkbox" id="UseMarking" @bind="@Marking.UseMarking" />
                 </div>
-                @if (Data.Marking.UseMarking)
+
+                @if (Marking.UseMarking)
                 {
-                    <div>
-                        <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
-                        <input id="InventoryNumber" @bind="@Data.Marking.InventoryNumber" />
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="Colour1">@Localizer["Colour1"]</label>
-                        <input id="Colour1" type="color" @bind="@Data.Marking.Color1" />
-                    </div>
-                    @if (!HasInventoryNumber)
+                    @if (Marking.ShowOwnerIcon())
+                    {
+                        <div>
+                            <label class="inputlabel" for="model">@Localizer["OwnerImageUrl"]</label>
+                            <InputText class="inputurl" id="model" @bind-Value="@Marking.IconHref"></InputText>
+                        </div>
+                    }
+                    @if (Marking.ShowInventoryNumber())
+                    {
+                        <div>
+                            <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
+                            <input id="InventoryNumber" @bind="@Marking.InventoryNumber" />
+                        </div>
+                    }
+                    @if (Marking.ShowInventoryNumber() || Marking.ShowColourMarkings())
+                    {
+                        <div>
+                            <label class="inputlabel" for="Colour2">@Localizer["Colour1"]</label>
+                            <input id="Colour2" type="color" @bind="@Marking.Color1" />
+                        </div>
+                    }
+                    @if (Marking.ShowColourMarkings())
                     {
                         <div>
                             <label class="inputlabel" for="Colour2">@Localizer["Colour2"]</label>
-                            <input id="Colour2" type="color" @bind="@Data.Marking.Color2" />
+                            <input id="Colour2" type="color" @bind="@Marking.Color2" />
                         </div>
                         <div>
                             <label class="inputlabel" for="Colour3">@Localizer["Colour3"]</label>
-                            <input id="Colour3" type="color" @bind="@Data.Marking.Color3" />
+                            <input id="Colour3" type="color" @bind="@Marking.Color3" />
                         </div>
                     }
                 }
@@ -228,7 +244,7 @@ else
         if (HasData)
         {
             var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(Loco), new JsonSerializerOptions() { WriteIndented = true });
-            await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json,System.Text.Encoding.UTF8,  "application/json");
+            await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, System.Text.Encoding.UTF8, "application/json");
         }
     }
 
@@ -258,5 +274,6 @@ else
     string KeyId(LocoFunction it) => $"F{it.Key}";
 
     bool HasData => Data is not null && Owner is not null;
-    bool HasInventoryNumber => !string.IsNullOrWhiteSpace(Data?.Marking?.InventoryNumber);
+    Marking Marking => Data.Marking;
+
 }

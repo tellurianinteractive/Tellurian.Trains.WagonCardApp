@@ -9,3 +9,6 @@ Your settings and the content of the last cards you create of each type
 is stored in your browsers local storage.
 You can delete this by clearing all application data for this app.
 You do this in your own browser settings. 
+
+## Release notes
+Read what was [changed in each release](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp/blob/master/RELEASENOTES.MD).

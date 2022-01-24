@@ -1,27 +1,53 @@
 ﻿@inject IStringLocalizer<App> Localizer
 
-<h4 style="padding-left: 15em">@Localizer["Marking"]</h4>
-    @if (Marking is not null)
+<h4 style="padding-left: 15em">@Localizer["OwnersMarking"]</h4>
+@if (Marking is not null)
+{
+
+    <div>
+        <label class="inputlabel" for="UseMarking">@Localizer["UseMarking"]</label>
+        <input type="checkbox" id="UseMarking" @bind="@Marking.UseMarking" />
+    </div>
+    @if (Marking.UseMarking)
     {
-        <div>
-            <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
-            <input id="InventoryNumber" @bind="@Marking.InventoryNumber" />
-        </div>
+        @if (Marking.ShowInventoryNumber())
+        {
 
-        <div>
-            <label class="inputlabel" for="Colour1">@Localizer["Colour1"]</label>
-            <input id="Colour1" type="color" @bind="@Marking.Color1" />
-        </div>
-        <div>
-            <label class="inputlabel" for="Colour2">@Localizer["Colour2"]</label>
-            <input id="Colour2" type="color" @bind="@Marking.Color2" />
-        </div>
-        <div>
-            <label class="inputlabel" for="Colour3">@Localizer["Colour3"]</label>
-            <input id="Colour3" type="color" @bind="@Marking.Color3" />
-        </div>
+            <div>
+                <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
+                <input id="InventoryNumber" @bind="@Marking.InventoryNumber" />
+            </div>
+            <div>
+                <label class="inputlabel" for="Colour1">@Localizer["Colour1"]</label>
+                <input id="Colour1" type="color" @bind="@Marking.Color1" />
+            </div>
+        }
+        @if (Marking.ShowOwnerIcon())
+        {
+            <div>
+                <label class="inputlabel" for="model">@Localizer["OwnerImageUrl"]</label>
+                <InputText class="inputurl" id="model" @bind-Value="@Marking.IconHref"></InputText>
+            </div>
+        }
+        @if (Marking.ShowColourMarkings())
+        {
+            <div>
+                <label class="inputlabel" for="Colour2">@Localizer["Colour1"]</label>
+                <input id="Colour2" type="color" @bind="@Marking.Color1" />
+            </div>
+            <div>
+                <label class="inputlabel" for="Colour2">@Localizer["Colour2"]</label>
+                <input id="Colour2" type="color" @bind="@Marking.Color2" />
+            </div>
+            <div>
+                <label class="inputlabel" for="Colour3">@Localizer["Colour3"]</label>
+                <input id="Colour3" type="color" @bind="@Marking.Color3" />
+            </div>
+        }
     }
+}
 
-@code {
+@code
+{
     [Parameter] public Marking? Marking { get; set; }
 }
