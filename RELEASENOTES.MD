@@ -1,5 +1,15 @@
 # Release Notes
 
+### Release 2.1.0
+Release 2022-02-04
+- **Loco functions** can now be numbered freely, max functions are now 24 and only those with text are displayed on loco card.
+- **Image upload** is now possible, you can select images from your disk, or still use links if you want.
+- **Front image** now is resized correctly and does not overflow downwards into other fields.
+- **Inventory card** has now smaller font size to not overflow content outside card.
+- **Loco card** now has *Interoperability code* and *Country of registration*.
+- **Zero value fields** are now mostly hidden, and only displays when value is greater than zero.
+- **Empty value fields** are now some hidden, and only displays when having a text value.
+
 ### Release 2.0.6
 Release date 2022-01-24
 - **Owner marking** improved. Larger icon size and only relevant fields to enter are displayed.

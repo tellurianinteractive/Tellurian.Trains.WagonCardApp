@@ -8,9 +8,7 @@
                 <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
                     @Data.Identification()
                 </div>
-                <div class="picture-front">
-                    <img class="picture-front-image" src="@Data.ModelImageUrl" />
-                </div>
+                <VehicleImage CssClass="picture-front" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
                 <div style="display: flex; flex-direction: row">
                     <div style="display: flex; flex-direction: column">
                         <div class="marking">
@@ -27,7 +25,7 @@
                     <div style="display: flex; flex-direction: column">
                         <div class="model-make">
                             @*<div class="label">@Localizer.Label("Manufacturer")</div>
-                            <div>@Data.ModelManufacturer</div>*@
+                                <div>@Data.ModelManufacturer</div>*@
                         </div>
                         <div>
                             <UicLabel Data="@Data" FontSize="10" />
@@ -35,7 +33,7 @@
                     </div>
                     <div class="model-number">
                         @*<div class="label">@Localizer.Label("Catalog number")</div>
-                        <div>@Data.ModelNumber</div>*@
+                            <div>@Data.ModelNumber</div>*@
                     </div>
                 </div>
             </div>
@@ -49,7 +47,7 @@
                         @Data.Identification()
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        @if (!string.IsNullOrWhiteSpace(Data.Epoch))
+                        @if (Data.Epoch.HasValue())
                         {
                             <div style="border-right: 1px solid black" class="property">
                                 <span class="label">@Localizer.Label("Epoch")</span><br />
@@ -62,33 +60,44 @@
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer.Label("Max")</span><br />
-                            <span class="value-sm">@Data.LoadLimit t</span>
-                        </div>
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer.Label("Volume")</span><br />
-                            <span class="value-sm">@Data.LoadVolume m³</span>
-                        </div>
+                        @if (Data.LoadLimit > 0)
+                        {
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer.Label("Max")</span><br />
+                                <span class="value-sm">@Data.LoadLimit t</span>
+                            </div>
 
-                        <div class="property">
-                            <span class="label">@Localizer.Label("Length")</span><br />
-                            <span class="value-sm">@Data.Length m</span>
-                        </div>
+                        }
+                        @if (Data.LoadVolume > 0)
+                        {
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer.Label("Volume")</span><br />
+                                <span class="value-sm">@Data.LoadVolume m³</span>
+                            </div>
+                        }
+                        @if (Data.Length > 0)
+                        {
+                            <div class="property">
+                                <span class="label">@Localizer.Label("Length")</span><br />
+                                <span class="value-sm">@Data.Length m</span>
+                            </div>
+                        }
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer.Label("Top speed")</span><br />
-                            <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
-                        </div>                        <div class="property">
+                        @if (Data.MaxSpeed > 0)
+                        {
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer.Label("Top speed")</span><br />
+                                <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
+                            </div>
+                        }
+                        <div class="property">
                             <span class="label">@Localizer.Label("Interoperability")</span><br />
                             <span class="value-sm">@Data.Interoperability</span>
-                            <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u> @Data.OperatorSignature</span>
+                            <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature</span>
                         </div>
                     </div>
-                    <div class="picture back">
-                        <img class="picture back image" src="@Data.OriginalImageUrl" />
-                    </div>
+                    <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 </div>
                 <div class="pocket">
                     @if (@Data.HasHomeStation)

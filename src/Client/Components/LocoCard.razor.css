@@ -4,8 +4,10 @@
 
 .functions {
     display: flex;
-    flex-direction: row;
-    margin-top: 5px;
+    flex-direction: column;
+    flex-wrap:wrap;
+    margin-top: 0px;
+    height: 3.5cm;
 }
 
 .functions-column {
@@ -23,12 +25,12 @@
     color: white;
     background-color: black;
     font-weight: bolder;
-    font-size: 12pt;
-    line-height: 0.7cm;
-    padding: 8px 5px 8px 5px;
+    font-size: 11pt;
+    line-height: 0.4cm;
+    padding: 1px 2px 12px 1px;
 }
 
 .function-text {
-    font-size: 12pt;
+    font-size: 10pt;
     padding: 0px 5px 0px 5px;
 }

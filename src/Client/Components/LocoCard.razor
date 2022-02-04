@@ -8,9 +8,7 @@
                 <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
                     @Data.Identification()
                 </div>
-                <div class="picture-front">
-                    <img class="picture-front-image" src="@Data.ModelImageUrl" />
-                </div>
+                <VehicleImage CssClass="picture-front" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
                 <div style="display: flex; flex-direction: row">
                     <div style="display: flex; flex-direction: column">
                         <div class="marking">
@@ -25,30 +23,13 @@
                         </div>
                     </div>
                     <div class="functions">
-                        <div class="functions-column">
-                            @for (var f = 0; f <= 4; f++)
-                            {
-                                <div class="function-key">
-                                    <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                                </div>
-                            }
-                        </div>
-                        <div class="functions-column">
-                            @for (var f = 5; f <= 9; f++)
-                            {
-                                <div class="function-key">
-                                    <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                                </div>
-                            }
-                        </div>
-                        <div class="functions-column">
-                            @for (var f = 10; f <= 14; f++)
-                            {
-                                <div class="function-key">
-                                    <span class="function">@FunctionKey(f)</span><span class="function-text">@FunctionText(f)</span>
-                                </div>
-                            }
-                        </div>
+                        @foreach (var function in ActiveFunctions)
+                        {
+                            <div class="function-key">
+                                <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
+                            </div>
+
+                        }
                     </div>
                 </div>
             </div>
@@ -59,12 +40,17 @@
                 <div style="width: 8.4cm">
                     <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
                         @Data.Identification()
-                    </div>                    
+                    </div>
+
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["Epoch"]</span><br />
-                            <span class="value">@Data.Epoch</span>
-                        </div>
+                        @if (Data.Epoch.HasValue())
+                        {
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer["Epoch"]</span><br />
+                                <span class="value">@Data.Epoch</span>
+                            </div>
+
+                        }
                         <div class="property">
                             <span class="label">@Localizer["OperatingPeriodInThisDesign"]</span><br />
                             <span class="value">@Data.OperatingFromYear - @Data.OperatingUptoYear</span>
@@ -98,9 +84,7 @@
                             <span class="value-sm">@Data.Length m</span>
                         </div>
                     </div>
-                    <div class="picture back">
-                        <img class="picture back image" src="@Data.OriginalImageUrl" />
-                    </div>
+                    <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 </div>
                 <div class="pocket">
                     <div style="padding-top: 4cm">@Localizer["VehicleSchedule"]</div>
@@ -116,7 +100,8 @@
     [Parameter] public Owner? Owner { get; set; }
 
 
-    string FunctionText(int function) => Data is null ? "" :
-    Data.Functions.SingleOrDefault(f => f.Key == function)?.Text.ToLowerInvariant() ?? "-";
-    string FunctionKey(int function) => $"F{function}";
+    //string FunctionText(int index) => Data?.Functions.Count() > index ? Data.Functions[index].Text : string.Empty;
+    //string FunctionKey(int index) => Data?.Functions.Count() > index ? $"F{Data.Functions[index].Key}" : string.Empty;
+    IEnumerable<(string Key, string Text)> ActiveFunctions => Data is null ? Array.Empty<(string, string)>() :
+        Data.Functions.Where(f => !string.IsNullOrWhiteSpace(f.Text)).Select(f => ($"F{f.Key}", f.Text));
 }

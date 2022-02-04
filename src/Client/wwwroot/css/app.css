@@ -92,14 +92,14 @@ a, .btn-link {
     align-items: center;
 }
 
-    .picture-front-image {
-        margin: 1px;
-        height: auto;
-        max-width: 100%;
-        max-height: 9cm;
-    }
+.picture-front-image {
+    margin: 1px;
+    height: auto;
+    max-width: 100%;
+    max-height: 5.2cm;
+}
 
-.picture.back {
+.picture-back {
     height: 4.9cm;
     width: 8.4cm;
     display: flex;
@@ -107,12 +107,12 @@ a, .btn-link {
     align-items: center;
 }
 
-    .picture.back.image {
-        margin: 1px;
-        height: auto;
-        max-width: 100%;
-        max-height: 4.8cm;
-    }
+.picture-back-image {
+    margin: 1px;
+    height: auto;
+    max-width: 100%;
+    max-height: 4.8cm;
+}
 
 .label {
     margin: 0px 0px 0px 0px;

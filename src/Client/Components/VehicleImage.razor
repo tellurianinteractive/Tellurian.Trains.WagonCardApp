@@ -1,0 +1,18 @@
+﻿<div class="@CssClass">
+    @if (Image is not null)
+    {
+        <img class="@InnerCssClass" src="data:@Image.ContentType;base64,@Image.Base64data" />
+    }
+    else
+    {
+        <img class="@InnerCssClass" src="@ImageUrl" />
+    }
+</div>
+
+
+@code {
+    [Parameter] public ImageFile? Image { get; set; }
+    [Parameter] public string? ImageUrl { get; set; }
+    [Parameter] public string CssClass { get; set; } = string.Empty;
+    string InnerCssClass => string.IsNullOrWhiteSpace(CssClass) ? string.Empty : $"{CssClass}-image";
+}

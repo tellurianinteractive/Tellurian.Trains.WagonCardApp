@@ -6,6 +6,7 @@ namespace Tellurian.WagonCardApp.Shared;
 
 public static class StringExtensions
 {
+    public static bool HasValue(this string? value) => !string.IsNullOrWhiteSpace(value);
     public static string FromMarkdown(this string? markdown)
     {
         if (string.IsNullOrWhiteSpace(markdown)) return string.Empty;

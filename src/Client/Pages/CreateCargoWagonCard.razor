@@ -93,6 +93,11 @@ else
                     <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadVolume"></InputNumber> m³
                 </div>
                 <div>
+                    <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
+                    <InputFile class="inputurl" OnChange="OnOriginalImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOriginalImage" />
+
+                </div>
+                <div>
                     <label class="inputlabel" for="original">@Localizer["OriginalImageUrl"]</label>
                     <InputText class="inputurl" id="original" @bind-Value="@Data.OriginalImageUrl"></InputText>
                 </div>
@@ -133,6 +138,10 @@ else
             <div>
                 <label class="inputlabel" for="ModelNumber">@Localizer["ModelNumber"]</label>
                 <input id="ModelNumber" @bind="@Data.ModelNumber" />
+            </div>
+            <div>
+                <label class="inputlabel" for="SelectModelImage">@Localizer["SelectModelImage"]</label>
+                <InputFile class="inputurl" OnChange="OnModelImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectModelImage" />
             </div>
 
             <div>
@@ -236,6 +245,16 @@ else
         }
     }
 
+    async Task OnOriginalImageChanged(InputFileChangeEventArgs e)
+    {
+        Data.OriginalImage = await e.GetImageFile();
+    }
+
+    async Task OnModelImageChanged(InputFileChangeEventArgs e)
+    {
+        Data.ModelImage = await e.GetImageFile();
+    }
+
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
         await using var stream = new MemoryStream();
@@ -251,6 +270,7 @@ else
         }
 
     }
+
 
     private async Task SaveAsFile()
     {

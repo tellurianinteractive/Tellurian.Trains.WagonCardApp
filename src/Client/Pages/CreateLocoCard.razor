@@ -39,6 +39,14 @@ else
                     <InputText class="inputshort" id="class" @bind-Value="@Data.VehicleClass"></InputText>
                 </div>
                 <div>
+                    <label class="inputlabel" for="InteroperabilityCode">@Localizer["InteroperabilityCode"]</label>
+                    <InputNumber class="inputshort" id="InteroperabilityCode" @bind-Value="@Data.InteroperatbilityNumber"></InputNumber>
+                </div>
+                <div>
+                    <label class="inputlabel" for="CountryRegistrationNumber">@Localizer["CountryRegistrationNumber"]</label>
+                    <InputNumber class="inputshort" id="CountryRegistrationNumber" @bind-Value="@Data.CountryRegistrationNumber"></InputNumber>
+                </div>
+                <div>
                     <label class="inputlabel" for="class">@Localizer["VehicleNumber"]</label>
                     <InputText class="inputshort" id="class" @bind-Value="@Data.VehicleNumber"></InputText>
                 </div>
@@ -55,7 +63,7 @@ else
                     <InputNumber class="inputshort" id="year" @bind-Value="@Data.YearOfManufacturing"></InputNumber>
                 </div>
                 <div>
-                    <label class="inputlabel" for="from">@Localizer["OperatingPeriodInThisDesign"]</label>
+                    <label class="inputlabel" for="from">@Localizer["Operating period in this design"]</label>
                     <InputNumber class="inputshort" id="fromYear" @bind-Value="@Data.OperatingFromYear"></InputNumber>
                     -
                     <InputNumber class="inputshort" id="uptoYear" @bind-Value="@Data.OperatingUptoYear"></InputNumber>
@@ -73,7 +81,7 @@ else
                     </InputRadioGroup>
                 </div>
                 <div>
-                    <label class="inputlabel" for="speed">@Localizer["MaxSpeed"]</label>
+                    <label class="inputlabel" for="speed">@Localizer["TopSpeed"]</label>
                     <InputNumber class="inputshort" id="speed" @bind-Value="@Data.MaxSpeed"></InputNumber>
                     <InputRadioGroup Name="SpeedUnit" DisplayName="@Localizer["SpeedUnit"]" @bind-Value="@Data.SpeedUnit">
                         <InputRadio Value="SpeedUnit.KmPerHour" Name="SpeedUnit" />@Localizer[SpeedUnit.KmPerHour.ToString()]
@@ -81,11 +89,15 @@ else
                     </InputRadioGroup>
                 </div>
                 <div>
-                    <label class="inputlabel" for="length">@Localizer["Length"]</label>
+                    <label class="inputlabel" for="length">@Localizer["LengthOverBuffers"]</label>
                     <InputNumber class="inputshort" id="length" @bind-Value="@Data.Length"></InputNumber> m
                 </div>                <div>
                     <label class="inputlabel" for="weight">@Localizer["Weight"]</label>
                     <InputNumber class="inputshort" id="weight" @bind-Value="@Data.Weight"></InputNumber> t
+                </div>
+                <div>
+                    <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
+                    <InputFile class="inputurl" OnChange="OnOriginalImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOriginalImage" />
                 </div>
                 <div>
                     <label class="inputlabel" for="original">@Localizer["OriginalImageUrl"]</label>
@@ -101,7 +113,10 @@ else
                     <label class="inputlabel" for="ModelNumber">@Localizer["ModelNumber"]</label>
                     <input id="ModelNumber" @bind="@Data.ModelNumber" />
                 </div>
-
+                <div>
+                    <label class="inputlabel" for="SelectModelImage">@Localizer["SelectModelImage"]</label>
+                    <InputFile class="inputurl" OnChange="OnModelImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectModelImage" />
+                </div>
                 <div>
                     <label class="inputlabel" for="model">@Localizer["ModelImageUrl"]</label>
                     <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl"></InputText>
@@ -121,7 +136,8 @@ else
                         @foreach (var locoFunction in Data.Functions)
                         {
                             <div>
-                                <label style="font-weight: bold" class="inputlabel" for="@KeyId(locoFunction)">F @locoFunction.Key</label>
+                                <label style="font-weight: bold" class="inputlabel"> </label>
+                                <input style="font-weight: bold" class="inputshort" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Key" />
                                 <input class="inputwide" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Text" />
                             </div>
                         }
@@ -203,7 +219,7 @@ else
 }
 
 @code {
-    Loco Data = new Loco();
+    Loco Data = new Loco { InteroperatbilityNumber = 92 };
     Owner Owner = new Owner();
     string? ErrorMessage;
 
@@ -212,6 +228,7 @@ else
         //await LocalStorage.SetItemAsync("Loco", Loco.Example);
         Owner = await LocalStorage.GetItemAsync<Owner>("Owner") ?? Owner.Default;
         Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? Loco.Default;
+        AddMissingLocoData();
     }
 
     private async Task OnValidLocoSubmit()
@@ -223,6 +240,16 @@ else
         }
     }
 
+    async Task OnOriginalImageChanged(InputFileChangeEventArgs e)
+    {
+        Data.OriginalImage = await e.GetImageFile();
+    }
+
+    async Task OnModelImageChanged(InputFileChangeEventArgs e)
+    {
+        Data.ModelImage = await e.GetImageFile();
+    }
+
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
         await using var stream = new MemoryStream();
@@ -231,12 +258,33 @@ else
             await e.File.OpenReadStream().CopyToAsync(stream);
             stream.Position = 0;
             Data = await JsonSerializer.DeserializeAsync<Loco>(stream) ?? Loco.Default;
+            AddMissingLocoData();
         }
         catch (Exception ex)
         {
             ErrorMessage = ex.Message;
         }
+    }
 
+    private void AddMissingLocoData()
+    {
+        if (Data.Functions.Count() < Loco.MaxFunctions)
+        {
+            var existingFunctions = Data.Functions;
+            Data.Functions = new LocoFunction[Loco.MaxFunctions];
+            var maxFunction = 0;
+            for (int i = 0; i < existingFunctions.Length; i++)
+            {
+                Data.Functions[i] = existingFunctions[i];
+                maxFunction = existingFunctions[i].Key;
+            }
+            for (int i = existingFunctions.Length; i < Loco.MaxFunctions; i++)
+            {
+                maxFunction++;
+                Data.Functions[i] = new LocoFunction(maxFunction, string.Empty);
+            }
+        }
+        if (Data.InteroperatbilityNumber == 0) Data.InteroperatbilityNumber = 92;
     }
 
     private async Task SaveAsFile()

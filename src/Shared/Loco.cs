@@ -2,6 +2,7 @@
 
 public class Loco : Vehicle
 {
+    public const int MaxFunctions = 24;
     public string DrivelineType { get; set; } = string.Empty;
     public int? EnginePower { get; set; }
     public EnginePowerUnit EnginePowerUnit { get; set; }
@@ -10,12 +11,12 @@ public class Loco : Vehicle
     public int? Weight { get; set; }
     public string MainColor { get; set; } = "white";
     public string SecondColor { get; set; } = "black";
-    public IEnumerable<LocoFunction> Functions { get; set; } = Array.Empty<LocoFunction>();
+    public LocoFunction[] Functions { get; set; } = Array.Empty<LocoFunction>();
 
     public override string ForeColor => MainColor;
     public override string BackColor => SecondColor;
 
-    public static Loco Default => new() { Functions = Enumerable.Range(0, 15).Select(i => new LocoFunction(i, string.Empty)).ToArray() };
+    public static Loco Default => new() { Functions = Enumerable.Range(0, MaxFunctions).Select(i => new LocoFunction(i, string.Empty)).ToArray() };
 
     public static Loco Example => new()
     {
@@ -52,6 +53,13 @@ public class Loco : Vehicle
                 new LocoFunction(13, ""),
                 new LocoFunction(14, ""),
                 new LocoFunction(15, ""),
+                new LocoFunction(16, ""),
+                new LocoFunction(17, ""),
+                new LocoFunction(18, ""),
+                new LocoFunction(19, ""),
+                new LocoFunction(20, ""),
+                new LocoFunction(21, ""),
+                new LocoFunction(22, ""),
             },
         OriginalImageUrl = "https://www.jernbanen.dk/Fotos/Motor/DSB_ME1508_1982.jpg",
         ModelImageUrl = "http://mck-h0.dk/wp-content/uploads/2016/08/005_125.jpg",

@@ -6,10 +6,8 @@ public class CargoWagon : Vehicle
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
 
-    public int InteroperatbilityNumber { get; set; }
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
-    public int CountryRegistrationNumber { get; set; }
     public bool IsFlatWagon { get; set; }
     public string? WagonColor { get; set; }
 
@@ -67,28 +65,6 @@ public class CargoWagon : Vehicle
 
     private char MainClass => VehicleClass.Length > 0 ? VehicleClass.ToUpperInvariant()[0] : ' ';
 
-    public string CountryCodeOfRegistration => CountryRegistrationNumber switch
-    {
-        70 => "UK",
-        71 => "E",
-        72 => "SRB",
-        73 => "GR",
-        74 => "S",
-        75 => "TR",
-        76 => "N",
-        78 => "HR",
-        79 => "SLO",
-        80 => "D",
-        81 => "A",
-        82 => "L",
-        83 => "I",
-        84 => "NL",
-        85 => "CH",
-        86 => "DK",
-        87 => "F",
-        88 => "B",
-        _ => string.Empty
-    };
 
     public string FrameColor => MainClass switch
     {
