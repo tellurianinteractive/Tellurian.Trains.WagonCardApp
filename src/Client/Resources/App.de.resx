@@ -372,4 +372,10 @@
   <data name="Interoperability" xml:space="preserve">
     <value>Interoperabilität</value>
   </data>
+  <data name="SelectOriginalImage" xml:space="preserve">
+    <value>Bild des Originals auswählen</value>
+  </data>
+  <data name="SelectModelImage" xml:space="preserve">
+    <value>Bild des Modells auswählen</value>
+  </data>
 </root>
