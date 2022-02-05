@@ -1,5 +1,9 @@
 # Release Notes
 
+### Release 2.1.1
+Release date 2022-02-05
+- **FRED sticker** text overflow fixed.
+
 ### Release 2.1.0
 Release 2022-02-04
 - **Loco functions** can now be numbered freely, max functions are now 24 and only those with text are displayed on loco card.

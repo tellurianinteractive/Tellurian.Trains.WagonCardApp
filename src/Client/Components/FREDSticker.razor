@@ -11,10 +11,10 @@ else
         <div style="height:15mm;border:1px">
 
         </div>
-        <div class="loco-label" style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor();">
-            <div class="label-lg"> @Data.OperatorSignature</div>
-            <div class="label-lg">@Data.VehicleClass</div>
-            <div class="label-lg">@Data.VehicleNumber</div>
+        <div class="loco-label" style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor()">
+            <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()"> @Data.OperatorSignature</div>
+            <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()">@Data.VehicleClass</div>
+            <div class="label-lg" style="font-size: @Data.VehicleNumber.FredStickerLocoNumberFontSize()">@Data.VehicleNumber</div>
             <div class="label-sm">@Data.ModelManufacturer</div>
         </div>
         <div style="color:@Data.ForeColor">

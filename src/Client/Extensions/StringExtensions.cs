@@ -6,6 +6,8 @@ public static class StringExtensions
     public static string ShortHeadingFontSize(this string? text) => text is null || text.Length < 17 ? "24pt" : $"{(int)(24 - text.Length / 3.5)}pt";
     public static string WagonNumberFontSize(this string? text) => text is null || text.Length < 12 ? "20pt" : $"{18 - text.Length / 5}pt";
 
+    public static string FredStickerLocoNumberFontSize(this string? text) => text is null || text.Length < 6 ? "16pt" : $"{20 - text.Length * 1}pt";
+    public static string FredStickerLocoClassFontSize(this string? text) => text is null || text.Length < 6 ? "16pt" : $"{24 - text.Length * 2}pt";
     public static string HomeStationLabel(this string? language) => language switch
     {
         "DE" => "Banhof/Home station",
