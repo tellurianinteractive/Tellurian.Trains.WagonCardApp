@@ -86,20 +86,22 @@ public class CargoWagon : Vehicle
         _ => "#000000"
     };
 
-    private const string D = "#4d4dff";
-    private const string E = "#fd9bce";
-    private const string F = "#ff60ff";
-    private const string G = "#fefe9a";
-    private const string H = "#fccca4";
-    private const string I = "#fefefe";
-    private const string K = "#cffed0";
-    private const string L = "#b3d9ff";
-    private const string RS = "#339967";
-    private const string T = "#fccd03";
-    private const string Z = "#c0c0c0";
+    private const string D = "#4d4dff"; // Braun
+    private const string E = "#fd9bce"; // Light pink
+    private const string F = "#ff60ff"; // Pink
+    private const string G = "#fefe9a"; // Yellow
+    private const string H = "#fccca4"; // Gold
+    private const string I = "#fefefe"; // White
+    private const string K = "#cffed0"; // Light green
+    private const string L = "#b3d9ff"; // Light blue
+    private const string RS = "#339967"; // Green
+    private const string T = "#fccd03"; // Yellow
+    private const string Z = "#c0c0c0"; // Gray
     private string KL => ClassIs("Kö") ? L : K;
     private string QLZ => ClassIs("Q12") || ClassIs("Q14") ? Z : L;
-    private string ULZ => ClassIs("Ua") || ClassIs("Ud") ? L : Z;
+    private string ULZ => 
+        ClassIs("Ua") || ClassIs("Ud") || ClassIs("Ui") ? L :
+        ClassIs("Ug") ? G : Z;
 
     private bool ClassIs(string value) =>
         VehicleClass.StartsWith(value, StringComparison.OrdinalIgnoreCase);
