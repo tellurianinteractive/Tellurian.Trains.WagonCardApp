@@ -23,9 +23,12 @@
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: column">
-                        <div class="model-make">
-                            @*<div class="label">@Localizer.Label("Manufacturer")</div>
-                                <div>@Data.ModelManufacturer</div>*@
+                        <div class="model-weight">
+                            @if (Data.ModelWeight.HasValue)
+                            {
+                                <div class="label">@Localizer.Label("Model weight")</div>
+                                <div>@Data.ModelWeight g</div>
+                            }
                         </div>
                         <div>
                             <UicLabel Data="@Data" FontSize="10" />
@@ -99,7 +102,7 @@
                     </div>
                     @if (Data.LoadingInstructions.HasValue())
                     {
-                        <div class="property" style="border-bottom: 1px solid black; padding-bottom: 4pt" >
+                        <div class="property" style="border-bottom: 1px solid black; padding-bottom: 4pt">
                             <span class="label">@Localizer.Label("Loading instructions")</span><br />
                             <div class="value-sm" style="font-size: 9pt; line-height: 9pt">@Data.LoadingInstructions</div>
                         </div>

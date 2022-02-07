@@ -2,6 +2,9 @@
 
 ### Release 2.1.2
 - **FRED functions**, you can now select which functions that appears.
+- **Loco DCC-address** can now be entered and displays on *FRED-sticker* and *inventory card*.
+- **Loading instructions** can now be entered for cargo wagons.
+- **Model weight** can now be entered for cargo wagons.
 - **Owner image** can now be selected from your local computer.
 - **Cargo wagon colours** for Ui and Ug classes updated. Thanks to Michael Bunka.
 

@@ -20,11 +20,22 @@
     line-height: 24pt;
 }
 
+.model-weight {
+    padding: 2px;
+    height: 1.5cm;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    width: 4cm;
+    font-size: 16pt;
+    font-weight: bold;
+    line-height: 24pt;
+}
+
 .model-number {
     padding: 2px;
     height: 1.5cm;
     border-bottom: 1px solid black;
-    width: 4.5cm;
+    width: 6cm;
     font-size: 16pt;
     font-weight: bold;
     line-height: 24pt;

@@ -6,11 +6,11 @@ public class CargoWagon : Vehicle
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
     public string? LoadingInstructions { get; set; }
-
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
     public bool IsFlatWagon { get; set; }
     public string? WagonColor { get; set; }
+    public int? ModelWeight { get; set; }
 
     public override string UicCheckDigit => GetUicChecksum();
 
@@ -128,10 +128,12 @@ public class CargoWagon : Vehicle
             VehicleClass = "Rps",
             VehicleNumber = "393 3 013",
             WagonColor = "#570000",
+            LoadingInstructions ="This is a loading instruction example.",
             ModelImageUrl = "https://www.modellbahnshop-lippe.com/article_data/images/73/211190_e.jpg",
             OriginalImageUrl = "https://www.modellbahnshop-lippe.com/article_data/images/73/211190_e.jpg",
             ModelManufacturer = "NMJ",
             ModelNumber = "123-456",
+            ModelWeight=120,
             Marking = new()
             {
                 Color1 = "#FF7700",

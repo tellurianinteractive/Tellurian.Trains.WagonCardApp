@@ -36,6 +36,7 @@ public class Loco : Vehicle
         SpeedUnit = SpeedUnit.KmPerHour,
         Weight = 122,
         Length = 21.0f,
+        Address=5432,
         Functions = new[]
         {
                 LocoFunction.Create(0, "Lys", true),

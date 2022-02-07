@@ -387,4 +387,7 @@
   <data name="DigitalAddress" xml:space="preserve">
     <value>DCC-address</value>
   </data>
+  <data name="Model weight" xml:space="preserve">
+    <value>Modellvikt</value>
+  </data>
 </root>

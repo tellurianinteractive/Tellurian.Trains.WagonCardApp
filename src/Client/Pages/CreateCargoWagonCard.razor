@@ -94,7 +94,7 @@ else
                 </div>
                 <div>
                     <label class="inputlabel" for="LoadingInstructions">@Localizer["Loading instructions"]</label>
-                    <textarea rows="2" cols="70" id="LoadingInstructions" @bind="@Data.LoadingInstructions"></textarea>
+                    <textarea rows="2" cols="54" id="LoadingInstructions" @bind="@Data.LoadingInstructions"></textarea>
                 </div>
                 <div>
                     <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
@@ -137,6 +137,10 @@ else
             </div>
 
             <h4 style="padding-left: 15em">@Localizer["DataModel"]</h4>
+            <div>
+                <label class="inputlabel" for="ModelWeight">@Localizer["Model weight"] (g)</label>
+                <input type="number" id="ModelWeight" @bind="@Data.ModelWeight" />
+            </div>
             <div>
                 <label class="inputlabel" for="ModelManufacturer">@Localizer["ModelManufacturer"]</label>
                 <input id="ModelManufacturer" @bind="@Data.ModelManufacturer" />
