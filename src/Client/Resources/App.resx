@@ -379,4 +379,7 @@
   <data name="SelectModelImage" xml:space="preserve">
     <value>Select image of the model</value>
   </data>
+  <data name="SelectOwnerImage" xml:space="preserve">
+    <value>Select owner symbol image</value>
+  </data>
 </root>

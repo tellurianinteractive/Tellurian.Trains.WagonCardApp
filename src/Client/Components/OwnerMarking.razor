@@ -11,7 +11,13 @@
                     </div>
                 </div>
             }
-            else if (HasIcon)
+            else if (Marking.Icon is not null)
+            {
+                <div style="padding-top: 0.2cm">
+                    <img style="height: 1.0cm" src="data:@Marking.Icon.ContentType;base64,@Marking.Icon.Base64data"/>
+                </div>                
+            }
+            else if (HasIconHref)
             {
                 <div style="padding-top: 0.2cm">
                     <img style="height: 1.0cm" src="@Marking.IconHref"/>
@@ -33,6 +39,6 @@
     [Parameter] public Marking? Marking { get; set; }
 
     bool HasInventoryNumber => !string.IsNullOrWhiteSpace(Marking?.InventoryNumber);
-    bool HasIcon => Marking?.IconHref?.Length > 10;
+    bool HasIconHref => Marking?.IconHref?.Length > 10;
     bool HasColor(string? color) => !string.IsNullOrWhiteSpace(color) && !color.Equals("#ffffff", StringComparison.OrdinalIgnoreCase);
 }

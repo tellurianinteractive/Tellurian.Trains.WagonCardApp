@@ -161,6 +161,11 @@ else
                     @if (Marking.ShowOwnerIcon())
                     {
                         <div>
+                            <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOwnerImage"]</label>
+                            <InputFile class="inputurl" OnChange="OnOwnerImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOwnerImage" />
+
+                        </div>
+                        <div>
                             <label class="inputlabel" for="model">@Localizer["OwnerImageUrl"]</label>
                             <InputText class="inputurl" id="model" @bind-Value="@Marking.IconHref"></InputText>
                         </div>
@@ -253,6 +258,11 @@ else
     async Task OnModelImageChanged(InputFileChangeEventArgs e)
     {
         Data.ModelImage = await e.GetImageFile();
+    }
+
+    async Task OnOwnerImageChanged(InputFileChangeEventArgs e)
+    {
+        Data.Marking.Icon = await e.GetImageFile();
     }
 
     private async Task UploadFile(InputFileChangeEventArgs e)

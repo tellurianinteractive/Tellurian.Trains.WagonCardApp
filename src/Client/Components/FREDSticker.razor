@@ -18,7 +18,7 @@ else
             <div class="label-sm">@Data.ModelManufacturer</div>
         </div>
         <div style="color:@Data.ForeColor">
-            @foreach (var function in Data.Functions.Take(9).Where(f => !string.IsNullOrWhiteSpace(f.Text)))
+            @foreach (var function in Data.Functions.Take(9).Where(f => f.ShowOnFredSticker && !string.IsNullOrWhiteSpace(f.Text)))
             {
             <div class="function">
                 <div class="function-key">F @function.Key</div>

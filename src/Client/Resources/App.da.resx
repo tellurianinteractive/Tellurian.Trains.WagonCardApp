@@ -378,4 +378,7 @@
   <data name="SelectModelImage" xml:space="preserve">
     <value>Vælg billede af modellen</value>
   </data>
+  <data name="SelectOwnerImage" xml:space="preserve">
+    <value>Vælg ejersymbolbillede</value>
+  </data>
 </root>

@@ -8,6 +8,7 @@ public class Marking
     public string Color3 { get; set; } = "#FFFFFF";
     public string InventoryNumber { get; set; } = string.Empty;
     public string? IconHref { get; set; }
+    public ImageFile? Icon { get; set; }
 }
 
 public static class MarkingExtensions

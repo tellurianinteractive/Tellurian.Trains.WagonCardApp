@@ -12,11 +12,12 @@ public class Loco : Vehicle
     public string MainColor { get; set; } = "white";
     public string SecondColor { get; set; } = "black";
     public LocoFunction[] Functions { get; set; } = Array.Empty<LocoFunction>();
+    public int? Address { get; set; }
 
     public override string ForeColor => MainColor;
     public override string BackColor => SecondColor;
 
-    public static Loco Default => new() { Functions = Enumerable.Range(0, MaxFunctions).Select(i => new LocoFunction(i, string.Empty)).ToArray() };
+    public static Loco Default => new() { Functions = Enumerable.Range(0, MaxFunctions).Select(i => LocoFunction.Create(i, string.Empty, i < 8)).ToArray() };
 
     public static Loco Example => new()
     {
@@ -37,29 +38,29 @@ public class Loco : Vehicle
         Length = 21.0f,
         Functions = new[]
         {
-                new LocoFunction(0, "Lys"),
-                new LocoFunction(1, "Toplys"),
-                new LocoFunction(2, "Horn"),
-                new LocoFunction(3, "Rangering"),
-                new LocoFunction(4, "Udrul fra"),
-                new LocoFunction(5, "Motor"),
-                new LocoFunction(6, "Horn, kort"),
-                new LocoFunction(7, "Kobling"),
-                new LocoFunction(8, ""),
-                new LocoFunction(9, ""),
-                new LocoFunction(10, ""),
-                new LocoFunction(11, "Lys, fast A"),
-                new LocoFunction(12, "Lys, fast B"),
-                new LocoFunction(13, ""),
-                new LocoFunction(14, ""),
-                new LocoFunction(15, ""),
-                new LocoFunction(16, ""),
-                new LocoFunction(17, ""),
-                new LocoFunction(18, ""),
-                new LocoFunction(19, ""),
-                new LocoFunction(20, ""),
-                new LocoFunction(21, ""),
-                new LocoFunction(22, ""),
+                LocoFunction.Create(0, "Lys", true),
+                LocoFunction.Create(1, "Toplys", true),
+                LocoFunction.Create(2, "Horn", true),
+                LocoFunction.Create(3, "Rangering", true),
+                LocoFunction.Create(4, "Udrul fra", true),
+                LocoFunction.Create(5, "Motor", true),
+                LocoFunction.Create(6, "Horn, kort", true),
+                LocoFunction.Create(7, "Kobling", true),
+                LocoFunction.Create(8, ""),
+                LocoFunction.Create(9, ""),
+                LocoFunction.Create(10, ""),
+                LocoFunction.Create(11, "Lys, fast A"),
+                LocoFunction.Create(12, "Lys, fast B"),
+                LocoFunction.Create(13, ""),
+                LocoFunction.Create(14, ""),
+                LocoFunction.Create(15, ""),
+                LocoFunction.Create(16, ""),
+                LocoFunction.Create(17, ""),
+                LocoFunction.Create(18, ""),
+                LocoFunction.Create(19, ""),
+                LocoFunction.Create(20, ""),
+                LocoFunction.Create(21, ""),
+                LocoFunction.Create(22, ""),
             },
         OriginalImageUrl = "https://www.jernbanen.dk/Fotos/Motor/DSB_ME1508_1982.jpg",
         ModelImageUrl = "http://mck-h0.dk/wp-content/uploads/2016/08/005_125.jpg",
@@ -80,9 +81,11 @@ public class Loco : Vehicle
 
 public class LocoFunction
 {
-    public LocoFunction(int key, string text) { Key = key; Text = text; }
+    public static LocoFunction Create(int key, string text) => new() { Key = key, Text = text, ShowOnFredSticker = false };
+    public static LocoFunction Create(int key, string text, bool show) => new() { Key = key, Text = text, ShowOnFredSticker = show };
     public int Key { get; set; }
-    public string Text { get; set; }
+    public string Text { get; set; } = string.Empty;
+    public bool ShowOnFredSticker { get; set; }
 }
 
 

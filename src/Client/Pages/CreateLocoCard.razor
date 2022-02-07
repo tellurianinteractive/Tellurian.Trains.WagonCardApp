@@ -139,6 +139,7 @@ else
                                 <label style="font-weight: bold" class="inputlabel"> </label>
                                 <input style="font-weight: bold" class="inputshort" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Key" />
                                 <input class="inputwide" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Text" />
+                                <input type="checkbox" @bind="@locoFunction.ShowOnFredSticker"/>
                             </div>
                         }
                     </div>
@@ -155,6 +156,11 @@ else
                 {
                     @if (Marking.ShowOwnerIcon())
                     {
+                        <div>
+                            <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOwnerImage"]</label>
+                            <InputFile class="inputurl" OnChange="OnOwnerImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOwnerImage" />
+
+                        </div>
                         <div>
                             <label class="inputlabel" for="model">@Localizer["OwnerImageUrl"]</label>
                             <InputText class="inputurl" id="model" @bind-Value="@Marking.IconHref"></InputText>
@@ -250,6 +256,10 @@ else
         Data.ModelImage = await e.GetImageFile();
     }
 
+    async Task OnOwnerImageChanged(InputFileChangeEventArgs e)
+    {
+        Data.Marking.Icon = await e.GetImageFile();
+    }
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
         await using var stream = new MemoryStream();
@@ -281,10 +291,14 @@ else
             for (int i = existingFunctions.Length; i < Loco.MaxFunctions; i++)
             {
                 maxFunction++;
-                Data.Functions[i] = new LocoFunction(maxFunction, string.Empty);
+                Data.Functions[i] = LocoFunction.Create(maxFunction, string.Empty, false);
             }
         }
         if (Data.InteroperatbilityNumber == 0) Data.InteroperatbilityNumber = 92;
+        if (! Data.Functions.Any(f => f.ShowOnFredSticker))
+        {
+            for (var i = 0; i < 8; i++) Data.Functions[i].ShowOnFredSticker = true;
+        }
     }
 
     private async Task SaveAsFile()

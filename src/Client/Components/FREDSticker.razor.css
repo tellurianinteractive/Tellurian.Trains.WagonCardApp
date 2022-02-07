@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: 1px solid gray
+    border: 1px solid gray;
+    overflow:clip;
 }
 
 .loco-label {
@@ -16,6 +17,7 @@
     font-size: 16pt;
     font-weight: bold;
     line-height: 20pt;
+    overflow: clip;
 }
 
 .label-lg {
