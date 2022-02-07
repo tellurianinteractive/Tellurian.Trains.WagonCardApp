@@ -16,6 +16,12 @@
             <span>@Data.ModelManufacturer</span>
             <span>@Data.ModelNumber</span>
         </div>
+        @if (Data is Loco loco && loco.Address.HasValue)
+        {
+            <div class="dcc-address">
+                DCC <span>@loco.Address</span>
+            </div>
+        }
         @if (!string.IsNullOrWhiteSpace(Data.Marking.InventoryNumber))
         {
             <hr />

@@ -35,7 +35,8 @@
 }
 
 .function {
-    border-bottom: 1px solid gray
+    border-bottom: 1px solid gray;
+
 }
 
 .function-key {
@@ -53,4 +54,9 @@
 .owner-name {
     font-size: 7pt;
     font-weight: bold;
+}
+
+.dcc-address {
+    font-weight: bold;
+    border-bottom: 1px solid gray;
 }

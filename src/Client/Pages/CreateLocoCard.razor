@@ -106,6 +106,10 @@ else
 
                 <h4 style="padding-left: 15em">@Localizer["DataModel"]</h4>
                 <div>
+                    <label class="inputlabel" for="ModelManufacturer">@Localizer["DigitalAddress"]</label>
+                    <input type="number" id="ModelManufacturer" @bind="@Data.Address" />
+                </div>
+                <div>
                     <label class="inputlabel" for="ModelManufacturer">@Localizer["ModelManufacturer"]</label>
                     <input id="ModelManufacturer" @bind="@Data.ModelManufacturer" />
                 </div>
@@ -139,7 +143,7 @@ else
                                 <label style="font-weight: bold" class="inputlabel"> </label>
                                 <input style="font-weight: bold" class="inputshort" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Key" />
                                 <input class="inputwide" id="@KeyId(locoFunction)" type="text" @bind="@locoFunction.Text" />
-                                <input type="checkbox" @bind="@locoFunction.ShowOnFredSticker"/>
+                                <input type="checkbox" @bind="@locoFunction.ShowOnFredSticker" />
                             </div>
                         }
                     </div>
@@ -295,7 +299,7 @@ else
             }
         }
         if (Data.InteroperatbilityNumber == 0) Data.InteroperatbilityNumber = 92;
-        if (! Data.Functions.Any(f => f.ShowOnFredSticker))
+        if (!Data.Functions.Any(f => f.ShowOnFredSticker))
         {
             for (var i = 0; i < 8; i++) Data.Functions[i].ShowOnFredSticker = true;
         }

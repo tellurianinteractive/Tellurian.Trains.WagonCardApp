@@ -116,8 +116,10 @@ else
                     <InputRadioGroup id="Country" Name="Country" DisplayName="@Localizer["Country"]" @bind-Value="@Data.HomeStation.CountryCode">
                         @foreach (var countryCode in RegionExtensions.CountryCodes)
                         {
-                        <InputRadio Value="countryCode" Name="Country" />
-                        <span class="inputradio"> @countryCode</span>
+                        <span class="inputradio">
+                            <InputRadio class="inputradio-field" Value="countryCode" Name="Country" />
+                            <span class="inputradio-label"> @countryCode</span>
+                        </span>
                         }
                 </InputRadioGroup>
             </div>
@@ -126,9 +128,9 @@ else
                 <InputRadioGroup id="Region" Name="Region" DisplayName="@Localizer["Region"]" @bind-Value="@Data.HomeStation.Region">
                     @foreach (var region in RegionExtensions.Regions)
                         {
-                        <InputRadio Value="region.Id" Name="Region" />
-
-                        <span class="inputradio"> @Localizer[region.ResourceKey]</span>
+                            <span class="inputradio" style="background-color: @region.ResourceKey">
+                        <InputRadio class="inputradio-field" Value="region.Id" Name="Region" />
+                        <span class="inputradio-label" > @Localizer[region.ResourceKey]</span></span>
                         }
                 </InputRadioGroup>
 

@@ -123,7 +123,22 @@ a, .btn-link {
 }
 
 .inputradio {
-    font-size: 8pt;
+    border: 1px solid white;
+    background-color: gray;
+    color: white;
+}
+
+.inputradio-label {
+    font-size: 7pt;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+.inputradio-field {
+    font-size: 7pt;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
 }
 
 .value {
@@ -195,7 +210,7 @@ a, .btn-link {
 }
 
 .inputurl {
-    width: 40em;
+    width: 30em;
     font-weight: bolder;
 }
 
