@@ -97,6 +97,13 @@
                             <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature</span>
                         </div>
                     </div>
+                    @if (Data.LoadingInstructions.HasValue())
+                    {
+                        <div class="property" style="border-bottom: 1px solid black; padding-bottom: 4pt" >
+                            <span class="label">@Localizer.Label("Loading instructions")</span><br />
+                            <div class="value-sm" style="font-size: 9pt; line-height: 9pt">@Data.LoadingInstructions</div>
+                        </div>
+                    }
                     <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 </div>
                 <div class="pocket">

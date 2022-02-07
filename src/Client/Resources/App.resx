@@ -382,4 +382,7 @@
   <data name="SelectOwnerImage" xml:space="preserve">
     <value>Select owner symbol image</value>
   </data>
+  <data name="Loading instructions" xml:space="preserve">
+    <value>Loading instructions</value>
+  </data>
 </root>

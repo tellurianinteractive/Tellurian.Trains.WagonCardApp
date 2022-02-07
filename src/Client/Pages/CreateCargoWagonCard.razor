@@ -93,6 +93,10 @@ else
                     <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadVolume"></InputNumber> m³
                 </div>
                 <div>
+                    <label class="inputlabel" for="LoadingInstructions">@Localizer["Loading instructions"]</label>
+                    <textarea rows="2" cols="70" id="LoadingInstructions" @bind="@Data.LoadingInstructions"></textarea>
+                </div>
+                <div>
                     <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
                     <InputFile class="inputurl" OnChange="OnOriginalImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOriginalImage" />
 

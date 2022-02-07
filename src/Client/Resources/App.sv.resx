@@ -381,4 +381,7 @@
   <data name="SelectOwnerImage" xml:space="preserve">
     <value>Välj ägarsymbolbild</value>
   </data>
+  <data name="Loading instructions" xml:space="preserve">
+    <value>Lastinstruktioner</value>
+  </data>
 </root>

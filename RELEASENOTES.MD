@@ -1,5 +1,10 @@
 # Release Notes
 
+### Release 2.1.2
+- **FRED functions**, you can now select which functions that appears.
+- **Owner image** can now be selected from your local computer.
+- **Cargo wagon colours** for Ui and Ug classes updated. Thanks to Michael Bunka.
+
 ### Release 2.1.1
 Release date 2022-02-05
 - **FRED sticker** text overflow fixed.

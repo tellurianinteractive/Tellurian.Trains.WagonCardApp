@@ -381,4 +381,7 @@
   <data name="SelectOwnerImage" xml:space="preserve">
     <value>Velg eiersymbolbilde</value>
   </data>
+  <data name="Loading instructions" xml:space="preserve">
+    <value>Lasteinstruksjoner</value>
+  </data>
 </root>

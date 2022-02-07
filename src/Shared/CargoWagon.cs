@@ -5,6 +5,7 @@ public class CargoWagon : Vehicle
     public string Description { get; set; } = string.Empty;
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
+    public string? LoadingInstructions { get; set; }
 
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
