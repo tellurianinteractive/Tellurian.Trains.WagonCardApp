@@ -1,23 +1,19 @@
-﻿
-
-
-
-.functions {
+﻿.functions {
     display: flex;
     flex-direction: column;
     flex-wrap:wrap;
-    margin-top: 0px;
-    height: 3.5cm;
+    margin-top: 1px;
+    height: 3.6cm;
 }
 
 .functions-column {
     display: flex;
     flex-direction: column;
-    /*border-left: 1px solid black*/
 }
 
 .function-key {
-
+    line-height: 14pt;
+    padding: 2px 0px 1px 0px;
 }
 
 .function {
@@ -25,9 +21,8 @@
     color: white;
     background-color: black;
     font-weight: bolder;
-    font-size: 11pt;
-    line-height: 0.4cm;
-    padding: 1px 2px 12px 1px;
+    font-size: 12pt;
+    padding: 1px 2px 3px 2px;
 }
 
 .function-text {

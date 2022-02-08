@@ -390,4 +390,10 @@
   <data name="Model weight" xml:space="preserve">
     <value>Modellvekt</value>
   </data>
+  <data name="FredLocoLabelBackColour" xml:space="preserve">
+    <value>Bakgrunnsfarge FRED lok-id</value>
+  </data>
+  <data name="FredFunctionsBackColour" xml:space="preserve">
+    <value>Bakgrunnsfarge FRED-funksjoner</value>
+  </data>
 </root>

@@ -8,32 +8,36 @@ else
 {
     <div style="display:block">
         <div class="fred-sticker">
-            <div style="height:15mm;border:1px">
-            </div>
-            <div class="loco-label" style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor()">
-                <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()"> @Data.OperatorSignature</div>
-                <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()">@Data.VehicleClass</div>
-                <div class="label-lg" style="font-size: @Data.VehicleNumber.FredStickerLocoNumberFontSize()">@Data.VehicleNumber</div>
-                <div class="label-sm">@Data.ModelManufacturer</div>
-            </div>
-            @if (Data.Address.HasValue)
-            {
-                <div class="dcc-address">
-                    DCC <span>@Data.Address</span>
+            <div style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor()">
+                <div style="height:25mm;border:1px" />
+                <div class="loco-label" >
+                    <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerOperatorFontSize()"> @Data.OperatorSignature</div>
+                    <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()">@Data.VehicleClass</div>
+                    <div class="label-lg" style="font-size: @Data.VehicleNumber.FredStickerLocoNumberFontSize()">@Data.VehicleNumber</div>
+                    <div class="label-sm">@Data.ModelManufacturer</div>
                 </div>
-            }
-            <div style="color:@Data.ForeColor">
-                @foreach (var function in Data.Functions.Take(9).Where(f => f.ShowOnFredSticker && !string.IsNullOrWhiteSpace(f.Text)))
+            </div>
+            <div style="height: 135mm; color:@Data.ForeColor.TextColor(); background-color: @Data.ForeColor;">
+                <div style="height:30mm;border-bottom:1px solid @Data.ForeColor.TextColor()" />
+                <div class="owner-name" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
+                    @Localizer.Label("Owner"):<br />
+                    <span style="font-weight: bold">@Owner?.OwnerName</span>
+                </div>
+                @if (Data.Address.HasValue)
                 {
-                    <div class="function">
-                        <div class="function-key">F @function.Key</div>
-                        <div class="function-text">@function.Text</div>
+                    <div class="dcc-address" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
+                        DCC <span>@Data.Address</span>
                     </div>
                 }
-            </div>
-            <div class="owner-name">
-                @Localizer["Owner"]<br />
-                @Owner?.OwnerName
+                <div>
+                    @foreach (var function in Data.Functions.Where(f => f.ShowOnFredSticker && !string.IsNullOrWhiteSpace(f.Text)).Take(9))
+                    {
+                        <div class="function" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
+                            <div class="function-key">F @function.Key</div>
+                            <div class="function-text">@function.Text</div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>

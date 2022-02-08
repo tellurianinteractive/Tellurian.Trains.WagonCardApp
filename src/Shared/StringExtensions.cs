@@ -29,9 +29,13 @@ public static class StringExtensions
             var yiq = (r * 299 + g * 587 + b * 114) / 1000;
             return yiq >= 128 ? "#000000" : "#FFFFFF";
         }
-        return "black";
+        return "#000000";
     }
+
+    public static string DarkTextColor(this string? textColor) =>
+        textColor.IsHexColor() && "#FFFFFF".Equals(textColor.TextColor(), StringComparison.OrdinalIgnoreCase) ? textColor : "#000000";  
     private static string HexColorRegEx => "^#([A-Fa-f0-9]{6})$";
+
     public static bool IsHexColor([NotNullWhen(true)] this string? maybeColor) =>
         !string.IsNullOrWhiteSpace(maybeColor) && Regex.IsMatch(maybeColor, HexColorRegEx);
 

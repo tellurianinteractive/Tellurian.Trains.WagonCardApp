@@ -391,4 +391,10 @@
   <data name="Model weight" xml:space="preserve">
     <value>Model weight</value>
   </data>
+  <data name="FredLocoLabelBackColour" xml:space="preserve">
+    <value>Background colour FRED locomotive label</value>
+  </data>
+  <data name="FredFunctionsBackColour" xml:space="preserve">
+    <value>Background colour FRED functions</value>
+  </data>
 </root>

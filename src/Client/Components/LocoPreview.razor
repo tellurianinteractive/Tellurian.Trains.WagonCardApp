@@ -6,11 +6,15 @@ else
 {
     <div style="display:flex;flex-direction:row">
         <div>
-            <LocoCard Data="@Data" Owner="@Owner" />
-            <InventoryCard Data="@Data" Owner="@Owner" />
+            <div>
+                <LocoCard Data="@Data" Owner="@Owner" />
+            </div>
+            <div style="padding-top: 2px">
+                <InventoryCard Data="@Data" Owner="@Owner" />
+            </div>
         </div>
-        <div>
-            <FREDSticker Data="@Data" Owner="@Owner"/>
+        <div style="padding-left: 2px">
+            <FREDSticker Data="@Data" Owner="@Owner" />
         </div>
     </div>
 }

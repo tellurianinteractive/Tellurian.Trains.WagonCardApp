@@ -1,10 +1,10 @@
 ﻿.fred-sticker {
     width: 21mm;
-    height: 185mm;
+    height: 190mm;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     overflow:clip;
 }
 
@@ -35,28 +35,33 @@
 }
 
 .function {
-    border-bottom: 1px solid gray;
-
+    margin: 0px;
+    padding: 0px;
 }
 
 .function-key {
     padding-top: 3px;
-    font-size: 16pt;
+    font-size: 12pt;
     font-weight: bold;
-    line-height: 18pt;
+    line-height: 12pt;
+    margin: 0px;
+    padding: 1px 1px 0px 1px;
 }
 
 .function-text {
-    font-size: 12pt;
+    font-size: 10pt;
     padding: 2px 5px 2px 5px;
+    margin: 0px;
+    padding: 0px 0px 1px 0px;
 }
 
 .owner-name {
     font-size: 7pt;
     font-weight: bold;
+    padding: 2px;
 }
 
 .dcc-address {
+    font-size: 11pt;
     font-weight: bold;
-    border-bottom: 1px solid gray;
 }

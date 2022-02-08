@@ -1,6 +1,16 @@
 # Release Notes
 
+### Release 2.1.3
+Release date 2022-02-08
+
+- **FRED sticker** design is changed:
+  - colourisation is selectable separate for loco idenfification and functions.
+  - Fonts are now smaller.
+  - Functions now fist on backside of FRED, not above.
+- **Spacing** added between *loco/wagon card*, *inventory card* and *FRED-sticker* to make cutting easier.
+
 ### Release 2.1.2
+Release date 2022-02-07
 - **FRED functions**, you can now select which functions that appears.
 - **Loco DCC-address** can now be entered and displays on *FRED-sticker* and *inventory card*.
 - **Loading instructions** can now be entered for cargo wagons.
