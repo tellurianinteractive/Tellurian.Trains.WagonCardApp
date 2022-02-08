@@ -21,3 +21,8 @@
     width: 0.3cm;
     height: 0.4cm;
 }
+
+.owner-label {
+    font-size: 18pt;
+    font-weight: bold;
+}

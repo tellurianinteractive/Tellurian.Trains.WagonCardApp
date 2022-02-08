@@ -396,4 +396,7 @@
   <data name="FredFunctionsBackColour" xml:space="preserve">
     <value>Baggrundsfarve FRED-funktioner</value>
   </data>
+  <data name="OwnerTextLabel" xml:space="preserve">
+    <value>Ejerens signature</value>
+  </data>
 </root>

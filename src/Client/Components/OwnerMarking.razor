@@ -23,6 +23,12 @@
                     <img style="height: 1.0cm" src="@Marking.IconHref"/>
                 </div>
             }
+            else if(HasTextLabel)
+            {
+                <div style="padding-top: 0.2cm">
+                    <span class="owner-label">@Marking.TextLabel</span>
+                </div>              
+            }
             else
             {
                 <div style="padding-top: 0.3cm">
@@ -39,6 +45,7 @@
     [Parameter] public Marking? Marking { get; set; }
 
     bool HasInventoryNumber => !string.IsNullOrWhiteSpace(Marking?.InventoryNumber);
-    bool HasIconHref => Marking?.IconHref?.Length > 10;
+    bool HasIconHref => Marking?.IconHref?.StartsWith("http") == true;
+    bool HasTextLabel => Marking?.TextLabel?.HasValue() == true ;
     bool HasColor(string? color) => !string.IsNullOrWhiteSpace(color) && !color.Equals("#ffffff", StringComparison.OrdinalIgnoreCase);
 }

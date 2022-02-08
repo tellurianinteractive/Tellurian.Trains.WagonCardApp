@@ -101,6 +101,7 @@ public class CargoWagon : Vehicle
     private string KL => ClassIs("Kö") ? L : K;
     private string QLZ => ClassIs("Q12") || ClassIs("Q14") ? Z : L;
     private string ULZ => 
+        ClassIs("Uag") ? Z :
         ClassIs("Ua") || ClassIs("Ud") || ClassIs("Ui") ? L :
         ClassIs("Ug") ? G : Z;
 

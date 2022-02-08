@@ -128,9 +128,10 @@ else
                 <InputRadioGroup id="Region" Name="Region" DisplayName="@Localizer["Region"]" @bind-Value="@Data.HomeStation.Region">
                     @foreach (var region in RegionExtensions.Regions)
                         {
-                            <span class="inputradio" style="background-color: @region.ResourceKey">
-                        <InputRadio class="inputradio-field" Value="region.Id" Name="Region" />
-                        <span class="inputradio-label" > @Localizer[region.ResourceKey]</span></span>
+                        <span class="inputradio" style="background-color: @region.ResourceKey">
+                            <InputRadio class="inputradio-field" Value="region.Id" Name="Region" />
+                            <span class="inputradio-label"> @Localizer[region.ResourceKey]</span>
+                        </span>
                         }
                 </InputRadioGroup>
 
@@ -168,6 +169,14 @@ else
 
             @if (Marking.UseMarking)
                 {
+                    @if (Marking.ShowOwnerTextLabel())
+                    {
+                        <div>
+                            <label class="inputlabel" for="OwnerTextLabel">@Localizer["OwnerTextLabel"]</label>
+                            <input id="OwnerTextLabel" @bind="@Marking.TextLabel" />
+                        </div>
+
+                    }
                     @if (Marking.ShowOwnerIcon())
                     {
                         <div>
