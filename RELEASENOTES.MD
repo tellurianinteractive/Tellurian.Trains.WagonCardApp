@@ -4,7 +4,7 @@
 Release date 2022-02-08
 
 - **FRED sticker** design is changed:
-  - colourisation is selectable separate for loco identification and functions.
+  - Colourisation is selectable separate for loco identification and functions.
   - Fonts are now smaller.
   - Functions now on backside of FRED, not above.
 - **Spacing** added between *loco/wagon card*, *inventory card* and *FRED-sticker* to make cutting easier.
