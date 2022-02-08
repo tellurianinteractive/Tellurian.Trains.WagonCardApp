@@ -9,7 +9,7 @@ Release date 2022-02-08
   - Functions now fist on backside of FRED, not above.
 - **Spacing** added between *loco/wagon card*, *inventory card* and *FRED-sticker* to make cutting easier.
 - **Owner signature marking** can be entered.
-- **Uag class** freigt wagon now displays with gray frame.
+- **Uag class** freight wagon now displays with gray frame.
 
 ### Release 2.1.2
 Release date 2022-02-07
