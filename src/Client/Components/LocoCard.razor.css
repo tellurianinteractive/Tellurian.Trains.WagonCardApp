@@ -12,8 +12,8 @@
 }
 
 .function-key {
-    line-height: 14pt;
-    padding: 2px 0px 1px 0px;
+    line-height: 12pt;
+    padding: 1px 0px 2px 0px;
 }
 
 .function {
@@ -21,11 +21,11 @@
     color: white;
     background-color: black;
     font-weight: bolder;
-    font-size: 12pt;
-    padding: 1px 2px 3px 2px;
+    font-size: 10pt;
+    padding: 0px 1px 2px 1px;
 }
 
 .function-text {
     font-size: 10pt;
-    padding: 0px 5px 0px 5px;
+    padding: 0px 3px 0px 3px;
 }

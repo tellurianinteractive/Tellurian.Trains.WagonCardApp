@@ -54,9 +54,17 @@
     margin: 0px;
     padding: 0px 0px 1px 0px;
 }
+.owner {
+    width: 100%;
+    height: auto;
+}
+
+.owner-label {
+    font-size: 6pt;
+}
 
 .owner-name {
-    font-size: 7pt;
+    font-size: 8pt;
     font-weight: bold;
     padding: 2px;
 }

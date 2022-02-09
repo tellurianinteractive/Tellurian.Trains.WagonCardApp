@@ -10,7 +10,7 @@ else
         <div class="fred-sticker">
             <div style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor()">
                 <div style="height:25mm;border:1px" />
-                <div class="loco-label" >
+                <div class="loco-label">
                     <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerOperatorFontSize()"> @Data.OperatorSignature</div>
                     <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()">@Data.VehicleClass</div>
                     <div class="label-lg" style="font-size: @Data.VehicleNumber.FredStickerLocoNumberFontSize()">@Data.VehicleNumber</div>
@@ -19,9 +19,9 @@ else
             </div>
             <div style="height: 135mm; color:@Data.ForeColor.TextColor(); background-color: @Data.ForeColor;">
                 <div style="height:30mm;border-bottom:1px solid @Data.ForeColor.TextColor()" />
-                <div class="owner-name" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
-                    @Localizer.Label("Owner"):<br />
-                    <span style="font-weight: bold">@Owner?.OwnerName</span>
+                <div class="owner" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
+                    <span class="owner-label">@Localizer.Label("Owner"):</span><br/>
+                    <span class="owner-name">@Owner?.OwnerName</span>
                 </div>
                 @if (Data.Address.HasValue)
                 {

@@ -37,7 +37,7 @@
 
         <div class="card" style="display: block; transform: rotate(180deg)">
             <div class="card-info" style="flex-direction: row;">
-                <div style="width: 8.4cm">
+                <div style="width: 8cm;">
                     <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
                         @Data.Identification()
                     </div>
@@ -84,7 +84,9 @@
                             <span class="value-sm">@Data.Length m</span>
                         </div>
                     </div>
-                    <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                    <div>
+                        <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                    </div>
                 </div>
                 <div class="pocket">
                     <div style="padding-top: 4cm">@Localizer["VehicleSchedule"]</div>

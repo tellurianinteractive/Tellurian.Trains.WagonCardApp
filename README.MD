@@ -11,6 +11,11 @@ The app supports English, German, Danish, Norwegian and Swedish.
 The language is controlled by preferred language settings in your browser.
 
 ## Contribute
+The app is *open source* and developed in 
+[Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) and 
+[.NET](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet), using a free version of
+[Visual Studio](https://visualstudio.microsoft.com/).
+
 If you have a GitHub account, you can file [suggestions and other issues](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp/issues).
 Discussions are also in the [FREMO forum](https://forum.fremo-net.eu/t/online-loco-and-wagon-card-app/).
 

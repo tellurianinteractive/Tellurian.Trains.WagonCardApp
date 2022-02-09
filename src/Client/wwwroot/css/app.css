@@ -56,8 +56,8 @@ a, .btn-link {
     padding: 0px;
     margin: 0px;
     border: 0.5cm solid red;
-    height: 10.15cm;
-    width: 14.4cm;
+    height: 9.7cm;
+    width: 14.0cm;
     overflow: clip;
 }
 
@@ -66,8 +66,8 @@ a, .btn-link {
     margin: 0px;
     display: flex;
     border: 1px solid black;
-    width: 14.35cm;
-    height: 10.1cm;
+    width: 13.95cm;
+    height: 9.65cm;
     background-color: white;
 }
 
@@ -100,18 +100,18 @@ a, .btn-link {
 }
 
 .picture-back {
-    max-height: 4.9cm;
-    width: 8.4cm;
+    max-height: 3cm;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: clip;
 }
 
 .picture-back-image {
     margin: 1px;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .label {
@@ -178,7 +178,7 @@ a, .btn-link {
 .pocket {
     display: inline-block;
     margin: 0.0cm;
-    height: 10.1cm;
+    height: 9.7cm;
     width: 6.0cm;
     border-left: 1px solid black;
     text-align: center;

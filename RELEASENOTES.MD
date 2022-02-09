@@ -1,5 +1,15 @@
 # Release Notes
 
+### Release 2.1.4
+Release date 2022-02-09
+- **Card dimensions** adapted to show more of the coloured frame. The colour frame is now 1 mm wider on all sides that A6 (105x148mm), 
+which will result in a 4mm coloured frame after cutting to A6. This made the content of the card a bit smaller.
+- **Model images** now is clipped to fit within box, and still have room for *loading instructions*. 
+Note that images should have 8:3 in propotion for best view, otherwise some part of the image will be clipped and not visible.
+
+>A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+
+
 ### Release 2.1.3
 Release date 2022-02-08
 
