@@ -1,5 +1,5 @@
 # Release Notes
->When you use a new release, it is recommended that you do a *hard refresh*, to ensure that you get the latest styles applied.
+>When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
 
