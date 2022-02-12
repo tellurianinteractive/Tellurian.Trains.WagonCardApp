@@ -399,4 +399,7 @@
   <data name="OwnerTextLabel" xml:space="preserve">
     <value>Ägarens signatur</value>
   </data>
+  <data name="References" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
 </root>

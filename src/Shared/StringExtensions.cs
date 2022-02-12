@@ -33,10 +33,17 @@ public static class StringExtensions
     }
 
     public static string DarkTextColor(this string? textColor) =>
-        textColor.IsHexColor() && "#FFFFFF".Equals(textColor.TextColor(), StringComparison.OrdinalIgnoreCase) ? textColor : "#000000";  
+        textColor.IsHexColor() && "#FFFFFF".Equals(textColor.TextColor(), StringComparison.OrdinalIgnoreCase) ? textColor : "#000000";
     private static string HexColorRegEx => "^#([A-Fa-f0-9]{6})$";
 
     public static bool IsHexColor([NotNullWhen(true)] this string? maybeColor) =>
         !string.IsNullOrWhiteSpace(maybeColor) && Regex.IsMatch(maybeColor, HexColorRegEx);
+
+    public static bool IsDigitsOrWhiteSpace(this string? value) =>
+        !string.IsNullOrWhiteSpace(value) && value.All(c => char.IsDigit(c) || char.IsWhiteSpace(c));
+
+    public static int NumberOfDigits(this string? value) =>
+        string.IsNullOrWhiteSpace(value) ? 0 :
+        value.Count(c => char.IsDigit(c));
 
 }

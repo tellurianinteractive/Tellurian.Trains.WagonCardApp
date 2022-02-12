@@ -399,4 +399,7 @@
   <data name="OwnerTextLabel" xml:space="preserve">
     <value>Eierens signatur</value>
   </data>
+  <data name="References" xml:space="preserve">
+    <value>Referanser</value>
+  </data>
 </root>

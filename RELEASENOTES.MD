@@ -1,4 +1,14 @@
 # Release Notes
+>When you use a new release, it is recommended that you do a *hard refresh*, to ensure that you get the latest styles applied.
+
+>A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+
+### Release 2.1.5
+Release date 2022-02-12
+- **Reference page** added, describing international standards for numbering and classification of locos and wagons.
+- **EVN 12-digit number** for loco numering now works. If you specify an inperoperability code, a country number and a 7-digit loco number, 
+the checkdigit will automatically be added.
+- **Bug fix** of check digit displaying 10 should be 0.
 
 ### Release 2.1.4
 Release date 2022-02-09
@@ -8,9 +18,6 @@ which will result in a 4mm coloured frame after cutting to A6.
 This made the content of the card a bit smaller.
 - **Model images** now is clipped to fit within box, and still have room for *loading instructions*. 
 Note that images should have 8:3 in proportion for best view, otherwise some part of the image will be clipped and not visible.
-
->A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
-
 
 ### Release 2.1.3
 Release date 2022-02-08

@@ -399,4 +399,7 @@
   <data name="OwnerTextLabel" xml:space="preserve">
     <value>Besitzertext</value>
   </data>
+  <data name="References" xml:space="preserve">
+    <value>Verweise</value>
+  </data>
 </root>

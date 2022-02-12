@@ -400,4 +400,7 @@
   <data name="OwnerTextLabel" xml:space="preserve">
     <value>Owner's signature</value>
   </data>
+  <data name="References" xml:space="preserve">
+    <value>References</value>
+  </data>
 </root>

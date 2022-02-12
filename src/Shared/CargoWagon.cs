@@ -12,49 +12,14 @@ public class CargoWagon : Vehicle
     public string? WagonColor { get; set; }
     public int? ModelWeight { get; set; }
 
-    public override string UicCheckDigit => GetUicChecksum();
+    public override bool UseUicNumber => this.UseUicNumber();
 
+    public override string UicCheckDigit => this.CheckDigit();
     public string FullVehicleNumber => $"{VehicleNumber}{UicCheckDigit}";
-
-    static readonly int[] multipliers = { 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
-
-    private string GetUicChecksum()
-    {
-        if (UseUicNumber && ! HasChecksum)
-        {
-            var checksum = CalculateUicCheckSum();
-            if (checksum is null) return string.Empty;
-            return $"-{checksum}";
-        }
-        else return string.Empty;
-
-    }
-    private int? CalculateUicCheckSum()
-    {
-        var digits = $"{InteroperatbilityNumber}{CountryRegistrationNumber}{VehicleNumber}".Where(c => char.IsDigit(c)).Select(c => c - '0').ToArray();
-        if (digits.Length != multipliers.Length) return null;
-        var sums = new int[11];
-        for (int i = 0; i < digits.Length; i++)
-        {
-            sums[i] += digits[i] * multipliers[i];
-            if (sums[i] > 9) sums[i] -= 9;
-        }
-        //var checkdigits = string.Join("", sums.ToString());
-        var checksum = sums.Sum();
-        return 10 - checksum % 10;
-    }
-
-    public bool UseUicNumber => InteroperatbilityNumber > 0 && CountryRegistrationNumber > 0 && VehicleNumber.Count(c => char.IsDigit(c)) >= 7;
-    private bool HasChecksum => VehicleNumber.Length > 0 && VehicleNumber.Contains('-');
-
-
     public HomeStation HomeStation { get; set; } = new();
-
     public bool HasHomeStation => !string.IsNullOrWhiteSpace(HomeStation?.Name);
-
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
-
     public string Interoperability => $"{InteroperatbilityNumber} {RivAndOrTen} ";
     public string Country => $"{CountryRegistrationNumber}";
 
