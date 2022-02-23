@@ -2,7 +2,10 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
-
+### Release 2.1.6
+Release date 2022-02-23
+- **Bug fix** of max heigh of model page image.
+- 
 ### Release 2.1.5
 Release date 2022-02-12
 - **Reference page** added, describing international standards for numbering and classification of locos and wagons.
