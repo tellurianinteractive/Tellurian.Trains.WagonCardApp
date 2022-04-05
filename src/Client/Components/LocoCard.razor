@@ -8,7 +8,7 @@
                 <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
                     @Data.Identification()
                 </div>
-                <VehicleImage CssClass="picture-front" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
+                <VehicleImage CssClass="picture-front" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 <div style="display: flex; flex-direction: row">
                     <div style="display: flex; flex-direction: column">
                         <div class="marking">
@@ -61,15 +61,15 @@
                             <span class="label">@Localizer["Driveline"]</span><br />
                             <span class="value-sm">@Data.DrivelineType</span>
                         </div>
-                        <div class="property">
-                            <span class="label">@Localizer["EnginePower"]</span><br />
-                            <span class="value-sm">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</span>
-                        </div>
-                    </div>
-                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         <div style="border-right: 1px solid black" class="property">
                             <span class="label">@Localizer["Manufacturer"]/@Localizer["Year"]</span><br />
                             <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        <div class="property">
+                            <span class="label">@Localizer["EnginePower"]</span><br />
+                            <span class="value-sm">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</span>
                         </div>
                         <div style="border-right: 1px solid black" class="property">
                             <span class="label">@Localizer["TopSpeed"]</span><br />
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div>
-                        <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                        <VehicleImage CssClass="picture-back" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
                     </div>
                 </div>
                 <div class="pocket">

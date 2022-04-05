@@ -98,13 +98,21 @@ else
                 </div>
                 <div>
                     <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
-                    <InputFile class="inputurl" OnChange="OnOriginalImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOriginalImage" />
-
+                    <span>
+                        @if (Data.OriginalImage?.IsImage == true)
+                        {
+                            <button @onclick="ClearOriginalImage">@Localizer["Reset"] </button> <span style="font-size: 9pt"> @Data.OriginalImage.FileName</span>
+                        }
+                        else
+                        {
+                            <InputFile class="inputurl" OnChange="OnOriginalImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOriginalImage" />
+                        }
+                    </span>                    
                 </div>
                 <div>
                     <label class="inputlabel" for="original">@Localizer["OriginalImageUrl"]</label>
                     <InputText class="inputurl" id="original" @bind-Value="@Data.OriginalImageUrl"></InputText>
-                </div>
+               </div>
 
                 <h4 style="padding-left: 15em">@Localizer["Home station"]</h4>
                 <div>
@@ -151,14 +159,22 @@ else
                 <input id="ModelNumber" @bind="@Data.ModelNumber" />
             </div>
             <div>
-                <label class="inputlabel" for="SelectModelImage">@Localizer["SelectModelImage"]</label>
-                <InputFile class="inputurl" OnChange="OnModelImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectModelImage" />
+            <label class="inputlabel" for="SelectModelImage">@Localizer["SelectModelImage"]</label>
+                <span>
+                    @if (Data.ModelImage?.IsImage == true)
+                    {
+                        <button @onclick="ClearModelImage">@Localizer["Reset"] </button> <span style="font-size: 9pt"> @Data.ModelImage.FileName</span>
+                    }
+                    else
+                    {
+                        <InputFile class="inputurl" OnChange="OnModelImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectModelImage" />
+                    }
+                </span>                    
             </div>
-
             <div>
                 <label class="inputlabel" for="model">@Localizer["ModelImageUrl"]</label>
-                <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl"></InputText>
-            </div>
+                <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl">XXX</InputText>
+             </div>
 
             <h4 style="padding-left: 15em">@Localizer["OwnersMarking"]</h4>
 
@@ -273,11 +289,13 @@ else
     {
         Data.OriginalImage = await e.GetImageFile();
     }
+    void ClearOriginalImage() => Data.OriginalImage=null;
 
     async Task OnModelImageChanged(InputFileChangeEventArgs e)
     {
         Data.ModelImage = await e.GetImageFile();
     }
+    void ClearModelImage() => Data.ModelImage=null;
 
     async Task OnOwnerImageChanged(InputFileChangeEventArgs e)
     {
