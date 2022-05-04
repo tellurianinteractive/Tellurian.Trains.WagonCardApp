@@ -137,7 +137,7 @@ else
                         {
                             <InputFile class="inputurl" OnChange="OnModelImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectModelImage" />
                         }
-                    </span>                    
+                    </span>
                 </div>
                 <div>
                     <label class="inputlabel" for="model">@Localizer["ModelImageUrl"]</label>
@@ -281,24 +281,25 @@ else
         Data.OriginalImage = await e.GetImageFile();
     }
 
-    void ClearOriginalImage() => Data.OriginalImage=null;
+    void ClearOriginalImage() => Data.OriginalImage = null;
 
     async Task OnModelImageChanged(InputFileChangeEventArgs e)
     {
         Data.ModelImage = await e.GetImageFile();
     }
-    void ClearModelImage() => Data.ModelImage= null;
+    void ClearModelImage() => Data.ModelImage = null;
 
     async Task OnOwnerImageChanged(InputFileChangeEventArgs e)
     {
         Data.Marking.Icon = await e.GetImageFile();
     }
+
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
         await using var stream = new MemoryStream();
         try
         {
-            await e.File.OpenReadStream().CopyToAsync(stream);
+            await e.File.OpenReadStream(maxAllowedSize: 700000).CopyToAsync(stream);
             stream.Position = 0;
             Data = await JsonSerializer.DeserializeAsync<Loco>(stream) ?? Loco.Default;
             AddMissingLocoData();
