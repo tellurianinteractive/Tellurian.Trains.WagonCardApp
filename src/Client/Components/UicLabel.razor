@@ -21,7 +21,7 @@ else
 
 @code {
 
-    [Parameter] public CargoWagon? Data { get; set; }
+    [Parameter] public Wagon? Data { get; set; }
     [Parameter] public int? FontSize { get; set; }
 
     string ActualFontSize => $"{(FontSize.HasValue ? FontSize.Value : 7)}pt";

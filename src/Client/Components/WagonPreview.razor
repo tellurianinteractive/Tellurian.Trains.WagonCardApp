@@ -6,7 +6,7 @@ else
 {
     <div style="display:flex;flex-direction:column">
         <div>
-            <CargoWagonCard Data="@Data" Owner="@Owner" />
+            <WagonCard Data="@Data" Owner="@Owner" />
         </div>
         <div style="display:flex;flex-direction:row">
             <div>
@@ -22,7 +22,7 @@ else
 
 
 @code {
-    [Parameter] public CargoWagon? Data { get; set; }
+    [Parameter] public Wagon? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
 
 }

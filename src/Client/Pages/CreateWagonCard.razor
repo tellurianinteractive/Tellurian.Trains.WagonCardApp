@@ -1,10 +1,11 @@
 ﻿@page "/cargowagon"
+@page "/passengerwagon"
 @inject IStringLocalizer<App> Localizer
 @inject ILocalStorageService LocalStorage
 @inject NavigationManager Navigator
 @inject IBlazorDownloadFileService BlazorDownloadFileService
 
-<h3>@Localizer["CreateFreightWagonCard"]</h3>
+<h3>@Localizer["CreateWagonCard"]</h3>
 @if (!HasData)
 {
 
@@ -22,14 +23,13 @@ else
 
     <div style="display:flex;flex-direction:row">
         <div>
-            <CargoWagonPreview Data="@Data" Owner="@Owner" />
+            <WagonPreview Data="@Data" Owner="@Owner" />
         </div>
         <div>
             <EditForm Model="@Data" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
                 <h4 style="padding-left: 15em">@Localizer["DataOriginal"]</h4>
-
                 <div>
                     <label class="inputlabel" for="OperatorSignature">@Localizer["OperatorSignature"]</label>
                     <InputText class="inputshort" id="OperatorSignature" @bind-Value="@Data.OperatorSignature"></InputText>
@@ -59,14 +59,6 @@ else
                     <InputText class="inputshort" id="epoch" @bind-Value="@Data.Epoch"></InputText>
                 </div>
                 <div>
-                    <label class="inputlabel" for="IsRivConformant">@Localizer["IsRivConformant"]</label>
-                    <InputCheckbox class="inputshort" id="IsRivConformant" @bind-Value="@Data.IsRivConformant"></InputCheckbox>
-                </div>
-                <div>
-                    <label class="inputlabel" for="IsTenConformant">@Localizer["IsTenConformant"]</label>
-                    <InputCheckbox class="inputshort" id="IsTenConformant" @bind-Value="@Data.IsTenConformant"></InputCheckbox>
-                </div>
-                <div>
                     <label class="inputlabel" for="from">@Localizer["Operating period in this design"]</label>
                     <InputNumber class="inputshort" id="fromYear" @bind-Value="@Data.OperatingFromYear"></InputNumber>
                     -
@@ -84,18 +76,33 @@ else
                     <label class="inputlabel" for="length">@Localizer["LengthOverBuffers"]</label>
                     <InputNumber class="inputshort" id="length" @bind-Value="@Data.Length"></InputNumber> m
                 </div>
-                <div>
-                    <label class="inputlabel" for="weight">@Localizer["LoadLimit"]</label>
-                    <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadLimit"></InputNumber> t
-                </div>
-                <div>
-                    <label class="inputlabel" for="weight">@Localizer["LoadVolume"]</label>
-                    <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadVolume"></InputNumber> m³
-                </div>
-                <div>
-                    <label class="inputlabel" for="LoadingInstructions">@Localizer["Loading instructions"]</label>
-                    <textarea rows="2" cols="54" id="LoadingInstructions" @bind="@Data.LoadingInstructions"></textarea>
-                </div>
+                @if (Data.IsPassengerWagon)
+                {
+
+                }
+                else
+                {
+                    <div>
+                        <label class="inputlabel" for="weight">@Localizer["LoadLimit"]</label>
+                        <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadLimit"></InputNumber> t
+                    </div>
+                    <div>
+                        <label class="inputlabel" for="weight">@Localizer["LoadVolume"]</label>
+                        <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadVolume"></InputNumber> m³
+                    </div>
+                    <div>
+                        <label class="inputlabel" for="IsRivConformant">@Localizer["IsRivConformant"]</label>
+                        <InputCheckbox class="inputshort" id="IsRivConformant" @bind-Value="@Data.IsRivConformant"></InputCheckbox>
+                    </div>
+                    <div>
+                        <label class="inputlabel" for="IsTenConformant">@Localizer["IsTenConformant"]</label>
+                        <InputCheckbox class="inputshort" id="IsTenConformant" @bind-Value="@Data.IsTenConformant"></InputCheckbox>
+                    </div>
+                    <div>
+                        <label class="inputlabel" for="LoadingInstructions">@Localizer["Loading instructions"]</label>
+                        <textarea rows="2" cols="54" id="LoadingInstructions" @bind="@Data.LoadingInstructions"></textarea>
+                    </div>
+                }
                 <div>
                     <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
                     <span>
@@ -265,23 +272,46 @@ else
 }
 
 @code {
-    CargoWagon Data = new CargoWagon();
+    Wagon Data = new Wagon();
     Owner Owner = new Owner();
     string? ErrorMessage;
+    bool IsPassengerWagon;
 
     protected async override Task OnInitializedAsync()
     {
-        //await LocalStorage.SetItemAsync("Loco", Loco.Example);
+        Navigator.LocationChanged += new EventHandler<LocationChangedEventArgs>(Handler);
+        IsPassengerWagon = Navigator.Uri.EndsWith("passengerwagon");
         Owner = await LocalStorage.GetItemAsync<Owner>("Owner") ?? Owner.Default;
-        Data = await LocalStorage.GetItemAsync<CargoWagon>("CargoWagon") ?? CargoWagon.Default;
+        if (IsPassengerWagon)
+        {
+            Data = await LocalStorage.GetItemAsync<Wagon>("PassengerWagon") ?? Wagon.PassengerWagonDefault;
+        }
+        else
+        {
+            Data = await LocalStorage.GetItemAsync<Wagon>("CargoWagon") ?? Wagon.CargoWagonDefault;
+        }
+
     }
+
+    void Handler(object? navigator, LocationChangedEventArgs args)
+    {
+        if (args.Location.EndsWith("passengerwagon")) {
+            Data = Wagon.PassengerWagonDefault;
+        }
+        else
+        {
+            Data = Wagon.CargoWagonDefault;
+        }
+        StateHasChanged();
+    }
+
 
     private async Task OnValidSubmit()
     {
+        await LocalStorage.SetItemAsync("Owner", Owner);
         if (HasData)
         {
             await LocalStorage.SetItemAsync("CargoWagon", Data);
-            await LocalStorage.SetItemAsync("Owner", Owner);
         }
     }
 
@@ -309,7 +339,7 @@ else
         {
             await e.File.OpenReadStream(maxAllowedSize: 700000).CopyToAsync(stream);
             stream.Position = 0;
-            Data = await JsonSerializer.DeserializeAsync<CargoWagon>(stream) ?? CargoWagon.Default;
+            Data = await JsonSerializer.DeserializeAsync<Wagon>(stream) ?? Wagon.CargoWagonDefault;
         }
         catch (Exception ex)
         {
@@ -321,9 +351,10 @@ else
 
     private async Task SaveAsFile()
     {
+        await LocalStorage.SetItemAsync("Owner", Owner);
         if (HasData)
         {
-            var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(CargoWagon), new JsonSerializerOptions() { WriteIndented = true });
+            var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(Wagon), new JsonSerializerOptions() { WriteIndented = true });
             await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, System.Text.Encoding.UTF8, "application/json");
         }
     }
@@ -337,12 +368,12 @@ else
     async Task Example()
     {
         await OnValidSubmit();
-        Data = CargoWagon.Example;
+        Data = Wagon.Example;
     }
 
     void Reset()
     {
-        Data = CargoWagon.Default;
+        Data = Wagon.CargoWagonDefault;
     }
 
     void Clear()

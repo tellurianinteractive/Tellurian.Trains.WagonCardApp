@@ -282,8 +282,8 @@
   <data name="OwnersMarking" xml:space="preserve">
     <value>Ägarmärkning</value>
   </data>
-  <data name="CreateFreightWagonCard" xml:space="preserve">
-    <value>Skapa godsvagnskort</value>
+  <data name="CreateWagonCard" xml:space="preserve">
+    <value>Skapa vagnkort</value>
   </data>
   <data name="Home station" xml:space="preserve">
     <value>Hemstation</value>

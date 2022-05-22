@@ -294,8 +294,8 @@
   <data name="OwnersMarking" xml:space="preserve">
     <value>Eigentümermarkierung</value>
   </data>
-  <data name="CreateFreightWagonCard" xml:space="preserve">
-    <value>Güterwagenkarte erstellen</value>
+  <data name="CreateWagonCard" xml:space="preserve">
+    <value>Wagenkarte erstellen</value>
   </data>
   <data name="Home station" xml:space="preserve">
     <value>Heimatbahnhof</value>

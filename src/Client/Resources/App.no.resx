@@ -129,8 +129,8 @@
   <data name="CountryCode" xml:space="preserve">
     <value>Land</value>
   </data>
-  <data name="CreateFreightWagonCard" xml:space="preserve">
-    <value>Lag godsvognkort</value>
+  <data name="CreateWagonCard" xml:space="preserve">
+    <value>Lag vognkort</value>
   </data>
   <data name="CreateLocoCard" xml:space="preserve">
     <value>Lag lokokort</value>

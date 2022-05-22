@@ -1,7 +1,8 @@
 ﻿namespace Tellurian.WagonCardApp.Shared;
 
-public class CargoWagon : Vehicle
+public class Wagon : Vehicle
 {
+    public bool IsPassengerWagon { get; set; }
     public string Description { get; set; } = string.Empty;
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
@@ -34,9 +35,12 @@ public class CargoWagon : Vehicle
 
     public string FrameColor => MainClass switch
     {
-        'D' => D,
-        'E' => E,
-        'F' => F,
+        'A' => IsPassengerWagon ? ABC : None ,
+        'B' => IsPassengerWagon ? ABC : None,
+        'C' => IsPassengerWagon ? ABC : None,
+        'D' => IsPassengerWagon ? ABC : D,
+        'E' => IsPassengerWagon ? ABC : E,
+        'F' => IsPassengerWagon ? ABC : F,
         'G' => G,
         'H' => H,
         'I' => I,
@@ -52,6 +56,7 @@ public class CargoWagon : Vehicle
         _ => "#000000"
     };
 
+    private const string ABC = "#4472C4"; // Blue
     private const string D = "#4d4dff"; // Braun
     private const string E = "#fd9bce"; // Light pink
     private const string F = "#ff60ff"; // Pink
@@ -63,6 +68,7 @@ public class CargoWagon : Vehicle
     private const string RS = "#339967"; // Green
     private const string T = "#fccd03"; // Yellow
     private const string Z = "#c0c0c0"; // Gray
+    private const string None = "#FFFFFF";
     private string KL => ClassIs("Kö") ? L : K;
     private string QLZ => ClassIs("Q12") || ClassIs("Q14") ? Z : L;
     private string ULZ => 
@@ -73,9 +79,10 @@ public class CargoWagon : Vehicle
     private bool ClassIs(string value) =>
         VehicleClass.StartsWith(value, StringComparison.OrdinalIgnoreCase);
 
-    public static CargoWagon Default => new();
+    public static Wagon CargoWagonDefault => new() { VehicleClass = "G"};
+    public static Wagon PassengerWagonDefault => new() { IsPassengerWagon = true, VehicleClass = "AB"};
 
-    public static CargoWagon Example =>
+    public static Wagon Example =>
         new()
         {
             Description = "Fliscontainervagn FINSAM",

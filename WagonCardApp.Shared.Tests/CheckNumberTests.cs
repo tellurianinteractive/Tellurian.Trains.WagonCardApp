@@ -8,7 +8,7 @@ public class CheckNumberTests
     [TestMethod]
     public void UicCheckSumTest1()
     {
-        var target = new CargoWagon { 
+        var target = new Wagon { 
             CountryRegistrationNumber = 85, 
             InteroperatbilityNumber=31, 
             VehicleNumber="393 3 013" };
