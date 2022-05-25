@@ -402,4 +402,16 @@
   <data name="References" xml:space="preserve">
     <value>Referanser</value>
   </data>
+  <data name="PrintOptions" xml:space="preserve">
+    <value>Utskriftsvalg</value>
+  </data>
+  <data name="PrintLocoCard" xml:space="preserve">
+    <value>Skriv ut lokkart</value>
+  </data>
+  <data name="PrintInventoryCard" xml:space="preserve">
+    <value>Skriv ut inventarkart</value>
+  </data>
+  <data name="PrintFredSticker" xml:space="preserve">
+    <value>Skriv ut FRED-etikett</value>
+  </data>
 </root>

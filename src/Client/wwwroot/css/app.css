@@ -55,10 +55,14 @@ a, .btn-link {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0px;
     margin: 0px;
-    border: 0.5cm solid red;
     height: 9.7cm;
     width: 14.0cm;
     overflow: clip;
+}
+
+card-border {
+   
+
 }
 
 .card-info {

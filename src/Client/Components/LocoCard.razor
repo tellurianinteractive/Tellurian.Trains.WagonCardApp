@@ -3,95 +3,101 @@
 @if (Data is not null && Owner is not null)
 {
     <div style="display:flex;flex-direction:column">
-        <div class="card">
-            <div class="card-info" style="flex-direction: column;">
-                <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
-                    @Data.Identification()
-                </div>
-                <VehicleImage CssClass="picture-front" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
-                <div style="display: flex; flex-direction: row">
-                    <div style="display: flex; flex-direction: column">
-                        <div class="marking">
-                            <div class="label">@Localizer.Label("Marking")</div>
-                            <OwnerMarking Marking="@Data.Marking" />
+        <div class="card" style="@BorderStyle">
+            @if (Data.PrintOptions.PrintCard)
+            {
+                    <div class="card-info" style="flex-direction: column;">
+                        <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
+                            @Data.Identification()
                         </div>
-                        <div class="owner">
-                            <div class="label">@Localizer.Label("Owner")</div>
-                            @Owner.OwnerName<br />
-                            @Owner.EmailAddress<br />
-                            @Owner.PhoneNumber
-                        </div>
-                    </div>
-                    <div class="functions">
-                        @foreach (var function in ActiveFunctions)
-                        {
-                            <div class="function-key">
-                                <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
+                        <VehicleImage CssClass="picture-front" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                        <div style="display: flex; flex-direction: row">
+                            <div style="display: flex; flex-direction: column">
+                                <div class="marking">
+                                    <div class="label">@Localizer.Label("Marking")</div>
+                                    <OwnerMarking Marking="@Data.Marking" />
+                                </div>
+                                <div class="owner">
+                                    <div class="label">@Localizer.Label("Owner")</div>
+                                    @Owner.OwnerName<br />
+                                    @Owner.EmailAddress<br />
+                                    @Owner.PhoneNumber
+                                </div>
                             </div>
+                            <div class="functions">
+                                @foreach (var function in ActiveFunctions)
+                                {
+                                    <div class="function-key">
+                                        <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
+                                    </div>
 
-                        }
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+            }
         </div>
 
-        <div class="card" style="display: block; transform: rotate(180deg)">
-            <div class="card-info" style="flex-direction: row;">
-                <div style="width: 8cm;">
-                    <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
-                        @Data.Identification()
-                    </div>
+        <div class="card" style="display: block; transform: rotate(180deg); @BorderStyle">
+            @if (Data.PrintOptions.PrintCard)
+            {
+                <div class="card-info" style="flex-direction: row;">
+                    <div style="width: 8cm;">
+                        <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
+                            @Data.Identification()
+                        </div>
 
-                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        @if (Data.Epoch.HasValue())
-                        {
-                            <div style="border-right: 1px solid black" class="property">
-                                <span class="label">@Localizer["Epoch"]</span><br />
-                                <span class="value">@Data.Epoch</span>
+                        <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                            @if (Data.Epoch.HasValue())
+                            {
+                                <div style="border-right: 1px solid black" class="property">
+                                    <span class="label">@Localizer["Epoch"]</span><br />
+                                    <span class="value">@Data.Epoch</span>
+                                </div>
+
+                            }
+                            <div class="property">
+                                <span class="label">@Localizer["Operating period in this design"]</span><br />
+                                <span class="value">@Data.OperatingFromYear - @Data.OperatingUptoYear</span>
                             </div>
-
-                        }
-                        <div class="property">
-                            <span class="label">@Localizer["Operating period in this design"]</span><br />
-                            <span class="value">@Data.OperatingFromYear - @Data.OperatingUptoYear</span>
+                        </div>
+                        <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer["Driveline"]</span><br />
+                                <span class="value-sm">@Data.DrivelineType</span>
+                            </div>
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer["Manufacturer"]/@Localizer["Year"]</span><br />
+                                <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                            <div class="property">
+                                <span class="label">@Localizer["EnginePower"]</span><br />
+                                <span class="value-sm">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</span>
+                            </div>
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer["TopSpeed"]</span><br />
+                                <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
+                            </div>
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer["WeightShort"]</span><br />
+                                <span class="value-sm">@Data.Weight t</span>
+                            </div>
+                            <div class="property">
+                                <span class="label">@Localizer["Length"]</span><br />
+                                <span class="value-sm">@Data.Length m</span>
+                            </div>
+                        </div>
+                        <div>
+                            <VehicleImage CssClass="picture-back" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
                         </div>
                     </div>
-                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["Driveline"]</span><br />
-                            <span class="value-sm">@Data.DrivelineType</span>
-                        </div>
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["Manufacturer"]/@Localizer["Year"]</span><br />
-                            <span class="value-sm">@Data.Manufacturer @Data.YearOfManufacturing</span>
-                        </div>
-                    </div>
-                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
-                        <div class="property">
-                            <span class="label">@Localizer["EnginePower"]</span><br />
-                            <span class="value-sm">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</span>
-                        </div>
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["TopSpeed"]</span><br />
-                            <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
-                        </div>
-                        <div style="border-right: 1px solid black" class="property">
-                            <span class="label">@Localizer["WeightShort"]</span><br />
-                            <span class="value-sm">@Data.Weight t</span>
-                        </div>
-                        <div class="property">
-                            <span class="label">@Localizer["Length"]</span><br />
-                            <span class="value-sm">@Data.Length m</span>
-                        </div>
-                    </div>
-                    <div>
-                        <VehicleImage CssClass="picture-back" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
+                    <div class="pocket">
+                        <div style="padding-top: 4cm">@Localizer["VehicleSchedule"]</div>
                     </div>
                 </div>
-                <div class="pocket">
-                    <div style="padding-top: 4cm">@Localizer["VehicleSchedule"]</div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 }
@@ -106,4 +112,6 @@
     //string FunctionKey(int index) => Data?.Functions.Count() > index ? $"F{Data.Functions[index].Key}" : string.Empty;
     IEnumerable<(string Key, string Text)> ActiveFunctions => Data is null ? Array.Empty<(string, string)>() :
         Data.Functions.Where(f => !string.IsNullOrWhiteSpace(f.Text)).Select(f => ($"F{f.Key}", f.Text));
+
+    string BorderStyle => Data?.PrintOptions.PrintCard == true ? "border: 0.5cm solid red;  " : "border: 0.5cm solid white;";
 }

@@ -237,6 +237,21 @@ else
                     <input type="tel" class="inputwide" id="phone" @bind="@Owner.PhoneNumber" />
                 </div>
 
+                <h4 style="padding-left: 15em">@Localizer["PrintOptions"]</h4>
+                <div>
+                    <label class="inputlabel" for="UseMarking">@Localizer["PrintLocoCard"]</label>
+                    <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintCard" />
+                </div>
+                <div>
+                    <label class="inputlabel" for="UseMarking">@Localizer["PrintInventoryCard"]</label>
+                    <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintInventoryCard" />
+                </div>
+                <div>
+                    <label class="inputlabel" for="UseMarking">@Localizer["PrintFredSticker"]</label>
+                    <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintFredSticker" />
+                </div>
+
+
                 <div style="padding-left: 15em">
                     <h4>@Localizer["Actions"]</h4>
                     <button class="button" type="submit">@Localizer["Save"]</button>
@@ -255,13 +270,12 @@ else
 }
 
 @code {
-    Loco Data = new Loco { InteroperatbilityNumber = 92 };
-    Owner Owner = new Owner();
+    Loco Data = new() { InteroperatbilityNumber = 92 };
+    Owner Owner = new();
     string? ErrorMessage;
 
     protected async override Task OnInitializedAsync()
     {
-        //await LocalStorage.SetItemAsync("Loco", Loco.Example);
         Owner = await LocalStorage.GetItemAsync<Owner>("Owner") ?? Owner.Default;
         Data = await LocalStorage.GetItemAsync<Loco>("Loco") ?? Loco.Default;
         AddMissingLocoData();
