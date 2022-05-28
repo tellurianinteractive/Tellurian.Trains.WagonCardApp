@@ -3,6 +3,7 @@
 public class Wagon : Vehicle
 {
     public bool IsPassengerWagon { get; set; }
+    public bool IsCargoWagon => !IsPassengerWagon;
     public string Description { get; set; } = string.Empty;
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
@@ -33,14 +34,18 @@ public class Wagon : Vehicle
     private char MainClass => VehicleClass.Length > 0 ? VehicleClass.ToUpperInvariant()[0] : ' ';
 
 
-    public string FrameColor => MainClass switch
+    public string FrameColor => IsPassengerWagon ? PassengerWagonFrameColor : CargoWagonFrameColor;
+
+    private string PassengerWagonFrameColor => MainClass switch
     {
-        'A' => IsPassengerWagon ? ABC : None ,
-        'B' => IsPassengerWagon ? ABC : None,
-        'C' => IsPassengerWagon ? ABC : None,
-        'D' => IsPassengerWagon ? ABC : D,
-        'E' => IsPassengerWagon ? ABC : E,
-        'F' => IsPassengerWagon ? ABC : F,
+        'P' => OperatorSignature.Is("OHJ") ? D : None,
+        _ => ABC,
+    };
+
+    private string CargoWagonFrameColor => MainClass switch
+    {
+        'E' => E,
+        'F' => F,
         'G' => G,
         'H' => H,
         'I' => I,
@@ -57,7 +62,7 @@ public class Wagon : Vehicle
     };
 
     private const string ABC = "#4472C4"; // Blue
-    private const string D = "#4d4dff"; // Braun
+    private const string D = "#663300"; // Braun
     private const string E = "#fd9bce"; // Light pink
     private const string F = "#ff60ff"; // Pink
     private const string G = "#fefe9a"; // Yellow

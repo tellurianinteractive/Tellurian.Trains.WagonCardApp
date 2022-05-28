@@ -8,13 +8,17 @@ else
         <div>
             <WagonCard Data="@Data" Owner="@Owner" />
         </div>
+
         <div style="display:flex;flex-direction:row">
-            <div>
-                <UicLabel Data=@Data />
-                <UicLabel Data=@Data />
-                <UicLabel Data=@Data />
-                <UicLabel Data=@Data />
-            </div>
+            @if (Data.IsCargoWagon)
+            {
+                <div>
+                    <UicLabel Data=@Data />
+                    <UicLabel Data=@Data />
+                    <UicLabel Data=@Data />
+                    <UicLabel Data=@Data />
+                </div>
+            }
             <InventoryCard Data="@Data" Owner="@Owner" />
         </div>
     </div>
@@ -25,4 +29,4 @@ else
     [Parameter] public Wagon? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
 
-}
+    }

@@ -39,6 +39,8 @@ public static class StringExtensions
     public static bool IsHexColor([NotNullWhen(true)] this string? maybeColor) =>
         !string.IsNullOrWhiteSpace(maybeColor) && Regex.IsMatch(maybeColor, HexColorRegEx);
 
+    public static bool Is(this string? value, string? otherValue) => value is null ? false : value.Equals(otherValue, StringComparison.OrdinalIgnoreCase);
+
     public static bool IsDigitsOrWhiteSpace(this string? value) =>
         !string.IsNullOrWhiteSpace(value) && value.All(c => char.IsDigit(c) || char.IsWhiteSpace(c));
 

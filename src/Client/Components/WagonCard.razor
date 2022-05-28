@@ -31,12 +31,15 @@
                             }
                         </div>
                         <div>
-                            <UicLabel Data="@Data" FontSize="8" />
+                            @if (Data.IsCargoWagon)
+                            {
+                                <UicLabel Data="@Data" FontSize="8" />
+                            }
                         </div>
                     </div>
                     <div class="model-number">
                         @*<div class="label">@Localizer.Label("Catalog number")</div>
-                            <div>@Data.ModelNumber</div>*@
+                    <div>@Data.ModelNumber</div>*@
                     </div>
                 </div>
             </div>
@@ -94,11 +97,14 @@
                                 <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
                             </div>
                         }
-                        <div class="property">
-                            <span class="label">@Localizer.Label("Interoperability")</span><br />
-                            <span class="value-sm">@Data.Interoperability</span>
-                            <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature</span>
-                        </div>
+                        @if (Data.CountryRegistrationNumber > 0 && Data.InteroperatbilityNumber > 0)
+                        {
+                            <div class="property">
+                                <span class="label">@Localizer.Label("Interoperability")</span><br />
+                                <span class="value-sm">@Data.Interoperability</span>
+                                <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature</span>
+                            </div>
+                        }
                     </div>
                     @if (Data.LoadingInstructions.HasValue())
                     {

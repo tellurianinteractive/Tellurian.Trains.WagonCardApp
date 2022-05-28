@@ -2,38 +2,37 @@
 
 @if (Data is not null && Data.PrintOptions.PrintInventoryCard)
 {
-    <div style="display:block; transform:rotate(90deg) translate(-22mm,-22mm); height:95mm;width:55mm;text-align:center;border: 1px solid lightgray;padding-top:10pt">
+    <div class="inventory-card">
         <h1>
             @Localizer["InventoryCard"]
         </h1>
-        <div class="item-text" style="color:@Data.BackColor.DarkTextColor()">
+        <div class="operator" style="color:@Data.BackColor.DarkTextColor()">
             <span>@Data.OperatorSignature</span>
             <span>@Data.VehicleClass</span>
-            <div style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">@Data.VehicleNumber@Data.UicCheckDigit</div>
         </div>
-        <hr />
-        <div class="model-make">
+        <div class="item vehicle-number" style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">
+            @Data.VehicleNumber@Data.UicCheckDigit
+        </div>
+        <div class="item model-make">
             <span>@Data.ModelManufacturer</span>
             <span>@Data.ModelNumber</span>
         </div>
         @if (Data is Loco loco && loco.Address.HasValue)
         {
-            <div class="dcc-address">
+            <div class="item dcc-address">
                 DCC <span>@loco.Address</span>
             </div>
         }
         @if (!string.IsNullOrWhiteSpace(Data.Marking.InventoryNumber))
         {
-            <hr />
-            <div>
+            <div class="item owner-marking">
                 <OwnerMarking Marking="@Data.Marking" />
             </div>
         }
-        <hr />
-        <div>
+        <div class="item owner-name">
             <h1>@Localizer.Label("Owner"):</h1>
-            <div class="owner-text">@Owner?.OwnerName</div>
-            <div class="owner-text">@Owner?.PhoneNumber</div>
+            <div>@Owner?.OwnerName</div>
+            <div>@Owner?.PhoneNumber</div>
             <div class="owner-email">@Owner?.EmailAddress</div>
         </div>
     </div>

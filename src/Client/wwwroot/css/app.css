@@ -53,6 +53,7 @@ a, .btn-link {
 
 .card {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 0.5cm solid red;
     padding: 0px;
     margin: 0px;
     height: 9.7cm;

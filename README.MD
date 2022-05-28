@@ -22,8 +22,12 @@ If you have a GitHub account, you can file [suggestions and other issues](https:
 Discussions are also in the [FREMO forum](https://forum.fremo-net.eu/t/online-loco-and-wagon-card-app/).
 
 ## Features
-#### Freight Wagon Card
+#### Freigh Wagon Card
 The coloured frame adapts according the FREMO standard based on the vehicle class.
+You also get an *inventory card*, see below.
+
+#### Passenger Wagon Card
+Coloured frame according the FREMO standard? 
 You also get an *inventory card*, see below.
 
 #### Loco Card
@@ -31,8 +35,8 @@ I addition to the loco-card itself, you get a *FRED-stcker* and an *inventory ca
 The loco functions are printed both on the loco card itself 
 and selected ones on the FRED-sticker.
 
-#### FRED Sticker
-The FRED sticker contains maximum 8 functions, you can select which.
+#### FRED Label
+The FRED label contains maximum 8 functions, you can select which.
 The top can be folded so that the locomotive identification is visible above the front,
 
 #### Inventory Cards
