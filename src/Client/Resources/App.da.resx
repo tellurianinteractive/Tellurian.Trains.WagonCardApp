@@ -154,10 +154,10 @@
     <value>Ejer</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Vagnkortsappen</value>
+    <value>Vognkortsappen</value>
   </data>
   <data name="CargoWagon" xml:space="preserve">
-    <value>Vognkortappen</value>
+    <value>Godsvogn</value>
   </data>
   <data name="CreateLocoCard" xml:space="preserve">
     <value>Opret lokomotiv kort</value>

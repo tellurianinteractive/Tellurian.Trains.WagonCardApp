@@ -2,7 +2,9 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
-
+### Release 2.1.11
+Release date 2022-06-27
+- **Bug fox** of translation and coloring of wagons.
 ### Release 2.1.10
 Release date 2022-05-25
 - **Print options** for loco card let you choose what to print.
