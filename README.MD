@@ -52,4 +52,4 @@ If a value is not provided, it won't show up in the QR-code.
 The content of the QR-code is formatted as JSON, which also makes it machine readable.
 
 #### Example of Freight Wagon Card
-![Example-freight wagon](https://user-images.githubusercontent.com/3410208/139554977-e787585b-3472-4788-9cc2-5322dcb0da4a.PNG)
+![Example-freight wagon](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp/blob/master/Example-freight%20wagon.PNG)
