@@ -2,6 +2,12 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+
+### Release 2.1.12
+Release date 2022-07-02
+- **QR-Codes** added on loco- and wagon cards. QR-code also on FRED-sticker. QR-code contains *loco address*, *owner's name*, *UIC-number*, and *label*.
+If a value is not provided, it won't show up in the QR-code.
+The content of the QR-code is formatted as JSON, which also makes it machine readable.
 ### Release 2.1.11
 Release date 2022-06-27
 - **Bug fox** of translation and coloring of wagons.

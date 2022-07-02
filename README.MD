@@ -45,5 +45,11 @@ when you place the loco/wagon on a track.
 You put the inventory card on the loco/wagon box.
 Then you know that you should collect before travelling home after the meeting.
 
+#### QR Codes
+QR codes are visible on both loco- and wagon cards. 
+QR-code also on FRED-sticker. QR-code contains *loco address*, *owner's name*, *UIC-number*, and *label*.
+If a value is not provided, it won't show up in the QR-code.
+The content of the QR-code is formatted as JSON, which also makes it machine readable.
+
 #### Example of Freight Wagon Card
 ![Example-freight wagon](https://user-images.githubusercontent.com/3410208/139554977-e787585b-3472-4788-9cc2-5322dcb0da4a.PNG)

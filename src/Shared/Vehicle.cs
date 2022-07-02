@@ -71,6 +71,8 @@ public static class VehicleExtensions
     public static string Identification(this Vehicle? me) => me is null ? string.Empty :
         $"{me.CountryCode()}{me.OperatorSignature} {me.VehicleClass} {me.VehicleNumber}{me.UicCheckDigit}".Trim();
 
+    public static string UicNumber(this Vehicle? me) => me is null || !me.UseUicNumber() ? string.Empty :
+        $"{me.InteroperatbilityNumber} {me.CountryRegistrationNumber} {me.VehicleNumber}{me.CheckDigit()}";
     private static string CountryCode(this Vehicle? me) => me?.CountryRegistrationNumber > 0 ?
         $"{me.CountryCodeOfRegistration}-" : string.Empty;
 

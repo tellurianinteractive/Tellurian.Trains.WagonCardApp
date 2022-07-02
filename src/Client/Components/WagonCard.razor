@@ -30,16 +30,16 @@
                                 <div>@Data.ModelWeight g</div>
                             }
                         </div>
-                        <div>
+                        <div class="model-uiclabel">
                             @if (Data.IsCargoWagon)
                             {
                                 <UicLabel Data="@Data" FontSize="8" />
                             }
                         </div>
+
                     </div>
-                    <div class="model-number">
-                        @*<div class="label">@Localizer.Label("Catalog number")</div>
-                    <div>@Data.ModelNumber</div>*@
+                    <div>
+                        <div><img src="@Data.QRCode(Owner)" height="130" width="130" /></div>
                     </div>
                 </div>
             </div>
