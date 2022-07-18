@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Tellurian.WagonCardApp.Client</RootNamespace>
 		<AssemblyName>Tellurian.WagonCardApp.Client</AssemblyName>
-		<Version>2.1.12</Version>
+		<Version>2.1.13</Version>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
@@ -13,9 +13,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Markdig" Version="0.30.2" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.6" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.6" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.6" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.7" />
 		<PackageReference Include="BlazorDownloadFile" Version="2.4.0.2" />
 		<PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
 	</ItemGroup>

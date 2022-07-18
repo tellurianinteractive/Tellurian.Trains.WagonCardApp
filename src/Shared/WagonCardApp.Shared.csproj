@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Tellurian.WagonCardApp.Shared</RootNamespace>
 		<AssemblyName>Tellurian.WagonCardApp.Shared</AssemblyName>
-		<Version>2.1.12</Version>
+		<Version>2.1.13</Version>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>

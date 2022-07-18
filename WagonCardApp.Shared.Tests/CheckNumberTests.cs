@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tellurian.WagonCardApp.Shared;
 
-namespace WagonCardApp.Shared.Tests;
+namespace Tellurian.WagonCardApp.Shared.Tests;
+
 [TestClass]
 public class CheckNumberTests
 {
