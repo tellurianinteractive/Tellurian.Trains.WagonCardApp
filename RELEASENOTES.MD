@@ -2,6 +2,10 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+
+### Release 2.1.14
+Release date 2022-09-08
+- **References** page updated.
 ### Release 2.1.13
 Release date 2022-07-18
 - **Security update** with latest security patches from Microsoft.
