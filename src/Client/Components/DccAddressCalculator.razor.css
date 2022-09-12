@@ -1,0 +1,20 @@
+﻿.field {
+    display:flex;
+    font-size: 24pt;
+}
+.cv {
+    width: 3em;
+    text-align: right;
+    font-size: 24pt;
+    font-weight: bold;
+}
+label {
+    color: green;
+    min-width: 7em;
+}
+input {
+    width: 3.4em;
+    font-size: 24pt;
+    font-weight: bold;
+    text-align: right;
+}

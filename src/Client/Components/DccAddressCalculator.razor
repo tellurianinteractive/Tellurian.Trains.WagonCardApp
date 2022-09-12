@@ -1,0 +1,33 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+<div class="frame" style="display:flex;flex-direction:column">
+    <div class="field">
+        <label for="locoaddress">@Localizer["DigitalAddress"]</label>
+        <input id="locoaddress" type="number" @bind-value="@address" />
+    </div>
+    <div class="field">
+        <label for="cv1">@Localizer["CV1"]</label>
+        <div class="cv" id="cv1">@cv1</div>
+    </div>
+    <div class="field">
+        <label for="cv17">@Localizer["CV17"]</label>
+        <div class="cv" id="cv17">@cv17</div>
+    </div>
+    <div class="field">
+        <label for="cv18">@Localizer["CV18"]</label>
+        <div class="cv" id="cv18">@cv18</div>
+    </div>
+    <div class="field">
+        <label for="cv29">@Localizer["CV29"]</label>
+        <div class="cv" id="cv29">@cv29</div>
+    </div>
+</div>
+@code {
+    int address = 3;
+    int? cv1 => address < 128 ? address : null;
+    int? cv17 => address < 128 ? null : 192 + address / 256;
+    int? cv18 => address < 128 ? null : address - (cv17-192)*256;
+    int cv29 => address < 128 ? 4 : 34;
+
+
+}

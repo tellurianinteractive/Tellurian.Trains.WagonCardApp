@@ -3,6 +3,10 @@
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
 
+### Release 2.1.15
+Release date 2022-09-12
+- **Passenger Wagon Colours** corrected to conform to FREMO standard.
+- **DCC Address Calculator** added.
 ### Release 2.1.14
 Release date 2022-09-08
 - **References** page updated.

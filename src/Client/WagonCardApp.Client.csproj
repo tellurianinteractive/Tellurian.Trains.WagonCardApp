@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Tellurian.WagonCardApp.Client</RootNamespace>
 		<AssemblyName>Tellurian.WagonCardApp.Client</AssemblyName>
-		<Version>2.1.14</Version>
+		<Version>2.1.15</Version>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>

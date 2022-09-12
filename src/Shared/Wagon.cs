@@ -39,6 +39,12 @@ public class Wagon : Vehicle
     private string PassengerWagonFrameColor => MainClass switch
     {
         'P' => OperatorSignature.Is("OHJ") ? D : None,
+        'B' => VehicleClass.StartsWith("BC") ? BCWLRS : ABC,
+        'D' => D,
+        'F' => D,
+        'R' => BCWLRS,
+        'S' => BCWLRS,
+        'W' => BCWLRS,
         _ => ABC,
     };
 
@@ -61,7 +67,7 @@ public class Wagon : Vehicle
         _ => "#000000"
     };
 
-    private const string ABC = "#4472C4"; // Blue
+    private const string ABC = "#008000"; // Green
     private const string D = "#663300"; // Braun
     private const string E = "#fd9bce"; // Light pink
     private const string F = "#ff60ff"; // Pink
@@ -72,11 +78,12 @@ public class Wagon : Vehicle
     private const string L = "#b3d9ff"; // Light blue
     private const string RS = "#339967"; // Green
     private const string T = "#fccd03"; // Yellow
+    private const string BCWLRS = "#800080"; // Purple
     private const string Z = "#c0c0c0"; // Gray
     private const string None = "#FFFFFF";
     private string KL => ClassIs("Kö") ? L : K;
     private string QLZ => ClassIs("Q12") || ClassIs("Q14") ? Z : L;
-    private string ULZ => 
+    private string ULZ =>
         ClassIs("Uag") ? Z :
         ClassIs("Ua") || ClassIs("Ud") || ClassIs("Ui") ? L :
         ClassIs("Ug") ? G : Z;
@@ -84,8 +91,8 @@ public class Wagon : Vehicle
     private bool ClassIs(string value) =>
         VehicleClass.StartsWith(value, StringComparison.OrdinalIgnoreCase);
 
-    public static Wagon CargoWagonDefault => new() { VehicleClass = "G"};
-    public static Wagon PassengerWagonDefault => new() { IsPassengerWagon = true, VehicleClass = "AB"};
+    public static Wagon CargoWagonDefault => new() { VehicleClass = "G" };
+    public static Wagon PassengerWagonDefault => new() { IsPassengerWagon = true, VehicleClass = "AB" };
 
     public static Wagon Example =>
         new()
@@ -106,12 +113,12 @@ public class Wagon : Vehicle
             VehicleClass = "Rps",
             VehicleNumber = "393 3 013",
             WagonColor = "#570000",
-            LoadingInstructions ="This is a loading instruction example.",
+            LoadingInstructions = "This is a loading instruction example.",
             ModelImageUrl = "https://www.modellbahnshop-lippe.com/article_data/images/73/211190_e.jpg",
             OriginalImageUrl = "https://www.modellbahnshop-lippe.com/article_data/images/73/211190_e.jpg",
             ModelManufacturer = "NMJ",
             ModelNumber = "123-456",
-            ModelWeight=120,
+            ModelWeight = 120,
             Marking = new()
             {
                 Color1 = "#FF7700",
