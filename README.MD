@@ -1,8 +1,8 @@
 # Loco and Wagon Card App
 This app helps the *module model railwayers* to 
-create *freight wagon*- and *loco* cards and preview them for printing. 
+create *wagon*- and *loco* cards and preview them for printing. 
 The loco/wagon cards are primarily intended for simpler or modern scenarios.
-Recent updates to the app is described in the [release notes](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp/blob/master/RELEASENOTES.MD).
+Recent updates to the app are described in the [release notes](https://github.com/tellurianinteractive/Tellurian.Trains.WagonCardApp/blob/master/RELEASENOTES.MD).
 
 ## Background
 I wanted to create a loco- and wagon-card app that is easy to read and with high grapical standard.
@@ -27,7 +27,7 @@ The coloured frame adapts according the FREMO standard based on the vehicle clas
 You also get an *inventory card*, see below.
 
 #### Passenger Wagon Card
-Coloured frame according the FREMO standard? 
+Coloured frame according the FREMO standard.
 You also get an *inventory card*, see below.
 
 #### Loco Card
