@@ -7,7 +7,7 @@ Release date 2022-10-31
 - **Double FRED labels** for locos. Suggested by Michael Homscheidt.
 - **Square meters** added as load description for wagons, issue #17. Suggested by Tore Urvik.
 - **JSON data** now contains owner name when downloaded and only if you change the default name, issue #15. Suggested by Tore Urvik.
-- **Bug fix** of issue #16 where wagon origin and model images were swapped. Thanks to Nenny Tjäder for reporting this.
+- **Bug fix** of issue #16 where wagon origin and model images were swapped. Thanks to Benny Tjäder for reporting this.
 - **Bug fix** of unit for *load limit* and *load volume*.
 ## Release 2.1.16
 Release date 2022-09-14
