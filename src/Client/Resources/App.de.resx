@@ -361,10 +361,10 @@
     <value>Höchstgeschwindigkeit</value>
   </data>
   <data name="LoadVolume" xml:space="preserve">
-    <value>Laderaum (tonnen)</value>
+    <value>Laderaum (kubikmeter)</value>
   </data>
   <data name="LoadLimit" xml:space="preserve">
-    <value>Ladegewicht</value>
+    <value>Ladegewicht (tonnen)</value>
   </data>
   <data name="Operating period" xml:space="preserve">
     <value>Einsatzjahre</value>
@@ -413,5 +413,11 @@
   </data>
   <data name="PrintFredSticker" xml:space="preserve">
     <value>FRED-Etikett drucken</value>
+  </data>
+  <data name="LoadArea" xml:space="preserve">
+    <value>Ladefläche (Quadratmeter)</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Fläche</value>
   </data>
 </root>

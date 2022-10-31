@@ -86,9 +86,13 @@ else
                         <label class="inputlabel" for="weight">@Localizer["LoadLimit"]</label>
                         <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadLimit"></InputNumber> t
                     </div>
+                   <div>
+                        <label class="inputlabel" for="area">@Localizer["LoadArea"]</label>
+                        <InputNumber class="inputshort" id="area" @bind-Value="@Data.LoadArea"></InputNumber> m²
+                    </div>
                     <div>
-                        <label class="inputlabel" for="weight">@Localizer["LoadVolume"]</label>
-                        <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadVolume"></InputNumber> m³
+                        <label class="inputlabel" for="volume">@Localizer["LoadVolume"]</label>
+                        <InputNumber class="inputshort" id="volume" @bind-Value="@Data.LoadVolume"></InputNumber> m³
                     </div>
                     <div>
                         <label class="inputlabel" for="IsRivConformant">@Localizer["IsRivConformant"]</label>

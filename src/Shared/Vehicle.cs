@@ -29,6 +29,8 @@ public abstract class Vehicle
 
     public Marking Marking { get; set; } = new();
     public PrintOptions PrintOptions { get; set; } = new();
+    public Owner Owner { get; set; } = new();
+
     public string CountryCodeOfRegistration => CountryRegistrationNumber switch
     {
         10 => "FI",

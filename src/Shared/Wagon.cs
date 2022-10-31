@@ -7,6 +7,7 @@ public class Wagon : Vehicle
     public string Description { get; set; } = string.Empty;
     public double LoadLimit { get; set; }
     public double LoadVolume { get; set; }
+    public double LoadArea { get; set; }
     public string? LoadingInstructions { get; set; }
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
@@ -102,6 +103,7 @@ public class Wagon : Vehicle
             Length = 20.7f,
             LoadLimit = 23.5,
             LoadVolume = 50.0,
+            LoadArea = 100,
             MaxSpeed = 100,
             SpeedUnit = SpeedUnit.KmPerHour,
             OperatingFromYear = 1988,

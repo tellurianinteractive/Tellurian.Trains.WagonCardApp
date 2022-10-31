@@ -8,7 +8,7 @@
                 <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
                     @Data.Identification()
                 </div>
-                <VehicleImage CssClass="picture-front" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
+                <VehicleImage CssClass="picture-front" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 <div style="display: flex; flex-direction: row">
                     <div style="display: flex; flex-direction: column">
                         <div class="marking">
@@ -39,7 +39,7 @@
 
                     </div>
                     <div>
-                        <div><img src="@Data.QRCode(Owner)" height="130" width="130" /></div>
+                        <div><img src="@Data.QRCode()" height="130" width="130" /></div>
                     </div>
                 </div>
             </div>
@@ -73,6 +73,13 @@
                                 <span class="value-sm">@Data.LoadLimit t</span>
                             </div>
 
+                        }
+                        @if (Data.LoadArea > 0)
+                        {
+                            <div style="border-right: 1px solid black" class="property">
+                                <span class="label">@Localizer.Label("Area")</span><br />
+                                <span class="value-sm">@Data.LoadArea m²</span>
+                            </div>
                         }
                         @if (Data.LoadVolume > 0)
                         {
@@ -113,7 +120,7 @@
                             <div class="value-sm" style="font-size: 9pt; line-height: 9pt">@Data.LoadingInstructions</div>
                         </div>
                     }
-                    <VehicleImage CssClass="picture-back" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                    <VehicleImage CssClass="picture-back" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
                 </div>
                 <div class="pocket">
                     @if (@Data.HasHomeStation)

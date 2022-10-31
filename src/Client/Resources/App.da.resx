@@ -361,10 +361,10 @@
     <value>Maks hastighed</value>
   </data>
   <data name="LoadVolume" xml:space="preserve">
-    <value>Lastvolumen (ton)</value>
+    <value>Lastvolumen (kubikmeter)</value>
   </data>
   <data name="LoadLimit" xml:space="preserve">
-    <value>Maks last</value>
+    <value>Maks last (ton)</value>
   </data>
   <data name="Operating period" xml:space="preserve">
     <value>Driftsperiode</value>
@@ -413,5 +413,11 @@
   </data>
   <data name="PrintFredSticker" xml:space="preserve">
     <value>Udskriv FRED etiket</value>
+  </data>
+  <data name="LoadArea" xml:space="preserve">
+    <value>Læsseareal (kvadratmeter)</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Areal</value>
   </data>
 </root>

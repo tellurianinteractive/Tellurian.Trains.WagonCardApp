@@ -20,9 +20,9 @@ public static class QRCodeExtensions
         DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     };
 
-    public static string QRCode(this Vehicle vehicle, Owner? owner)
+    public static string QRCode(this Vehicle vehicle)
     {
-        var png = vehicle.QrData(owner).AsPng();
+        var png = vehicle.QrData().AsPng();
         return string.Format("data:image/pgn;base64,{0}", Convert.ToBase64String(png));
     }
 
@@ -35,11 +35,11 @@ public static class QRCodeExtensions
         return qrCode.GetGraphic(10);
     }
 
-    private static VehicleQRCodeData QrData(this Vehicle vehicle, Owner? owner) =>
+    private static VehicleQRCodeData QrData(this Vehicle vehicle) =>
         new()
         {
             Address = vehicle is Loco loco && loco.Address.HasValue ? loco.Address.Value.ToString() : null,
-            Owner = owner?.OwnerName,
+            Owner = vehicle.Owner.OwnerName,
             UicNumber = vehicle.UicNumber(),
             Label = vehicle.Identification()
         };

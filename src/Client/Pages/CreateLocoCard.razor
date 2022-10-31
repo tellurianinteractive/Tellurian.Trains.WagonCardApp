@@ -316,7 +316,7 @@ else
             await e.File.OpenReadStream(maxAllowedSize: 700000).CopyToAsync(stream);
             stream.Position = 0;
             Data = await JsonSerializer.DeserializeAsync<Loco>(stream) ?? Loco.Default;
-            AddMissingLocoData();
+            if (!Data.Owner.IsEmptyOrDefault) Owner = Data.Owner;
         }
         catch (Exception ex)
         {
@@ -353,6 +353,7 @@ else
     {
         if (HasData)
         {
+            if (!Owner.IsEmptyOrDefault) Data.Owner = Owner;
             var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(Loco), new JsonSerializerOptions() { WriteIndented = true });
             await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, System.Text.Encoding.UTF8, "application/json");
         }

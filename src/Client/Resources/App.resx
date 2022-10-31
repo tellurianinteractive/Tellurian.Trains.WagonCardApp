@@ -362,10 +362,10 @@
     <value>Top speed</value>
   </data>
   <data name="LoadVolume" xml:space="preserve">
-    <value>Load volume (tonnes)</value>
+    <value>Load volume (cubic meters)</value>
   </data>
   <data name="LoadLimit" xml:space="preserve">
-    <value>Max load</value>
+    <value>Max load (tonnes)</value>
   </data>
   <data name="Operating period" xml:space="preserve">
     <value>Operating period</value>
@@ -414,5 +414,11 @@
   </data>
   <data name="PrintFredSticker" xml:space="preserve">
     <value>Print FRED label</value>
+  </data>
+  <data name="LoadArea" xml:space="preserve">
+    <value>Load area (square meters)</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Area</value>
   </data>
 </root>
