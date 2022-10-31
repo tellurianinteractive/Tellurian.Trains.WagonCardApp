@@ -1,4 +1,6 @@
-﻿namespace Tellurian.WagonCardApp.Shared;
+﻿using System.Text.Json.Serialization;
+
+namespace Tellurian.WagonCardApp.Shared;
 
 public class Owner
 {
@@ -10,6 +12,9 @@ public class Owner
 
     public override bool Equals(object? obj) => obj is Owner owner && owner.OwnerName == OwnerName && owner.PhoneNumber == PhoneNumber && owner.EmailAddress == EmailAddress;
     public override int GetHashCode() => HashCode.Combine(OwnerName, PhoneNumber, EmailAddress);
+
+    [JsonIgnore]
     public bool IsEmpty => OwnerName == string.Empty;
+    [JsonIgnore]
     public bool IsEmptyOrDefault => IsEmpty || Equals(Default);
 }
