@@ -13,4 +13,6 @@ public static class AppService
             return $"{version.Major}.{version.Minor}.{version.Build}";
         }
     }
+
+    public const int MaxUploadFileSize = 2097152;
 }

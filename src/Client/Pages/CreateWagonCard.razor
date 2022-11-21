@@ -341,7 +341,7 @@ else
         await using var stream = new MemoryStream();
         try
         {
-            await e.File.OpenReadStream(maxAllowedSize: 700000).CopyToAsync(stream);
+            await e.File.OpenReadStream(maxAllowedSize: AppService.MaxUploadFileSize).CopyToAsync(stream);
             stream.Position = 0;
             Data = await JsonSerializer.DeserializeAsync<Wagon>(stream) ?? Wagon.CargoWagonDefault;
         }
