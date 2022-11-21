@@ -6,7 +6,7 @@ public static class InputFileChangeEventArgsExtensions
 {
     public static async Task<ImageFile> GetImageFile(this InputFileChangeEventArgs e)
     {
-        var resizedFile = await e.File.RequestImageFileAsync(e.File.ContentType, 1280, 960);
+        var resizedFile = await e.File.RequestImageFileAsync(e.File.ContentType, 640, 480);
         var fileBytes = new byte[resizedFile.Size];
         using var stream = resizedFile.OpenReadStream();
         await stream.ReadAsync(fileBytes);

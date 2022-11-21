@@ -14,5 +14,5 @@ public static class AppService
         }
     }
 
-    public const int MaxUploadFileSize = 2097152;
+    public const int MaxUploadFileSize = 2097152 * 2;
 }

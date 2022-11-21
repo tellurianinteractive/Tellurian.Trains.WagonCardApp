@@ -6,7 +6,7 @@
 ## Release 2.1.18
 Release date 2022-11-21
 - **Upgrade** to .NET 7.
-- **Max upload file size** increased to 2 MB.
+- **Max upload file size** increased to 4MB.
 - 
 ## Release 2.1.17
 Release date 2022-10-31
