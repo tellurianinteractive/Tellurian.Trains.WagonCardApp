@@ -2,38 +2,40 @@
 
 @if (Data is not null && Data.PrintOptions.PrintInventoryCard)
 {
-    <div class="inventory-card">
-        <h1>
-            @Localizer["InventoryCard"]
-        </h1>
-        <div class="operator" style="color:@Data.BackColor.DarkTextColor()">
-            <span>@Data.OperatorSignature</span>
-            <span>@Data.VehicleClass</span>
-        </div>
-        <div class="item vehicle-number" style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">
-            @Data.VehicleNumber@Data.UicCheckDigit
-        </div>
-        <div class="item model-make">
-            <span>@Data.ModelManufacturer</span>
-            <span>@Data.ModelNumber</span>
-        </div>
-        @if (Data is Loco loco && loco.Address.HasValue)
-        {
-            <div class="item dcc-address">
-                DCC <span>@loco.Address</span>
+    <div style="height: 60mm; width:105mm">
+        <div class="inventory-card">
+            <h1>
+                @Localizer["InventoryCard"]
+            </h1>
+            <div class="operator" style="color:@Data.BackColor.DarkTextColor()">
+                <span>@Data.OperatorSignature</span>
+                <span>@Data.VehicleClass</span>
             </div>
-        }
-        @if (!string.IsNullOrWhiteSpace(Data.Marking.InventoryNumber))
-        {
-            <div class="item owner-marking">
-                <OwnerMarking Marking="@Data.Marking" />
+            <div class="item vehicle-number" style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">
+                @Data.VehicleNumber@Data.UicCheckDigit
             </div>
-        }
-        <div class="item owner-name">
-            <h1>@Localizer.Label("Owner"):</h1>
-            <div>@Owner?.OwnerName</div>
-            <div>@Owner?.PhoneNumber</div>
-            <div class="owner-email">@Owner?.EmailAddress</div>
+            <div class="item model-make">
+                <span>@Data.ModelManufacturer</span>
+                <span>@Data.ModelNumber</span>
+            </div>
+            @if (Data is Loco loco && loco.Address.HasValue)
+            {
+                <div class="item dcc-address">
+                    DCC <span>@loco.Address</span>
+                </div>
+            }
+            @if (!string.IsNullOrWhiteSpace(Data.Marking.InventoryNumber))
+            {
+                <div class="item owner-marking">
+                    <OwnerMarking Marking="@Data.Marking" />
+                </div>
+            }
+            <div class="item owner-name">
+                <h1>@Localizer.Label("Owner"):</h1>
+                <div>@Owner?.OwnerName</div>
+                <div>@Owner?.PhoneNumber</div>
+                <div class="owner-email">@Owner?.EmailAddress</div>
+            </div>
         </div>
     </div>
 }
