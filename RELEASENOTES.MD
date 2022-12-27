@@ -3,6 +3,11 @@
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
 
+
+## Release 2.1.19
+Release date 2022-12.17
+- **Bug fix** of misalignment of *inventory card* in some browsers printing preview.
+Thanks to Johannes Edvinsson for reporting this.
 ## Release 2.1.18
 Release date 2022-11-21
 - **Upgrade** to .NET 7.
