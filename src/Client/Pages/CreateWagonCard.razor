@@ -344,6 +344,7 @@ else
             await e.File.OpenReadStream(maxAllowedSize: AppService.MaxUploadFileSize).CopyToAsync(stream);
             stream.Position = 0;
             Data = await JsonSerializer.DeserializeAsync<Wagon>(stream) ?? Wagon.CargoWagonDefault;
+            if (!Data.Owner.IsEmptyOrDefault) Owner = Data.Owner;
         }
         catch (Exception ex)
         {
@@ -358,7 +359,8 @@ else
         await LocalStorage.SetItemAsync("Owner", Owner);
         if (HasData)
         {
-            var json = System.Text.Json.JsonSerializer.Serialize(Data, typeof(Wagon), new JsonSerializerOptions() { WriteIndented = true });
+            if (!Owner.IsEmptyOrDefault) Data.Owner = Owner;
+            var json = System.Text.Json.JsonSerializer.Serialize<Wagon>(Data, new JsonSerializerOptions() { WriteIndented = true });
             await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, System.Text.Encoding.UTF8, "application/json");
         }
     }
