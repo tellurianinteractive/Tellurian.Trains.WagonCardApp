@@ -6,23 +6,34 @@ else
 {
     <div style="display:flex;flex-direction:row">
         <div>
-            <div>
-                <LocoCard Data="@Data" Owner="@Owner" />
-            </div>
-
-            <div style="padding-top: 20px">
-                <InventoryCard Data="@Data" Owner="@Owner" />
-            </div>
-
+            @if (Data.PrintOptions.PrintCard)
+            {
+                <div>
+                    <LocoCard Data="@Data" Owner="@Owner" />
+                </div>
+            }
+            @if (Data.PrintOptions.PrintInventoryCard)
+            {
+                <div style="padding-top: 20px">
+                    <InventoryCard Data="@Data" Owner="@Owner" />
+                </div>
+            }
         </div>
 
-        <div style="padding-left: 2px">
-            <FREDSticker Data="@Data" Owner="@Owner" />
-        </div>
-        <div style="padding-left: 2px">
+        @if (Data.PrintOptions.PrintFredSticker)
+        {
+
+            <div style="padding-left: 2px">
                 <FREDSticker Data="@Data" Owner="@Owner" />
             </div>
-        </div>
+            @if (Data.PrintOptions.PrintExtraFredSticker)
+            {
+                <div style="padding-left: 2px">
+                    <FREDSticker Data="@Data" Owner="@Owner" />
+                </div>
+            }
+        }
+    </div>
 }
 
 

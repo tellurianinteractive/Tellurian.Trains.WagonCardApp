@@ -4,15 +4,22 @@
 }
 else
 {
-    <div style="display:flex;flex-direction:column">
-        <div>
-            <WagonCard Data="@Data" Owner="@Owner" />
-        </div>
-
-        <div style="padding-top:20px; display:flex;flex-direction:row">
+    <div>
+        @if (Data.PrintOptions.PrintCard)
+        {
             <div>
-                <InventoryCard Data="@Data" Owner="@Owner" />
+                <WagonCard Data="@Data" Owner="@Owner" />
             </div>
+        }
+
+        <div style="display:flex;flex-direction:row;margin-top:2px">
+            @if (Data.PrintOptions.PrintInventoryCard)
+            {
+                <div>
+                    <InventoryCard Data="@Data" Owner="@Owner" />
+                </div>
+
+            }
             @if (Data.IsCargoWagon)
             {
                 <div>
@@ -30,5 +37,4 @@ else
 @code {
     [Parameter] public Wagon? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
-
-    }
+}

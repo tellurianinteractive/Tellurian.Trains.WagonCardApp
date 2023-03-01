@@ -3,6 +3,13 @@
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
 
+## Release 2.1.21
+Release date 2023-03-01
+- **Fixed printing** issues where inventory card overlaps wagon card.
+- **Extra FRED** sticker is now optional.
+- **Wagon Card** now have options to select whar to print.
+- **Old app version** should now be detected.
+
 ## Release 2.1.20
 Release date 2023-02-28
 - **Firewall fix** to make the application work also behind (some) firewalls.

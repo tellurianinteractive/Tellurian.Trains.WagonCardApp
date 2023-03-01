@@ -421,4 +421,16 @@
   <data name="Area" xml:space="preserve">
     <value>Area</value>
   </data>
+  <data name="PrintWagonCard" xml:space="preserve">
+    <value>Print wagon card</value>
+  </data>
+  <data name="PrintExtraFredSticker" xml:space="preserve">
+    <value>Print extra FRED label</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>Update now!</value>
+  </data>
+  <data name="YouHaveAnOldClient" xml:space="preserve">
+    <value>You have an old application version</value>
+  </data>
 </root>

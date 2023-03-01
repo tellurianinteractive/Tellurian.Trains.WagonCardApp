@@ -257,6 +257,17 @@ else
                     <label class="inputlabel" for="phone">@Localizer["PhoneNumber"]</label>
                     <input type="tel" class="inputwide" id="phone" @bind="@Owner.PhoneNumber" />
                 </div>
+                <h4 style="padding-left: 15em">@Localizer["PrintOptions"]</h4>
+                <div>
+                    <label class="inputlabel" for="UseMarking">@Localizer["PrintWagonCard"]</label>
+                    <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintCard" />
+                </div>
+                <div>
+                    <label class="inputlabel" for="UseMarking">@Localizer["PrintInventoryCard"]</label>
+                    <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintInventoryCard" />
+                </div>
+
+
 
                 <div style="padding-left: 15em">
                     <h4>@Localizer["Actions"]</h4>

@@ -420,4 +420,16 @@
   <data name="Area" xml:space="preserve">
     <value>Areal</value>
   </data>
+  <data name="PrintWagonCard" xml:space="preserve">
+    <value>Udkriv vognkort</value>
+  </data>
+  <data name="PrintExtraFredSticker" xml:space="preserve">
+    <value>Udskriv extra FRED etiket</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>Opdater nu!</value>
+  </data>
+  <data name="YouHaveAnOldClient" xml:space="preserve">
+    <value>Du har en gammel applikationsversion</value>
+  </data>
 </root>

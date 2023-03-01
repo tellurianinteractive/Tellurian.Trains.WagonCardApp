@@ -1,12 +1,14 @@
 ﻿@inherits LayoutComponentBase
 @inject IStringLocalizer<App> Localizer
+@inject NavigationManager Navigator
 
 <div class="page">
     <div class="sidebar">
         <NavMenu />
     </div>
 
-    <div class="main">
+    <div class="main">P
+        <PWAUpdater ButtonCaption="@Localizer["Update now!"]" Text="YouHaveAnOldClient" EnvironmentsForWork="Production"  StateChanged="OnStateChanged" />
         <div class="top-row">
             <NavLink href="/About" class="ml-md-auto">@Localizer["About"]</NavLink>
         </div>
@@ -16,3 +18,10 @@
         </div>
     </div>
 </div>
+
+@code {
+    void OnStateChanged()
+    {
+        Navigator.NavigateTo(Navigator.BaseUri, true);
+    }
+}

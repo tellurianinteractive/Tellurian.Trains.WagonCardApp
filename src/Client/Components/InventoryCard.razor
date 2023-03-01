@@ -1,8 +1,9 @@
 ﻿@inject IStringLocalizer<App> Localizer
 
+
 @if (Data is not null && Data.PrintOptions.PrintInventoryCard)
 {
-    <div style="height: 60mm; width:105mm">
+    <div style="width: 105mm; height: 60mm">
         <div class="inventory-card">
             <h1>
                 @Localizer["InventoryCard"]

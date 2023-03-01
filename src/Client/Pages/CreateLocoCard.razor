@@ -250,6 +250,13 @@ else
                     <label class="inputlabel" for="UseMarking">@Localizer["PrintFredSticker"]</label>
                     <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintFredSticker" />
                 </div>
+                @if(Data.PrintOptions.PrintFredSticker)
+                {
+                    <div>
+                        <label class="inputlabel" for="UseMarking">@Localizer["PrintExtraFredSticker"]</label>
+                        <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintExtraFredSticker" />
+                    </div>
+                }
 
 
                 <div style="padding-left: 15em">

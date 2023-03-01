@@ -1,5 +1,5 @@
 ﻿.inventory-card {
-    display: block;
+    display: inline-block;
     transform: rotate(90deg) translate(-22mm,-22mm);
     height: 90mm;
     width: 55mm;
