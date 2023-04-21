@@ -1,5 +1,5 @@
 ﻿# Velkommen
-Med denne appen kan du lage loko- og vognkort til bruk på modulmøter.
+Med denne appen kan du lage loko- og vognkort til bruk på modultreff.
 Bare velg typen kort du vil lage.
 Det siste kortet av hver type du har laget huskes av appen til neste gang.
 

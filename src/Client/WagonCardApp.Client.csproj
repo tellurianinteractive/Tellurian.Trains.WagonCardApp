@@ -4,9 +4,6 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.WagonCardApp.Client</RootNamespace>
 		<AssemblyName>Tellurian.WagonCardApp.Client</AssemblyName>
-		<Version>2.1.21</Version>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 	</PropertyGroup>
@@ -14,12 +11,12 @@
 	<ItemGroup>
 		<PackageReference Include="BlazorWasmAntivirusProtection" Version="2.4.5" />
 		<PackageReference Include="Markdig" Version="0.31.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.4" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.4" />
 		<PackageReference Include="BlazorDownloadFile" Version="2.4.0.2" />
 		<PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
-		<PackageReference Include="Toolbelt.Blazor.PWA.Updater" Version="2.1.0" />
+		<PackageReference Include="Toolbelt.Blazor.PWA.Updater" Version="2.1.0.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Shared\WagonCardApp.Shared.csproj" />

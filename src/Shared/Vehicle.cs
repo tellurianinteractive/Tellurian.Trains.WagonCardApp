@@ -3,6 +3,7 @@
 public abstract class Vehicle
 {
     public string OperatorSignature { get; set; } = string.Empty;
+    public ImageFile? OperatorLogo { get; set; }
     public string VehicleClass { get; set; } = string.Empty;
     public int InteroperatbilityNumber { get; set; }
     public int CountryRegistrationNumber { get; set; }
@@ -21,6 +22,7 @@ public abstract class Vehicle
     public string? ModelImageUrl { get; set; }
     public string ModelManufacturer { get; set; } = string.Empty;
     public string ModelNumber { get; set; } = string.Empty;
+    public string? WheelType { get; set; }
 
     public virtual string ForeColor => "#000000";
     public virtual string BackColor => "#FFFFFF";

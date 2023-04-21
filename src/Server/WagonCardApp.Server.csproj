@@ -4,14 +4,11 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.WagonCardApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.WagonCardApp.Server</AssemblyName>
-		<Version>2.1.21</Version>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="BlazorWasmAntivirusProtection" Version="2.4.5" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -33,7 +30,7 @@
 	  <None Update="Content\Markdown\About.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Content\Markdown\About.no.md">
+	  <None Update="Content\Markdown\About.nb.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Content\Markdown\About.sv.md">
@@ -48,7 +45,7 @@
 	  <None Update="Content\Markdown\Index.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Content\Markdown\Index.no.md">
+	  <None Update="Content\Markdown\Index.nb.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Content\Markdown\Index.sv.md">
@@ -63,7 +60,7 @@
 	  <None Update="Content\Markdown\References.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Content\Markdown\References.no.md">
+	  <None Update="Content\Markdown\References.nb.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Content\Markdown\References.sv.md">

@@ -3,7 +3,9 @@
     flex-direction: column;
     flex-wrap:wrap;
     margin-top: 1px;
-    height: 3.6cm;
+    height: 3cm;
+    border-bottom: 1px solid black;
+    width: 9cm;
 }
 
 .functions-column {

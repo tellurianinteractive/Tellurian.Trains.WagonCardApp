@@ -6,6 +6,8 @@ public class Loco : Vehicle
     public string DrivelineType { get; set; } = string.Empty;
     public int? EnginePower { get; set; }
     public EnginePowerUnit EnginePowerUnit { get; set; }
+    public int? TractiveForce { get; set; }
+    public TractiveForceUnit TractiveForceUnit { get; set; } = TractiveForceUnit.Axles;
     public int? YearOfManufacturing { get; set; }
     public string Manufacturer { get; set; } = string.Empty;
     public int? Weight { get; set; }
@@ -30,6 +32,8 @@ public class Loco : Vehicle
         DrivelineType = "Dieselelektrisk",
         EnginePower = 3300,
         EnginePowerUnit = EnginePowerUnit.Horsepowers,
+        TractiveForce = 30,
+        TractiveForceUnit= TractiveForceUnit.Axles,
         Manufacturer = "Henschel",
         YearOfManufacturing = 1981,
         MaxSpeed = 175,
@@ -94,4 +98,11 @@ public enum EnginePowerUnit
 {
     Kilowatts,
     Horsepowers
+}
+
+public enum TractiveForceUnit
+{
+    Axles,
+    Wagons,
+    
 }

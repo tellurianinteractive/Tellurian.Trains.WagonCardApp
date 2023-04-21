@@ -1,6 +1,6 @@
 ﻿.fred-sticker {
     width: 21mm;
-    height: 190mm;
+    height: 220mm;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -11,8 +11,7 @@
 .loco-label {
     display: block;
     transform: rotate(180deg);
-    padding-top: 6pt;
-    height: 30mm;
+    height: 50mm;
     color: white;
     font-size: 16pt;
     font-weight: bold;
@@ -72,4 +71,8 @@
 .dcc-address {
     font-size: 11pt;
     font-weight: bold;
+}
+
+.operatorlogo-image {
+    width: 70%;
 }

@@ -1,0 +1,72 @@
+﻿.heading-small {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-size: 18pt;
+    font-weight: bold;
+    text-align: center;
+    height: 1cm;
+    vertical-align: middle;
+    border-bottom: 1px solid black;
+}
+
+.property-small {
+    margin: 0px 0px 0px 0px;
+    padding:  2px ;
+}
+
+.label-small {
+    margin: 0px 0px 0px 0px;
+    padding-top: 0px;
+    line-height: 6pt;
+    font-size: 6pt;
+    font-weight: normal;
+}
+
+.value-small {
+    font-size: 10pt;
+    font-weight: bold;
+    line-height: 10pt;
+}
+
+.owner-small {
+
+    padding: 2px;
+    height: 2.0cm;
+    width: 100%;
+    font-size: 9pt;
+    font-weight: bolder;
+    border-top: 1px solid black;
+}
+
+.functions {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 1px;
+    height: 5.3cm;
+}
+
+.functions-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.function-key {
+    line-height: 12pt;
+    padding: 1px 0px 2px 0px;
+}
+
+.function {
+    width: 20px;
+    color: white;
+    background-color: black;
+    font-weight: bolder;
+    font-size: 10pt;
+    padding: 0px 1px 2px 1px;
+}
+
+.function-text {
+    font-size: 10pt;
+    padding: 0px 3px 0px 3px;
+}

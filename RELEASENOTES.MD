@@ -3,6 +3,15 @@
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
 
+## Release 2.1.22
+Release date 2023-04-21
+- **Operator logo** can now be uploaded and replaces *operator signature* on the 
+FRED-sticker. Thanks to Søren Bendtsen and Jan Aude for the idea.
+**Model image** now also appears on the FRED-sticker. Thanks to Jan Aude for the idea.
+- **Wheel type** of the model can now be specified. Thanks to Søren Bendtsen for the idea.
+It's a free text, but typically you will type *NEM*, *RP25* or other standard name
+appropriate for the scale and theme of your loco.
+
 ## Release 2.1.21
 Release date 2023-03-01
 - **Fixed printing** issues where inventory card overlaps wagon card.

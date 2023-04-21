@@ -1,0 +1,11 @@
+<Project>
+	<PropertyGroup>
+		<Version>2.1.22</Version>
+		<Authors>Stefan Fjällemark</Authors>
+		<Company>Tellurian Interactive AB</Company>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>		
+	</PropertyGroup>
+</Project>

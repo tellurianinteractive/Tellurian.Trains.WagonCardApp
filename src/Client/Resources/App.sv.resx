@@ -432,4 +432,19 @@
   <data name="YouHaveAnOldClient" xml:space="preserve">
     <value>Du har en gammal applikationsversion</value>
   </data>
+  <data name="TractionForce" xml:space="preserve">
+    <value>Dragkraft</value>
+  </data>
+  <data name="Axles" xml:space="preserve">
+    <value>axlar</value>
+  </data>
+  <data name="Wagons" xml:space="preserve">
+    <value>vagnar</value>
+  </data>
+  <data name="Wheel type" xml:space="preserve">
+    <value>Hjultyp</value>
+  </data>
+  <data name="SelectOperatorILogo" xml:space="preserve">
+    <value>Välj operatörslogotyp</value>
+  </data>
 </root>

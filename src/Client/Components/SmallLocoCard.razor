@@ -1,0 +1,81 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+@if (Data is not null && Owner is not null)
+{
+    <div style="display:flex;flex-direction:column">
+        <div class="card-small" style="@Data.BorderStyle()">
+            <div class="heading-small">
+                @Data.Identification()
+            </div>
+            <div style="display: flex; flex-direction: row; border-bottom: 1px solid black;">
+                @if (Data.Epoch.HasValue())
+                {
+                    <div class="property-small" style="border-right: 1px solid black">
+                        <div class="label-small">@Localizer["Epoch"]</div>
+                        <div class="value-small">@Data.Epoch</div>
+                    </div>
+
+                }
+                <div class="property-small" style="border-right: 1px solid black">
+                    <div class="label-small">@Localizer["Operating period in this design"]</div>
+                    <div class="value-small">@Data.OperatingFromYear - @Data.OperatingUptoYear</div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; border-bottom: 1px solid black;">
+                <div class="property-small" style="border-right: 1px solid black">
+                    <div class="label-small">@Localizer["EnginePower"]</div>
+                    <div class="value-small">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</div>
+                </div>
+                <div class="property-small" style="border-right: 1px solid black;">
+                    <div class="label-small">@Localizer["TopSpeed"]</div>
+                    <div class="value-small">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</div>
+                </div>
+                @if (Data.TractiveForce.HasValue)
+                {
+                    <div class="property-small" style="border-right: 1px solid black;">
+                        <div class="label-small">@Localizer["TractionForce"]</div>
+                        <div class="value-small">@Data.TractiveForce  @Localizer[Data.TractiveForceUnit.ToString()]</div>
+                    </div>
+                }
+            </div>
+            <div class="functions">
+                @foreach (var function in Data.ActiveFunctions())
+                {
+                    <div class="function-key">
+                        <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
+                    </div>
+
+                }
+            </div>
+            @if (Data.Address.HasValue)
+            {
+                <div class="property-small" style="border-top: 1px solid black; text-align: center;">
+                    <span class="value-small">@Localizer["DigitalAddress"]: @Data.Address</span>
+                </div>
+            }
+            <div class="owner-small">
+                <div class="label-small">@Localizer.Label("Owner")</div>
+                @Owner.OwnerName<br />
+                @Owner.EmailAddress<br />
+                @Owner.PhoneNumber
+            </div>
+
+        </div>
+        <div class="card-small" style="@Data.BorderStyle()">
+            <div style="display:flex;flex-direction:column">
+                <div class="heading-small">
+                    <div style="border: 1px solid black">@Data.Identification()</div>
+                </div>
+                <div style="display: block; transform: rotate(90deg);">
+                    <VehicleImage CssClass="picture-small" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                </div>
+             </div>
+        </div>
+    </div>
+
+}
+
+@code {
+    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Owner? Owner { get; set; }
+}

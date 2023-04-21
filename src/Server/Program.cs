@@ -26,7 +26,7 @@ else
 app.UseRequestLocalization(options =>
 {
     options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
-    options.AddSupportedCultures("en", "de", "da", "sv");
+    options.AddSupportedCultures("en", "de", "da", "nb", "sv");
 });
 app.UseHttpsRedirection();
 

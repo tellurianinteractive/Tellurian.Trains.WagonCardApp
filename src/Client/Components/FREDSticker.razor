@@ -11,7 +11,19 @@ else
             <div style="background-color:@Data.BackColor; color: @Data.BackColor.TextColor()">
                 <div style="height:25mm;border:1px" />
                 <div class="loco-label">
-                    <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerOperatorFontSize()"> @Data.OperatorSignature</div>
+                    @if (Data.ModelImage?.IsImage == true || Data.ModelImageUrl.HasValue())
+                    {
+                        <VehicleImage CssClass="stickerloco" Image="Data.ModelImage" ImageUrl="DataModelImageUrl" />
+
+                    }
+                    @if (Data.OperatorLogo?.IsImage == true)
+                    {
+                        <VehicleImage CssClass="operatorlogo" Image="Data.OperatorLogo"  />
+                    }
+                    else
+                    {
+                        <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerOperatorFontSize()"> @Data.OperatorSignature</div>
+                    }
                     <div class="label-lg" style="font-size: @Data.VehicleClass.FredStickerLocoClassFontSize()">@Data.VehicleClass</div>
                     <div class="label-lg" style="font-size: @Data.VehicleNumber.FredStickerLocoNumberFontSize()">@Data.VehicleNumber</div>
                     <div class="label-sm">@Data.ModelManufacturer</div>
@@ -21,7 +33,7 @@ else
                 <div><img src="@Data.QRCode()" height="80" width="80" /></div>
                 <div style="height:0mm;border-bottom:1px solid @Data.ForeColor.TextColor()" />
                 <div class="owner" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
-                    <span class="owner-label">@Localizer.Label("Owner"):</span><br/>
+                    <span class="owner-label">@Localizer.Label("Owner"):</span><br />
                     <span class="owner-name">@Owner?.OwnerName</span>
                 </div>
                 @if (Data.Address.HasValue)

@@ -35,6 +35,19 @@ else
                     <InputText class="inputshort" id="operator" @bind-Value="@Data.OperatorSignature"></InputText>
                 </div>
                 <div>
+                    <label class="inputlabel" for="SelectOperatorLogo">@Localizer["SelectOperatorLogo"]</label>
+                    <span>
+                        @if (Data.OperatorLogo?.IsImage == true)
+                        {
+                            <button @onclick="ClearOperatorLogo">@Localizer["Reset"]</button> <span style="font-size: 9pt">@Data.OperatorLogo.FileName</span>
+                        }
+                        else
+                        {
+                            <InputFile class="inputurl" OnChange="OnOperatorLogoChanged" accept="image/png, image/jpeg, image/gif" id="SelectOperatorLogo" />
+                        }
+                    </span>
+                </div>
+                <div>
                     <label class="inputlabel" for="class">@Localizer["VehicleClass"]</label>
                     <InputText class="inputshort" id="class" @bind-Value="@Data.VehicleClass"></InputText>
                 </div>
@@ -144,9 +157,14 @@ else
                     <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl"></InputText>
                 </div>
                 <div>
+                    <label class="inputlabel" for="WheelType">@Localizer["Wheel type"]</label>
+                    <input id="WheelType" @bind="@Data.WheelType" />
+                </div>                
+                <div>
                     <label class="inputlabel" for="secondcolour">@Localizer["FredLocoLabelBackColour"]</label>
                     <input id="secondcolour" type="color" @bind="@Data.SecondColor" />
                 </div>
+
                 <div>
                     <label class="inputlabel" for="maincolour">@Localizer["FredFunctionsBackColour"]</label>
                     <input id="maincolour" type="color" @bind="@Data.MainColor" />
@@ -296,6 +314,13 @@ else
             await LocalStorage.SetItemAsync("Owner", Owner);
         }
     }
+
+    async Task OnOperatorLogoChanged(InputFileChangeEventArgs e)
+    {
+        Data.OperatorLogo = await e.GetImageFile();
+    }
+
+    void ClearOperatorLogo() => Data.OperatorLogo = null;
 
     async Task OnOriginalImageChanged(InputFileChangeEventArgs e)
     {

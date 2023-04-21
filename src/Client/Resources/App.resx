@@ -433,4 +433,19 @@
   <data name="YouHaveAnOldClient" xml:space="preserve">
     <value>You have an old application version</value>
   </data>
+  <data name="TractionForce" xml:space="preserve">
+    <value>Traction force</value>
+  </data>
+  <data name="Axles" xml:space="preserve">
+    <value>axles</value>
+  </data>
+  <data name="Wagons" xml:space="preserve">
+    <value>wagons</value>
+  </data>
+  <data name="Wheel type" xml:space="preserve">
+    <value>Wheel type</value>
+  </data>
+  <data name="SelectOperatorILogo" xml:space="preserve">
+    <value>Select operator logo</value>
+  </data>
 </root>

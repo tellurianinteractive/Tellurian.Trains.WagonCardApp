@@ -3,7 +3,7 @@
 @if (Data is not null && Owner is not null)
 {
     <div style="display:flex;flex-direction:column">
-        <div class="card" style="@BorderStyle">
+        <div class="card" style="@Data.BorderStyle()">
             <div class="card-info" style="flex-direction: column;">
                 <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
                     @Data.Identification()
@@ -13,7 +13,7 @@
                     <div style="display: flex; flex-direction: column">
                         <div class="marking">
                             <div class="label">@Localizer.Label("Marking")</div>
-                            <OwnerMarking Marking="@Data.Marking" />
+                            @*<OwnerMarking Marking="@Data.Marking" />*@
                         </div>
                         <div class="owner">
                             <div class="label">@Localizer.Label("Owner")</div>
@@ -22,21 +22,32 @@
                             @Owner.PhoneNumber
                         </div>
                     </div>
-                    <div class="functions">
-                        @foreach (var function in ActiveFunctions)
-                        {
-                            <div class="function-key">
-                                <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
-                            </div>
+                    <div style="display: flex; flex-direction: column">
+                        <div class="functions">
+                            @foreach (var function in Data.ActiveFunctions())
+                            {
+                                <div class="function-key">
+                                    <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
+                                </div>
 
-                        }
+                            }
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            @if (Data.WheelType.HasValue())
+                            {
+                                <div style="border-right: 1px solid black" class="property">
+                                    <div class="label">@Localizer.Label("Wheel type")</div>
+                                    <span class="value-sm">@Data.WheelType</span>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div class="card" style="display: block; transform: rotate(180deg); @BorderStyle">
+        <div class="card" style="display: block; transform: rotate(180deg); @Data.BorderStyle()">
 
             <div class="card-info" style="flex-direction: row;">
                 <div style="width: 8cm;">
@@ -103,12 +114,4 @@
 @code {
     [Parameter] public Loco? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
-
-
-    //string FunctionText(int index) => Data?.Functions.Count() > index ? Data.Functions[index].Text : string.Empty;
-    //string FunctionKey(int index) => Data?.Functions.Count() > index ? $"F{Data.Functions[index].Key}" : string.Empty;
-    IEnumerable<(string Key, string Text)> ActiveFunctions => Data is null ? Array.Empty<(string, string)>() :
-        Data.Functions.Where(f => !string.IsNullOrWhiteSpace(f.Text)).Select(f => ($"F{f.Key}", f.Text));
-
-    string BorderStyle => Data?.PrintOptions.PrintCard == true ? "border: 0.5cm solid red;  " : "border: 0.5cm solid white;";
 }
