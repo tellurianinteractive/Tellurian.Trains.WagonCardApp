@@ -7,7 +7,7 @@
 Release date 2023-04-21
 - **Operator logo** can now be uploaded and replaces *operator signature* on the 
 FRED-sticker. Thanks to Søren Bendtsen and Jan Aude for the idea.
-**Model image** now also appears on the FRED-sticker. Thanks to Jan Aude for the idea.
+- **Model image** now also appears on the FRED-sticker. Thanks to Jan Aude for the idea.
 - **Wheel type** of the model can now be specified. Thanks to Søren Bendtsen for the idea.
 It's a free text, but typically you will type *NEM*, *RP25* or other standard name
 appropriate for the scale and theme of your loco.
@@ -16,12 +16,13 @@ appropriate for the scale and theme of your loco.
 Release date 2023-03-01
 - **Fixed printing** issues where inventory card overlaps wagon card.
 - **Extra FRED** sticker is now optional.
-- **Wagon Card** now have options to select whar to print.
+- **Wagon Card** now have options to select what to print.
 - **Old app version** should now be detected.
 
 ## Release 2.1.20
 Release date 2023-02-28
 - **Firewall fix** to make the application work also behind (some) firewalls.
+Thanks to Halvor Sannæs for testing it in Arendal.
 
 ## Release 2.1.19
 Release date 2022-12.17
@@ -33,7 +34,7 @@ Thanks to Johannes Edvinsson for reporting this.
 Release date 2022-11-21
 - **Upgrade** to .NET 7.
 - **Max upload file size** increased to 4MB.
-- 
+
 ## Release 2.1.17
 Release date 2022-10-31
 - **Double FRED labels** for locos. Suggested by Michael Homscheidt.
@@ -41,6 +42,7 @@ Release date 2022-10-31
 - **JSON data** now contains owner name when downloaded and only if you change the default name, issue #15. Suggested by Tore Urvik.
 - **Bug fix** of issue #16 where wagon origin and model images were swapped. Thanks to Benny Tjäder for reporting this.
 - **Bug fix** of unit for *load limit* and *load volume*.
+
 ## Release 2.1.16
 Release date 2022-09-14
 - **FRED sticker** format correction that gives room for more Functions.
@@ -83,7 +85,7 @@ Release date 2022-04-05
 ## Release 2.1.6
 Release date 2022-02-23
 - **Bug fix** of max heigh of model page image.
-- 
+
 ## Release 2.1.5
 Release date 2022-02-12
 - **Reference page** added, describing international standards for numbering and classification of locos and wagons.
