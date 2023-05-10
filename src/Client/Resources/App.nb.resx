@@ -157,7 +157,7 @@
     <value>E-postadresse</value>
   </data>
   <data name="EnginePower" xml:space="preserve">
-    <value>Motorkraft</value>
+    <value>Motoreffekt</value>
   </data>
   <data name="Epoch" xml:space="preserve">
     <value>Epoke</value>

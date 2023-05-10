@@ -3,6 +3,10 @@
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
 
+## Release 2.1.23
+Release date 2023-05-10
+- **Engine power** translations corrected. Thanks to Martin Pischky for the suggestion.
+
 ## Release 2.1.22
 Release date 2023-04-21
 - **Operator logo** can now be uploaded and replaces *operator signature* on the 

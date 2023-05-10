@@ -130,7 +130,7 @@
     <value>Antrieb</value>
   </data>
   <data name="EnginePower" xml:space="preserve">
-    <value>Motorleistung</value>
+    <value>Dauerleistung </value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
     <value>Hersteller</value>
