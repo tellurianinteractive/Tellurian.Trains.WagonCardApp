@@ -3,38 +3,41 @@
     @if (Marking.UseMarking)
     {
         <div class="owner-marking">
-            @if (HasInventoryNumber)
+            @if (Marking.ShowOwnerIcon())
             {
-                <div class="inventory-number" style="background-color: @Marking.Color1; color: @Marking.Color1.TextColor()">
-                    <div style="padding-top: 0.3cm">
-                        @Marking.InventoryNumber
+                @if (Marking.HasOwnerIcon())
+                {
+                    <div style="padding-top: 0.2cm">
+                        <img style="height: 1.0cm" src="data:@Marking.Icon!.ContentType;base64,@Marking.Icon.Base64data" />
                     </div>
-                </div>
+                }
+                else if (Marking.HasOwnerIconHref())
+                {
+                    <div style="padding-top: 0.2cm">
+                        <img style="height: 1.0cm" src="@Marking.IconHref" />
+                    </div>
+                }
             }
-            else if (Marking.Icon is not null)
-            {
-                <div style="padding-top: 0.2cm">
-                    <img style="height: 1.0cm" src="data:@Marking.Icon.ContentType;base64,@Marking.Icon.Base64data"/>
-                </div>                
-            }
-            else if (HasIconHref)
-            {
-                <div style="padding-top: 0.2cm">
-                    <img style="height: 1.0cm" src="@Marking.IconHref"/>
-                </div>
-            }
-            else if(HasTextLabel)
+            else if (Marking.ShowOwnerTextLabel())
             {
                 <div style="padding-top: 0.2cm">
                     <span class="owner-label">@Marking.TextLabel</span>
-                </div>              
+                </div>
             }
-            else
+            else if (Marking.ShowColourMarkings())
             {
                 <div style="padding-top: 0.3cm">
                     <span class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</span>
                     <span class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</span>
                     <span class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</span>
+                </div>
+            }
+            @if (Marking.ShowInventoryNumber())
+            {
+                <div class="inventory-number" style="background-color: @Marking.BackgroundColor(); color: @Marking.BackgroundColor().TextColor()">
+                    <div style="padding-top: 0.3cm">
+                        @Marking.InventoryNumber
+                    </div>
                 </div>
             }
         </div>
@@ -46,6 +49,6 @@
 
     bool HasInventoryNumber => !string.IsNullOrWhiteSpace(Marking?.InventoryNumber);
     bool HasIconHref => Marking?.IconHref?.StartsWith("http") == true;
-    bool HasTextLabel => Marking?.TextLabel?.HasValue() == true ;
+    bool HasTextLabel => Marking?.TextLabel?.HasValue() == true;
     bool HasColor(string? color) => !string.IsNullOrWhiteSpace(color) && !color.Equals("#ffffff", StringComparison.OrdinalIgnoreCase);
 }

@@ -448,4 +448,7 @@
   <data name="SelectOperatorLogo" xml:space="preserve">
     <value>Select operator logo</value>
   </data>
+  <data name="UseColorMarking" xml:space="preserve">
+    <value>Use colour marking</value>
+  </data>
 </root>

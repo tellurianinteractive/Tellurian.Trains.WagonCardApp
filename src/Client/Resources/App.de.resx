@@ -130,7 +130,7 @@
     <value>Antrieb</value>
   </data>
   <data name="EnginePower" xml:space="preserve">
-    <value>Dauerleistung </value>
+    <value>Dauerleistung</value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
     <value>Hersteller</value>
@@ -446,5 +446,8 @@
   </data>
   <data name="SelectOperatorLogo" xml:space="preserve">
     <value>Betreiberlogo auswählen</value>
+  </data>
+  <data name="UseColorMarking" xml:space="preserve">
+    <value>Farbmarkierung verwenden</value>
   </data>
 </root>

@@ -447,4 +447,7 @@
   <data name="SelectOperatorLogo" xml:space="preserve">
     <value>Välj operatörslogotyp</value>
   </data>
+  <data name="UseColorMarking" xml:space="preserve">
+    <value>Använd färgmarkering</value>
+  </data>
 </root>
