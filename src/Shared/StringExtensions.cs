@@ -6,7 +6,8 @@ namespace Tellurian.WagonCardApp.Shared;
 
 public static class StringExtensions
 {
-    public static bool HasValue(this string? value) => !string.IsNullOrWhiteSpace(value);
+    public static bool HasValue([NotNullWhen(true)] this string? value, int minLenght =0) => 
+        !string.IsNullOrWhiteSpace(value) && value.Length >= minLenght;
     public static string FromMarkdown(this string? markdown)
     {
         if (string.IsNullOrWhiteSpace(markdown)) return string.Empty;
@@ -39,7 +40,7 @@ public static class StringExtensions
     public static bool IsHexColor([NotNullWhen(true)] this string? maybeColor) =>
         !string.IsNullOrWhiteSpace(maybeColor) && Regex.IsMatch(maybeColor, HexColorRegEx);
 
-    public static bool Is(this string? value, string? otherValue) => value is null ? false : value.Equals(otherValue, StringComparison.OrdinalIgnoreCase);
+    public static bool Is(this string? value, string? otherValue) => value is not null && value.Equals(otherValue, StringComparison.OrdinalIgnoreCase);
 
     public static bool IsDigitsOrWhiteSpace(this string? value) =>
         !string.IsNullOrWhiteSpace(value) && value.All(c => char.IsDigit(c) || char.IsWhiteSpace(c));

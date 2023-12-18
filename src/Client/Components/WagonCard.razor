@@ -5,8 +5,16 @@
     <div style="display:flex;flex-direction:column">
         <div class="card" style="border-color: @Data.FrameColor;">
             <div class="card-info" style="flex-direction: column;">
-                <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
-                    @Data.Identification()
+                <div class="heading" style="display:flex; flex-direction: row; font-size: @Data.Identification().LongHeadingFontSize();">
+                    @if (Data.IsCargoWagon)
+                    {
+                        <div>
+                            <UicMainClass Data="@Data" />
+                        </div>
+                    }
+                    <div style="width: @(Data.IsCargoWagon ? "12cm" : "13.2cm");align-self:center">
+                        @Data.Identification()
+                    </div>
                 </div>
                 <VehicleImage CssClass="picture-front" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 <div style="display: flex; flex-direction: row">
@@ -27,7 +35,7 @@
                             @if (Data.ModelWeight.HasValue)
                             {
                                 <div class="label">@Localizer.Label("Model weight")</div>
-                                <div>@Data.ModelWeight g</div>
+                                <div>@Data.ModelWeightGrams</div>
                             }
                         </div>
                         <div class="model-uiclabel">
@@ -49,8 +57,16 @@
             <div class="card-info" style="flex-direction: row;">
 
                 <div style="width: 8cm">
-                    <div class="heading" style="width: 8.4cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
-                        @Data.Identification()
+                    <div class="heading" style="display:flex; flex-direction:row; width: 8.0cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
+                        @if (Data.IsCargoWagon)
+                        {
+                            <div>
+                                <UicMainClass Data="@Data" />
+                            </div>
+                        }
+                        <div style="width: @(Data.IsCargoWagon ? "6.8cm" : "8cm");align-self:center">
+                            @Data.Identification()
+                        </div>
                     </div>
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         @if (Data.Epoch.HasValue())
@@ -104,14 +120,19 @@
                                 <span class="value-sm">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</span>
                             </div>
                         }
-                        @if (Data.CountryRegistrationNumber > 0 && Data.InteroperatbilityNumber > 0)
-                        {
-                            <div class="property">
-                                <span class="label">@Localizer.Label("Interoperability")</span><br />
+                        <div class="property">
+                            <span class="label">@Localizer.Label("Interoperability")</span><br />
+                            @if (Data.CountryRegistrationNumber > 0 && Data.InteroperatbilityNumber > 0)
+                            {
                                 <span class="value-sm">@Data.Interoperability</span>
                                 <span class="value-sm">@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature</span>
-                            </div>
-                        }
+                            }
+                            else
+                            {
+                                <span class="value-sm">@Data.Interoperability</span>
+                            }
+
+                        </div>
                     </div>
                     @if (Data.LoadingInstructions.HasValue())
                     {
@@ -152,5 +173,4 @@
 @code {
     [Parameter] public Wagon? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
-
 }

@@ -8,6 +8,7 @@ public class VehicleQRCodeData
     public string? Address { get; init; }
     public string? Owner { get; init; } = string.Empty; 
     public string? UicNumber { get; init; }
+    public string? UicClass { get; init; }
     public string? Label { get; init; }
 }
 
@@ -41,6 +42,7 @@ public static class QRCodeExtensions
             Address = vehicle is Loco loco && loco.Address.HasValue ? loco.Address.Value.ToString() : null,
             Owner = vehicle.Owner.OwnerName,
             UicNumber = vehicle.UicNumber(),
+            UicClass = vehicle is Wagon wagon ? wagon.MainClass : null,
             Label = vehicle.Identification()
         };
 }

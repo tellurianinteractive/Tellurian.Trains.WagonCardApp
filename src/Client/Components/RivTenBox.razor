@@ -1,0 +1,17 @@
+﻿@if (Data?.IsRivConformant == true)
+{
+    <span class="@CssClass" style="border: 1pt solid black; padding: 0pt 1px; margin: 0pt 2px: @CssStyle">RIV</span>
+
+
+}
+@if (Data?.IsTenConformant == true)
+{
+    <span class="@CssClass" style="border: 1pt solid black; padding: 0pt 1px; margin-right: 0pt 2px; @CssStyle">TEN</span>
+
+}
+
+@code {
+    [Parameter] public Wagon? Data { get; set; }
+    [Parameter] public string CssClass { get; set; } = "value-sm";
+    [Parameter] public string? CssStyle { get; set; }
+}

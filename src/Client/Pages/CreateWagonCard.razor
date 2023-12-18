@@ -39,6 +39,10 @@ else
                     <InputText class="inputshort" id="VehicleClass" @bind-Value="@Data.VehicleClass"></InputText>
                 </div>
                 <div>
+                    <label class="inputlabel" for="UicMainClass">@Localizer["OtherUicMainClass"]</label>
+                    <InputText class="inputshort" id="UicMainClass" @bind-Value="@Data.UicMainClass"></InputText>
+                </div>
+                <div>
                     <label class="inputlabel" for="InteroperabilityCode">@Localizer["InteroperabilityCode"]</label>
                     <InputNumber class="inputshort" id="InteroperabilityCode" @bind-Value="@Data.InteroperatbilityNumber"></InputNumber>
                 </div>
@@ -101,6 +105,10 @@ else
                     <div>
                         <label class="inputlabel" for="IsTenConformant">@Localizer["IsTenConformant"]</label>
                         <InputCheckbox class="inputshort" id="IsTenConformant" @bind-Value="@Data.IsTenConformant"></InputCheckbox>
+                    </div>
+                    <div>
+                        <label class="inputlabel" for="IsInterfrigoConformant">@Localizer["IsInterfrigoConformant"]</label>
+                        <InputCheckbox class="inputshort" id="IsInterfrigoConformant" @bind-Value="@Data.IsInterfrigoConformant"></InputCheckbox>
                     </div>
                     <div>
                         <label class="inputlabel" for="LoadingInstructions">@Localizer["Loading instructions"]</label>

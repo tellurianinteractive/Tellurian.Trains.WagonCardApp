@@ -6,15 +6,19 @@
 else
 {
     <div class="@CssClass" style="font-size: @ActualFontSize ; color: @ActualBackColor.TextColor() ; background-color: @ActualBackColor">
-        @if (Data.UseUicNumber) {
+        @if (Data.UseUicNumber)
+        {
             @Data.Interoperability <br />
-            @Data.Country <span><u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature<br /></span> 
+            @Data.Country <span><u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature<br /></span>
             @Data.FullVehicleNumber <br />
-            @Data.VehicleClass
+            @Data.BulletVehicleClass
         }
-        else {
-            @Data.OperatorSignature @Data.VehicleNumber <br />
-            @Data.VehicleClass
+        else
+        {
+            @Data.Interoperability <br />
+            @($"{Data.OperatorSignature} {Data.VehicleNumber}") <br />
+            @Data.BulletVehicleClass <br />
+           
         }
     </div>
 }

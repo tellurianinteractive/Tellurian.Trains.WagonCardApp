@@ -5,8 +5,17 @@
     <div style="display:flex;flex-direction:column">
         <div class="card" style="@Data.BorderStyle()">
             <div class="card-info" style="flex-direction: column;">
-                <div class="heading" style="font-size: @Data.Identification().LongHeadingFontSize();">
-                    @Data.Identification()
+                <div class="heading" style="display:flex; flex-direction:row; font-size: @Data.Identification().LongHeadingFontSize();">
+                    <div style="width: 12.8cm">
+                        @Data.Identification()
+                    </div>
+                    @if (Data.Address.HasValue && Data.Address.Value > 0)
+                    {
+                        <div style="width: 1.2cm; font-size: 12pt; background-color: yellow">
+                            DCC <br />
+                            @Data.Address
+                        </div>
+                    }
                 </div>
                 <VehicleImage CssClass="picture-front" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
                 <div style="display: flex; flex-direction: row">

@@ -2,7 +2,12 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
-
+## Release 2.1.26
+Release date 2023-12-18
+- **UIC main class** is now displayed on freight wagon cards.
+- **UIC main class** can be spedified if wagon class is before UIC-classes was introduced.
+- **DCC address** is now also displayed on loco card.
+- **INTERFRIGO** can now be checked for wagins that fulfils this interoperability.
 ## Release 2.1.25
 Release date 2023-05-29
 - **Inventory number** can now be given in compination with any owner marking.

@@ -11,9 +11,11 @@ public class Wagon : Vehicle
     public string? LoadingInstructions { get; set; }
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
+    public bool IsInterfrigoConformant { get; set; }
     public bool IsFlatWagon { get; set; }
     public string? WagonColor { get; set; }
     public int? ModelWeight { get; set; }
+    public string? ModelWeightGrams => ModelWeight.HasValue ? $"{ModelWeight.Value}g" : null;
 
     public override bool UseUicNumber => this.UseUicNumber();
 
@@ -23,21 +25,26 @@ public class Wagon : Vehicle
     public bool HasHomeStation => !string.IsNullOrWhiteSpace(HomeStation?.Name);
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
-    public string Interoperability => $"{InteroperatbilityNumber} {RivAndOrTen} ";
+    public string Interoperability => InteroperatbilityNumber > 0 ? $"{InteroperatbilityNumber:00} {Conmformancy}" : Conmformancy;
     public string Country => $"{CountryRegistrationNumber}";
 
-    private string RivAndOrTen =>
-        IsRivConformant && IsTenConformant ? "TEN-RIV" :
-        IsRivConformant ? "RIV" :
-        IsTenConformant ? "TEN" :
-        string.Empty;
-
-    private char MainClass => VehicleClass.Length > 0 ? VehicleClass.ToUpperInvariant()[0] : ' ';
+    private char MainClassLetter => UicMainClass?.Length > 0 ? UicMainClass[0] : VehicleClass.Length > 0 ? VehicleClass[0] : ' ';
+    public string MainClass => MainClassLetter.ToString().ToUpperInvariant();
+    public string? UicMainClass { get; set; }
 
 
     public string FrameColor => IsPassengerWagon ? PassengerWagonFrameColor : CargoWagonFrameColor;
 
-    private string PassengerWagonFrameColor => MainClass switch
+    private string Conmformancy =>
+        IsRivConformant && IsInterfrigoConformant && IsTenConformant ? "RIV-IF-TEN" :
+        IsRivConformant && IsInterfrigoConformant ? "RIV-IF" :
+        IsRivConformant && IsTenConformant ? "RIV-TEN" :
+        IsRivConformant ? "RIV" :
+        IsTenConformant ? "TEN" :
+        IsInterfrigoConformant ? "IF" :
+        "";
+
+    private string PassengerWagonFrameColor => MainClass[0] switch
     {
         'P' => OperatorSignature.Is("OHJ") ? D : None,
         'B' => VehicleClass.StartsWith("BC") ? BCWLRS : ABC,
@@ -49,7 +56,7 @@ public class Wagon : Vehicle
         _ => ABC,
     };
 
-    private string CargoWagonFrameColor => MainClass switch
+    private string CargoWagonFrameColor => MainClass[0] switch
     {
         'E' => E,
         'F' => F,

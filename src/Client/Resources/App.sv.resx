@@ -346,10 +346,10 @@
     <value>Interoperabilitetskod (UIC)</value>
   </data>
   <data name="IsRivConformant" xml:space="preserve">
-    <value>Uppfyller RIV-kraven?</value>
+    <value>Uppfyller RIV-krav?</value>
   </data>
   <data name="IsTenConformant" xml:space="preserve">
-    <value>Uppfyller TEN-kraven?</value>
+    <value>Uppfyller TEN-krav?</value>
   </data>
   <data name="WagonColour" xml:space="preserve">
     <value>Vagnfärg</value>
@@ -449,5 +449,11 @@
   </data>
   <data name="UseColorMarking" xml:space="preserve">
     <value>Använd färgmarkering</value>
+  </data>
+  <data name="OtherUicMainClass" xml:space="preserve">
+    <value>Annat UIC huvudlittra?</value>
+  </data>
+  <data name="IsInterfrigoConformant" xml:space="preserve">
+    <value>Uppfyller Interfrigo-krav?</value>
   </data>
 </root>

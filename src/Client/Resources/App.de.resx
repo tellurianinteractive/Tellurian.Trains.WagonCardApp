@@ -450,4 +450,10 @@
   <data name="UseColorMarking" xml:space="preserve">
     <value>Farbmarkierung verwenden</value>
   </data>
+  <data name="OtherUicMainClass" xml:space="preserve">
+    <value>Andere UIC hauptbaureihe?</value>
+  </data>
+  <data name="IsInterfrigoConformant" xml:space="preserve">
+    <value>Ist Interfrigo-konform?</value>
+  </data>
 </root>

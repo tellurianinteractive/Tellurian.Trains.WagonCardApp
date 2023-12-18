@@ -5,6 +5,7 @@ public abstract class Vehicle
     public string OperatorSignature { get; set; } = string.Empty;
     public ImageFile? OperatorLogo { get; set; }
     public string VehicleClass { get; set; } = string.Empty;
+    public string BulletVehicleClass => $"• {VehicleClass}";
     public int InteroperatbilityNumber { get; set; }
     public int CountryRegistrationNumber { get; set; }
 
@@ -95,7 +96,7 @@ public static class VehicleExtensions
     {
         int[] multipliers = { 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
 
-        var digits = $"{me.InteroperatbilityNumber}{me.CountryRegistrationNumber}{me.VehicleNumber}".Where(c => char.IsDigit(c)).Select(c => c - '0').ToArray();
+        var digits = $"{me.InteroperatbilityNumber:00}{me.CountryRegistrationNumber}{me.VehicleNumber}".Where(c => char.IsDigit(c)).Select(c => c - '0').ToArray();
         if (digits.Length != multipliers.Length) return null;
         var sums = new int[11];
         for (int i = 0; i < digits.Length; i++)
