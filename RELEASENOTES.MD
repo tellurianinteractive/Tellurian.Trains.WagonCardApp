@@ -7,10 +7,10 @@ Release date 2023-12-18
 - **UIC main class** is now displayed on freight wagon cards.
 - **UIC main class** can be spedified if wagon class is before UIC-classes was introduced.
 - **DCC address** is now also displayed on loco card.
-- **INTERFRIGO** can now be checked for wagins that fulfils this interoperability.
+- **INTERFRIGO** can now be checked for wagons that fulfils this interoperability.
 ## Release 2.1.25
 Release date 2023-05-29
-- **Inventory number** can now be given in compination with any owner marking.
+- **Inventory number** can now be given in combination with any owner marking.
 ## Release 2.1.24
 Release date 2023-05-28
 - **Bug fix** of innsue #24 owner marking not visible on loco card.
