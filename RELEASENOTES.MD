@@ -2,6 +2,9 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 2.1.27
+Release date 2023-12-27
+- **Fix** of text lenghts.
 ## Release 2.1.26
 Release date 2023-12-18
 - **UIC main class** is now displayed on freight wagon cards.
