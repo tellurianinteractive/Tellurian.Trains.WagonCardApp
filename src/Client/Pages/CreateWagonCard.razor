@@ -316,6 +316,7 @@ else
         {
             Data = await LocalStorage.GetItemAsync<Wagon>("CargoWagon") ?? Wagon.CargoWagonDefault;
         }
+        Data.Owner = Owner;
 
     }
 
@@ -338,6 +339,7 @@ else
         await LocalStorage.SetItemAsync("Owner", Owner);
         if (HasData)
         {
+            Data.Owner = Owner;
             await LocalStorage.SetItemAsync("CargoWagon", Data);
         }
     }
@@ -383,7 +385,7 @@ else
         await LocalStorage.SetItemAsync("Owner", Owner);
         if (HasData)
         {
-            if (!Owner.IsEmptyOrDefault) Data.Owner = Owner;
+            Data.Owner = Owner;
             var json = System.Text.Json.JsonSerializer.Serialize<Wagon>(Data, new JsonSerializerOptions() { WriteIndented = true });
             await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, System.Text.Encoding.UTF8, "application/json");
         }
@@ -399,11 +401,13 @@ else
     {
         await OnValidSubmit();
         Data = Wagon.Example;
+        Data.Owner = Owner;
     }
 
     void Reset()
     {
         Data = Wagon.CargoWagonDefault;
+        Data.Owner = Owner;
     }
 
     void Clear()

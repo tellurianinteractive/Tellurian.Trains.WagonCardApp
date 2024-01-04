@@ -358,7 +358,7 @@ else
             await e.File.OpenReadStream(maxAllowedSize: AppService.MaxUploadFileSize).CopyToAsync(stream);
             stream.Position = 0;
             Data = await JsonSerializer.DeserializeAsync<Loco>(stream) ?? Loco.Default;
-            if (!Data.Owner.IsEmptyOrDefault) Owner = Data.Owner;
+            if (Data.Owner.IsEmptyOrDefault) Data.Owner = Owner;
         }
         catch (Exception ex)
         {

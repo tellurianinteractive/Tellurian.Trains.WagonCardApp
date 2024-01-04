@@ -94,7 +94,7 @@ public static class VehicleExtensions
     }
     public static int? CalculateUicCheckSum(this Vehicle me)
     {
-        int[] multipliers = { 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+        int[] multipliers = [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2];
 
         var digits = $"{me.InteroperatbilityNumber:00}{me.CountryRegistrationNumber}{me.VehicleNumber}".Where(c => char.IsDigit(c)).Select(c => c - '0').ToArray();
         if (digits.Length != multipliers.Length) return null;

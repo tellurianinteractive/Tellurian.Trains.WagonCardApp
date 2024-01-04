@@ -18,7 +18,7 @@ else
                     }
                     @if (Data.OperatorLogo?.IsImage == true)
                     {
-                        <VehicleImage CssClass="operatorlogo" Image="Data.OperatorLogo"  />
+                        <VehicleImage CssClass="operatorlogo" Image="Data.OperatorLogo" />
                     }
                     else
                     {
@@ -59,4 +59,9 @@ else
 @code {
     [Parameter] public Loco? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (Data is not null && Owner is not null) Data.Owner = Owner;
+    }
 }
