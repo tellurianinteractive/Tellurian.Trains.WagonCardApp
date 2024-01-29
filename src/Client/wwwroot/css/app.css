@@ -1,7 +1,7 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Arial Nova', Arial, sans-serif;
     margin: 0pt;
 }
 
@@ -52,7 +52,7 @@ a, .btn-link {
     }
 
 .card {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial Nova', Arial, sans-serif;
     border: 0.5cm solid red;
     padding: 0px;
     margin: 0px;
@@ -62,7 +62,7 @@ a, .btn-link {
 }
 
 .card-small {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial Nova', Arial, sans-serif;
     border: 0.2cm solid red;
     padding: 0px;
     margin: 0px;

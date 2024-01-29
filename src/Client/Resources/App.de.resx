@@ -456,4 +456,7 @@
   <data name="IsInterfrigoConformant" xml:space="preserve">
     <value>Ist Interfrigo-konform?</value>
   </data>
+  <data name="MaxSevenDigits" xml:space="preserve">
+    <value>Maximal 7 Ziffern!</value>
+  </data>
 </root>

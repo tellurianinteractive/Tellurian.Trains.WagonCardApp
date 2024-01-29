@@ -5,7 +5,7 @@
     <div style="display:flex;flex-direction:column">
         <div class="card" style="border-color: @Data.FrameColor;">
             <div class="card-info" style="flex-direction: column;">
-                <div class="heading" style="display:flex; flex-direction: row; font-size: @Data.Identification().LongHeadingFontSize();">
+                <div class="heading" style="display:flex; flex-direction: row; @Data.Identification().LongHeadingStyle();">
                     @if (Data.IsCargoWagon)
                     {
                         <div>
@@ -57,7 +57,7 @@
             <div class="card-info" style="flex-direction: row;">
 
                 <div style="width: 8cm">
-                    <div class="heading" style="display:flex; flex-direction:row; width: 8.0cm;font-size: @Data.Identification().ShortHeadingFontSize() ">
+                    <div class="heading" style="display:flex; flex-direction:row; width: 8.0cm; @Data.Identification().ShortHeadingStyle() ">
                         @if (Data.IsCargoWagon)
                         {
                             <div>

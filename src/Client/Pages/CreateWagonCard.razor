@@ -52,7 +52,8 @@ else
                 </div>
                 <div>
                     <label class="inputlabel" for="VehicleNumber">@Localizer["VehicleNumber"]</label>
-                    <InputText class="inputwide" id="VehicleNumber" @bind-Value="@Data.VehicleNumber"></InputText>
+                   <input class="inputwide" id="VehicleNumber" @bind="@Data.VehicleNumber" @bind:after="@ValidateWagonNumber">
+                   <span style="color: red">@VehicleNumberErrorMessage</span>
                 </div>
                 <div>
                     <label class="inputlabel" for="WagonColour">@Localizer["WagonColour"]</label>
@@ -361,6 +362,28 @@ else
         Data.Marking.Icon = await e.GetImageFile();
     }
     void ClearOwnerImage() => Data.Marking.Icon = null;
+
+    string VehicleNumberErrorMessage = "";
+    void ValidateWagonNumber()
+    {
+        var value = Data.VehicleNumber.Select(c => char.IsDigit(c) || char.IsWhiteSpace(c)).ToString();
+        if (value is not null)
+        {
+            var digitsCount = value.Count(c => char.IsAsciiDigit(c));
+            var spacesCount = value[..7].Count(c => char.IsWhiteSpace(c));
+            if (digitsCount > 7)
+            {
+                var truncateLength = 7 + spacesCount;
+                Data.VehicleNumber = value[..truncateLength];
+                VehicleNumberErrorMessage = Localizer["MaxSevenDigits"];
+            }
+            else
+            {
+                Data.VehicleNumber = value;
+            }
+        }
+
+    }
 
     private async Task UploadFile(InputFileChangeEventArgs e)
     {

@@ -2,6 +2,14 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 2.1.29
+Release date 2024-01-29
+- **Validation** of vehicle number added. 
+According [UIC](https://en.wikipedia.org/wiki/UIC_wagon_numbers) vehicle numbers cannot exceed 7 digits.
+Position 5-8 is for vehicle type and 9-11 is serial number.
+*Also note that the app calculates the check digit automatically when 7 digits are entered.*
+- **Fonts changed** to Arial. Long vehicle identifications automatically uses narrow text.
+- **Components update** to latest available versions.
 ## Release 2.1.28
 Release date 2024-01-04
 - **Bug fix** of owner name in QR-code. Thanks to Herbert Stadler for notifying this.
