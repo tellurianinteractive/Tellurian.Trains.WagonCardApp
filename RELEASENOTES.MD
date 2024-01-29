@@ -9,6 +9,7 @@ According [UIC](https://en.wikipedia.org/wiki/UIC_wagon_numbers) vehicle numbers
 Position 5-8 is for vehicle type and 9-11 is serial number.
 *Also note that the app calculates the check digit automatically when 7 digits are entered.*
 - **Fonts changed** to Arial. Long vehicle identifications automatically uses narrow text.
+- **Wagon number labels** now has two different sizes.
 - **Components update** to latest available versions.
 ## Release 2.1.28
 Release date 2024-01-04
