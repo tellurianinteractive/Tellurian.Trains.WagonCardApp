@@ -17,22 +17,10 @@ public class Wagon : Vehicle
     public int? ModelWeight { get; set; }
     public string? ModelWeightGrams => ModelWeight.HasValue ? $"{ModelWeight.Value}g" : null;
 
-    public override bool UseUicNumber => this.UseUicNumber();
-
-    public override string UicCheckDigit => this.CheckDigit();
-    public string FullVehicleNumber => $"{VehicleNumber}{UicCheckDigit}";
     public HomeStation HomeStation { get; set; } = new();
-    public bool HasHomeStation => !string.IsNullOrWhiteSpace(HomeStation?.Name);
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
     public string Interoperability => InteroperatbilityNumber > 0 ? $"{InteroperatbilityNumber:00} {Conmformancy}" : Conmformancy;
-    public string Country => $"{CountryRegistrationNumber}";
-
-    private char MainClassLetter => UicMainClass?.Length > 0 ? UicMainClass[0] : VehicleClass.Length > 0 ? VehicleClass[0] : ' ';
-    public string MainClass => MainClassLetter.ToString().ToUpperInvariant();
-    public string? UicMainClass { get; set; }
-
-
     public string FrameColor => IsPassengerWagon ? PassengerWagonFrameColor : CargoWagonFrameColor;
 
     private string Conmformancy =>
@@ -44,7 +32,7 @@ public class Wagon : Vehicle
         IsInterfrigoConformant ? "IF" :
         "";
 
-    private string PassengerWagonFrameColor => MainClass[0] switch
+    private string PassengerWagonFrameColor => this.MainClass()[0] switch
     {
         'P' => OperatorSignature.Is("OHJ") ? D : None,
         'B' => VehicleClass.StartsWith("BC") ? BCWLRS : ABC,
@@ -56,7 +44,7 @@ public class Wagon : Vehicle
         _ => ABC,
     };
 
-    private string CargoWagonFrameColor => MainClass[0] switch
+    private string CargoWagonFrameColor => this.MainClass()[0] switch
     {
         'E' => E,
         'F' => F,

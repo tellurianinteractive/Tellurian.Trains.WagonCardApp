@@ -13,7 +13,7 @@
                 <span>@Data.VehicleClass</span>
             </div>
             <div class="item vehicle-number" style="font-size:@Data.VehicleNumber.WagonNumberFontSize()">
-                @Data.VehicleNumber@Data.UicCheckDigit
+                @Data.VehicleNumberWithControlDigit()
             </div>
             <div class="item model-make">
                 <span>@Data.ModelManufacturer</span>

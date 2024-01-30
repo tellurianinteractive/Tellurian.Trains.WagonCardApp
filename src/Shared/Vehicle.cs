@@ -5,12 +5,13 @@ public abstract class Vehicle
     public string OperatorSignature { get; set; } = string.Empty;
     public ImageFile? OperatorLogo { get; set; }
     public string VehicleClass { get; set; } = string.Empty;
-    public string BulletVehicleClass => $"• {VehicleClass}";
     public int InteroperatbilityNumber { get; set; }
     public int CountryRegistrationNumber { get; set; }
 
     public string VehicleNumber { get; set; } = string.Empty;
     public string Epoch { get; set; } = string.Empty;
+    public string? UicMainClass { get; set; }
+
     public int? OperatingFromYear { get; set; }
     public int? OperatingUptoYear { get; set; }
     public int? MaxSpeed { get; set; }
@@ -27,8 +28,6 @@ public abstract class Vehicle
 
     public virtual string ForeColor => "#000000";
     public virtual string BackColor => "#FFFFFF";
-    public virtual bool UseUicNumber => this.UseUicNumber();
-    public virtual string UicCheckDigit => this.CheckDigit();
 
     public Marking Marking { get; set; } = new();
     public PrintOptions PrintOptions { get; set; } = new();
@@ -73,30 +72,62 @@ public enum SpeedUnit
 
 public static class VehicleExtensions
 {
-    public static string Identification(this Vehicle? me) => me is null ? string.Empty :
-        $"{me.CountryCode()}{me.OperatorSignature} {me.VehicleClass} {me.VehicleNumber}{me.UicCheckDigit}".Trim();
+    public static string BulletVehicleClass(this Vehicle me) => $"• {me.VehicleClass}";
 
-    public static string UicNumber(this Vehicle? me) => me is null || !me.UseUicNumber() ? string.Empty :
+    public static string Country(this Vehicle me) => $"{me.CountryRegistrationNumber}";
+
+    public static string MainClass(this Vehicle me) => me.MainClassLetter().ToString().ToUpperInvariant();
+    private static char MainClassLetter(this Vehicle me) =>
+        me.UicMainClass?.Length > 0 ? me.UicMainClass[0] : me.VehicleClass.Length > 0 ? me.VehicleClass[0] : ' ';
+
+    public static string Identification(this Vehicle? me) => me is null ? string.Empty :
+        $"{me.CountryCode()}{me.OperatorSignature} {me.VehicleClass} {me.VehicleNumber}{me.CheckDigit()}".Trim();
+
+    public static string UicNumber(this Vehicle? me) => me is null || !me.HasUicNumber() ? string.Empty :
         $"{me.InteroperatbilityNumber} {me.CountryRegistrationNumber} {me.VehicleNumber}{me.CheckDigit()}";
     private static string CountryCode(this Vehicle? me) => me?.CountryRegistrationNumber > 0 ?
         $"{me.CountryCodeOfRegistration}-" : string.Empty;
 
+    public static string VehicleNumberWithControlDigit(this Vehicle? me) =>
+        me is null ? string.Empty :
+        $"{me.VehicleNumber}{me.CheckDigit()}";
+
     public static string CheckDigit(this Vehicle me)
     {
-        if (me.UseUicNumber() && ! me.HasChecksum())
-        {
-            var checksum = me.CalculateUicCheckSum();
-            if (checksum is null) return string.Empty;
-            return $"-{checksum}";
-        }
-        return String.Empty;
-
+        var digits = me.ElevenDigitNumber();
+        if (digits is null || digits.Length!=11) return string.Empty;
+        var checksum= digits.UicCheckSum();
+        if (checksum.HasValue) return $"-{checksum}";
+        return string.Empty;
+      
     }
-    public static int? CalculateUicCheckSum(this Vehicle me)
+
+    public static string? ElevenDigitNumber(this Vehicle me)
+    {
+        var digits = me.VehicleNumberDigits();
+        return me is null || digits.Length != 7 || me.InteroperatbilityNumber == 0 || me.CountryRegistrationNumber == 0 ? string.Empty :
+        $"{me.InteroperatbilityNumber:00}{me.CountryRegistrationNumber:00}{digits}";
+    }
+
+    public static string VehicleNumberDigits(this Vehicle? me)
+    {
+        if (me is null) return string.Empty;
+        var digits = me.VehicleNumber.Where(char.IsDigit).ToArray();
+        return new string(digits);
+    }
+    
+
+
+    public static int? UicCheckSum(this string? number)
+    {
+        if(number is null || number.Length != 11) return null;
+        var digits = number.Select(c => c - '0').ToArray();
+        return digits.UicCheckSum();
+    }
+
+    public static int? UicCheckSum(this int[] digits)
     {
         int[] multipliers = [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2];
-
-        var digits = $"{me.InteroperatbilityNumber:00}{me.CountryRegistrationNumber}{me.VehicleNumber}".Where(c => char.IsDigit(c)).Select(c => c - '0').ToArray();
         if (digits.Length != multipliers.Length) return null;
         var sums = new int[11];
         for (int i = 0; i < digits.Length; i++)
@@ -108,8 +139,9 @@ public static class VehicleExtensions
         var checksum = sums.Sum();
         var c = 10 - checksum % 10;
         return c > 9 ? 0 : c;
+
     }
 
     private static bool HasChecksum(this Vehicle it) => it.VehicleNumber.Length > 0 && it.VehicleNumber.Contains('-');
-    public static bool UseUicNumber(this Vehicle it) => it.InteroperatbilityNumber > 0 && it.CountryRegistrationNumber > 0 && it.VehicleNumber.IsDigitsOrWhiteSpace() && it.VehicleNumber.NumberOfDigits() == 7;
+    public static bool HasUicNumber(this Vehicle it) => it.InteroperatbilityNumber > 0 && it.CountryRegistrationNumber > 0 && it.VehicleNumber.IsDigitsOrWhiteSpace() && it.VehicleNumber.NumberOfDigits() == 7;
 }

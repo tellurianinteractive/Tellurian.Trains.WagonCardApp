@@ -144,7 +144,7 @@
                     <VehicleImage CssClass="picture-back" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
                 </div>
                 <div class="pocket">
-                    @if (@Data.HasHomeStation)
+                    @if (@Data.HomeStation?.Name.HasValue() == true)
                     {
                         <div class="homestation" style="color: @Data.HomeStation.Region.Color().TextColor(); background-color: @Data.HomeStation.Region.Color();">
                             <div style="padding-top: 0.5cm; font-size: 60%">@Data.HomeStation.CountryCode.HomeStationLabel()</div>

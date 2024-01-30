@@ -6,18 +6,18 @@
 else
 {
     <div class="@CssClass" style="font-size: @ActualFontSize ; color: @ActualBackColor.TextColor() ; background-color: @ActualBackColor">
-        @if (Data.UseUicNumber)
+        @if (Data.HasUicNumber())
         {
             @Data.Interoperability <br />
-            @Data.Country <span><u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature<br /></span>
-            @Data.FullVehicleNumber <br />
-            @Data.BulletVehicleClass
+            @Data.Country() <span><u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature<br /></span>
+            @Data.VehicleNumberWithControlDigit() <br />
+            @Data.BulletVehicleClass()
         }
         else
         {
             @Data.Interoperability <br />
             @($"{Data.OperatorSignature} {Data.VehicleNumber}") <br />
-            @Data.BulletVehicleClass <br />
+            @Data.BulletVehicleClass() <br />
            
         }
     </div>

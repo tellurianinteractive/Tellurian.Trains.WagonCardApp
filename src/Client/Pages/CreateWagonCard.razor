@@ -366,20 +366,17 @@ else
     string VehicleNumberErrorMessage = "";
     void ValidateWagonNumber()
     {
-        var value = Data.VehicleNumber.Select(c => char.IsDigit(c) || char.IsWhiteSpace(c)).ToString();
-        if (value is not null)
+        var value = Data.VehicleNumber;
+        if (value is not null && Data.InteroperatbilityNumber > 0 && Data.CountryRegistrationNumber > 0)
         {
-            var digitsCount = value.Count(c => char.IsAsciiDigit(c));
-            var spacesCount = value[..7].Count(c => char.IsWhiteSpace(c));
-            if (digitsCount > 7)
+            var digits = Data.VehicleNumberDigits();
+            if (digits.Length > 7)
             {
-                var truncateLength = 7 + spacesCount;
-                Data.VehicleNumber = value[..truncateLength];
                 VehicleNumberErrorMessage = Localizer["MaxSevenDigits"];
             }
             else
             {
-                Data.VehicleNumber = value;
+                VehicleNumberErrorMessage = "";
             }
         }
 

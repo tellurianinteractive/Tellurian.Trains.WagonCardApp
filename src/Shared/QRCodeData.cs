@@ -42,7 +42,7 @@ public static class QRCodeExtensions
             Address = vehicle is Loco loco && loco.Address.HasValue ? loco.Address.Value.ToString() : null,
             Owner = vehicle.Owner.OwnerName,
             UicNumber = vehicle.UicNumber(),
-            UicClass = vehicle is Wagon wagon ? wagon.MainClass : null,
+            UicClass = vehicle is Wagon wagon ? wagon.MainClass() : null,
             Label = vehicle.Identification()
         };
 }
