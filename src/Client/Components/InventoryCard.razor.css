@@ -2,14 +2,21 @@
     display: inline-block;
     transform: rotate(90deg) translate(-22mm,-22mm);
     height: 90mm;
-    width: 55mm;
+    width: 49mm;
     text-align: center;
-    border: 1px solid lightgray;
-    padding-top: 40px;
+    border: 5px solid black;
+    padding-top: 10px;
 }
 
 h1 {
+    font-size: 12pt;
+    font-weight: bold;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+h3 {
     font-size: 10pt;
+    line-height: 10pt;
     font-weight: bold;
     padding-top: 0px;
     margin-top: 0px;
@@ -18,16 +25,17 @@ h1 {
 .item {
     border-bottom: 1px solid lightgray;
     padding-top: 4px;
-    padding-bottom: 4px;
+    padding-bottom: 0px;
 }
 
 .operator {
-    font-size: 18pt;
+    font-size: 16pt;
     font-weight: bold;
 }
 
 .vehicle-number {
     font-weight: bold;
+    font-size: 16pt;
 }
 
 .model-make {
@@ -39,20 +47,29 @@ h1 {
     padding-top: 2pt;
     font-size: 12pt;
     font-weight: bold;
+    background-color: yellow;
 }
 
 .owner-marking {
     border-bottom: 1px solid lightgray;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .owner-name {
-    font-size: 12pt;
+    font-size: 10pt;
     font-weight: normal;
 }
 
 .owner-email {
     font-size: 9pt;
     font-weight: normal;
+}
+
+.vehicle {
+    max-width: 40mm;
+}
+
+.vehicle-image {
+    max-width: 40mm;
 }

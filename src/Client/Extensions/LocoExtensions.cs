@@ -6,5 +6,5 @@ public static class LocoExtensions
     loco.Functions.Where(f => !string.IsNullOrWhiteSpace(f.Text)).Select(f => ($"F{f.Key}", f.Text));
 
     public static string BorderStyle(this Loco? loco) => 
-        loco?.PrintOptions.PrintCard == true ? "border: 0.5cm solid red;  " : "border: 0.5cm solid white;";
+        loco?.PrintOptions.PrintCard == true ? $"border: 0.5cm solid {loco.FrameColor};  " : "border: 0.5cm solid white;";
 }

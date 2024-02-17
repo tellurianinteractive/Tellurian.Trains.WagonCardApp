@@ -2,6 +2,16 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 2.2.0
+Release date 2024-02-17
+- **Inventory card** now has miniature image of model and frame color same as card frame color.
+- **DCC-address** now displayed with black text on yellow background in an places.
+- **FRED-label** now has a dashed line where you should bend it.
+- **DCC-Calculator** now recommends CV29 to be 2 for short adresses.
+- **Club name** added to owner section.
+- **Owner marking** fourth color added.
+
+Thanks to Fredrik Petterson, Jerker Andersson and Henrik Philippsen for input.
 ## Release 2.1.29
 Release date 2024-01-29
 - **Validation** of vehicle number added. 

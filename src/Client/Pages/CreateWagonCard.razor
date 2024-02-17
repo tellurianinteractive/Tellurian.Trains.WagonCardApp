@@ -247,6 +247,10 @@ else
                         <label class="inputlabel" for="Colour3">@Localizer["Colour3"]</label>
                         <input id="Colour3" type="color" @bind="@Marking.Color3" />
                     </div>
+                    <div>
+                        <label class="inputlabel" for="Colour4">@Localizer["Colour4"]</label>
+                        <input id="Colour4" type="color" @bind="@Marking.Color4" />
+                    </div>
 
                     <div>
                         <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
@@ -260,6 +264,10 @@ else
                 <div>
                     <label class="inputlabel" for="owner">@Localizer["OwnerName"]</label>
                     <InputText class="inputwide" id="owner" @bind-Value="@Owner.OwnerName"></InputText>
+                </div>
+                <div>
+                    <label class="inputlabel" for="club">@Localizer["ClubName"]</label>
+                    <InputText class="inputwide" id="club" @bind-Value="@Owner.ClubName"></InputText>
                 </div>
                 <div>
                     <label class="inputlabel" for="email">@Localizer["EmailAddress"]</label>

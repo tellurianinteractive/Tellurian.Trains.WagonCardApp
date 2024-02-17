@@ -1,4 +1,6 @@
-﻿@if (Marking is not null)
+﻿@preservewhitespace true
+
+@if (Marking is not null)
 {
     @if (Marking.UseMarking)
     {
@@ -26,10 +28,20 @@
             }
             else if (Marking.ShowColourMarkings())
             {
-                <div style="padding-top: 0.3cm">
-                    <span class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</span>
-                    <span class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</span>
-                    <span class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</span>
+                <div style="padding-top: 0.2cm">
+                    <div class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</div>
+                    @if (Marking.Color2.IsOtherThanWhite())
+                    {
+                        <div class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</div>
+                    }
+                    @if (Marking.Color3.IsOtherThanWhite())
+                    {
+                        <div class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</div>
+                    }
+                    @if (Marking.Color4.IsOtherThanWhite())
+                    {
+                        <div class="inventory-color" style="background-color: @Marking.Color4">&nbsp;</div>
+                    }
                 </div>
             }
             @if (Marking.ShowInventoryNumber())

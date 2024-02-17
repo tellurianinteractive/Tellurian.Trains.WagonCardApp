@@ -9,6 +9,7 @@ public class Marking
     public string Color1 { get; set; } = "#FFFFFF";
     public string Color2 { get; set; } = "#FFFFFF";
     public string Color3 { get; set; } = "#FFFFFF";
+    public string Color4 { get; set; } = "#FFFFFF";
     public string InventoryNumber { get; set; } = string.Empty;
     public string? IconHref { get; set; }
     public string? TextLabel { get; set; }
@@ -30,5 +31,7 @@ public static class MarkingExtensions
 
     public static bool HasOwnerIcon([NotNullWhen(true)] this Marking? it) => it?.Icon is not null ;
     public static bool HasOwnerIconHref([NotNullWhen(true)] this Marking? it) => it?.IconHref?.StartsWith("http") == true;
-    public static string BackgroundColor(this Marking? it) => it.ShowColourMarkings() || it.ShowOwnerIcon() || it.ShowOwnerTextLabel() ? "white" : it?.Color1 ?? "white";
+    public static string BackgroundColor(this Marking? it) => it.ShowColourMarkings() || it.ShowOwnerIcon() || it.ShowOwnerTextLabel() || it?.Color4.IsOtherThanWhite()==true ? "white" : it?.Color1 ?? "white";
+
+    public static bool IsOtherThanWhite(this string? color) => color is not null && !color.Equals("#FFFFFF", StringComparison.OrdinalIgnoreCase);
 }

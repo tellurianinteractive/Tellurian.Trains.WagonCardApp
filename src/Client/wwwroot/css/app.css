@@ -266,3 +266,12 @@ a, .btn-link {
     cursor: pointer;
     margin: 3px;
 }
+
+.inventory-vehicle {
+    width: 40mm;
+}
+.inventory-vehicle-image {
+    max-height: 20mm;
+    max-width: 49mm;
+
+}

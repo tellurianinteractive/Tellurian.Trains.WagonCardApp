@@ -29,6 +29,8 @@ public abstract class Vehicle
     public virtual string ForeColor => "#000000";
     public virtual string BackColor => "#FFFFFF";
 
+    public abstract string FrameColor { get; }
+
     public Marking Marking { get; set; } = new();
     public PrintOptions PrintOptions { get; set; } = new();
     public Owner Owner { get; set; } = new();
@@ -142,6 +144,5 @@ public static class VehicleExtensions
 
     }
 
-    private static bool HasChecksum(this Vehicle it) => it.VehicleNumber.Length > 0 && it.VehicleNumber.Contains('-');
     public static bool HasUicNumber(this Vehicle it) => it.InteroperatbilityNumber > 0 && it.CountryRegistrationNumber > 0 && it.VehicleNumber.IsDigitsOrWhiteSpace() && it.VehicleNumber.NumberOfDigits() == 7;
 }

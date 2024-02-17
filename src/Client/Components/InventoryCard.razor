@@ -3,11 +3,16 @@
 
 @if (Data is not null && Data.PrintOptions.PrintInventoryCard)
 {
-    <div style="width: 105mm; height: 60mm">
-        <div class="inventory-card">
+    <div style="width: 105mm; height: 60mm; border-color: @Data.">
+        <div class="inventory-card" style="border-color: @Data.FrameColor">
             <h1>
                 @Localizer["InventoryCard"]
             </h1>
+            <div class="vehicle">
+                <VehicleImage Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" CssClass="inventory-vehicle" />
+
+            </div>
+
             <div class="operator" style="color:@Data.BackColor.DarkTextColor()">
                 <span>@Data.OperatorSignature</span>
                 <span>@Data.VehicleClass</span>
@@ -32,7 +37,7 @@
                 </div>
             }
             <div class="item owner-name">
-                <h1>@Localizer.Label("Owner"):</h1>
+                <div><strong>@Localizer.Label("Owner"):</strong></div>
                 <div>@Owner?.OwnerName</div>
                 <div>@Owner?.PhoneNumber</div>
                 <div class="owner-email">@Owner?.EmailAddress</div>

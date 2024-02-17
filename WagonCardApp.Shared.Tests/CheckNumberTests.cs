@@ -12,6 +12,7 @@ public class CheckNumberTests
     [DataRow("31816650286", 0)]
     [DataRow("42744430226", 4)]
     [DataRow("42744430336", 1)]
+    [DataRow("23764268057", 1)]
     public void UicCheckSumTest(string elevenDigits, int expectedControlDigit)
     {
         Assert.AreEqual(expectedControlDigit, elevenDigits.UicCheckSum(), elevenDigits);

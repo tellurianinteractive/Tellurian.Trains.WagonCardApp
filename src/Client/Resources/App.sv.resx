@@ -459,4 +459,7 @@
   <data name="MaxSevenDigits" xml:space="preserve">
     <value>Max 7 siffor!</value>
   </data>
+  <data name="ClubName" xml:space="preserve">
+    <value>Klubbnamn</value>
+  </data>
 </root>

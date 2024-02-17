@@ -112,7 +112,10 @@
                 </div>
                 <div class="pocket">
                     <div style="padding-top: 4cm">@Localizer["VehicleSchedule"]</div>
-                    <div><img src="@Data.QRCode()" height="180" width="180" /></div>
+                    @if (Data.PrintOptions.DisplayQRCode)
+                    {
+                        <div><img src="@Data.QRCode()" height="180" width="180" /></div>
+                    }
                 </div>
             </div>
         </div>

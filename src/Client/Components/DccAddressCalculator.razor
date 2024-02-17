@@ -27,7 +27,7 @@
     int? cv1 => address < 128 ? address : null;
     int? cv17 => address < 128 ? null : 192 + address / 256;
     int? cv18 => address < 128 ? null : address - (cv17-192)*256;
-    int cv29 => address < 128 ? 4 : 34;
+    int cv29 => address < 128 ? 2 : 34;
 
 
 }

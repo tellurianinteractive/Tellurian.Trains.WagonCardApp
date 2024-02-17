@@ -13,7 +13,7 @@ else
                 <div class="loco-label">
                     @if (Data.ModelImage?.IsImage == true || Data.ModelImageUrl.HasValue())
                     {
-                        <VehicleImage CssClass="stickerloco" Image="Data.ModelImage" ImageUrl="DataModelImageUrl" />
+                        <VehicleImage CssClass="stickerloco" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
 
                     }
                     @if (Data.OperatorLogo?.IsImage == true)
@@ -29,8 +29,11 @@ else
                     <div class="label-sm">@Data.ModelManufacturer</div>
                 </div>
             </div>
-            <div style="height: 135mm; color:@Data.ForeColor.TextColor(); background-color: @Data.ForeColor;">
-                <div><img src="@Data.QRCode()" height="80" width="80" /></div>
+            <div style="height: 135mm; color:@Data.ForeColor.TextColor(); background-color: @Data.ForeColor; border-top: 2px @Data.ForeColor.TextColor() dashed; ">
+                @if (Data.PrintOptions.DisplayQRCode)
+                {
+                    <div style="padding-top: 2px"><img src="@Data.QRCode()" height="80" width="80" /></div>
+                }
                 <div style="height:0mm;border-bottom:1px solid @Data.ForeColor.TextColor()" />
                 <div class="owner" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
                     <span class="owner-label">@Localizer.Label("Owner"):</span><br />

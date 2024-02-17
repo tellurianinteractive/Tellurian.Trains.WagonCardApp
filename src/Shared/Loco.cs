@@ -13,11 +13,12 @@ public class Loco : Vehicle
     public int? Weight { get; set; }
     public string MainColor { get; set; } = "white";
     public string SecondColor { get; set; } = "black";
-    public LocoFunction[] Functions { get; set; } = Array.Empty<LocoFunction>();
+    public LocoFunction[] Functions { get; set; } = [];
     public int? Address { get; set; }
 
     public override string ForeColor => MainColor;
     public override string BackColor => SecondColor;
+    public override string FrameColor => "red";
 
     public static Loco Default => new() { Functions = Enumerable.Range(0, MaxFunctions).Select(i => LocoFunction.Create(i, string.Empty, i < 8)).ToArray() };
 
@@ -41,8 +42,8 @@ public class Loco : Vehicle
         Weight = 122,
         Length = 21.0f,
         Address=5432,
-        Functions = new[]
-        {
+        Functions =
+        [
                 LocoFunction.Create(0, "Lys", true),
                 LocoFunction.Create(1, "Toplys", true),
                 LocoFunction.Create(2, "Horn", true),
@@ -66,7 +67,7 @@ public class Loco : Vehicle
                 LocoFunction.Create(20, ""),
                 LocoFunction.Create(21, ""),
                 LocoFunction.Create(22, ""),
-            },
+            ],
         OriginalImageUrl = "https://www.jernbanen.dk/Fotos/Motor/DSB_ME1508_1982.jpg",
         ModelImageUrl = "http://mck-h0.dk/wp-content/uploads/2016/08/005_125.jpg",
         ModelManufacturer = "Hobbytrade",

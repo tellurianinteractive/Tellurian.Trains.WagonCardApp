@@ -17,6 +17,7 @@
     font-weight: bold;
     line-height: 20pt;
     overflow: clip;
+    padding-top: 2px;
 }
 
 .label-lg {
@@ -71,6 +72,8 @@
 .dcc-address {
     font-size: 11pt;
     font-weight: bold;
+    background-color: yellow;
+    color: black;
 }
 
 .operatorlogo-image {

@@ -16,10 +16,11 @@
 }
 
 .inventory-color {
-    margin-top: 0.3cm;
-    padding: 0.1cm;
+    margin-top: 0.2cm;
+    padding: 0cm;
     width: 0.3cm;
     height: 0.4cm;
+    display: inline-block;
 }
 
 .owner-label {

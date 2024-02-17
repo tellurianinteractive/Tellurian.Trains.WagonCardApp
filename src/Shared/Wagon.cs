@@ -21,7 +21,7 @@ public class Wagon : Vehicle
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
     public string Interoperability => InteroperatbilityNumber > 0 ? $"{InteroperatbilityNumber:00} {Conmformancy}" : Conmformancy;
-    public string FrameColor => IsPassengerWagon ? PassengerWagonFrameColor : CargoWagonFrameColor;
+    public override string FrameColor => IsPassengerWagon ? PassengerWagonFrameColor : CargoWagonFrameColor;
 
     private string Conmformancy =>
         IsRivConformant && IsInterfrigoConformant && IsTenConformant ? "RIV-IF-TEN" :
@@ -168,5 +168,5 @@ public static class RegionExtensions
     };
 
     public static IEnumerable<(int Id, string ResourceKey)> Regions => ((Region[])Enum.GetValues(typeof(Region))).Select(v => ((int)v, v.ToString()));
-    public static IEnumerable<string> CountryCodes => new[] { "", "AT", "BE", "CH", "CZ", "DA", "DE", "ES", "FI", "FR", "HU", "IT", "NL", "NO", "PL", "SE", "UK" };
+    public static IEnumerable<string> CountryCodes => ["", "AT", "BE", "CH", "CZ", "DA", "DE", "ES", "FI", "FR", "HU", "IT", "NL", "NO", "PL", "SE", "UK"];
 }
