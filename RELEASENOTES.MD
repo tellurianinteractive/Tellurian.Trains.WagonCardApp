@@ -10,6 +10,7 @@ Release date 2024-02-17
 - **DCC-Calculator** now recommends CV29 to be 2 for short adresses (issue #29).
 - **Club name** added to owner section (part of issue #27).
 - **Owner marking** fourth color added (part of issue #27).
+- **Bug fix** of FRED-label vehicle image when it was an url.
 
 Thanks to Fredrik Petterson, Jerker Andersson and Henrik Philippsen for input.
 ## Release 2.1.29
