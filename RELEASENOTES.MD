@@ -7,9 +7,9 @@ Release date 2024-02-17
 - **Inventory card** now has miniature image of model and frame color same as card frame color.
 - **DCC-address** now displayed with black text on yellow background in an places.
 - **FRED-label** now has a dashed line where you should bend it.
-- **DCC-Calculator** now recommends CV29 to be 2 for short adresses.
-- **Club name** added to owner section.
-- **Owner marking** fourth color added.
+- **DCC-Calculator** now recommends CV29 to be 2 for short adresses (issue #29).
+- **Club name** added to owner section (part of issue #27).
+- **Owner marking** fourth color added (part of issue #27).
 
 Thanks to Fredrik Petterson, Jerker Andersson and Henrik Philippsen for input.
 ## Release 2.1.29
