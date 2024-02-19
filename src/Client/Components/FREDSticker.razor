@@ -38,6 +38,7 @@ else
                 <div class="owner" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
                     <span class="owner-label">@Localizer.Label("Owner"):</span><br />
                     <span class="owner-name">@Owner?.OwnerName</span>
+                    <span class="owner-name">@Owner?.ClubName</span>
                 </div>
                 @if (Data.Address.HasValue)
                 {

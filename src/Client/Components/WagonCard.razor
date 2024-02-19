@@ -26,6 +26,10 @@
                         <div class="owner">
                             <div class="label">@Localizer.Label("Owner")</div>
                             @Owner.OwnerName<br />
+                            @if (Owner.ClubName.HasValue())
+                            {
+                                @Owner.ClubName<br />
+                            }
                             @Owner.EmailAddress<br />
                             @Owner.PhoneNumber
                         </div>

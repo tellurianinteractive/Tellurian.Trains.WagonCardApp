@@ -2,6 +2,9 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 2.2.1
+Release date 2024-02-19
+- **Bug fix** of *club name* not appearing on loco/wagon card, FRED-label and inventory card.
 ## Release 2.2.0
 Release date 2024-02-17
 - **Inventory card** now has miniature image of model and frame color same as card frame color.
