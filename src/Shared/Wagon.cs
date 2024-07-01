@@ -40,6 +40,8 @@ public class Wagon : Vehicle
         'F' => D,
         'R' => BCWLRS,
         'S' => BCWLRS,
+        'Q' => QLZ,
+        'U' => ULZ,
         'W' => BCWLRS,
         _ => ABC,
     };
@@ -53,6 +55,7 @@ public class Wagon : Vehicle
         'I' => I,
         'K' => KL,
         'L' => L,
+        'M' => ULZ,
         'O' => KL,
         'Q' => QLZ,
         'R' => RS,
@@ -64,7 +67,7 @@ public class Wagon : Vehicle
     };
 
     private const string ABC = "#008000"; // Green
-    private const string D = "#663300"; // Braun
+    private const string D = "#663300"; // Brown
     private const string E = "#fd9bce"; // Light pink
     private const string F = "#ff60ff"; // Pink
     private const string G = "#fefe9a"; // Yellow
@@ -74,13 +77,16 @@ public class Wagon : Vehicle
     private const string L = "#b3d9ff"; // Light blue
     private const string RS = "#339967"; // Green
     private const string T = "#fccd03"; // Yellow
+    private const string U = "#ff0000"; // Red
     private const string BCWLRS = "#800080"; // Purple
     private const string Z = "#c0c0c0"; // Gray
     private const string None = "#FFFFFF";
     private string KL => ClassIs("Kö") ? L : K;
-    private string QLZ => ClassIs("Q12") || ClassIs("Q14") ? Z : L;
+    private string QLZ => ClassIs("Q12") || ClassIs("Q14") ? Z :
+        ClassIs("Q") ? D : L;
     private string ULZ =>
-        ClassIs("Uag") ? Z :
+        ClassIs("Uag") || ClassIs("Uh") || ClassIs("Uc") || ClassIs("M") ? Z :
+        ClassIs("Uf") || ClassIs("Ub") || ClassIs("Uab") || ClassIs("Uaf") || ClassIs("Udf") ? U :
         ClassIs("Ua") || ClassIs("Ud") || ClassIs("Ui") ? L :
         ClassIs("Ug") ? G : Z;
 
