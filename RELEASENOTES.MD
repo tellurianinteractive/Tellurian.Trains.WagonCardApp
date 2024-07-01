@@ -2,6 +2,13 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 2.2.2
+Release date 2024-07-01: pull request from Benny Tjäder.
+- **Added more wagon types**,
+  - U: Wagon to diesel-powered vehicle (Uf, Ub, Uab, Uaf and Udf)
+  - Q: Service wagon
+  - M: Ore wagon
+- **Coponent update** to latest version of external components.
 ## Release 2.2.1
 Release date 2024-02-19
 - **Bug fix** of *club name* not appearing on loco/wagon card, FRED-label and inventory card.
