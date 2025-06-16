@@ -1,4 +1,6 @@
-﻿namespace Tellurian.WagonCardApp.Shared;
+﻿using System.Text;
+
+namespace Tellurian.WagonCardApp.Shared;
 
 public class Wagon : Vehicle
 {
@@ -11,6 +13,8 @@ public class Wagon : Vehicle
     public string? LoadingInstructions { get; set; }
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
+    public bool IsEuropConformant { get; set; }
+    public bool IsOpwConformant { get; set; }
     public bool IsInterfrigoConformant { get; set; }
     public bool IsFlatWagon { get; set; }
     public string? WagonColor { get; set; }
@@ -20,17 +24,22 @@ public class Wagon : Vehicle
     public HomeStation HomeStation { get; set; } = new();
     public override string BackColor => FrameColor;
     public override string ForeColor => FrameColor.TextColor();
-    public string Interoperability => InteroperatbilityNumber > 0 ? $"{InteroperatbilityNumber:00} {Conmformancy}" : Conmformancy;
+    public string Interoperability => InteroperatbilityNumber > 0 ? $"{InteroperatbilityNumber:00} {Conformance}" : Conformance;
     public override string FrameColor => IsPassengerWagon ? PassengerWagonFrameColor : CargoWagonFrameColor;
 
-    private string Conmformancy =>
-        IsRivConformant && IsInterfrigoConformant && IsTenConformant ? "RIV-IF-TEN" :
-        IsRivConformant && IsInterfrigoConformant ? "RIV-IF" :
-        IsRivConformant && IsTenConformant ? "RIV-TEN" :
-        IsRivConformant ? "RIV" :
-        IsTenConformant ? "TEN" :
-        IsInterfrigoConformant ? "IF" :
-        "";
+    private string Conformance => BuildConformance();
+
+
+    private string BuildConformance()
+    {
+        var text = new StringBuilder(20);
+        if (IsRivConformant) { text.Append("RIV"); if (text.Length > 0) text.Append('-'); }
+        if (IsTenConformant) { text.Append("TEN"); if (text.Length > 0) text.Append('-'); }
+        if (IsInterfrigoConformant) { text.Append("IF"); if (text.Length > 0) text.Append('-'); }
+        if (IsOpwConformant) { text.Append("OPW"); if (text.Length > 0) text.Append('-'); }
+        if (IsEuropConformant) { text.Append("EUROP"); if (text.Length > 0) text.Append('-'); }
+        return text.ToString()[0..(text.Length > 0 ? text.Length - 1 : 0)];
+    }
 
     private string PassengerWagonFrameColor => this.MainClass()[0] switch
     {

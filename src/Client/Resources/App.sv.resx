@@ -462,4 +462,10 @@
   <data name="ClubName" xml:space="preserve">
     <value>Klubbnamn</value>
   </data>
+  <data name="IsEuropConformant" xml:space="preserve">
+    <value>Uppfyller EUROP-krav?</value>
+  </data>
+  <data name="IsOpwConformant" xml:space="preserve">
+    <value>Uppfyller OPW-krav?</value>
+  </data>
 </root>

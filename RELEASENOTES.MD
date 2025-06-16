@@ -2,6 +2,9 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 2.3.0
+Release date 2025-06-16
+- **Added EUROP and OPW** for freight wagaaon conformance. Thanks to Kartsten Kreﬂ for the suggestion.
 ## Release 2.2.2
 Release date 2024-07-01: pull request from Benny Tj‰der.
 - **Added more wagon types**,

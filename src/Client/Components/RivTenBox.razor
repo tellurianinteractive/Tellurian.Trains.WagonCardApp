@@ -1,13 +1,18 @@
-﻿@if (Data?.IsRivConformant == true)
+﻿@if (Data?.IsRivConformant == true && Data?.IsEuropConformant == false && Data?.IsOpwConformant == false)
 {
     <span class="@CssClass" style="border: 1pt solid black; padding: 0pt 1px; margin: 0pt 2px: @CssStyle">RIV</span>
-
-
+}
+@if (Data?.IsRivConformant == true && Data?.IsOpwConformant == true)
+{
+    <span class="@CssClass" style="border: 1pt solid black; padding: 0pt 1px; margin: 0pt 2px: @CssStyle">RIV-OPW</span>
+}
+@if (Data?.IsRivConformant == true && Data?.IsEuropConformant == true)
+{
+    <span class="@CssClass" style="border: 1pt solid black; padding: 0pt 1px; margin: 0pt 2px: @CssStyle">RIV-EUROP</span>
 }
 @if (Data?.IsTenConformant == true)
 {
     <span class="@CssClass" style="border: 1pt solid black; padding: 0pt 1px; margin-right: 0pt 2px; @CssStyle">TEN</span>
-
 }
 
 @code {
