@@ -469,4 +469,7 @@
   <data name="IsOpwConformant" xml:space="preserve">
     <value>Is OPW-conformant?</value>
   </data>
+  <data name="IsMcConformant" xml:space="preserve">
+    <value>Is MC-conformant?</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.InteropServices;
+using System.Text;
 
 namespace Tellurian.WagonCardApp.Shared;
 
@@ -11,11 +12,12 @@ public class Wagon : Vehicle
     public double LoadVolume { get; set; }
     public double LoadArea { get; set; }
     public string? LoadingInstructions { get; set; }
+    public bool IsEuropConformant { get; set; }
+    public bool IsInterfrigoConformant { get; set; }
+    public bool IsMcConformant { get; set; }
+    public bool IsOpwConformant { get; set; }
     public bool IsRivConformant { get; set; }
     public bool IsTenConformant { get; set; }
-    public bool IsEuropConformant { get; set; }
-    public bool IsOpwConformant { get; set; }
-    public bool IsInterfrigoConformant { get; set; }
     public bool IsFlatWagon { get; set; }
     public string? WagonColor { get; set; }
     public int? ModelWeight { get; set; }
@@ -33,11 +35,12 @@ public class Wagon : Vehicle
     private string BuildConformance()
     {
         var text = new StringBuilder(20);
-        if (IsRivConformant) { text.Append("RIV"); if (text.Length > 0) text.Append('-'); }
-        if (IsTenConformant) { text.Append("TEN"); if (text.Length > 0) text.Append('-'); }
-        if (IsInterfrigoConformant) { text.Append("IF"); if (text.Length > 0) text.Append('-'); }
-        if (IsOpwConformant) { text.Append("OPW"); if (text.Length > 0) text.Append('-'); }
-        if (IsEuropConformant) { text.Append("EUROP"); if (text.Length > 0) text.Append('-'); }
+        if (IsMcConformant) { text.Append("MC-"); }
+        if (IsRivConformant) { text.Append("RIV-");  }
+        if (IsTenConformant) { text.Append("TEN-"); }
+        if (IsInterfrigoConformant) { text.Append("IF-");  }
+        if (IsOpwConformant) { text.Append("OPW-"); }
+        if (IsEuropConformant) { text.Append("EUROP-");  }
         return text.ToString()[0..(text.Length > 0 ? text.Length - 1 : 0)];
     }
 

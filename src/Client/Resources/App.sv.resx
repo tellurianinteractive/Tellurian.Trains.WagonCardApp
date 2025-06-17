@@ -468,4 +468,7 @@
   <data name="IsOpwConformant" xml:space="preserve">
     <value>Uppfyller OPW-krav?</value>
   </data>
+  <data name="IsMcConformant" xml:space="preserve">
+    <value>Uppfyller MC-krav?</value>
+  </data>
 </root>

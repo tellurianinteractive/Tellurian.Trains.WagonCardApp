@@ -466,6 +466,9 @@
     <value>Ist EUROP-konform?</value>
   </data>
   <data name="IsOpwConformant" xml:space="preserve">
-    <value>Ist OPR-konform?</value>
+    <value>Ist OPW-konform?</value>
+  </data>
+  <data name="IsMcConformant" xml:space="preserve">
+    <value>Ist MC-konform?</value>
   </data>
 </root>
