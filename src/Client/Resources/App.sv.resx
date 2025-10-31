@@ -268,7 +268,7 @@
     <value>Toppfart</value>
   </data>
   <data name="Waybill or vehicle schedule" xml:space="preserve">
-    <value>Fraktsedel eller omloppstidtabell</value>
+    <value>Fraktsedel eller omlopp</value>
   </data>
   <data name="ModelManufacturer" xml:space="preserve">
     <value>Modellproducent</value>
@@ -470,5 +470,8 @@
   </data>
   <data name="IsMcConformant" xml:space="preserve">
     <value>Uppfyller MC-krav?</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Skala</value>
   </data>
 </root>

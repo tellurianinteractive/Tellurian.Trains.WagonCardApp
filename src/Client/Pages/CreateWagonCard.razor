@@ -29,6 +29,16 @@ else
             <EditForm Model="@Data" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
+                <div>
+                    <label class="inputlabel" for="scale">@Localizer["Scale"]</label>
+                    <InputSelect class="inputshort" id="scale" @bind-Value="@Data.Scale">
+                        @foreach (var scale in Enum.GetValues(typeof(Scale)))
+                        {
+                            <option value="@scale">@scale.ToString()</option>
+                        }
+                    </InputSelect>
+                </div>
+
                 <h4 style="padding-left: 15em">@Localizer["DataOriginal"]</h4>
                 <div>
                     <label class="inputlabel" for="OperatorSignature">@Localizer["OperatorSignature"]</label>
@@ -83,7 +93,14 @@ else
                 </div>
                 @if (Data.IsPassengerWagon)
                 {
-
+                    <div>
+                        <label class="inputlabel" for="epoch">@Localizer["Manufacturer"]</label>
+                        <InputText class="inputlong" id="epoch" @bind-Value="@Data.Manufacturer"></InputText>
+                    </div>
+                    <div>
+                        <label class="inputlabel" for="year">@Localizer["YearOfManufacturing"]</label>
+                        <InputNumber class="inputshort" id="year" @bind-Value="@Data.YearOfManufacturing"></InputNumber>
+                    </div>
                 }
                 else
                 {

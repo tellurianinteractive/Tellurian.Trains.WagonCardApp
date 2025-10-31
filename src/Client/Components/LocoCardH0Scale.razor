@@ -1,0 +1,142 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+@if (Data is not null && Owner is not null)
+{
+    <div style="display:flex;flex-direction:column">
+        <div class="@Data.Css("card")" style="@Data.BorderStyle()">
+            <div class="@Data.Css("card-info")" style="flex-direction: column;">
+                <div style="display:flex; flex-direction:row;">
+
+                    <div class="@Data.LongHeadingCssClass()">
+                        @if (Data.Address.HasValue && Data.Address.Value > 0)
+                        {
+                            <span class="dccaddress">
+                                DCC <br />
+                                @Data.Address
+                            </span>
+                        }
+                        <span class="identification front">
+                            @Data.Identification()
+                        </span>
+                    </div>
+                </div>
+                <VehicleImage CssClass="@Data.Css("front")" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                <div style="display: flex; flex-direction: row">
+                    <div style="display: flex; flex-direction: column">
+                        <div class="@Data.Css("marking")">
+                            <div class="@Data.Css("label")">@Localizer.Label("Marking")</div>
+                            <OwnerMarking Marking="@Data.Marking" Scale="@Data.Scale" />
+                        </div>
+                        <div class="@Data.Css("owner")">
+                            <div class="@Data.Css("label")">@Localizer.Label("Owner")</div>
+                            @Owner.OwnerName<br />
+                            @if (Owner.ClubName.HasValue())
+                            {
+                                @Owner.ClubName
+                                <br />
+                            }
+                            @Owner.EmailAddress<br />
+                            @Owner.PhoneNumber
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column">
+                        <div class="functions">
+                            @foreach (var function in Data.ActiveFunctions())
+                            {
+                                <div class="function-key">
+                                    <span class="function">@function.Key</span><span class="function-text">@function.Text</span>
+                                </div>
+
+                            }
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            @if (Data.WheelType.HasValue())
+                            {
+                                <div style="border-right: 1px solid black" class="property">
+                                    <div class="@Data.Css("label")">@Localizer.Label("Wheel type")</div>
+                                    <div class="@Data.Css("value")">@Data.WheelType</div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card H0" style="display: block; transform: rotate(180deg);@Data.BorderStyle()">
+
+            <div class="card-info H0" style="display: flex;">
+                <div class="prototype-info">
+                    <div class="@Data.ShortHeadingCssClass()">
+                        <span class="identification back">
+                            @Data.Identification()
+                        </span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
+                        @if (Data.Epoch.HasValue())
+                        {
+                            <div class="@Data.Css("property")" style="border-right: 1px solid black">
+                                <div class="@Data.Css("label")">@Localizer["Epoch"]</div>
+                                <div class="@Data.Css("value")">@Data.Epoch</div>
+                            </div>
+                        }
+                        @if (Data.OperatingFromYear.HasValue || Data.OperatingUptoYear.HasValue)
+                        {
+                            <div class="@Data.Css("property")">
+                                <div class="@Data.Css("label")">@Localizer["Operating period in this design"]</div>
+                                <div class="@Data.Css("value")">@Data.OperatingFromYear - @Data.OperatingUptoYear</div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="property row">
+                        <div class="@Data.Css("property")" >
+                            <div class="@Data.Css("label")">@Localizer["Driveline"]</div>
+                            <div class="@Data.Css("value")">@Data.DrivelineType</div>
+                        </div>
+                        <div class="@Data.Css("property")" >
+                            <div class="@Data.Css("label")">@Localizer["Manufacturer"]/@Localizer["Year"]</div>
+                            <div class="@Data.Css("value")">@Data.Manufacturer @Data.YearOfManufacturing</div>
+                        </div>
+                    </div>
+                    <div class="property row">
+                        <div class="@Data.Css("property")">
+                            <div class="@Data.Css("label")">@Localizer["EnginePower"]</div>
+                            <div class="@Data.Css("value")">@Data.EnginePower @Localizer[Data.EnginePowerUnit.ToString()]</div>
+                        </div>
+                        <div class="@Data.Css("property")" >
+                            <div class="@Data.Css("label")">@Localizer["TopSpeed"]</div>
+                            <div class="@Data.Css("value")">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</div>
+                        </div>
+                        <div class="@Data.Css("property")">
+                            <div class="@Data.Css("label")">@Localizer["WeightShort"]</div>
+                            <div class="@Data.Css("value")">@Data.Weight t</div>
+                        </div>
+                        <div class="@Data.Css("property")">
+                            <div class="@Data.Css("label")">@Localizer["Length"]</div>
+                            <div class="@Data.Css("value")">@Data.Length m</div>
+                        </div>
+                    </div>
+                    <div>
+                        <VehicleImage CssClass="@Data.Css("back")" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
+                    </div>
+                </div>
+                <div class="@Data.Css("pocket")">
+                    <div>@Localizer["VehicleSchedule"]</div>
+                    @if (Data.PrintOptions.DisplayQRCode)
+                    {
+                        <div><img class="@Data.Css("QR")" src="@Data.QRCode()" height="180" width="180" /></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Owner? Owner { get; set; }
+}

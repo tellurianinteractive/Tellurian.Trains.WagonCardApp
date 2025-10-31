@@ -471,4 +471,7 @@
   <data name="IsMcConformant" xml:space="preserve">
     <value>Ist MC-konform?</value>
   </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Skala</value>
+  </data>
 </root>

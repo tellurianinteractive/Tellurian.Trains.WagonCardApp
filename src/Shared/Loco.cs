@@ -8,8 +8,6 @@ public class Loco : Vehicle
     public EnginePowerUnit EnginePowerUnit { get; set; }
     public int? TractiveForce { get; set; }
     public TractiveForceUnit TractiveForceUnit { get; set; } = TractiveForceUnit.Axles;
-    public int? YearOfManufacturing { get; set; }
-    public string Manufacturer { get; set; } = string.Empty;
     public int? Weight { get; set; }
     public string MainColor { get; set; } = "white";
     public string SecondColor { get; set; } = "black";
@@ -25,8 +23,10 @@ public class Loco : Vehicle
     public static Loco Example => new()
     {
         OperatorSignature = "DSB",
+        CountryRegistrationNumber=86,
+        InteroperatbilityNumber =92,
         VehicleClass = "ME",
-        VehicleNumber = "1508",
+        VehicleNumber = "0001508",
         Epoch = "IV",
         OperatingFromYear = 1971,
         OperatingUptoYear = 1989,

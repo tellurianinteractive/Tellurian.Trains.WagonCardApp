@@ -7,8 +7,15 @@ else
     <div>
         @if (Data.PrintOptions.PrintCard)
         {
-            <div>
-                <WagonCard Data="@Data" Owner="@Owner" />
+            <div style="padding-bottom: 5px">
+                @if (Data.Scale == Scale.N)
+                {
+                    <WagonCardNScale Data="@Data" Owner="@Owner" />
+                }
+                else
+                {
+                    <WagonCardH0Scale Data="@Data" Owner="@Owner" />
+                }
             </div>
         }
 
@@ -20,7 +27,7 @@ else
                 </div>
 
             }
-            @if (Data.IsCargoWagon)
+            @if (Data.IsCargoWagon && Data.Scale.IsH0())
             {
                 <div>
                     <UicLabel Data=@Data FontSize="9" />

@@ -1,11 +1,15 @@
-﻿namespace Tellurian.WagonCardApp.Client.Extensions;
+﻿using Microsoft.AspNetCore.Components;
+
+namespace Tellurian.WagonCardApp.Client.Extensions;
 
 public static class LocalizedStringExtensions
 {
-    public static string Label(this IStringLocalizer me, string label, string? english = null)
+    public static MarkupString Label(this IStringLocalizer me, string label, string? english = null, bool twoRows = false)
     {
         var text = me[label].Value;
-        if (english is null) english = label;
-        return text.Equals(english) ? text : $"{text}/{english}";
+        english ??= label;
+        if (twoRows) return new(text.Equals(english) ? text : $"{text}<br/>{english}");
+
+        return new(text.Equals(english) ? text : $"{text}/{english}");
     }
 }

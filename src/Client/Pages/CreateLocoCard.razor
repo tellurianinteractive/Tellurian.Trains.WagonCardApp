@@ -30,6 +30,16 @@ else
                 <ValidationSummary />
                 <div style="display:flex;flex-direction:row">
                     <div>
+                        <div>
+                            <label class="inputlabel" for="scale">@Localizer["Scale"]</label>
+                            <InputSelect class="inputshort" id="scale" @bind-Value="@Data.Scale">
+                                @foreach (var scale in Enum.GetValues(typeof(Scale)))
+                                {
+                                    <option value="@scale">@scale.ToString()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
                         <h4 style="padding-left: 15em">@Localizer["DataOriginal"]</h4>
 
                         <div>

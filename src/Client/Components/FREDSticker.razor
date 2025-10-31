@@ -13,12 +13,12 @@ else
                 <div class="loco-label">
                     @if (Data.ModelImage?.IsImage == true || Data.ModelImageUrl.HasValue())
                     {
-                        <VehicleImage CssClass="stickerloco" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                        <VehicleImage CssClass="fred" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
 
                     }
                     @if (Data.OperatorLogo?.IsImage == true)
                     {
-                        <VehicleImage CssClass="operatorlogo" Image="Data.OperatorLogo" />
+                        <VehicleImage CssClass="fred" Image="Data.OperatorLogo" />
                     }
                     else
                     {
@@ -35,7 +35,7 @@ else
                     <div style="padding-top: 2px"><img src="@Data.QRCode()" height="80" width="80" /></div>
                 }
                 <div style="height:0mm;border-bottom:1px solid @Data.ForeColor.TextColor()" />
-                <div class="owner" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
+                <div class="fred-owner" style="border-bottom: 1px solid @Data.ForeColor.TextColor()">
                     <span class="owner-label">@Localizer.Label("Owner"):</span><br />
                     <span class="owner-name">@Owner?.OwnerName</span>
                     <span class="owner-name">@Owner?.ClubName</span>

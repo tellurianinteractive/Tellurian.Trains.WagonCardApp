@@ -1,0 +1,67 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+@if (Data is not null && Owner is not null)
+{
+    <div style="display:flex;flex-direction:row">
+        <div class="card N" style="@Data.BorderStyle()">
+            <div class="card-info N" style="flex-direction: column;">
+                <div style="display:flex; flex-direction:row;">
+                    <div class="@Data.LongHeadingCssClass()">
+                        <span class="identification front">
+                            @Data.Identification()
+                        </span>
+                    </div>
+
+                </div>
+                <VehicleImage CssClass="front N" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                <div class="pocket N">
+                    <div>@Localizer["VehicleSchedule"]</div>
+                    @if (Data.PrintOptions.DisplayQRCode)
+                    {
+                        <div><img src="@Data.QRCode()" height="100" width="100" /></div>
+                    }
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div class="marking N">
+                        <div class="label N">@Localizer.Label("Marking")</div>
+                        <OwnerMarking Marking="@Data.Marking" Scale="@Data.Scale"/>
+                    </div>
+                    <div class="owner N">
+                        <div class="label">@Localizer.Label("Owner")</div>
+                        @Owner.OwnerName<br />
+                        @if (Owner.ClubName.HasValue())
+                        {
+                            @Owner.ClubName
+
+                            <br />
+                        }
+                        @Owner.EmailAddress<br />
+                        @Owner.PhoneNumber
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card N" style="@Data.BorderStyle()">
+            <div class="card-info N" style="display: flex;">
+                <div style="display:flex; flex-direction:row;">
+                    <div class="@Data.LongHeadingCssClass()">
+                        <span class="identification front">
+                            @Data.Identification()
+                        </span>
+                    </div>
+                </div>
+                <VehicleImage CssClass="back N" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
+
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@code {
+    [Parameter] public Loco? Data { get; set; }
+    [Parameter] public Owner? Owner { get; set; }
+
+}

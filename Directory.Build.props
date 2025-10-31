@@ -1,11 +1,13 @@
 <Project>
 	<PropertyGroup>
-		<Version>2.3.1</Version>
+		<Version>3.0.1</Version>
+		<AssemblyVersion>3.0.1</AssemblyVersion>
 		<Authors>Stefan Fjällemark</Authors>
-		<Company>Tellurian Interactive AB</Company>
+		<Company>Tellurian Interactive</Company>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<CompressionEnabled>false</CompressionEnabled>
 	</PropertyGroup>
 </Project>

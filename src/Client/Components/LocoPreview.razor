@@ -9,7 +9,14 @@ else
             @if (Data.PrintOptions.PrintCard)
             {
                 <div>
-                    <LocoCard Data="@Data" Owner="@Owner" />
+                    @if (Data.Scale == Scale.N)
+                    {
+                        <LocoCardNScale Data="@Data" Owner="@Owner" />
+                    }
+                    else
+                    {
+                        <LocoCardH0Scale Data="@Data" Owner="@Owner" />
+                    }
                 </div>
             }
             @if (Data.PrintOptions.PrintInventoryCard)

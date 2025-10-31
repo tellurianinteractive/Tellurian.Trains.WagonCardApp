@@ -1,0 +1,177 @@
+﻿@inject IStringLocalizer<App> Localizer
+
+@if (Data is not null && Owner is not null)
+{
+    <div style="display:flex;flex-direction:row">
+        <div class="card N" style="border-color: @Data.FrameColor;">
+            <div class="card-info N" style="flex-direction: column;">
+                <div class="@Data.LongHeadingCssClass()" style="display:flex; flex-direction: row;">
+                    <span>
+                        <UicMainClass Data="@Data" />
+                    </span>
+
+                    <span class="identification front">
+                        @Data.Identification()
+                    </span>
+                </div>
+                <VehicleImage CssClass="front N" Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" />
+                <div class="pocket N">
+                    @if (@Data.HomeStation?.Name.HasValue() == true)
+                    {
+                        <div class="homestation" style="color: @Data.HomeStation.Region.Color().TextColor(); background-color: @Data.HomeStation.Region.Color();">
+                            <div style="padding-top: 0.5cm; font-size: 60%">@Data.HomeStation.CountryCode.HomeStationLabel()</div>
+                            <div>@Data.HomeStation.Name</div>
+                            @if (!string.IsNullOrWhiteSpace(Data.HomeStation.CountryCode))
+                            {
+                                <div>[@Data.HomeStation.CountryCode]</div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="pocket-text">
+                            @Localizer.Label("Waybill or vehicle schedule", twoRows: true)
+                            @if (Data.PrintOptions.DisplayQRCode)
+                            {
+                                <div><img src="@Data.QRCode()" height="100" width="100" /></div>
+                            }
+                        </div>
+                    }
+                </div>
+                <div style="display:flex; flex-direction: row">
+                    <div class="marking N">
+                        <div class="label N">@Localizer.Label("Marking")</div>
+                        <OwnerMarking Marking="@Data.Marking" Scale="@Data.Scale" />
+                    </div>
+                    <div class="owner N">
+                        <div class="label">@Localizer.Label("Owner")</div>
+                        @Owner.OwnerName<br />
+                        @if (Owner.ClubName.HasValue())
+                        {
+                            @Owner.ClubName
+
+                            <br />
+                        }
+                        @Owner.EmailAddress<br />
+                        @Owner.PhoneNumber
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card N" style="border-color: @Data.FrameColor;">
+            <div class="card-info N">
+                <div class="@Data.LongHeadingCssClass()">
+                    <span>
+                        <UicMainClass Data="@Data" />
+                    </span>
+                    <span class="identification back">
+                        @Data.Identification()
+                    </span>
+                </div>
+                <VehicleImage CssClass="front N" Image="@Data.OriginalImage" ImageUrl="@Data.OriginalImageUrl" />
+                <div style="display:flex; flex-direction: row; border-bottom: 1px solid black; padding: 0px; margin: 0px;">
+                    @if (Data.Epoch.HasValue())
+                    {
+                        <div class="property N" style="border-right: 1px solid black">
+                            <div class="label N">@Localizer.Label("Epoch")</div>
+                            <div class="value N">@Data.Epoch</div>
+                        </div>
+                    }
+                    @if (Data.OperatingFromYear.HasValue || Data.OperatingUptoYear.HasValue)
+                    {
+                        <div class="property N">
+                            <div class="label N">@Localizer.Label("Operating period")</div>
+                            <div class="value N">@Data.OperatingFromYear - @Data.OperatingUptoYear</div>
+                        </div>
+                    }
+                </div>
+
+                @if (Data.Length > 0 || Data.MaxSpeed > 0)
+                {
+                    <div style="display:flex; flex-direction: row;flex-wrap: wrap;  border-bottom: 1px solid black">
+                        @if (Data.Length > 0)
+                        {
+                            <div class="property N">
+                                <div class="label N">@Localizer.Label("Length")</div>
+                                <div class="value N">@Data.Length m</div>
+                            </div>
+                        }
+
+                        @if (Data.MaxSpeed > 0)
+                        {
+                            <div class="property N">
+                                <div class="label N">@Localizer.Label("Top speed")</div>
+                                <div class="value N">@Data.MaxSpeed  @Localizer[Data.SpeedUnit.ToString()]</div>
+                            </div>
+                        }
+                    </div>
+                }
+                @if (Data.IsCargoWagon)
+                {
+                    <div style="display:flex; flex-direction: row;flex-wrap: wrap;  border-bottom: 1px solid black">
+                        @if (Data.LoadLimit > 0)
+                        {
+                            <div class="property N" style="border-right: 1px solid black">
+                                <div class="label N">@Localizer.Label("Max")</div>
+                                <div class="value N">@Data.LoadLimit t</div>
+                            </div>
+
+                        }
+                        @if (Data.LoadArea > 0)
+                        {
+                            <div style="border-right: 1px solid black" class="property N">
+                                <div class="label N">@Localizer.Label("Area")</div>
+                                <div class="value N">@Data.LoadArea m²</div>
+                            </div>
+                        }
+                        @if (Data.LoadVolume > 0)
+                        {
+                            <div style="border-right: 1px solid black" class="property N">
+                                <div class="label N">@Localizer.Label("Volume")</div>
+                                <div class="value N">@Data.LoadVolume m³</div>
+                            </div>
+                        }
+                    </div>
+                }
+
+                @if (Data.Interoperability.HasValue())
+                {
+                    <div style="display:flex; flex-direction: row;flex-wrap: wrap;  border-bottom: 1px solid black;">
+
+                        <div class="property N">
+                            <div class="label N">@Localizer.Label("Interoperability")</div>
+                            <div class="value N">
+                            @if (Data.CountryRegistrationNumber > 0 && Data.InteroperatbilityNumber > 0)
+                            {
+                                <span>@Data.Interoperability</span>
+                                <span>@Data.CountryRegistrationNumber <u>@Data.CountryCodeOfRegistration</u>-@Data.OperatorSignature</span>
+                            }
+                            else
+                            {
+                                <span>@Data.Interoperability</span>
+                            }
+</div>
+                        </div>
+                    </div>
+                }
+                @if (Data.LoadingInstructions.HasValue())
+                {
+                    <div class="property N" style="border-right: 0px">
+                        <div class="label N">@Localizer.Label("Loading instructions")</div>
+                        <div class="value N">@Data.LoadingInstructions</div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@code {
+    [Parameter] public Wagon? Data { get; set; }
+    [Parameter] public Owner? Owner { get; set; }
+}

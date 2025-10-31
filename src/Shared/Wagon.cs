@@ -52,8 +52,6 @@ public class Wagon : Vehicle
         'F' => D,
         'R' => BCWLRS,
         'S' => BCWLRS,
-        'Q' => QLZ,
-        'U' => ULZ,
         'W' => BCWLRS,
         _ => ABC,
     };

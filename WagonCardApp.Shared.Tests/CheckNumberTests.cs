@@ -1,18 +1,17 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]
 
 namespace Tellurian.WagonCardApp.Shared.Tests;
 
 [TestClass]
 public class CheckNumberTests
 {
-    [DataTestMethod]
+    [TestMethod]
     [DataRow("21812471217", 3)]
     [DataRow("51800843001", 0)]
     [DataRow("23764268057", 1)]
     [DataRow("31816650286", 0)]
     [DataRow("42744430226", 4)]
     [DataRow("42744430336", 1)]
-    [DataRow("23764268057", 1)]
     public void UicCheckSumTest(string elevenDigits, int expectedControlDigit)
     {
         Assert.AreEqual(expectedControlDigit, elevenDigits.UicCheckSum(), elevenDigits);
@@ -21,7 +20,7 @@ public class CheckNumberTests
 
 
 
-    [DataTestMethod]
+    [TestMethod]
     [DataRow("393 3 013", "31853933013")]
     [DataRow("393 3 0135", "")]
     [DataRow("393013", "")]

@@ -1,11 +1,21 @@
-﻿.homestation {
+﻿.operatorlogo-image {
+    display: block;
+    max-width: 95%;
+    max-height: 12mm;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homestation {
     margin: 4px;
     border: 1px solid gray;
     display: block;
-    height: 7.4cm;
-    padding-top: 2cm;
+    height: 3cm;
+    padding-top: 0.5cm;
     justify-content: center;
-    font-size: 16pt;
+    font-size: 13pt;
     font-weight: bold;
 }
 
@@ -40,12 +50,3 @@
     font-weight: bold;
     line-height: 24pt;
 }
-
-.model-uiclabel {
-    padding: 2px;
-    width: 5cm;
-    height: 2cm;
-    border-right: 1px solid black;
-}
-
-

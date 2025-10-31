@@ -1,11 +1,11 @@
 ﻿@if (Data is not null)
 {
-  <div class="uicmainclass" style="background-color: @Data.BackColor; color: @Data.BackColor.TextColor()">
+  <div class="@CssClass" style="background-color: @Data.BackColor; color: @Data.BackColor.TextColor()">
       @Data.MainClass()
 </div>  
 }
 
 @code {
     [Parameter] public Wagon? Data { get; set; }
-
+    string CssClass => Data is null ? "uicmainclass" : $"uicmainclass {Data.Scale}";
 }

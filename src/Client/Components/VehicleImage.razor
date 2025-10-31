@@ -1,11 +1,11 @@
-﻿<div class="@CssClass">
+﻿<div class="@OuterCssClass">
     @if (Image is not null)
     {
-        <img class="@InnerCssClass" src="data:@Image.ContentType;base64,@Image.Base64data" />
+        <img  src="data:@Image.ContentType;base64,@Image.Base64data" />
     }
     else
     {
-        <img class="@InnerCssClass" src="@ImageUrl" />
+        <img  src="@ImageUrl" />
     }
 </div>
 
@@ -14,5 +14,5 @@
     [Parameter] public ImageFile? Image { get; set; }
     [Parameter] public string? ImageUrl { get; set; }
     [Parameter] public string CssClass { get; set; } = string.Empty;
-    string InnerCssClass => string.IsNullOrWhiteSpace(CssClass) ? string.Empty : $"{CssClass}-image";
+    string OuterCssClass => string.IsNullOrWhiteSpace(CssClass) ? string.Empty : $"vehicle-image {CssClass}";
 }

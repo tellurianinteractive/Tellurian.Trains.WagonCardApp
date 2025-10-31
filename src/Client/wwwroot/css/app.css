@@ -51,116 +51,24 @@ a, .btn-link {
         top: 0.5rem;
     }
 
-.card {
-    font-family: 'Arial Nova', Arial, sans-serif;
-    border: 0.5cm solid red;
-    padding: 0px;
-    margin: 0px;
-    height: 9.7cm;
-    width: 14.0cm;
-    overflow: clip;
-}
-
-.card-small {
-    font-family: 'Arial Nova', Arial, sans-serif;
-    border: 0.2cm solid red;
-    padding: 0px;
-    margin: 0px;
-    height: 10.2cm;
-    width: 5.6cm;
-    overflow: clip;
-}
-
-.card-info {
-    padding: 0px;
-    margin: 0px;
-    display: flex;
-    border: 1px solid black;
-    width: 13.95cm;
-    height: 9.65cm;
-    background-color: white;
-}
-
-.heading {
-    display: table-cell;
-    padding: 0px;
-    margin: 0px;
-    font-size: 24pt;
-    font-weight: bold;
-    text-align: center;
-    height: 1.2cm;
-    vertical-align: middle;
-    border-bottom: 1px solid black;
-}
-
-.picture-front {
-    height: 5.5cm;
-    width: auto;
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.picture-front-image {
-    margin: 1px;
-    height: auto;
-    max-width: 100%;
-    max-height: 4.7cm;
-}
-
-.operatorlogo-image {
-    display: block;
-    max-width: 95%;
-    max-height: 12mm;
-    width: auto;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.stickerloco-image {
-    width: 100%;
-
-}
-
-.picture-back {
-    max-height: 4.9cm;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: clip;
-}
-
-.picture-back-image {
-    margin: 1px;
-    height: 100%;
-    width: 100%;
-}
-
-
-.picture-small {
-    height: 5.6cm;
-    width: 9.2cm;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.picture-small-image {
-    margin: 1px;
-    height: auto;
-    max-width: 9.2cm;
-    max-height: 5.6cm;
-}
+/* Styles for inputs */
 
 .label {
     margin: 0px;
-    line-height: 6pt;
-    font-size: 8pt;
+    padding: 1px;
     font-weight: normal;
 }
+
+    .label.H0 {
+        padding: 2px 0px;
+        line-height: 6pt;
+        font-size: 7pt;
+    }
+
+    .label.N {
+        font-size: 6pt;
+        line-height: 9pt;
+    }
 
 .inputradio {
     border: 1px solid white;
@@ -174,6 +82,7 @@ a, .btn-link {
     margin: 0px;
     padding: 0px;
 }
+
 .inputradio-field {
     font-size: 7pt;
     font-weight: bold;
@@ -182,10 +91,22 @@ a, .btn-link {
 }
 
 .value {
+    padding: 0px;
     font-size: 18pt;
     font-weight: bold;
-    line-height: 18pt;
 }
+
+    .value.H0 {
+        font-size: 12pt;
+        line-height: 14pt;
+        padding: 0px;
+    }
+
+    .value.N {
+        font-size: 9pt;
+        line-height: 12pt;
+        padding: 0px;
+    }
 
 .value-sm {
     font-size: 12pt;
@@ -193,44 +114,31 @@ a, .btn-link {
     line-height: 10pt;
 }
 
+    .value-sm.N {
+        font-size: 9pt;
+        line-height: 9pt;
+        padding: 0px;
+    }
+
 .property {
     margin: 0px 0px 0px 0px;
-    padding: 0px 5px 0px 5px;
 }
 
-.owner {
-    padding: 2px;
-    height: 2.0cm;
-    width: 5.0cm;
-    font-size: 9pt;
-    font-weight: bolder;
-    border-right: 1px solid black;
-}
+    .property.H0 {
+        border-right: 1px solid black;
+        padding: 0px 5px 0px 5px;
+    }
 
-.marking {
-    padding: 2px;
-    height: 1.5cm;
-    width: 5.0cm;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-}
+    .property.N {
+        border-right: 1px solid black;
+        padding: 0px 2px 0px 2px;
+    }
 
-.pocket {
-    display: inline-block;
-    margin: 0.0cm;
-    height: 9.7cm;
-    width: 6.0cm;
-    border-left: 1px solid black;
-    text-align: center;
-    color: gray;
-    font-weight: bolder;
-}
-
-.pocket-text {
-    font-size: 12pt;
-    font-weight: bold;
-}
-
+    .property.row {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid black;
+    }
 
 .inputlabel {
     display: inline-block;
@@ -267,11 +175,395 @@ a, .btn-link {
     margin: 3px;
 }
 
+/* Styles for card preview */
+
+.card {
+    font-family: 'Arial Nova', Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    overflow: clip;
+}
+
+    .card.H0 {
+        /* Default style is for loco, border color is overriden in code */
+        border: 0.5cm solid red;
+        /* Measures below is inside border */
+        height: 9.7cm;
+        width: 14.0cm;
+    }
+
+    .card.N {
+        /* Default style is for loco, border color is overriden in code */
+        border: 0.3cm solid red;
+        /* Measures below is inside border */
+        height: 7.2cm;
+        width: 4.5cm;
+    }
+
+.card-info {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    border: 1px solid black;
+    background-color: white;
+}
+
+    .card-info.H0 {
+        /* These should ne 0.05 cm less that card size above so the black  Padding cannot be used! */
+        height: 9.65cm;
+        width: 13.95cm;
+    }
+
+    .card-info.N {
+        /* These should ne 0.05 cm less that card size above so the black  Padding cannot be used! */
+        flex-direction: column;
+        height: 7.15cm;
+        width: 4.45cm;
+    }
+
+.prototype-info {
+    width: 8.4cm;
+}
+
+.pocket {
+    display: inline-block;
+    margin: 0.0cm;
+    height: 9.7cm;
+    width: 5.7cm;
+    border-left: 1px solid black;
+    text-align: center;
+    color: gray;
+    font-weight: bolder;
+}
+
+    .pocket.N {
+        width: 4.5cm;
+        height: 3.5cm;
+        border-left: 0px solid black;
+        border-bottom: 1px solid black;
+    }
+
+.pocket-text {
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+
+.heading {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: bottom;
+    font-family: Arial, sans-serif;
+    border-bottom: 1px solid black;
+}
+
+    .heading.H0 {
+        height: 1.2cm;
+    }
+
+        .heading.H0.front {
+            width: 100%;
+        }
+
+            .heading.H0.front.medium {
+                font-size: 24pt;
+            }
+
+            .heading.H0.front.small {
+                font-size: 20pt;
+            }
+
+        .heading.H0.back {
+            font-stretch: condensed;
+        }
+
+            .heading.H0.back.medium {
+                font-size: 22pt;
+            }
+
+            .heading.H0.back.small {
+                font-size: 18pt;
+            }
+
+    .heading.N {
+        height: 0.6cm;
+    }
+
+        .heading.N.front {
+            width: 100%;
+        }
+
+            .heading.N.front.medium {
+                font-size: 9pt;
+            }
+
+            .heading.N.front.small {
+                font-size: 9pt;
+                font-stretch: condensed;
+            }
+
+        .heading.N.back {
+            width: 100%;
+        }
+
+            .heading.N.back.medium {
+                font-size: 9pt;
+            }
+
+            .heading.N.back.small {
+                font-size: 9pt;
+                font-stretch: condensed;
+            }
+
+.identification {
+    text-align: center;
+    padding-top: 5px;
+}
+
+    .identification.front {
+        width: 12cm;
+    }
+
+    .identification.back {
+        width: 100%;
+    }
+
+
+.uicmainclass {
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0px 3px 0px 3px;
+}
+
+    .uicmainclass.H0 {
+        height: 1.2cm;
+        width: 1.6cm;
+        font-size: 1.1cm;
+    }
+
+    .uicmainclass.N {
+        height: 0.6cm;
+        font-size: 0.6cm;
+    }
+
+.dccaddress {
+    display: block;
+    padding: 1px;
+    background-color: yellow;
+    font-size: 12pt;
+}
+
+    .dccaddress.H0 {
+        width: 1.2cm;
+        font-size: 12pt;
+    }
+
+.inventory-card {
+    display: inline-block;
+    text-align: center;
+    border: 5px solid black;
+    padding-top: 10px;
+}
+
+    .inventory-card.H0 {
+        transform: rotate(90deg) translate(-22mm,-22mm);
+        height: 88mm;
+        width: 48mm;
+    }
+
+    .inventory-card.N {
+        height: 72mm;
+        width: 45mm;
+    }
+
 .inventory-vehicle {
     width: 40mm;
 }
+
 .inventory-vehicle-image {
     max-height: 20mm;
     max-width: 49mm;
-
 }
+
+
+.vehicle-image {
+    align-content: center;
+}
+
+    .vehicle-image.fred {
+        
+       height: 9mm;
+        width: 100%;
+        
+    }
+
+        .vehicle-image.fred img {
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+
+    .vehicle-image.inventory {
+        width: 100%;
+        height: 15mm;
+    }
+
+        .vehicle-image.inventory img {
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+
+    .vehicle-image.front {
+        align-content: center;
+    }
+
+        .vehicle-image.front.H0 {
+            height: 4.7cm;
+            width: 100%;
+            border-bottom: 1px solid black;
+        }
+
+            .vehicle-image.front.H0 img {
+                width: 100%;
+                height: 100%;
+                object-fit: scale-down;
+            }
+
+        .vehicle-image.front.N {
+            height: 1.6cm;
+            width: 100%;
+            border-bottom: 1px solid black;
+        }
+
+            .vehicle-image.front.N img {
+                width: 100%;
+                height: 100%;
+                object-fit: scale-down;
+            }
+
+    .vehicle-image.back {
+    }
+
+        .vehicle-image.back.H0 {
+            height: 4.9cm;
+            width: 100%;
+            border-bottom: 1px solid black;
+        }
+
+            .vehicle-image.back.H0 img {
+                width: 100%;
+                height: 100%;
+                object-fit: scale-down;
+            }
+
+        .vehicle-image.back.N {
+            height: 1.6cm;
+            width: 100%;
+            border-bottom: 1px solid black;
+        }
+
+            .vehicle-image.back.N img {
+                width: 100%;
+                height: 100%;
+                object-fit: scale-down;
+            }
+
+
+
+.owner {
+    font-weight: bold;
+}
+
+    .owner.H0 {
+        padding: 2px;
+        height: 1.8cm;
+        width: 5.0cm;
+        font-size: 9pt;
+        border-right: 1px solid black;
+    }
+
+    .owner.N {
+        padding: 2px;
+        height: 1.3cm;
+        width: 3.5cm;
+        font-size: 6pt;
+        border-bottom: 1px solid black;
+    }
+
+
+
+.marking {
+    padding: 2px;
+}
+
+    .marking.H0 {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        height: 1.6cm;
+        width: 5.0cm;
+    }
+
+    .marking.N {
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        height: 1.3cm;
+        width: 100%;
+    }
+
+.marking-icon {
+    align-content: center;
+}
+
+    .marking-icon.H0 {
+        max-height: 1.2cm;
+        max-width: 100%;
+    }
+
+    .marking-icon.N {
+        max-height: 0.8cm;
+        max-width: 100%;
+    }
+
+
+.owner-marking {
+    text-align: center;
+}
+
+.inventory-number {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+    .inventory-number.H0 {
+        width: .9cm;
+        height: .9cm;
+        font-size: 10pt;
+    }
+
+        .inventory-number.H0.text {
+            display: inline-block;
+            vertical-align: bottom;
+            line-height: 0.9cm;
+        }
+
+    .inventory-number.N {
+        width: .9cm;
+        height: .9cm;
+    }
+
+        .inventory-number.N.text {
+            font-size: 10pt;
+            display: inline-block;
+            vertical-align: bottom;
+            line-height: 0.9cm;
+        }

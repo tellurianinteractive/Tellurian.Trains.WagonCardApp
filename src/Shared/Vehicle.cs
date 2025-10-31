@@ -1,7 +1,10 @@
-﻿namespace Tellurian.WagonCardApp.Shared;
+﻿using System.Text.RegularExpressions;
+
+namespace Tellurian.WagonCardApp.Shared;
 
 public abstract class Vehicle
 {
+    public Scale Scale { get; set; }
     public string OperatorSignature { get; set; } = string.Empty;
     public ImageFile? OperatorLogo { get; set; }
     public string VehicleClass { get; set; } = string.Empty;
@@ -16,6 +19,9 @@ public abstract class Vehicle
     public int? OperatingUptoYear { get; set; }
     public int? MaxSpeed { get; set; }
     public SpeedUnit SpeedUnit { get; set; }
+    public int? YearOfManufacturing { get; set; }
+    public string Manufacturer { get; set; } = string.Empty;
+
 
     public float? Length { get; set; }
     public ImageFile? OriginalImage { get; set; }
@@ -34,6 +40,7 @@ public abstract class Vehicle
     public Marking Marking { get; set; } = new();
     public PrintOptions PrintOptions { get; set; } = new();
     public Owner Owner { get; set; } = new();
+
 
     public string CountryCodeOfRegistration => CountryRegistrationNumber switch
     {
@@ -66,6 +73,18 @@ public abstract class Vehicle
 
 }
 
+public enum Scale
+{
+    H0,
+    N,
+}
+
+public static class ScaleExtensions
+{
+    public static bool IsH0(this Scale scale) => scale == Scale.H0;
+    public static bool IsN(this Scale scale) => scale == Scale.N;
+}
+
 public enum SpeedUnit
 {
     KmPerHour,
@@ -79,8 +98,26 @@ public static class VehicleExtensions
     public static string Country(this Vehicle me) => $"{me.CountryRegistrationNumber}";
 
     public static string MainClass(this Vehicle me) => me.MainClassLetter().ToString().ToUpperInvariant();
-    private static char MainClassLetter(this Vehicle me) =>
-        me.UicMainClass?.Length > 0 ? me.UicMainClass[0] : me.VehicleClass.Length > 0 ? me.VehicleClass[0] : ' ';
+    private static string MainClassLetter(this Vehicle me) =>
+        me.UicMainClass?.Length > 0 ?
+            me.IsPassengerCar() ? me.UicMainClass.WithoutDigits() :
+            me.UicMainClass![0].ToString() :
+        me.VehicleClass?.Length > 0 ?
+            me.IsPassengerCar() ? me.VehicleClass.WithoutDigits() :
+            me.VehicleClass[0].ToString() :
+        " ";
+
+    private static bool IsPassengerCar(this Vehicle me)
+    {
+        const string passengerUic = "ABCD";
+        return 
+            (me.UicMainClass?.Length > 0 && passengerUic.Contains(me.UicMainClass[0])) ||
+            (me.VehicleClass?.Length > 0 && passengerUic.Contains(me.VehicleClass[0]));
+    }
+
+    private static string WithoutDigits(this string? text) =>
+        text is null ? string.Empty :
+        Regex.Replace(text, @"\d", "");
 
     public static string Identification(this Vehicle? me) => me is null ? string.Empty :
         $"{me.CountryCode()}{me.OperatorSignature} {me.VehicleClass} {me.VehicleNumber}{me.CheckDigit()}".Trim();
@@ -101,7 +138,6 @@ public static class VehicleExtensions
         var checksum= digits.UicCheckSum();
         if (checksum.HasValue) return $"-{checksum}";
         return string.Empty;
-      
     }
 
     public static string? ElevenDigitNumber(this Vehicle me)
@@ -117,9 +153,7 @@ public static class VehicleExtensions
         var digits = me.VehicleNumber.Where(char.IsDigit).ToArray();
         return new string(digits);
     }
-    
-
-
+ 
     public static int? UicCheckSum(this string? number)
     {
         if(number is null || number.Length != 11) return null;
@@ -144,5 +178,26 @@ public static class VehicleExtensions
 
     }
 
-    public static bool HasUicNumber(this Vehicle it) => it.InteroperatbilityNumber > 0 && it.CountryRegistrationNumber > 0 && it.VehicleNumber.IsDigitsOrWhiteSpace() && it.VehicleNumber.NumberOfDigits() == 7;
+    public static bool HasUicNumber(this Vehicle it) => 
+        it.InteroperatbilityNumber > 0 && it.CountryRegistrationNumber > 0 && 
+        it.VehicleNumber.IsDigitsOrWhiteSpace() && 
+        it.VehicleNumber.NumberOfDigits() == 7;
+
+    public static string LongHeadingCssClass(this Vehicle? me, int upperLimitForNormal = 25)
+    {
+        var heading = me.Identification();
+        return
+            me is null ? string.Empty :
+            heading.Length > upperLimitForNormal ? $"heading {me.Scale} front small" :
+            $"heading {me.Scale} front medium";
+    }
+    public static string ShortHeadingCssClass(this Vehicle? me, int upperLimitForNormal = 20)
+    {
+        var heading = me.Identification();
+        return
+            me is null ? string.Empty :
+            heading.Length > upperLimitForNormal ? $"heading {me.Scale} back small" :
+            $"heading {me.Scale} back medium";
+    }
+
 }

@@ -2,13 +2,13 @@
 
 public static class AppService
 {
-    private static Version? AsseblyVersion => typeof(AppService).Assembly.GetName().Version;
+    private static Version? AssemblyVersion => typeof(AppService).Assembly.GetName().Version;
 
     public static string? Version
     {
         get
         {
-            var version = AsseblyVersion;
+            var version = AssemblyVersion;
             if (version == null) return string.Empty;
             return $"{version.Major}.{version.Minor}.{version.Build}";
         }

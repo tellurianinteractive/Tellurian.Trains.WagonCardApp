@@ -268,7 +268,7 @@
     <value>Upload JSON file</value>
   </data>
   <data name="Waybill or vehicle schedule" xml:space="preserve">
-    <value>Waybill or vehicle schedule</value>
+    <value>Waybill or schedule</value>
   </data>
   <data name="ModelManufacturer" xml:space="preserve">
     <value>Model manufacturer</value>
@@ -471,5 +471,8 @@
   </data>
   <data name="IsMcConformant" xml:space="preserve">
     <value>Is MC-conformant?</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Scale</value>
   </data>
 </root>

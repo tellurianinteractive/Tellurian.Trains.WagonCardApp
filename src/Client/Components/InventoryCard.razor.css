@@ -1,12 +1,4 @@
-﻿.inventory-card {
-    display: inline-block;
-    transform: rotate(90deg) translate(-22mm,-22mm);
-    height: 90mm;
-    width: 49mm;
-    text-align: center;
-    border: 5px solid black;
-    padding-top: 10px;
-}
+﻿
 
 h1 {
     font-size: 12pt;
@@ -64,12 +56,4 @@ h3 {
 .owner-email {
     font-size: 9pt;
     font-weight: normal;
-}
-
-.vehicle {
-    max-width: 40mm;
-}
-
-.vehicle-image {
-    max-width: 40mm;
 }

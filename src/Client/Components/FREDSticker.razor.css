@@ -13,9 +13,9 @@
     transform: rotate(180deg);
     height: 50mm;
     color: white;
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: bold;
-    line-height: 20pt;
+    line-height: 15pt;
     overflow: clip;
     padding-top: 2px;
 }
@@ -54,9 +54,12 @@
     margin: 0px;
     padding: 0px 0px 1px 0px;
 }
-.owner {
-    width: 100%;
+.fred-owner {
+    width: 2cm;
     height: auto;
+    text-align: center;
+    line-height: 8pt;
+    padding-bottom: 2px;
 }
 
 .owner-label {
@@ -66,7 +69,6 @@
 .owner-name {
     font-size: 8pt;
     font-weight: bold;
-    padding: 2px;
 }
 
 .dcc-address {
@@ -74,8 +76,4 @@
     font-weight: bold;
     background-color: yellow;
     color: black;
-}
-
-.operatorlogo-image {
-    width: 70%;
 }

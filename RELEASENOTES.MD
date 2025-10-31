@@ -2,6 +2,14 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 3.0.1
+- **Fix** of image sizes and alignments.
+- **Correction** of passenger wagon frame colours for class U.
+## Release 3.0.0
+Release date 2025-07-14
+- **Support for N-scale** smaller locomotive and wagon cards. Comments on improvements are welcome.
+- **UIC-label** also for passenger cars, and they can have more than one letter, for example AB for combined 1st and 2nd class cars.
+- **Rework of styling** to enable different types of cards. This was tested in the following browsers: Chrome, Firefox and Edge.
 ## Release 2.3.1
 Release date 2025-06-17
 - **Added MC** for freight wagon interoperability.
@@ -16,7 +24,7 @@ Release date 2024-07-01: pull request from Benny Tjäder.
   - U: Wagon to diesel-powered vehicle (Uf, Ub, Uab, Uaf and Udf)
   - Q: Service wagon
   - M: Ore wagon
-- **Coponent update** to latest version of external components.
+- **Component update** to latest version of external components.
 ## Release 2.2.1
 Release date 2024-02-19
 - **Bug fix** of *club name* not appearing on loco/wagon card, FRED-label and inventory card.

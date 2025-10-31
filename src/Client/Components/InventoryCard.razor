@@ -4,16 +4,15 @@
 @if (Data is not null && Data.PrintOptions.PrintInventoryCard)
 {
     <div style="width: 105mm; height: 60mm; border-color: @Data.">
-        <div class="inventory-card" style="border-color: @Data.FrameColor">
+        <div class="@CssClass" style="border-color: @Data.FrameColor">
             <h1>
                 @Localizer["InventoryCard"]
             </h1>
             <div class="vehicle">
-                <VehicleImage Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" CssClass="inventory-vehicle" />
-
+                <VehicleImage Image="@Data.ModelImage" ImageUrl="@Data.ModelImageUrl" CssClass="inventory" />
             </div>
 
-            <div class="operator" style="color:@Data.BackColor.DarkTextColor()">
+            <div class="operator" style="color:@WagonColor.DarkTextColor()">
                 <span>@Data.OperatorSignature</span>
                 <span>@Data.VehicleClass</span>
             </div>
@@ -32,9 +31,7 @@
             }
             @if (!string.IsNullOrWhiteSpace(Data.Marking.InventoryNumber))
             {
-                <div class="item owner-marking">
-                    <OwnerMarking Marking="@Data.Marking" />
-                </div>
+                <OwnerMarking Marking="@Data.Marking" Scale="@Data.Scale" />
             }
             <div class="item owner-name">
                 <div><strong>@Localizer.Label("Owner"):</strong></div>
@@ -50,5 +47,8 @@
 @code {
     [Parameter] public Vehicle? Data { get; set; }
     [Parameter] public Owner? Owner { get; set; }
+
+    string WagonColor => Data is Wagon wagon ? wagon.WagonColor ?? Data.BackColor : Data?.BackColor ?? "black";
+    string CssClass => Data is null ? "inventory-card" : $"inventory-card {Data.Scale}";
 
 }

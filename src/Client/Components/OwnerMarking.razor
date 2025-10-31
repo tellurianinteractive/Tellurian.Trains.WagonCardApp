@@ -9,58 +9,64 @@
             {
                 @if (Marking.HasOwnerIcon())
                 {
-                    <div style="padding-top: 0.2cm">
-                        <img style="height: 1.0cm" src="data:@Marking.Icon!.ContentType;base64,@Marking.Icon.Base64data" />
+                    <div>
+                        <img class="@IconCssClass" src="data:@Marking.Icon!.ContentType;base64,@Marking.Icon.Base64data" />
                     </div>
                 }
                 else if (Marking.HasOwnerIconHref())
                 {
-                    <div style="padding-top: 0.2cm">
-                        <img style="height: 1.0cm" src="@Marking.IconHref" />
-                    </div>
+                    <img class="@IconCssClass" src="@Marking.IconHref" />
                 }
             }
             else if (Marking.ShowOwnerTextLabel())
             {
-                <div style="padding-top: 0.2cm">
+                <div>
                     <span class="owner-label">@Marking.TextLabel</span>
                 </div>
             }
             else if (Marking.ShowColourMarkings())
             {
-                <div style="padding-top: 0.2cm">
-                    <div class="inventory-color" style="background-color: @Marking.Color1">&nbsp;</div>
+                <div>
+                    <div class="@InventoryColorCss" style="background-color: @Marking.Color1">&nbsp;</div>
                     @if (Marking.Color2.IsOtherThanWhite())
                     {
-                        <div class="inventory-color" style="background-color: @Marking.Color2">&nbsp;</div>
+                        <div class="@InventoryColorCss" style="background-color: @Marking.Color2">&nbsp;</div>
                     }
                     @if (Marking.Color3.IsOtherThanWhite())
                     {
-                        <div class="inventory-color" style="background-color: @Marking.Color3">&nbsp;</div>
+                        <div class="@InventoryColorCss" style="background-color: @Marking.Color3">&nbsp;</div>
                     }
                     @if (Marking.Color4.IsOtherThanWhite())
                     {
-                        <div class="inventory-color" style="background-color: @Marking.Color4">&nbsp;</div>
+                        <div class="@InventoryColorCss" style="background-color: @Marking.Color4">&nbsp;</div>
                     }
                 </div>
             }
             @if (Marking.ShowInventoryNumber())
             {
-                <div class="inventory-number" style="background-color: @Marking.BackgroundColor(); color: @Marking.BackgroundColor().TextColor()">
-                    <div style="padding-top: 0.3cm">
+                <div class="@InventoryNumberCss" style="background-color: @Marking.BackgroundColor(); color: @Marking.BackgroundColor().TextColor()">
+                    <span class="@InventoryNumberTextCss">
                         @Marking.InventoryNumber
-                    </div>
+                    </span>
+
                 </div>
             }
         </div>
     }
 }
 
+
+
 @code {
     [Parameter] public Marking? Marking { get; set; }
+    [Parameter] public Scale? Scale { get; set; }
 
     bool HasInventoryNumber => !string.IsNullOrWhiteSpace(Marking?.InventoryNumber);
     bool HasIconHref => Marking?.IconHref?.StartsWith("http") == true;
     bool HasTextLabel => Marking?.TextLabel?.HasValue() == true;
     bool HasColor(string? color) => !string.IsNullOrWhiteSpace(color) && !color.Equals("#ffffff", StringComparison.OrdinalIgnoreCase);
+    string IconCssClass => $"marking-icon {Scale}";
+    string InventoryNumberCss => $"inventory-number {Scale}";
+    string InventoryNumberTextCss => $"inventory-number {Scale} text";
+    string InventoryColorCss => $"inventory-color {Scale}";
 }
