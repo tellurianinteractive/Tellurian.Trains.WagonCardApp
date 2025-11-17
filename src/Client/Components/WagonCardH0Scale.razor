@@ -84,12 +84,15 @@
                         }
 
                     </div>
-                    <div class="property row">
-                        <div class="@Data.Css("property")">
-                            <div class="@Data.Css("label")">@Localizer["Manufacturer"]/@Localizer["Year"]</div>
-                            <div class="@Data.Css("value")">@Data.Manufacturer @Data.YearOfManufacturing</div>
+                    @if (Data.Manufacturer.HasValue() || Data.YearOfManufacturing > 0)
+                    {
+                        <div class="property row">
+                            <div class="@Data.Css("property")">
+                                <div class="@Data.Css("label")">@Localizer["Manufacturer"]/@Localizer["Year"]</div>
+                                <div class="@Data.Css("value")">@Data.Manufacturer @Data.YearOfManufacturing</div>
+                            </div>
                         </div>
-                    </div>
+                    }
 
                     <div style="display: flex; flex-direction: row; border-bottom: 1px solid black">
                         @if (Data.LoadLimit > 0)
