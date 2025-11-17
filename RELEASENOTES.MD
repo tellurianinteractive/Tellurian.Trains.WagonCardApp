@@ -2,6 +2,9 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 3.0.2
+- **Fix** of model weigth unit display. Thanks to Herbert Stadler for notifying this.
+- **Fix** of overflow of text in model heading. Thanks to Herbert Stadler for notifying this.
 ## Release 3.0.1
 - **Fix** of image sizes and alignments.
 - **Correction** of passenger wagon frame colours for class U.

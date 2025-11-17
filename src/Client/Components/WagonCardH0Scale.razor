@@ -35,14 +35,14 @@
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: column">
-                        <div class="model-weight">
+                        <div class="model-weight H0">
                             @if (Data.ModelWeight.HasValue)
                             {
-                                <div class="label">@Localizer.Label("Model weight")</div>
-                                <div>@Data.ModelWeightGrams</div>
+                                <div class="label H0">@Localizer.Label("Model weight")</div>
+                                <div class="value H0">@Data.ModelWeightGrams</div>
                             }
                         </div>
-                        <div>
+                        <div style="padding: 2px; width: 5cm; height: 1.8cm; border-right: 1px solid black;">
                             @if (Data.IsCargoWagon)
                             {
                                 <UicLabel Data="@Data" FontSize="8" />
