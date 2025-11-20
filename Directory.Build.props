@@ -1,7 +1,7 @@
 <Project>
 	<PropertyGroup>
-		<Version>3.0.2</Version>
-		<AssemblyVersion>3.0.2</AssemblyVersion>
+		<Version>3.1.0</Version>
+		<AssemblyVersion>3.1.0</AssemblyVersion>
 		<Authors>Stefan Fjällemark</Authors>
 		<Company>Tellurian Interactive</Company>
 	</PropertyGroup>

@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>Tellurian.WagonCardApp.Shared</RootNamespace>
     <AssemblyName>Tellurian.WagonCardApp.Shared</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Markdig" Version="0.42.0" />
+    <PackageReference Include="Markdig" Version="0.43.0" />
     <PackageReference Include="QRCoder" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
