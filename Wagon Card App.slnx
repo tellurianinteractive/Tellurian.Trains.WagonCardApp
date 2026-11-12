@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="README.MD" />
+    <File Path="RELEASENOTES.MD" />
+  </Folder>
+  <Project Path="src/Client/WagonCardApp.Client.csproj" />
+  <Project Path="src/Server/WagonCardApp.Server.csproj" />
+  <Project Path="src/Shared/WagonCardApp.Shared.csproj" />
+  <Project Path="WagonCardApp.Shared.Tests/WagonCardApp.Shared.Tests.csproj" />
+</Solution>
