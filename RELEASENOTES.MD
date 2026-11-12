@@ -2,6 +2,17 @@
 >When you use a new release, it is recommended that you do a *hard refresh* in your browser, to ensure that you get the latest styles applied.
 
 >A note when printing: In browser print dialog, select to print *background graphics* for best result. Otherwise, all coloured backgrounds will not print.
+## Release 3.2.0
+Release date 2026-11-12
+- **Fix** of passenger wagon cards being saved in the same place as freight wagon cards, so one could overwrite the other. Passenger wagon cards are now also printed and reset as passenger wagons. A passenger wagon card saved by an earlier version is moved automatically.
+- **Fix** of owner details sometimes being lost. They are now saved as soon as they are changed, and are saved first, so they are kept even if large images fill up the browser storage.
+- **Fix** of the *Print preview*, *Example* and *Reset* buttons also saving the card. Before, *Example* could overwrite your saved card.
+- **Fix** of switching between freight and passenger wagons, which now shows the saved card of each kind.
+- **Messages** when the browser cannot save or download, for example when its storage is full because of large images, instead of the app stopping with an error.
+- **Install as an app** on phones, tablets and computers, and use it offline, including the *Home*, *About* and *References* pages. Tip for iPhone and iPad: Safari deletes saved cards after 7 days without a visit, unless the app is added to the home screen.
+- **Security:** Upgrade to .NET 11. This also fixes known high severity vulnerabilities in the .NET 10.0.0 server components ([GHSA-g27p-qf6j-c96c](https://github.com/advisories/GHSA-g27p-qf6j-c96c), [GHSA-qjpx-jqm5-h2c4](https://github.com/advisories/GHSA-qjpx-jqm5-h2c4)).
+- **Security:** Two unmaintained external components, for saving in the browser and for downloading files, are replaced with the app's own code. Other external components are updated to their latest versions.
+- Cards saved in the browser and JSON files downloaded from earlier versions still work.
 ## Release 3.1.0
 Release date 2025-11-20
 - **Updgrade to .NET 10.**
@@ -25,9 +36,9 @@ Release date 2025-06-17
 - **Upgrade** to .NET 9.
 ## Release 2.3.0
 Release date 2025-06-16
-- **Added EUROP and OPW** for freight wagon interoperability. Thanks to Kartsten Kreß for the suggestion.
+- **Added EUROP and OPW** for freight wagon interoperability. Thanks to Kartsten KreÃŸ for the suggestion.
 ## Release 2.2.2
-Release date 2024-07-01: pull request from Benny Tjäder.
+Release date 2024-07-01: pull request from Benny TjÃ¤der.
 - **Added more wagon types**,
   - U: Wagon to diesel-powered vehicle (Uf, Ub, Uab, Uaf and Udf)
   - Q: Service wagon
@@ -80,9 +91,9 @@ Release date 2023-05-10
 ## Release 2.1.22
 Release date 2023-04-21
 - **Operator logo** can now be uploaded and replaces *operator signature* on the 
-FRED-sticker. Thanks to Søren Bendtsen and Jan Aude for the idea.
+FRED-sticker. Thanks to SÃ¸ren Bendtsen and Jan Aude for the idea.
 - **Model image** now also appears on the FRED-sticker. Thanks to Jan Aude for the idea.
-- **Wheel type** of the model can now be specified. Thanks to Søren Bendtsen for the idea.
+- **Wheel type** of the model can now be specified. Thanks to SÃ¸ren Bendtsen for the idea.
 It's a free text, but typically you will type *NEM*, *RP25* or other standard name
 appropriate for the scale and theme of your loco.
 
@@ -96,7 +107,7 @@ Release date 2023-03-01
 ## Release 2.1.20
 Release date 2023-02-28
 - **Firewall fix** to make the application work also behind (some) firewalls.
-Thanks to Halvor Sannæs for testing it in Arendal.
+Thanks to Halvor SannÃ¦s for testing it in Arendal.
 
 ## Release 2.1.19
 Release date 2022-12.17
@@ -114,7 +125,7 @@ Release date 2022-10-31
 - **Double FRED labels** for locos. Suggested by Michael Homscheidt.
 - **Square meters** added as load description for wagons, issue #17. Suggested by Tore Urvik.
 - **JSON data** now contains owner name when downloaded and only if you change the default name, issue #15. Suggested by Tore Urvik.
-- **Bug fix** of issue #16 where wagon origin and model images were swapped. Thanks to Benny Tjäder for reporting this.
+- **Bug fix** of issue #16 where wagon origin and model images were swapped. Thanks to Benny TjÃ¤der for reporting this.
 - **Bug fix** of unit for *load limit* and *load volume*.
 
 ## Release 2.1.16
@@ -219,7 +230,7 @@ Release date 2022-01-24
 
 ## Release 2.0.5
 Release date 2022-01-20
-- **Owner data** space extended to display longer email addresses. Thanks to Dag-Cato Skårvik for reporting this.
+- **Owner data** space extended to display longer email addresses. Thanks to Dag-Cato SkÃ¥rvik for reporting this.
 - **Owner icon** added as yet another way to specify owner identification on wagons. Thanks to Michael Bunka for the idea.
 - **Model make and number** removed from wagon card, but still on inventory card. Thanks to Michael Bunka for the idea.
 - **Region colours** instead of region names. Thanks to Michael Bunka for reporting names as problematic.
@@ -237,7 +248,7 @@ You can still override this by entering wagon number including the control digit
 ## Release 2.0.3
 Release date 2021-11-11
 - **German** translation improved by Frank Hennies.
-- **Units** for length, load weight and volume now are fixed to *m*, *t* and *m³* respectively.
+- **Units** for length, load weight and volume now are fixed to *m*, *t* and *mÂ³* respectively.
 - **Read me** updated.
 
 ## Release 2.0.2
