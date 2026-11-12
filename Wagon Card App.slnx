@@ -4,8 +4,9 @@
     <File Path="README.MD" />
     <File Path="RELEASENOTES.MD" />
   </Folder>
-  <Project Path="src/Client/WagonCardApp.Client.csproj" />
+  <!-- The Server is listed first so Visual Studio uses it as the default startup project. It hosts the client and the content API. -->
   <Project Path="src/Server/WagonCardApp.Server.csproj" />
+  <Project Path="src/Client/WagonCardApp.Client.csproj" />
   <Project Path="src/Shared/WagonCardApp.Shared.csproj" />
   <Project Path="WagonCardApp.Shared.Tests/WagonCardApp.Shared.Tests.csproj" />
 </Solution>

@@ -11,15 +11,8 @@ self.addEventListener('message', event => {
 
 const cacheNamePrefix = 'offline-cache-';
 const cacheName = `${cacheNamePrefix}${self.assetsManifest.version}`;
-const offlineAssetsInclude = [ /\.bin$/, /\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/ ];
+const offlineAssetsInclude = [ /\.bin$/, /\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/, /\.md$/ ];
 const offlineAssetsExclude = [ /^service-worker\.js$/ ];
-
-// Text pages (Index, About, References) come from the server API, not from the static assets.
-// They are fetched network first and cached, so the latest visited version is available offline.
-// The name has no version suffix, so the content survives app updates.
-const contentCacheName = 'content-cache';
-const contentPathPattern = /\/api\/content\//;
-const precachedContent = [ 'api/content/Index', 'api/content/About', 'api/content/References' ];
 
 async function onInstall(event) {
     console.info('Service worker: Install');
@@ -30,10 +23,6 @@ async function onInstall(event) {
         .filter(asset => !offlineAssetsExclude.some(pattern => pattern.test(asset.url)))
         .map(asset => new Request(asset.url, { integrity: asset.hash, cache: 'no-cache' }));
     await caches.open(cacheName).then(cache => cache.addAll(assetsRequests));
-
-    // Best effort: a failure here must not stop the app from being installed.
-    const contentCache = await caches.open(contentCacheName);
-    await Promise.all(precachedContent.map(url => contentCache.add(url).catch(() => { })));
 }
 
 async function onActivate(event) {
@@ -47,10 +36,6 @@ async function onActivate(event) {
 }
 
 async function onFetch(event) {
-    if (event.request.method === 'GET' && contentPathPattern.test(new URL(event.request.url).pathname)) {
-        return fetchContentNetworkFirst(event.request);
-    }
-
     let cachedResponse = null;
     if (event.request.method === 'GET') {
         // For all navigation requests, try to serve index.html from cache
@@ -63,15 +48,4 @@ async function onFetch(event) {
     }
 
     return cachedResponse || fetch(event.request);
-}
-
-async function fetchContentNetworkFirst(request) {
-    const cache = await caches.open(contentCacheName);
-    try {
-        const response = await fetch(request);
-        if (response.ok) await cache.put(request, response.clone());
-        return response;
-    } catch {
-        return (await cache.match(request)) ?? Response.error();
-    }
 }

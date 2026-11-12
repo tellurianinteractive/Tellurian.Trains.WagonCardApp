@@ -32,10 +32,11 @@ else
         try
         {
             _content = await ContentService.GetTextContent(ContentName);
+            _couldNotLoad = _content is null;
         }
         catch (HttpRequestException)
         {
-            // Typically offline, and the service worker has no cached copy of this content.
+            // Offline, and the file is not in the service worker's cache yet.
             _couldNotLoad = true;
         }
     }
