@@ -5,6 +5,9 @@
     <AssemblyName>Tellurian.WagonCardApp.Client</AssemblyName>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <!-- Publish the project's own web.config for static hosting on IIS / Azure App Service.
+         Without this, publishing for browser-wasm drops a custom web.config. -->
+    <PublishIISAssets>true</PublishIISAssets>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Markdig" Version="1.6.0" />
