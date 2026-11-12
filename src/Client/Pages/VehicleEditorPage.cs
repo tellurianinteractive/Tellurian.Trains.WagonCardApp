@@ -1,7 +1,4 @@
-using System.Text;
 using System.Text.Json;
-using BlazorDownloadFile;
-using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.Localization;
@@ -20,9 +17,9 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
     private static readonly JsonSerializerOptions DownloadOptions = new() { WriteIndented = true };
 
     [Inject] protected IStringLocalizer<App> Localizer { get; set; } = default!;
-    [Inject] protected ILocalStorageService LocalStorage { get; set; } = default!;
+    [Inject] protected LocalStorage LocalStorage { get; set; } = default!;
     [Inject] protected NavigationManager Navigator { get; set; } = default!;
-    [Inject] protected IBlazorDownloadFileService DownloadFileService { get; set; } = default!;
+    [Inject] protected FileDownloader FileDownloader { get; set; } = default!;
 
     /// <summary>The vehicle being edited. Not set until <see cref="IsLoaded"/> is true.</summary>
     protected T Data { get; private set; } = default!;
@@ -102,7 +99,7 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
         await SaveAsync();
         var json = JsonSerializer.Serialize(Data, DownloadOptions);
         var fileName = $"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json";
-        await DownloadFileService.DownloadFileFromText(fileName, json, Encoding.UTF8, JsonContentType);
+        await FileDownloader.DownloadTextAsync(fileName, json, JsonContentType);
     }
 
     private void SetData(T data)

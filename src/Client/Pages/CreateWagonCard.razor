@@ -140,7 +140,7 @@
     /// </summary>
     private async Task MoveMisplacedPassengerWagonAsync()
     {
-        if (await LocalStorage.ContainKeyAsync(StorageKeys.PassengerWagon)) return;
+        if (await LocalStorage.ContainsKeyAsync(StorageKeys.PassengerWagon)) return;
         var stored = await LocalStorage.GetItemAsync<Wagon>(StorageKeys.CargoWagon);
         if (stored is not { IsPassengerWagon: true }) return;
         await LocalStorage.SetItemAsync(StorageKeys.PassengerWagon, stored);
