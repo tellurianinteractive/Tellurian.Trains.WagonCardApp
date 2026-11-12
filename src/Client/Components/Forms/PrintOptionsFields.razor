@@ -1,0 +1,19 @@
+@inherits EditorSectionBase
+
+<FormSection Title="PrintOptions">
+    <FormRow Label="@CardLabel" For="PrintCard">
+        <input type="checkbox" id="PrintCard" @bind="Options.PrintCard" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+    <FormRow Label="PrintInventoryCard" For="PrintInventoryCard">
+        <input type="checkbox" id="PrintInventoryCard" @bind="Options.PrintInventoryCard" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+    @ChildContent
+</FormSection>
+
+@code {
+    [Parameter, EditorRequired] public PrintOptions Options { get; set; } = default!;
+    /// <summary>Resource key of the label for printing the main card.</summary>
+    [Parameter, EditorRequired] public string CardLabel { get; set; } = string.Empty;
+    /// <summary>Vehicle specific print options.</summary>
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

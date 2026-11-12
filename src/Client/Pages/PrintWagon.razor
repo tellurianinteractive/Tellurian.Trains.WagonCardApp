@@ -1,0 +1,22 @@
+﻿@page "/PrintCargoWagon"
+@page "/PrintPassengerWagon"
+@layout PrintLayout
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager Navigator
+
+<WagonPreview Data="@Data" Owner="@Owner" />
+
+@code {
+    private const string PrintPassengerWagonRoute = "printpassengerwagon";
+
+    private Wagon? Data { get; set; }
+    private Owner? Owner { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var route = Navigator.ToBaseRelativePath(Navigator.Uri).Split('?', '#')[0].Trim('/');
+        var storageKey = route.Equals(PrintPassengerWagonRoute, StringComparison.OrdinalIgnoreCase) ? StorageKeys.PassengerWagon : StorageKeys.CargoWagon;
+        Owner = await LocalStorage.GetItemAsync<Owner>(StorageKeys.Owner);
+        Data = await LocalStorage.GetItemAsync<Wagon>(storageKey);
+    }
+}

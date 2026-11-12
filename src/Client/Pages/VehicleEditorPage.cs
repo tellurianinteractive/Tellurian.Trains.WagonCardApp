@@ -1,0 +1,114 @@
+using System.Text;
+using System.Text.Json;
+using BlazorDownloadFile;
+using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.Extensions.Localization;
+using Tellurian.WagonCardApp.Client.Services;
+using Tellurian.WagonCardApp.Shared;
+
+namespace Tellurian.WagonCardApp.Client.Pages;
+
+/// <summary>
+/// Shared behaviour of the pages that edit a vehicle card: loading from and saving to
+/// local storage, print preview, example and reset, and JSON download and upload.
+/// </summary>
+public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
+{
+    private const string JsonContentType = "application/json";
+    private static readonly JsonSerializerOptions DownloadOptions = new() { WriteIndented = true };
+
+    [Inject] protected IStringLocalizer<App> Localizer { get; set; } = default!;
+    [Inject] protected ILocalStorageService LocalStorage { get; set; } = default!;
+    [Inject] protected NavigationManager Navigator { get; set; } = default!;
+    [Inject] protected IBlazorDownloadFileService DownloadFileService { get; set; } = default!;
+
+    /// <summary>The vehicle being edited. Not set until <see cref="IsLoaded"/> is true.</summary>
+    protected T Data { get; private set; } = default!;
+    protected Owner Owner { get; private set; } = new();
+    protected string? ErrorMessage { get; private set; }
+    protected bool IsLoaded => Data is not null;
+
+    protected abstract string StorageKey { get; }
+    protected abstract string PrintRoute { get; }
+    protected abstract T CreateDefault();
+
+    /// <summary>Returns an example vehicle, or null if this kind of vehicle has no example.</summary>
+    protected virtual T? CreateExample() => null;
+
+    /// <summary>Fills in missing or outdated data after a vehicle has been loaded, uploaded or created.</summary>
+    protected virtual void Normalize(T data) { }
+
+    protected override async Task OnInitializedAsync() => await LoadAsync();
+
+    protected async Task LoadAsync()
+    {
+        Owner = await LocalStorage.GetItemAsync<Owner>(StorageKeys.Owner) ?? Owner.Default;
+        SetData(await GetStoredDataAsync() ?? CreateDefault());
+        ErrorMessage = null;
+    }
+
+    /// <summary>Reads the saved vehicle from local storage. Override to migrate older saved data.</summary>
+    protected virtual async Task<T?> GetStoredDataAsync() => await LocalStorage.GetItemAsync<T>(StorageKey);
+
+    protected async Task SaveAsync()
+    {
+        if (!IsLoaded) return;
+        Data.Owner = Owner;
+        await LocalStorage.SetItemAsync(StorageKeys.Owner, Owner);
+        await LocalStorage.SetItemAsync(StorageKey, Data);
+    }
+
+    protected async Task PrintAsync()
+    {
+        await SaveAsync();
+        Navigator.NavigateTo(PrintRoute);
+    }
+
+    protected async Task ShowExampleAsync()
+    {
+        var example = CreateExample();
+        if (example is null) return;
+        await SaveAsync();
+        SetData(example);
+    }
+
+    protected void Reset() => SetData(CreateDefault());
+
+    protected void ClearError() => ErrorMessage = null;
+
+    protected async Task UploadAsync(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            await using var stream = new MemoryStream();
+            await e.File.OpenReadStream(maxAllowedSize: AppService.MaxUploadFileSize).CopyToAsync(stream);
+            stream.Position = 0;
+            var data = await JsonSerializer.DeserializeAsync<T>(stream) ?? CreateDefault();
+            if (data.Owner is { IsEmptyOrDefault: false } owner) Owner = owner;
+            SetData(data);
+            ErrorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = ex.Message;
+        }
+    }
+
+    protected async Task DownloadAsync()
+    {
+        if (!IsLoaded) return;
+        await SaveAsync();
+        var json = JsonSerializer.Serialize(Data, DownloadOptions);
+        var fileName = $"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json";
+        await DownloadFileService.DownloadFileFromText(fileName, json, Encoding.UTF8, JsonContentType);
+    }
+
+    private void SetData(T data)
+    {
+        data.Owner = Owner;
+        Normalize(data);
+        Data = data;
+    }
+}

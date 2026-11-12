@@ -1,0 +1,12 @@
+@inherits EditorSectionBase
+
+<FormRow Label="Manufacturer" For="Manufacturer">
+    <InputText class="inputlong" id="Manufacturer" @bind-Value="Vehicle.Manufacturer" @bind-Value:after="NotifyChangedAsync" />
+</FormRow>
+<FormRow Label="YearOfManufacturing" For="YearOfManufacturing">
+    <InputNumber class="inputshort" id="YearOfManufacturing" @bind-Value="Vehicle.YearOfManufacturing" @bind-Value:after="NotifyChangedAsync" />
+</FormRow>
+
+@code {
+    [Parameter, EditorRequired] public Vehicle Vehicle { get; set; } = default!;
+}

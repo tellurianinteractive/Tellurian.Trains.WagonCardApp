@@ -1,0 +1,28 @@
+@inject IStringLocalizer<App> Localizer
+
+<div class="form-section-title">
+    <h4>@Localizer["Actions"]</h4>
+    <button class="button" type="submit">@Localizer["Save"]</button>
+    <button class="button" type="button" @onclick="OnPrint">@Localizer["PrintPreview"]</button>
+    @if (ShowExample)
+    {
+        <button class="button" type="button" @onclick="OnExample">@Localizer["Example"]</button>
+    }
+    <button class="button" type="button" @onclick="OnReset">@Localizer["Reset"]</button>
+    <div style="padding-top: 4pt">
+        <button class="button" type="button" @onclick="OnDownload">@Localizer["DownloadAsJson"]</button>
+        <button class="button" type="button" onclick="document.getElementById('@UploadInputId').click()">@Localizer["UploadJsonFile"]</button>
+        <InputFile id="@UploadInputId" OnChange="OnUpload" accept=".json" hidden />
+    </div>
+</div>
+
+@code {
+    private const string UploadInputId = "uploadJson";
+
+    [Parameter] public bool ShowExample { get; set; } = true;
+    [Parameter] public EventCallback OnPrint { get; set; }
+    [Parameter] public EventCallback OnExample { get; set; }
+    [Parameter] public EventCallback OnReset { get; set; }
+    [Parameter] public EventCallback OnDownload { get; set; }
+    [Parameter] public EventCallback<InputFileChangeEventArgs> OnUpload { get; set; }
+}

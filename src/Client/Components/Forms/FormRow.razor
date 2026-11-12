@@ -1,0 +1,16 @@
+@inject IStringLocalizer<App> Localizer
+
+<div>
+    <label class="inputlabel" for="@For">@Localizer[Label]@LabelSuffix</label>
+    @ChildContent
+</div>
+
+@code {
+    /// <summary>Resource key of the label text.</summary>
+    [Parameter, EditorRequired] public string Label { get; set; } = string.Empty;
+    /// <summary>Id of the input element the label belongs to.</summary>
+    [Parameter] public string? For { get; set; }
+    /// <summary>Unlocalized text appended to the label, e.g. a unit.</summary>
+    [Parameter] public string? LabelSuffix { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

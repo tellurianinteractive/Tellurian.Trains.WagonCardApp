@@ -1,0 +1,14 @@
+@inject IStringLocalizer<App> Localizer
+
+@if (!string.IsNullOrWhiteSpace(Message))
+{
+    <div style="color:red; background-color: yellow; padding: 5pt">
+        <h4>@Localizer["ErrorInUploadedJsonFile"]</h4>
+        <p>@Message <button type="button" @onclick="OnClear">@Localizer["Clear"]</button></p>
+    </div>
+}
+
+@code {
+    [Parameter] public string? Message { get; set; }
+    [Parameter] public EventCallback OnClear { get; set; }
+}

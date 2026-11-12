@@ -1,480 +1,181 @@
 ﻿@page "/cargowagon"
 @page "/passengerwagon"
-@inject IStringLocalizer<App> Localizer
-@inject ILocalStorageService LocalStorage
-@inject NavigationManager Navigator
-@inject IBlazorDownloadFileService BlazorDownloadFileService
+@inherits VehicleEditorPage<Wagon>
+@implements IDisposable
 
 <h3>@Localizer["CreateWagonCard"]</h3>
-@if (!HasData)
+@if (IsLoaded)
 {
-
-}
-else
-{
-    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
-    {
-        <div style="color:red; background-color: yellow; padding: 5pt">
-            <h4>@Localizer["ErrorInUploadedJsonFile"]</h4>
-            <p>@ErrorMessage  <button @onclick="@Clear">@Localizer["Clear"]</button></p>
-
-        </div>
-    }
+    <UploadErrorBanner Message="@ErrorMessage" OnClear="ClearError" />
 
     <div style="display:flex;flex-direction:row">
         <div>
-            <WagonPreview Data="@Data" Owner="@Owner" />
+            <WagonPreview Data="Data" Owner="Owner" />
         </div>
         <div>
-            <EditForm Model="@Data" OnValidSubmit="OnValidSubmit">
+            <EditForm Model="Data" OnValidSubmit="SaveAsync">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
-                <div>
-                    <label class="inputlabel" for="scale">@Localizer["Scale"]</label>
-                    <InputSelect class="inputshort" id="scale" @bind-Value="@Data.Scale">
-                        @foreach (var scale in Enum.GetValues(typeof(Scale)))
-                        {
-                            <option value="@scale">@scale.ToString()</option>
-                        }
-                    </InputSelect>
-                </div>
+                <ScaleSelector Vehicle="Data" OnChange="StateHasChanged" />
 
-                <h4 style="padding-left: 15em">@Localizer["DataOriginal"]</h4>
-                <div>
-                    <label class="inputlabel" for="OperatorSignature">@Localizer["OperatorSignature"]</label>
-                    <InputText class="inputshort" id="OperatorSignature" @bind-Value="@Data.OperatorSignature"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="VehicleClass">@Localizer["VehicleClass"]</label>
-                    <InputText class="inputshort" id="VehicleClass" @bind-Value="@Data.VehicleClass"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="UicMainClass">@Localizer["OtherUicMainClass"]</label>
-                    <InputText class="inputshort" id="UicMainClass" @bind-Value="@Data.UicMainClass"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="InteroperabilityCode">@Localizer["InteroperabilityCode"]</label>
-                    <InputNumber class="inputshort" id="InteroperabilityCode" @bind-Value="@Data.InteroperatbilityNumber"></InputNumber>
-                </div>
-                <div>
-                    <label class="inputlabel" for="CountryRegistrationNumber">@Localizer["CountryRegistrationNumber"]</label>
-                    <InputNumber class="inputshort" id="CountryRegistrationNumber" @bind-Value="@Data.CountryRegistrationNumber"></InputNumber>
-                </div>
-                <div>
-                    <label class="inputlabel" for="VehicleNumber">@Localizer["VehicleNumber"]</label>
-                   <input class="inputwide" id="VehicleNumber" @bind="@Data.VehicleNumber" @bind:after="@ValidateWagonNumber">
-                   <span style="color: red">@VehicleNumberErrorMessage</span>
-                </div>
-                <div>
-                    <label class="inputlabel" for="WagonColour">@Localizer["WagonColour"]</label>
-                    <input id="WagonColour" type="color" @bind="@Data.WagonColor" />
-                </div>
-                <div>
-                    <label class="inputlabel" for="epoch">@Localizer["Epoch"]</label>
-                    <InputText class="inputshort" id="epoch" @bind-Value="@Data.Epoch"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="from">@Localizer["Operating period in this design"]</label>
-                    <InputNumber class="inputshort" id="fromYear" @bind-Value="@Data.OperatingFromYear"></InputNumber>
-                    -
-                    <InputNumber class="inputshort" id="uptoYear" @bind-Value="@Data.OperatingUptoYear"></InputNumber>
-                </div>
-                <div>
-                    <label class="inputlabel" for="speed">@Localizer["TopSpeed"]</label>
-                    <InputNumber class="inputshort" id="speed" @bind-Value="@Data.MaxSpeed"></InputNumber>
-                    <InputRadioGroup Name="SpeedUnit" DisplayName="@Localizer["SpeedUnit"]" @bind-Value="@Data.SpeedUnit">
-                        <InputRadio Value="SpeedUnit.KmPerHour" Name="SpeedUnit" />@Localizer[SpeedUnit.KmPerHour.ToString()]
-                        <InputRadio Value="SpeedUnit.MilesPerHour" Name="SpeedUnit" />@Localizer[SpeedUnit.MilesPerHour.ToString()]
-                    </InputRadioGroup>
-                </div>
-                <div>
-                    <label class="inputlabel" for="length">@Localizer["LengthOverBuffers"]</label>
-                    <InputNumber class="inputshort" id="length" @bind-Value="@Data.Length"></InputNumber> m
-                </div>
-                @if (Data.IsPassengerWagon)
-                {
-                    <div>
-                        <label class="inputlabel" for="epoch">@Localizer["Manufacturer"]</label>
-                        <InputText class="inputlong" id="epoch" @bind-Value="@Data.Manufacturer"></InputText>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="year">@Localizer["YearOfManufacturing"]</label>
-                        <InputNumber class="inputshort" id="year" @bind-Value="@Data.YearOfManufacturing"></InputNumber>
-                    </div>
-                }
-                else
-                {
-                    <div>
-                        <label class="inputlabel" for="weight">@Localizer["LoadLimit"]</label>
-                        <InputNumber class="inputshort" id="weight" @bind-Value="@Data.LoadLimit"></InputNumber> t
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="area">@Localizer["LoadArea"]</label>
-                        <InputNumber class="inputshort" id="area" @bind-Value="@Data.LoadArea"></InputNumber> m²
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="volume">@Localizer["LoadVolume"]</label>
-                        <InputNumber class="inputshort" id="volume" @bind-Value="@Data.LoadVolume"></InputNumber> m³
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="IsRivConformant">@Localizer["IsRivConformant"]</label>
-                        <InputCheckbox class="inputshort" id="IsRivConformant" @bind-Value="@Data.IsRivConformant"></InputCheckbox>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="IsMcConformant">@Localizer["IsMcConformant"]</label>
-                        <InputCheckbox class="inputshort" id="IsMcConformant" @bind-Value="@Data.IsMcConformant"></InputCheckbox>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="IsEuropConformant">@Localizer["IsEuropConformant"]</label>
-                        <InputCheckbox class="inputshort" id="IsEuropConformant" @bind-Value="@Data.IsEuropConformant"></InputCheckbox>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="IsOpwConformant">@Localizer["IsOpwConformant"]</label>
-                        <InputCheckbox class="inputshort" id="IsOpwConformant" @bind-Value="@Data.IsOpwConformant"></InputCheckbox>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="IsTenConformant">@Localizer["IsTenConformant"]</label>
-                        <InputCheckbox class="inputshort" id="IsTenConformant" @bind-Value="@Data.IsTenConformant"></InputCheckbox>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="IsInterfrigoConformant">@Localizer["IsInterfrigoConformant"]</label>
-                        <InputCheckbox class="inputshort" id="IsInterfrigoConformant" @bind-Value="@Data.IsInterfrigoConformant"></InputCheckbox>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="LoadingInstructions">@Localizer["Loading instructions"]</label>
-                        <textarea rows="2" cols="54" id="LoadingInstructions" @bind="@Data.LoadingInstructions"></textarea>
-                    </div>
-                }
-                <div>
-                    <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOriginalImage"]</label>
-                    <span>
-                        @if (Data.OriginalImage?.IsImage == true)
-                        {
-                            <button @onclick="ClearOriginalImage">@Localizer["Reset"] </button> <span style="font-size: 9pt"> @Data.OriginalImage.FileName</span>
-                        }
-                        else
-                        {
-                            <InputFile class="inputurl" OnChange="OnOriginalImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOriginalImage" />
-                        }
-                    </span>
-                </div>
-                <div>
-                    <label class="inputlabel" for="original">@Localizer["OriginalImageUrl"]</label>
-                    <InputText class="inputurl" id="original" @bind-Value="@Data.OriginalImageUrl"></InputText>
-                </div>
+                <FormSection Title="DataOriginal">
+                    <FormRow Label="OperatorSignature" For="OperatorSignature">
+                        <InputText class="inputshort" id="OperatorSignature" @bind-Value="Data.OperatorSignature" />
+                    </FormRow>
+                    <FormRow Label="VehicleClass" For="VehicleClass">
+                        <InputText class="inputshort" id="VehicleClass" @bind-Value="Data.VehicleClass" />
+                    </FormRow>
+                    <FormRow Label="OtherUicMainClass" For="UicMainClass">
+                        <InputText class="inputshort" id="UicMainClass" @bind-Value="Data.UicMainClass" />
+                    </FormRow>
+                    <FormRow Label="InteroperabilityCode" For="InteroperabilityCode">
+                        <InputNumber class="inputshort" id="InteroperabilityCode" @bind-Value="Data.InteroperatbilityNumber" />
+                    </FormRow>
+                    <FormRow Label="CountryRegistrationNumber" For="CountryRegistrationNumber">
+                        <InputNumber class="inputshort" id="CountryRegistrationNumber" @bind-Value="Data.CountryRegistrationNumber" />
+                    </FormRow>
+                    <FormRow Label="VehicleNumber" For="VehicleNumber">
+                        <input class="inputwide" id="VehicleNumber" @bind="Data.VehicleNumber" @bind:after="ValidateVehicleNumber" />
+                        <span style="color: red">@_vehicleNumberErrorMessage</span>
+                    </FormRow>
+                    <FormRow Label="WagonColour" For="WagonColour">
+                        <input id="WagonColour" type="color" @bind="Data.WagonColor" />
+                    </FormRow>
+                    <FormRow Label="Epoch" For="Epoch">
+                        <InputText class="inputshort" id="Epoch" @bind-Value="Data.Epoch" />
+                    </FormRow>
+                    <OperatingPeriodField Vehicle="Data" OnChange="StateHasChanged" />
+                    <SpeedField Vehicle="Data" OnChange="StateHasChanged" />
+                    <FormRow Label="LengthOverBuffers" For="Length">
+                        <InputNumber class="inputshort" id="Length" @bind-Value="Data.Length" /> m
+                    </FormRow>
+                    @if (Data.IsPassengerWagon)
+                    {
+                        <ManufacturerFields Vehicle="Data" OnChange="StateHasChanged" />
+                    }
+                    else
+                    {
+                        <FormRow Label="LoadLimit" For="LoadLimit">
+                            <InputNumber class="inputshort" id="LoadLimit" @bind-Value="Data.LoadLimit" /> t
+                        </FormRow>
+                        <FormRow Label="LoadArea" For="LoadArea">
+                            <InputNumber class="inputshort" id="LoadArea" @bind-Value="Data.LoadArea" /> m²
+                        </FormRow>
+                        <FormRow Label="LoadVolume" For="LoadVolume">
+                            <InputNumber class="inputshort" id="LoadVolume" @bind-Value="Data.LoadVolume" /> m³
+                        </FormRow>
+                        <FormRow Label="IsRivConformant" For="IsRivConformant">
+                            <InputCheckbox class="inputshort" id="IsRivConformant" @bind-Value="Data.IsRivConformant" />
+                        </FormRow>
+                        <FormRow Label="IsMcConformant" For="IsMcConformant">
+                            <InputCheckbox class="inputshort" id="IsMcConformant" @bind-Value="Data.IsMcConformant" />
+                        </FormRow>
+                        <FormRow Label="IsEuropConformant" For="IsEuropConformant">
+                            <InputCheckbox class="inputshort" id="IsEuropConformant" @bind-Value="Data.IsEuropConformant" />
+                        </FormRow>
+                        <FormRow Label="IsOpwConformant" For="IsOpwConformant">
+                            <InputCheckbox class="inputshort" id="IsOpwConformant" @bind-Value="Data.IsOpwConformant" />
+                        </FormRow>
+                        <FormRow Label="IsTenConformant" For="IsTenConformant">
+                            <InputCheckbox class="inputshort" id="IsTenConformant" @bind-Value="Data.IsTenConformant" />
+                        </FormRow>
+                        <FormRow Label="IsInterfrigoConformant" For="IsInterfrigoConformant">
+                            <InputCheckbox class="inputshort" id="IsInterfrigoConformant" @bind-Value="Data.IsInterfrigoConformant" />
+                        </FormRow>
+                        <FormRow Label="Loading instructions" For="LoadingInstructions">
+                            <textarea rows="2" cols="54" id="LoadingInstructions" @bind="Data.LoadingInstructions"></textarea>
+                        </FormRow>
+                    }
+                    <ImageSourceFields Id="Original" SelectLabel="SelectOriginalImage" UrlLabel="OriginalImageUrl"
+                                       @bind-Image="Data.OriginalImage" @bind-ImageUrl="Data.OriginalImageUrl" />
+                </FormSection>
 
-                <h4 style="padding-left: 15em">@Localizer["Home station"]</h4>
-                <div>
-                    <label class="inputlabel" for="StationName">@Localizer["StationName"]</label>
-                    <InputText class="inputurl" id="StationName" @bind-Value="@Data.HomeStation.Name"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="Country">@Localizer["Country"]</label>
-                    <InputRadioGroup id="Country" Name="Country" DisplayName="@Localizer["Country"]" @bind-Value="@Data.HomeStation.CountryCode">
-                        @foreach (var countryCode in RegionExtensions.CountryCodes)
-                        {
-                            <span class="inputradio">
-                                <InputRadio class="inputradio-field" Value="countryCode" Name="Country" />
-                                <span class="inputradio-label"> @countryCode</span>
-                            </span>
-                        }
-                    </InputRadioGroup>
-                </div>
-                <div>
-                    <label class="inputlabel" for="Region">@Localizer["Region"]</label>
-                    <InputRadioGroup id="Region" Name="Region" DisplayName="@Localizer["Region"]" @bind-Value="@Data.HomeStation.Region">
-                        @foreach (var region in RegionExtensions.Regions)
-                        {
-                            <span class="inputradio" style="background-color: @region.ResourceKey">
-                                <InputRadio class="inputradio-field" Value="region.Id" Name="Region" />
-                                <span class="inputradio-label"> @Localizer[region.ResourceKey]</span>
-                            </span>
-                        }
-                    </InputRadioGroup>
+                <HomeStationFields HomeStation="Data.HomeStation" OnChange="StateHasChanged" />
 
-                </div>
+                <ModelDataFields Vehicle="Data" OnChange="StateHasChanged">
+                    <Leading>
+                        <FormRow Label="Model weight" LabelSuffix=" (g)" For="ModelWeight">
+                            <input type="number" id="ModelWeight" @bind="Data.ModelWeight" />
+                        </FormRow>
+                    </Leading>
+                </ModelDataFields>
 
-                <h4 style="padding-left: 15em">@Localizer["DataModel"]</h4>
-                <div>
-                    <label class="inputlabel" for="ModelWeight">@Localizer["Model weight"] (g)</label>
-                    <input type="number" id="ModelWeight" @bind="@Data.ModelWeight" />
-                </div>
-                <div>
-                    <label class="inputlabel" for="ModelManufacturer">@Localizer["ModelManufacturer"]</label>
-                    <input id="ModelManufacturer" @bind="@Data.ModelManufacturer" />
-                </div>
-                <div>
-                    <label class="inputlabel" for="ModelNumber">@Localizer["ModelNumber"]</label>
-                    <input id="ModelNumber" @bind="@Data.ModelNumber" />
-                </div>
-                <div>
-                    <label class="inputlabel" for="SelectModelImage">@Localizer["SelectModelImage"]</label>
-                    <span>
-                        @if (Data.ModelImage?.IsImage == true)
-                        {
-                            <button @onclick="ClearModelImage">@Localizer["Reset"] </button> <span style="font-size: 9pt"> @Data.ModelImage.FileName</span>
-                        }
-                        else
-                        {
-                            <InputFile class="inputurl" OnChange="OnModelImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectModelImage" />
-                        }
-                    </span>
-                </div>
-                <div>
-                    <label class="inputlabel" for="model">@Localizer["ModelImageUrl"]</label>
-                    <InputText class="inputurl" id="model" @bind-Value="@Data.ModelImageUrl">XXX</InputText>
-                </div>
+                <OwnerMarkingFields Marking="Data.Marking" OnChange="StateHasChanged" />
+                <OwnerFields Owner="Owner" OnChange="StateHasChanged" />
+                <PrintOptionsFields Options="Data.PrintOptions" CardLabel="PrintWagonCard" OnChange="StateHasChanged" />
 
-                <h4 style="padding-left: 15em">@Localizer["OwnersMarking"]</h4>
-
-                <div>
-                    <label class="inputlabel" for="UseMarking">@Localizer["UseMarking"]</label>
-                    <input type="checkbox" id="UseMarking" @bind="@Marking.UseMarking" />
-                </div>
-
-                @if (Marking.UseMarking)
-                {
-
-                    <div>
-                        <label class="inputlabel" for="OwnerTextLabel">@Localizer["OwnerTextLabel"]</label>
-                        <input id="OwnerTextLabel" @bind="@Marking.TextLabel" />
-                    </div>
-
-
-                    <div>
-                        <label class="inputlabel" for="SelectOriginalImage">@Localizer["SelectOwnerImage"]</label>
-                        <span>
-                            @if (Data?.Marking?.Icon?.IsImage == true)
-                            {
-                                <button @onclick="ClearOwnerImage">@Localizer["Reset"] </button> <span style="font-size: 9pt"> @Data.Marking.Icon.FileName</span>
-
-                            }
-                            else
-                            {
-                                <InputFile class="inputurl" OnChange="OnOwnerImageChanged" accept="image/png, image/jpeg, image/gif" id="SelectOwnerImage" />
-                            }
-                        </span>
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="model">@Localizer["OwnerImageUrl"]</label>
-                        <InputText class="inputurl" id="model" @bind-Value="@Marking.IconHref"></InputText>
-                    </div>
-
-                    <div>
-                        <label class="inputlabel" for="UseMarking">@Localizer["UseColorMarking"]</label>
-                        <input type="checkbox" id="UseMarking" @bind="@Marking.UseColorMarking" />
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="Colour2">@Localizer["Colour1"]</label>
-                        <input id="Colour2" type="color" @bind="@Marking.Color1" />
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="Colour2">@Localizer["Colour2"]</label>
-                        <input id="Colour2" type="color" @bind="@Marking.Color2" />
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="Colour3">@Localizer["Colour3"]</label>
-                        <input id="Colour3" type="color" @bind="@Marking.Color3" />
-                    </div>
-                    <div>
-                        <label class="inputlabel" for="Colour4">@Localizer["Colour4"]</label>
-                        <input id="Colour4" type="color" @bind="@Marking.Color4" />
-                    </div>
-
-                    <div>
-                        <label class="inputlabel" for="InventoryNumber">@Localizer["InventoryNumber"]</label>
-                        <input id="InventoryNumber" @bind="@Marking.InventoryNumber" />
-                    </div>
-
-                }
-
-
-                <h4 style="padding-left: 15em">@Localizer["Owner"]</h4>
-                <div>
-                    <label class="inputlabel" for="owner">@Localizer["OwnerName"]</label>
-                    <InputText class="inputwide" id="owner" @bind-Value="@Owner.OwnerName"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="club">@Localizer["ClubName"]</label>
-                    <InputText class="inputwide" id="club" @bind-Value="@Owner.ClubName"></InputText>
-                </div>
-                <div>
-                    <label class="inputlabel" for="email">@Localizer["EmailAddress"]</label>
-                    <input type="email" class="inputwide" id="email" @bind="@Owner.EmailAddress" />
-                </div>
-                <div>
-                    <label class="inputlabel" for="phone">@Localizer["PhoneNumber"]</label>
-                    <input type="tel" class="inputwide" id="phone" @bind="@Owner.PhoneNumber" />
-                </div>
-                <h4 style="padding-left: 15em">@Localizer["PrintOptions"]</h4>
-                <div>
-                    <label class="inputlabel" for="UseMarking">@Localizer["PrintWagonCard"]</label>
-                    <input type="checkbox" id="UseMarking" @bind="@Data!.PrintOptions.PrintCard" />
-                </div>
-                <div>
-                    <label class="inputlabel" for="UseMarking">@Localizer["PrintInventoryCard"]</label>
-                    <input type="checkbox" id="UseMarking" @bind="@Data.PrintOptions.PrintInventoryCard" />
-                </div>
-
-
-
-                <div style="padding-left: 15em">
-                    <h4>@Localizer["Actions"]</h4>
-                    <button class="button" type="submit">@Localizer["Save"]</button>
-                    <button class="button" @onclick="Print">@Localizer["PrintPreview"]</button>
-                    <button class="button" @onclick="Example">@Localizer["Example"]</button>
-                    <button class="button" @onclick="Reset">@Localizer["Reset"]</button>
-                    <div style="padding-top: 4pt">
-                        <button class="button" @onclick=SaveAsFile>@Localizer["DownloadAsJson"]</button>
-                        <button class="button" onclick="document.getElementById('uploadJson').click()">@Localizer["UploadJsonFile"]</button>
-                        <InputFile Id="uploadJson" OnChange="@UploadFile" accept=".json" hidden />
-                    </div>
-                </div>
+                <CardActions ShowExample="!_isPassengerWagon"
+                             OnPrint="PrintAsync" OnExample="ShowExampleAsync" OnReset="Reset"
+                             OnDownload="DownloadAsync" OnUpload="UploadAsync" />
             </EditForm>
         </div>
     </div>
 }
 
 @code {
-    Wagon Data = new Wagon();
-    Owner Owner = new Owner();
-    string? ErrorMessage;
-    bool IsPassengerWagon;
+    private const string CargoWagonRoute = "cargowagon";
+    private const string PassengerWagonRoute = "passengerwagon";
+    private const string PrintCargoWagonRoute = "printcargowagon";
+    private const string PrintPassengerWagonRoute = "printpassengerwagon";
 
-    protected async override Task OnInitializedAsync()
+    private bool _isPassengerWagon;
+    private string _vehicleNumberErrorMessage = string.Empty;
+
+    protected override string StorageKey => _isPassengerWagon ? StorageKeys.PassengerWagon : StorageKeys.CargoWagon;
+    protected override string PrintRoute => _isPassengerWagon ? PrintPassengerWagonRoute : PrintCargoWagonRoute;
+    protected override Wagon CreateDefault() => _isPassengerWagon ? Wagon.PassengerWagonDefault : Wagon.CargoWagonDefault;
+    protected override Wagon? CreateExample() => _isPassengerWagon ? null : Wagon.Example;
+
+    protected override void Normalize(Wagon data) => data.HomeStation ??= new();
+
+    protected override async Task<Wagon?> GetStoredDataAsync()
     {
-        Navigator.LocationChanged += new EventHandler<LocationChangedEventArgs>(Handler);
-        IsPassengerWagon = Navigator.Uri.EndsWith("passengerwagon");
-        Owner = await LocalStorage.GetItemAsync<Owner>("Owner") ?? Owner.Default;
-        if (IsPassengerWagon)
+        await MoveMisplacedPassengerWagonAsync();
+        return await base.GetStoredDataAsync();
+    }
+
+    /// <summary>
+    /// Earlier versions saved passenger wagons under the cargo wagon key.
+    /// Moves such a wagon to the passenger wagon key, unless a passenger wagon is already saved there.
+    /// </summary>
+    private async Task MoveMisplacedPassengerWagonAsync()
+    {
+        if (await LocalStorage.ContainKeyAsync(StorageKeys.PassengerWagon)) return;
+        var stored = await LocalStorage.GetItemAsync<Wagon>(StorageKeys.CargoWagon);
+        if (stored is not { IsPassengerWagon: true }) return;
+        await LocalStorage.SetItemAsync(StorageKeys.PassengerWagon, stored);
+        await LocalStorage.RemoveItemAsync(StorageKeys.CargoWagon);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isPassengerWagon = CurrentRoute(Navigator.Uri) == PassengerWagonRoute;
+        // Both routes share this component instance, so switching between them must reload the data.
+        Navigator.LocationChanged += OnLocationChanged;
+        await base.OnInitializedAsync();
+    }
+
+    public void Dispose() => Navigator.LocationChanged -= OnLocationChanged;
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        var route = CurrentRoute(e.Location);
+        if (route is not (CargoWagonRoute or PassengerWagonRoute)) return;
+        _isPassengerWagon = route == PassengerWagonRoute;
+        _vehicleNumberErrorMessage = string.Empty;
+        _ = InvokeAsync(async () =>
         {
-            Data = await LocalStorage.GetItemAsync<Wagon>("PassengerWagon") ?? Wagon.PassengerWagonDefault;
-        }
-        else
-        {
-            Data = await LocalStorage.GetItemAsync<Wagon>("CargoWagon") ?? Wagon.CargoWagonDefault;
-        }
-        Data.Owner = Owner;
-
+            await LoadAsync();
+            StateHasChanged();
+        });
     }
 
-    void Handler(object? navigator, LocationChangedEventArgs args)
+    private string CurrentRoute(string uri) =>
+        Navigator.ToBaseRelativePath(uri).Split('?', '#')[0].Trim('/').ToLowerInvariant();
+
+    private void ValidateVehicleNumber()
     {
-        if (args.Location.EndsWith("passengerwagon"))
-        {
-            Data = Wagon.PassengerWagonDefault;
-        }
-        else
-        {
-            Data = Wagon.CargoWagonDefault;
-        }
-        StateHasChanged();
+        if (Data.VehicleNumber is null || Data.InteroperatbilityNumber <= 0 || Data.CountryRegistrationNumber <= 0) return;
+        _vehicleNumberErrorMessage = Data.VehicleNumberDigits().Length > 7 ? Localizer["MaxSevenDigits"] : string.Empty;
     }
-
-
-    private async Task OnValidSubmit()
-    {
-        await LocalStorage.SetItemAsync("Owner", Owner);
-        if (HasData)
-        {
-            Data.Owner = Owner;
-            await LocalStorage.SetItemAsync("CargoWagon", Data);
-        }
-    }
-
-    async Task OnOriginalImageChanged(InputFileChangeEventArgs e)
-    {
-        Data.OriginalImage = await e.GetImageFile();
-    }
-    void ClearOriginalImage() => Data.OriginalImage = null;
-
-    async Task OnModelImageChanged(InputFileChangeEventArgs e)
-    {
-        Data.ModelImage = await e.GetImageFile();
-    }
-    void ClearModelImage() => Data.ModelImage = null;
-
-    async Task OnOwnerImageChanged(InputFileChangeEventArgs e)
-    {
-        Data.Marking.Icon = await e.GetImageFile();
-    }
-    void ClearOwnerImage() => Data.Marking.Icon = null;
-
-    string VehicleNumberErrorMessage = "";
-    void ValidateWagonNumber()
-    {
-        var value = Data.VehicleNumber;
-        if (value is not null && Data.InteroperatbilityNumber > 0 && Data.CountryRegistrationNumber > 0)
-        {
-            var digits = Data.VehicleNumberDigits();
-            if (digits.Length > 7)
-            {
-                VehicleNumberErrorMessage = Localizer["MaxSevenDigits"];
-            }
-            else
-            {
-                VehicleNumberErrorMessage = "";
-            }
-        }
-
-    }
-
-    private async Task UploadFile(InputFileChangeEventArgs e)
-    {
-        await using var stream = new MemoryStream();
-        try
-        {
-            await e.File.OpenReadStream(maxAllowedSize: AppService.MaxUploadFileSize).CopyToAsync(stream);
-            stream.Position = 0;
-            Data = await JsonSerializer.DeserializeAsync<Wagon>(stream) ?? Wagon.CargoWagonDefault;
-            if (!Data.Owner.IsEmptyOrDefault) Owner = Data.Owner;
-        }
-        catch (Exception ex)
-        {
-            ErrorMessage = ex.Message;
-        }
-
-    }
-
-
-    private async Task SaveAsFile()
-    {
-        await LocalStorage.SetItemAsync("Owner", Owner);
-        if (HasData)
-        {
-            Data.Owner = Owner;
-            var json = System.Text.Json.JsonSerializer.Serialize<Wagon>(Data, new JsonSerializerOptions() { WriteIndented = true });
-            await BlazorDownloadFileService.DownloadFileFromText($"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json", json, System.Text.Encoding.UTF8, "application/json");
-        }
-    }
-
-    async Task Print()
-    {
-        await OnValidSubmit();
-        Navigator.NavigateTo("printcargowagon");
-    }
-
-    async Task Example()
-    {
-        await OnValidSubmit();
-        Data = Wagon.Example;
-        Data.Owner = Owner;
-    }
-
-    void Reset()
-    {
-        Data = Wagon.CargoWagonDefault;
-        Data.Owner = Owner;
-    }
-
-    void Clear()
-    {
-        ErrorMessage = null;
-    }
-
-    Marking Marking => Data.Marking;
-
-    bool HasData => Data is not null && Owner is not null;
-
 }
-

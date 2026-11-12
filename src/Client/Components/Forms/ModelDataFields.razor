@@ -1,0 +1,23 @@
+@inherits EditorSectionBase
+
+<FormSection Title="DataModel">
+    @Leading
+    <FormRow Label="ModelManufacturer" For="ModelManufacturer">
+        <input id="ModelManufacturer" @bind="Vehicle.ModelManufacturer" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+    <FormRow Label="ModelNumber" For="ModelNumber">
+        <input id="ModelNumber" @bind="Vehicle.ModelNumber" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+    <ImageSourceFields Id="Model" SelectLabel="SelectModelImage" UrlLabel="ModelImageUrl"
+                       @bind-Image="Vehicle.ModelImage" @bind-Image:after="NotifyChangedAsync"
+                       @bind-ImageUrl="Vehicle.ModelImageUrl" @bind-ImageUrl:after="NotifyChangedAsync" />
+    @ChildContent
+</FormSection>
+
+@code {
+    [Parameter, EditorRequired] public Vehicle Vehicle { get; set; } = default!;
+    /// <summary>Vehicle specific fields shown before the common model fields.</summary>
+    [Parameter] public RenderFragment? Leading { get; set; }
+    /// <summary>Vehicle specific fields shown after the common model fields.</summary>
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

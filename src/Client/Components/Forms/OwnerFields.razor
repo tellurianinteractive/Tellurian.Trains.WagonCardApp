@@ -1,0 +1,20 @@
+@inherits EditorSectionBase
+
+<FormSection Title="Owner">
+    <FormRow Label="OwnerName" For="OwnerName">
+        <InputText class="inputwide" id="OwnerName" @bind-Value="Owner.OwnerName" @bind-Value:after="NotifyChangedAsync" />
+    </FormRow>
+    <FormRow Label="ClubName" For="ClubName">
+        <InputText class="inputwide" id="ClubName" @bind-Value="Owner.ClubName" @bind-Value:after="NotifyChangedAsync" />
+    </FormRow>
+    <FormRow Label="EmailAddress" For="EmailAddress">
+        <input type="email" class="inputwide" id="EmailAddress" @bind="Owner.EmailAddress" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+    <FormRow Label="PhoneNumber" For="PhoneNumber">
+        <input type="tel" class="inputwide" id="PhoneNumber" @bind="Owner.PhoneNumber" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+</FormSection>
+
+@code {
+    [Parameter, EditorRequired] public Owner Owner { get; set; } = default!;
+}

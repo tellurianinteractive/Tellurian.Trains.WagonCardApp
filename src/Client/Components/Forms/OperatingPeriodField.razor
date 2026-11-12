@@ -1,0 +1,11 @@
+@inherits EditorSectionBase
+
+<FormRow Label="Operating period in this design" For="OperatingFromYear">
+    <InputNumber class="inputshort" id="OperatingFromYear" @bind-Value="Vehicle.OperatingFromYear" @bind-Value:after="NotifyChangedAsync" />
+    -
+    <InputNumber class="inputshort" id="OperatingUptoYear" @bind-Value="Vehicle.OperatingUptoYear" @bind-Value:after="NotifyChangedAsync" />
+</FormRow>
+
+@code {
+    [Parameter, EditorRequired] public Vehicle Vehicle { get; set; } = default!;
+}

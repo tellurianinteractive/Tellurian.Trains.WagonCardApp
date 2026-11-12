@@ -1,0 +1,14 @@
+@inherits EditorSectionBase
+
+<FormRow Label="Scale" For="Scale">
+    <InputSelect class="inputshort" id="Scale" @bind-Value="Vehicle.Scale" @bind-Value:after="NotifyChangedAsync">
+        @foreach (var scale in Enum.GetValues<Scale>())
+        {
+            <option value="@scale">@scale</option>
+        }
+    </InputSelect>
+</FormRow>
+
+@code {
+    [Parameter, EditorRequired] public Vehicle Vehicle { get; set; } = default!;
+}

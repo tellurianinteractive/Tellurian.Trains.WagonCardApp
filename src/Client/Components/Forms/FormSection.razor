@@ -1,0 +1,10 @@
+@inject IStringLocalizer<App> Localizer
+
+<h4 class="form-section-title">@Localizer[Title]</h4>
+@ChildContent
+
+@code {
+    /// <summary>Resource key of the section heading.</summary>
+    [Parameter, EditorRequired] public string Title { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

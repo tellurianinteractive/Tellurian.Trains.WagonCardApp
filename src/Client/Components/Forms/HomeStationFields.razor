@@ -1,0 +1,34 @@
+@inherits EditorSectionBase
+@inject IStringLocalizer<App> Localizer
+
+<FormSection Title="Home station">
+    <FormRow Label="StationName" For="StationName">
+        <InputText class="inputurl" id="StationName" @bind-Value="HomeStation.Name" @bind-Value:after="NotifyChangedAsync" />
+    </FormRow>
+    <FormRow Label="Country" For="Country">
+        <InputRadioGroup id="Country" Name="Country" DisplayName="@Localizer["Country"]" @bind-Value="HomeStation.CountryCode" @bind-Value:after="NotifyChangedAsync">
+            @foreach (var countryCode in RegionExtensions.CountryCodes)
+            {
+                <span class="inputradio">
+                    <InputRadio class="inputradio-field" Value="countryCode" Name="Country" />
+                    <span class="inputradio-label"> @countryCode</span>
+                </span>
+            }
+        </InputRadioGroup>
+    </FormRow>
+    <FormRow Label="Region" For="Region">
+        <InputRadioGroup id="Region" Name="Region" DisplayName="@Localizer["Region"]" @bind-Value="HomeStation.Region" @bind-Value:after="NotifyChangedAsync">
+            @foreach (var region in RegionExtensions.Regions)
+            {
+                <span class="inputradio" style="background-color: @region.ResourceKey">
+                    <InputRadio class="inputradio-field" Value="region.Id" Name="Region" />
+                    <span class="inputradio-label"> @Localizer[region.ResourceKey]</span>
+                </span>
+            }
+        </InputRadioGroup>
+    </FormRow>
+</FormSection>
+
+@code {
+    [Parameter, EditorRequired] public HomeStation HomeStation { get; set; } = default!;
+}

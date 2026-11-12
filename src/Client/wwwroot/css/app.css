@@ -147,6 +147,10 @@ a, .btn-link {
     font-size: 9pt;
 }
 
+.form-section-title {
+    padding-left: 15em;
+}
+
 .inputshort {
     width: 5em;
     font-weight: bolder;

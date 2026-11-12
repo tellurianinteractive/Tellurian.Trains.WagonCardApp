@@ -1,0 +1,38 @@
+@inherits EditorSectionBase
+
+<FormSection Title="OwnersMarking">
+    <FormRow Label="UseMarking" For="UseMarking">
+        <input type="checkbox" id="UseMarking" @bind="Marking.UseMarking" @bind:after="NotifyChangedAsync" />
+    </FormRow>
+    @if (Marking.UseMarking)
+    {
+        <FormRow Label="OwnerTextLabel" For="OwnerTextLabel">
+            <input id="OwnerTextLabel" @bind="Marking.TextLabel" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+        <ImageSourceFields Id="OwnerIcon" SelectLabel="SelectOwnerImage" UrlLabel="OwnerImageUrl"
+                           @bind-Image="Marking.Icon" @bind-Image:after="NotifyChangedAsync"
+                           @bind-ImageUrl="Marking.IconHref" @bind-ImageUrl:after="NotifyChangedAsync" />
+        <FormRow Label="UseColorMarking" For="UseColorMarking">
+            <input type="checkbox" id="UseColorMarking" @bind="Marking.UseColorMarking" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+        <FormRow Label="Colour1" For="Colour1">
+            <input id="Colour1" type="color" @bind="Marking.Color1" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+        <FormRow Label="Colour2" For="Colour2">
+            <input id="Colour2" type="color" @bind="Marking.Color2" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+        <FormRow Label="Colour3" For="Colour3">
+            <input id="Colour3" type="color" @bind="Marking.Color3" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+        <FormRow Label="Colour4" For="Colour4">
+            <input id="Colour4" type="color" @bind="Marking.Color4" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+        <FormRow Label="InventoryNumber" For="InventoryNumber">
+            <input id="InventoryNumber" @bind="Marking.InventoryNumber" @bind:after="NotifyChangedAsync" />
+        </FormRow>
+    }
+</FormSection>
+
+@code {
+    [Parameter, EditorRequired] public Marking Marking { get; set; } = default!;
+}

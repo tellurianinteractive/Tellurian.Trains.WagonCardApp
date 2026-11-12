@@ -1,6 +1,5 @@
 ﻿@page "/PrintLoco"
 @layout PrintLayout
-@inject IStringLocalizer<App> Localizer
 @inject ILocalStorageService LocalStorage
 
 <LocoPreview Data="@Data" Owner="@Owner"/>
@@ -11,7 +10,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        Owner = await LocalStorage.GetItemAsync<Owner>("Owner");
-        Data = await LocalStorage.GetItemAsync<Loco>("Loco");
+        Owner = await LocalStorage.GetItemAsync<Owner>(StorageKeys.Owner);
+        Data = await LocalStorage.GetItemAsync<Loco>(StorageKeys.Loco);
     }
 }

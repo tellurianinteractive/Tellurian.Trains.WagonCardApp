@@ -1,0 +1,14 @@
+@inherits EditorSectionBase
+@inject IStringLocalizer<App> Localizer
+
+<FormRow Label="TopSpeed" For="MaxSpeed">
+    <InputNumber class="inputshort" id="MaxSpeed" @bind-Value="Vehicle.MaxSpeed" @bind-Value:after="NotifyChangedAsync" />
+    <InputRadioGroup Name="SpeedUnit" DisplayName="@Localizer["SpeedUnit"]" @bind-Value="Vehicle.SpeedUnit" @bind-Value:after="NotifyChangedAsync">
+        <InputRadio Value="SpeedUnit.KmPerHour" Name="SpeedUnit" />@Localizer[nameof(SpeedUnit.KmPerHour)]
+        <InputRadio Value="SpeedUnit.MilesPerHour" Name="SpeedUnit" />@Localizer[nameof(SpeedUnit.MilesPerHour)]
+    </InputRadioGroup>
+</FormRow>
+
+@code {
+    [Parameter, EditorRequired] public Vehicle Vehicle { get; set; } = default!;
+}

@@ -1,0 +1,28 @@
+@inject IStringLocalizer<App> Localizer
+
+<FormRow Label="@Label" For="@Id">
+    <span>
+        @if (Value?.IsImage == true)
+        {
+            <button type="button" @onclick="ClearAsync">@Localizer["Reset"]</button> <span style="font-size: 9pt">@Value.FileName</span>
+        }
+        else
+        {
+            <InputFile class="inputurl" OnChange="OnFileChangedAsync" accept="@AcceptedImageTypes" id="@Id" />
+        }
+    </span>
+</FormRow>
+
+@code {
+    private const string AcceptedImageTypes = "image/png, image/jpeg, image/gif";
+
+    [Parameter, EditorRequired] public string Label { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string Id { get; set; } = string.Empty;
+    [Parameter] public ImageFile? Value { get; set; }
+    [Parameter] public EventCallback<ImageFile?> ValueChanged { get; set; }
+
+    private async Task OnFileChangedAsync(InputFileChangeEventArgs e) =>
+        await ValueChanged.InvokeAsync(await e.GetImageFile());
+
+    private Task ClearAsync() => ValueChanged.InvokeAsync(null);
+}

@@ -1,0 +1,19 @@
+@* An uploaded image, with a URL as the alternative source. *@
+<ImageFileInput Label="@SelectLabel" Id="@ImageId" Value="Image" ValueChanged="ImageChanged" />
+<FormRow Label="@UrlLabel" For="@UrlId">
+    <InputText class="inputurl" id="@UrlId" Value="@ImageUrl" ValueChanged="ImageUrlChanged" ValueExpression="() => ImageUrl" />
+</FormRow>
+
+@code {
+    /// <summary>Prefix that makes the element ids unique on the page.</summary>
+    [Parameter, EditorRequired] public string Id { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string SelectLabel { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string UrlLabel { get; set; } = string.Empty;
+    [Parameter] public ImageFile? Image { get; set; }
+    [Parameter] public EventCallback<ImageFile?> ImageChanged { get; set; }
+    [Parameter] public string? ImageUrl { get; set; }
+    [Parameter] public EventCallback<string?> ImageUrlChanged { get; set; }
+
+    private string ImageId => $"{Id}Image";
+    private string UrlId => $"{Id}Url";
+}
