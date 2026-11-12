@@ -1,21 +1,28 @@
 {
-  "name": "WagonCardApp",
-  "short_name": "WagonCardApp",
+  "id": "./",
+  "name": "Wagon Card App",
+  "short_name": "Wagon Cards",
+  "description": "Create printable cards for model railway locomotives and wagons.",
+  "lang": "en",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#03173d",
+  "categories": [ "utilities", "productivity" ],
   "prefer_related_applications": false,
   "icons": [
     {
       "src": "icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
     },
     {
       "src": "icon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     }
   ]
 }

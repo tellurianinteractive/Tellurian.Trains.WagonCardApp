@@ -480,6 +480,9 @@
   <data name="BrowserStorageMayBeFull" xml:space="preserve">
     <value>Browserens lager kan være fuldt, for eksempel på grund af store billeder. Prøv mindre billeder, eller brug billedadresser (URL) i stedet.</value>
   </data>
+  <data name="ContentCouldNotBeLoaded" xml:space="preserve">
+    <value>Indholdet kunne ikke hentes. Kontrollér din internetforbindelse.</value>
+  </data>
   <data name="CouldNotDownloadFile" xml:space="preserve">
     <value>Kunne ikke downloade filen</value>
   </data>

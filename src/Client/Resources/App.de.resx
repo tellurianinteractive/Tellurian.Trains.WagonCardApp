@@ -480,6 +480,9 @@
   <data name="BrowserStorageMayBeFull" xml:space="preserve">
     <value>Der Browserspeicher ist möglicherweise voll, zum Beispiel wegen großer Bilder. Verwenden Sie kleinere Bilder oder stattdessen Bild-URLs.</value>
   </data>
+  <data name="ContentCouldNotBeLoaded" xml:space="preserve">
+    <value>Der Inhalt konnte nicht geladen werden. Bitte prüfen Sie Ihre Internetverbindung.</value>
+  </data>
   <data name="CouldNotDownloadFile" xml:space="preserve">
     <value>Datei konnte nicht heruntergeladen werden</value>
   </data>

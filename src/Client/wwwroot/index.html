@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>WagonCardApp</title>
+    <title>Wagon Card App</title>
+    <meta name="description" content="Create printable cards for model railway locomotives and wagons." />
+    <meta name="theme-color" content="#03173d" />
+    <meta name="apple-mobile-web-app-title" content="Wagon Cards" />
     <base href="/" />
     <!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />-->
     <link href="css/app.css" rel="stylesheet" />
@@ -24,7 +27,13 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' });
+        }
+        // Ask the browser not to clear saved cards and owner when it runs low on disk space.
+        navigator.storage?.persist?.();
+    </script>
     <script src="_content/Toolbelt.Blazor.PWA.Updater.Service/script.min.js"></script>
 </body>
 

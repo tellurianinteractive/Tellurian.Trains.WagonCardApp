@@ -480,6 +480,9 @@
   <data name="BrowserStorageMayBeFull" xml:space="preserve">
     <value>Webbläsarens lagring kan vara full, till exempel på grund av stora bilder. Prova mindre bilder eller använd bildadresser (URL) i stället.</value>
   </data>
+  <data name="ContentCouldNotBeLoaded" xml:space="preserve">
+    <value>Innehållet kunde inte hämtas. Kontrollera din internetanslutning.</value>
+  </data>
   <data name="CouldNotDownloadFile" xml:space="preserve">
     <value>Kunde inte ladda ner filen</value>
   </data>
