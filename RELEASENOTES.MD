@@ -10,7 +10,9 @@ Release date 2026-11-12
 - **Fix** of switching between freight and passenger wagons, which now shows the saved card of each kind.
 - **Messages** when the browser cannot save or download, for example when its storage is full because of large images, instead of the app stopping with an error.
 - **Install as an app** on phones, tablets and computers, and use it offline, including the *Home*, *About* and *References* pages. Tip for iPhone and iPad: Safari deletes saved cards after 7 days without a visit, unless the app is added to the home screen.
-- **Security:** Upgrade to .NET 11. This also fixes known high severity vulnerabilities in the .NET 10.0.0 server components ([GHSA-g27p-qf6j-c96c](https://github.com/advisories/GHSA-g27p-qf6j-c96c), [GHSA-qjpx-jqm5-h2c4](https://github.com/advisories/GHSA-qjpx-jqm5-h2c4)).
+- **No server anymore.** The app now runs entirely in your browser and is delivered as plain files, at the same web address as before. Everything you enter stays in your browser; nothing is sent to or stored on a server.
+- **Security:** With the server part removed, there is no server code left that could be attacked or would need security updates. This also removes the server components of .NET 10.0.0 with known high severity vulnerabilities ([GHSA-g27p-qf6j-c96c](https://github.com/advisories/GHSA-g27p-qf6j-c96c), [GHSA-qjpx-jqm5-h2c4](https://github.com/advisories/GHSA-qjpx-jqm5-h2c4)).
+- **Upgrade to .NET 11.**
 - **Security:** Two unmaintained external components, for saving in the browser and for downloading files, are replaced with the app's own code. Other external components are updated to their latest versions.
 - Cards saved in the browser and JSON files downloaded from earlier versions still work.
 ## Release 3.1.0
