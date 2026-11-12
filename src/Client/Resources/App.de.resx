@@ -474,4 +474,16 @@
   <data name="Scale" xml:space="preserve">
     <value>Skala</value>
   </data>
+  <data name="CouldNotSaveInBrowser" xml:space="preserve">
+    <value>Speichern im Browser nicht möglich</value>
+  </data>
+  <data name="BrowserStorageMayBeFull" xml:space="preserve">
+    <value>Der Browserspeicher ist möglicherweise voll, zum Beispiel wegen großer Bilder. Verwenden Sie kleinere Bilder oder stattdessen Bild-URLs.</value>
+  </data>
+  <data name="CouldNotDownloadFile" xml:space="preserve">
+    <value>Datei konnte nicht heruntergeladen werden</value>
+  </data>
+  <data name="BrowserBlockedDownload" xml:space="preserve">
+    <value>Der Browser hat das Herunterladen der Datei nicht zugelassen.</value>
+  </data>
 </root>

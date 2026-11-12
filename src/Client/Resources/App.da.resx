@@ -474,4 +474,16 @@
   <data name="Scale" xml:space="preserve">
     <value>Skala</value>
   </data>
+  <data name="CouldNotSaveInBrowser" xml:space="preserve">
+    <value>Kunne ikke gemme i browseren</value>
+  </data>
+  <data name="BrowserStorageMayBeFull" xml:space="preserve">
+    <value>Browserens lager kan være fuldt, for eksempel på grund af store billeder. Prøv mindre billeder, eller brug billedadresser (URL) i stedet.</value>
+  </data>
+  <data name="CouldNotDownloadFile" xml:space="preserve">
+    <value>Kunne ikke downloade filen</value>
+  </data>
+  <data name="BrowserBlockedDownload" xml:space="preserve">
+    <value>Browseren tillod ikke, at filen blev downloadet.</value>
+  </data>
 </root>

@@ -6,7 +6,7 @@
 <h3>@Localizer["CreateWagonCard"]</h3>
 @if (IsLoaded)
 {
-    <UploadErrorBanner Message="@ErrorMessage" OnClear="ClearError" />
+    <ErrorBanner Title="@ErrorTitle" Message="@ErrorMessage" OnClear="ClearError" />
 
     <div style="display:flex;flex-direction:row">
         <div>
@@ -101,7 +101,7 @@
                 </ModelDataFields>
 
                 <OwnerMarkingFields Marking="Data.Marking" OnChange="StateHasChanged" />
-                <OwnerFields Owner="Owner" OnChange="StateHasChanged" />
+                <OwnerFields Owner="Owner" OnChange="SaveOwnerAsync" />
                 <PrintOptionsFields Options="Data.PrintOptions" CardLabel="PrintWagonCard" OnChange="StateHasChanged" />
 
                 <CardActions ShowExample="!_isPassengerWagon"

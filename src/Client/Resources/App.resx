@@ -475,4 +475,16 @@
   <data name="Scale" xml:space="preserve">
     <value>Scale</value>
   </data>
+  <data name="CouldNotSaveInBrowser" xml:space="preserve">
+    <value>Could not save in the browser</value>
+  </data>
+  <data name="BrowserStorageMayBeFull" xml:space="preserve">
+    <value>The browser's storage may be full, for example because of large images. Try smaller images, or use image URLs instead.</value>
+  </data>
+  <data name="CouldNotDownloadFile" xml:space="preserve">
+    <value>Could not download the file</value>
+  </data>
+  <data name="BrowserBlockedDownload" xml:space="preserve">
+    <value>The browser did not allow the file to be downloaded.</value>
+  </data>
 </root>

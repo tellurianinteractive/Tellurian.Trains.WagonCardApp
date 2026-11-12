@@ -4,7 +4,7 @@
 <h3>@Localizer["CreateLocoCard"]</h3>
 @if (IsLoaded)
 {
-    <UploadErrorBanner Message="@ErrorMessage" OnClear="ClearError" />
+    <ErrorBanner Title="@ErrorTitle" Message="@ErrorMessage" OnClear="ClearError" />
 
     <div style="display:flex;flex-direction:row">
         <div>
@@ -81,7 +81,7 @@
                         </ModelDataFields>
 
                         <OwnerMarkingFields Marking="Data.Marking" OnChange="StateHasChanged" />
-                        <OwnerFields Owner="Owner" OnChange="StateHasChanged" />
+                        <OwnerFields Owner="Owner" OnChange="SaveOwnerAsync" />
                         <PrintOptionsFields Options="Data.PrintOptions" CardLabel="PrintLocoCard" OnChange="StateHasChanged">
                             <FormRow Label="PrintFredSticker" For="PrintFredSticker">
                                 <input type="checkbox" id="PrintFredSticker" @bind="Data.PrintOptions.PrintFredSticker" />

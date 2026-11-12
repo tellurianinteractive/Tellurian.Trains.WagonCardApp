@@ -14,6 +14,11 @@ namespace Tellurian.WagonCardApp.Client.Pages;
 public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
 {
     private const string JsonContentType = "application/json";
+    private const string UploadErrorTitle = "ErrorInUploadedJsonFile";
+    private const string SaveErrorTitle = "CouldNotSaveInBrowser";
+    private const string SaveErrorMessage = "BrowserStorageMayBeFull";
+    private const string DownloadErrorTitle = "CouldNotDownloadFile";
+    private const string DownloadErrorMessage = "BrowserBlockedDownload";
     private static readonly JsonSerializerOptions DownloadOptions = new() { WriteIndented = true };
 
     [Inject] protected IStringLocalizer<App> Localizer { get; set; } = default!;
@@ -24,6 +29,8 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
     /// <summary>The vehicle being edited. Not set until <see cref="IsLoaded"/> is true.</summary>
     protected T Data { get; private set; } = default!;
     protected Owner Owner { get; private set; } = new();
+    /// <summary>Resource key of the heading for <see cref="ErrorMessage"/>.</summary>
+    protected string ErrorTitle { get; private set; } = string.Empty;
     protected string? ErrorMessage { get; private set; }
     protected bool IsLoaded => Data is not null;
 
@@ -43,24 +50,26 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
     {
         Owner = await LocalStorage.GetItemAsync<Owner>(StorageKeys.Owner) ?? Owner.Default;
         SetData(await GetStoredDataAsync() ?? CreateDefault());
-        ErrorMessage = null;
+        ClearError();
     }
 
     /// <summary>Reads the saved vehicle from local storage. Override to migrate older saved data.</summary>
     protected virtual async Task<T?> GetStoredDataAsync() => await LocalStorage.GetItemAsync<T>(StorageKey);
 
-    protected async Task SaveAsync()
+    protected Task SaveAsync() => TrySaveAsync();
+
+    /// <summary>
+    /// Saves the owner as soon as it is changed, so it is kept even if the card is never saved.
+    /// The owner is small, so this succeeds even when large images fill up the storage.
+    /// </summary>
+    protected async Task SaveOwnerAsync()
     {
-        if (!IsLoaded) return;
-        Data.Owner = Owner;
-        await LocalStorage.SetItemAsync(StorageKeys.Owner, Owner);
-        await LocalStorage.SetItemAsync(StorageKey, Data);
+        if (!await LocalStorage.SetItemAsync(StorageKeys.Owner, Owner)) ShowSaveError();
     }
 
     protected async Task PrintAsync()
     {
-        await SaveAsync();
-        Navigator.NavigateTo(PrintRoute);
+        if (await TrySaveAsync()) Navigator.NavigateTo(PrintRoute);
     }
 
     protected async Task ShowExampleAsync()
@@ -73,7 +82,11 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
 
     protected void Reset() => SetData(CreateDefault());
 
-    protected void ClearError() => ErrorMessage = null;
+    protected void ClearError()
+    {
+        ErrorTitle = string.Empty;
+        ErrorMessage = null;
+    }
 
     protected async Task UploadAsync(InputFileChangeEventArgs e)
     {
@@ -85,11 +98,11 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
             var data = await JsonSerializer.DeserializeAsync<T>(stream) ?? CreateDefault();
             if (data.Owner is { IsEmptyOrDefault: false } owner) Owner = owner;
             SetData(data);
-            ErrorMessage = null;
+            ClearError();
         }
         catch (Exception ex)
         {
-            ErrorMessage = ex.Message;
+            ShowError(UploadErrorTitle, ex.Message);
         }
     }
 
@@ -99,7 +112,26 @@ public abstract class VehicleEditorPage<T> : ComponentBase where T : Vehicle
         await SaveAsync();
         var json = JsonSerializer.Serialize(Data, DownloadOptions);
         var fileName = $"{Data.OperatorSignature}_{Data.VehicleClass}_{Data.VehicleNumber}.json";
-        await FileDownloader.DownloadTextAsync(fileName, json, JsonContentType);
+        if (!await FileDownloader.DownloadTextAsync(fileName, json, JsonContentType)) ShowError(DownloadErrorTitle, Localizer[DownloadErrorMessage]);
+    }
+
+    /// <summary>Saves the owner first, so it is not lost if the vehicle data does not fit in the storage.</summary>
+    private async Task<bool> TrySaveAsync()
+    {
+        if (!IsLoaded) return false;
+        Data.Owner = Owner;
+        var saved = await LocalStorage.SetItemAsync(StorageKeys.Owner, Owner) && await LocalStorage.SetItemAsync(StorageKey, Data);
+        if (saved) ClearError();
+        else ShowSaveError();
+        return saved;
+    }
+
+    private void ShowSaveError() => ShowError(SaveErrorTitle, Localizer[SaveErrorMessage]);
+
+    private void ShowError(string title, string message)
+    {
+        ErrorTitle = title;
+        ErrorMessage = message;
     }
 
     private void SetData(T data)
